@@ -1,0 +1,102 @@
+{
+  "lineId": "s1c6-02",
+  "text": "通じない理由は、少なくとも三つある。",
+  "displayText": "通じない理由は、少なくとも三つある。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 267,
+      "endMs": 308
+    },
+    {
+      "char": "通",
+      "startMs": 308,
+      "endMs": 350
+    },
+    {
+      "char": "じ",
+      "startMs": 350,
+      "endMs": 533
+    },
+    {
+      "char": "な",
+      "startMs": 533,
+      "endMs": 650
+    },
+    {
+      "char": "い",
+      "startMs": 650,
+      "endMs": 767
+    },
+    {
+      "char": "理",
+      "startMs": 767,
+      "endMs": 1017
+    },
+    {
+      "char": "由",
+      "startMs": 1017,
+      "endMs": 1200
+    },
+    {
+      "char": "は",
+      "startMs": 1200,
+      "endMs": 1375
+    },
+    {
+      "char": "、",
+      "startMs": 1375,
+      "endMs": 1550
+    },
+    {
+      "char": "少",
+      "startMs": 2117,
+      "endMs": 2200
+    },
+    {
+      "char": "な",
+      "startMs": 2200,
+      "endMs": 2325
+    },
+    {
+      "char": "く",
+      "startMs": 2325,
+      "endMs": 2450
+    },
+    {
+      "char": "と",
+      "startMs": 2533,
+      "endMs": 2617
+    },
+    {
+      "char": "も",
+      "startMs": 2617,
+      "endMs": 2767
+    },
+    {
+      "char": "三",
+      "startMs": 2783,
+      "endMs": 2983
+    },
+    {
+      "char": "つ",
+      "startMs": 2983,
+      "endMs": 3283
+    },
+    {
+      "char": "あ",
+      "startMs": 3283,
+      "endMs": 3383
+    },
+    {
+      "char": "る",
+      "startMs": 3383,
+      "endMs": 3483
+    },
+    {
+      "char": "。",
+      "startMs": 3483,
+      "endMs": 3583
+    }
+  ]
+}

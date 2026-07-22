@@ -1,0 +1,152 @@
+{
+  "lineId": "s6c1-01",
+  "text": "考える力が高ければ、地図はひとりでに立体になるんですか?",
+  "displayText": "考える力が高ければ、\n地図はひとりでに立体になるんですか?",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 200,
+      "endMs": 233
+    },
+    {
+      "char": "考",
+      "startMs": 233,
+      "endMs": 267
+    },
+    {
+      "char": "え",
+      "startMs": 267,
+      "endMs": 367
+    },
+    {
+      "char": "る",
+      "startMs": 367,
+      "endMs": 467
+    },
+    {
+      "char": "力",
+      "startMs": 467,
+      "endMs": 667
+    },
+    {
+      "char": "が",
+      "startMs": 667,
+      "endMs": 917
+    },
+    {
+      "char": "高",
+      "startMs": 917,
+      "endMs": 1050
+    },
+    {
+      "char": "け",
+      "startMs": 1050,
+      "endMs": 1167
+    },
+    {
+      "char": "れ",
+      "startMs": 1167,
+      "endMs": 1283
+    },
+    {
+      "char": "ば",
+      "startMs": 1283,
+      "endMs": 1417
+    },
+    {
+      "char": "、",
+      "startMs": 1417,
+      "endMs": 1550
+    },
+    {
+      "char": "地",
+      "startMs": 1883,
+      "endMs": 1967
+    },
+    {
+      "char": "図",
+      "startMs": 1967,
+      "endMs": 2100
+    },
+    {
+      "char": "は",
+      "startMs": 2100,
+      "endMs": 2250
+    },
+    {
+      "char": "ひ",
+      "startMs": 2250,
+      "endMs": 2333
+    },
+    {
+      "char": "と",
+      "startMs": 2333,
+      "endMs": 2417
+    },
+    {
+      "char": "り",
+      "startMs": 2417,
+      "endMs": 2517
+    },
+    {
+      "char": "で",
+      "startMs": 2517,
+      "endMs": 2633
+    },
+    {
+      "char": "に",
+      "startMs": 2633,
+      "endMs": 2750
+    },
+    {
+      "char": "立",
+      "startMs": 2750,
+      "endMs": 2900
+    },
+    {
+      "char": "体",
+      "startMs": 2900,
+      "endMs": 3083
+    },
+    {
+      "char": "に",
+      "startMs": 3083,
+      "endMs": 3192
+    },
+    {
+      "char": "な",
+      "startMs": 3192,
+      "endMs": 3300
+    },
+    {
+      "char": "る",
+      "startMs": 3300,
+      "endMs": 3433
+    },
+    {
+      "char": "ん",
+      "startMs": 3433,
+      "endMs": 3500
+    },
+    {
+      "char": "で",
+      "startMs": 3500,
+      "endMs": 3567
+    },
+    {
+      "char": "す",
+      "startMs": 3567,
+      "endMs": 3633
+    },
+    {
+      "char": "か",
+      "startMs": 3633,
+      "endMs": 3758
+    },
+    {
+      "char": "?",
+      "startMs": 3758,
+      "endMs": 3883
+    }
+  ]
+}

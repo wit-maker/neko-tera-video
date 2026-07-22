@@ -1,0 +1,67 @@
+{
+  "lineId": "s5c3-01",
+  "text": "白か、黒か。それだけ。",
+  "displayText": "白か、黒か。それだけ。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 167,
+      "endMs": 267
+    },
+    {
+      "char": "白",
+      "startMs": 267,
+      "endMs": 367
+    },
+    {
+      "char": "か",
+      "startMs": 367,
+      "endMs": 525
+    },
+    {
+      "char": "、",
+      "startMs": 525,
+      "endMs": 683
+    },
+    {
+      "char": "黒",
+      "startMs": 883,
+      "endMs": 1033
+    },
+    {
+      "char": "か",
+      "startMs": 1033,
+      "endMs": 1167
+    },
+    {
+      "char": "。",
+      "startMs": 1167,
+      "endMs": 1300
+    },
+    {
+      "char": "そ",
+      "startMs": 1850,
+      "endMs": 1925
+    },
+    {
+      "char": "れ",
+      "startMs": 1925,
+      "endMs": 2000
+    },
+    {
+      "char": "だ",
+      "startMs": 2000,
+      "endMs": 2067
+    },
+    {
+      "char": "け",
+      "startMs": 2067,
+      "endMs": 2133
+    },
+    {
+      "char": "。",
+      "startMs": 2133,
+      "endMs": 2200
+    }
+  ]
+}

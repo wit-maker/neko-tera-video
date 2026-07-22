@@ -1,0 +1,57 @@
+{
+  "lineId": "s4c2-01",
+  "text": "世界、モデル……?",
+  "displayText": "世界、モデル……?",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 300,
+      "endMs": 321
+    },
+    {
+      "char": "世",
+      "startMs": 321,
+      "endMs": 342
+    },
+    {
+      "char": "界",
+      "startMs": 342,
+      "endMs": 363
+    },
+    {
+      "char": "、",
+      "startMs": 363,
+      "endMs": 383
+    },
+    {
+      "char": "モ",
+      "startMs": 1000,
+      "endMs": 1200
+    },
+    {
+      "char": "デ",
+      "startMs": 1200,
+      "endMs": 1317
+    },
+    {
+      "char": "ル",
+      "startMs": 1317,
+      "endMs": 1483
+    },
+    {
+      "char": "…",
+      "startMs": 1483,
+      "endMs": 1533
+    },
+    {
+      "char": "…",
+      "startMs": 1533,
+      "endMs": 1583
+    },
+    {
+      "char": "?",
+      "startMs": 1583,
+      "endMs": 1633
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+{
+  "lineId": "s5c4-01",
+  "text": "立体の地図では、同じ出来事の下に、歴史があり、制度があり、お金の流れがあり、気持ちがあり、伝わり方の偏りがある。",
+  "displayText": "立体の地図では、同じ出来事の下に、\n歴史があり、制度があり、お金の流れがあり、\n気持ちがあり、伝わり方の偏りがある。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 200,
+      "endMs": 225
+    },
+    {
+      "char": "立",
+      "startMs": 225,
+      "endMs": 250
+    },
+    {
+      "char": "体",
+      "startMs": 367,
+      "endMs": 533
+    },
+    {
+      "char": "の",
+      "startMs": 533,
+      "endMs": 750
+    },
+    {
+      "char": "地",
+      "startMs": 750,
+      "endMs": 867
+    },
+    {
+      "char": "図",
+      "startMs": 867,
+      "endMs": 1017
+    },
+    {
+      "char": "で",
+      "startMs": 1017,
+      "endMs": 1156
+    },
+    {
+      "char": "は",
+      "startMs": 1156,
+      "endMs": 1294
+    },
+    {
+      "char": "、",
+      "startMs": 1294,
+      "endMs": 1433
+    },
+    {
+      "char": "同",
+      "startMs": 1967,
+      "endMs": 2033
+    },
+    {
+      "char": "じ",
+      "startMs": 2033,
+      "endMs": 2233
+    },
+    {
+      "char": "出",
+      "startMs": 2233,
+      "endMs": 2333
+    },
+    {
+      "char": "来",
+      "startMs": 2333,
+      "endMs": 2433
+    },
+    {
+      "char": "事",
+      "startMs": 2433,
+      "endMs": 2683
+    },
+    {
+      "char": "の",
+      "startMs": 2683,
+      "endMs": 2883
+    },
+    {
+      "char": "下",
+      "startMs": 2883,
+      "endMs": 3067
+    },
+    {
+      "char": "に",
+      "startMs": 3067,
+      "endMs": 3250
+    },
+    {
+      "char": "、",
+      "startMs": 3250,
+      "endMs": 3433
+    },
+    {
+      "char": "歴",
+      "startMs": 3717,
+      "endMs": 3933
+    },
+    {
+      "char": "史",
+      "startMs": 4017,
+      "endMs": 4100
+    },
+    {
+      "char": "が",
+      "startMs": 4100,
+      "endMs": 4250
+    },
+    {
+      "char": "あ",
+      "startMs": 4250,
+      "endMs": 4361
+    },
+    {
+      "char": "り",
+      "startMs": 4361,
+      "endMs": 4473
+    },
+    {
+      "char": "、",
+      "startMs": 4473,
+      "endMs": 4583
+    },
+    {
+      "char": "制",
+      "startMs": 5100,
+      "endMs": 5200
+    },
+    {
+      "char": "度",
+      "startMs": 5200,
+      "endMs": 5383
+    },
+    {
+      "char": "が",
+      "startMs": 5383,
+      "endMs": 5517
+    },
+    {
+      "char": "あ",
+      "startMs": 5517,
+      "endMs": 5639
+    },
+    {
+      "char": "り",
+      "startMs": 5639,
+      "endMs": 5761
+    },
+    {
+      "char": "、",
+      "startMs": 5761,
+      "endMs": 5883
+    },
+    {
+      "char": "お",
+      "startMs": 6250,
+      "endMs": 6383
+    },
+    {
+      "char": "金",
+      "startMs": 6383,
+      "endMs": 6567
+    },
+    {
+      "char": "の",
+      "startMs": 6567,
+      "endMs": 6750
+    },
+    {
+      "char": "流",
+      "startMs": 6750,
+      "endMs": 6983
+    },
+    {
+      "char": "れ",
+      "startMs": 6983,
+      "endMs": 7133
+    },
+    {
+      "char": "が",
+      "startMs": 7133,
+      "endMs": 7267
+    },
+    {
+      "char": "あ",
+      "startMs": 7267,
+      "endMs": 7378
+    },
+    {
+      "char": "り",
+      "startMs": 7378,
+      "endMs": 7489
+    },
+    {
+      "char": "、",
+      "startMs": 7489,
+      "endMs": 7600
+    },
+    {
+      "char": "気",
+      "startMs": 7983,
+      "endMs": 8067
+    },
+    {
+      "char": "持",
+      "startMs": 8067,
+      "endMs": 8217
+    },
+    {
+      "char": "ち",
+      "startMs": 8217,
+      "endMs": 8350
+    },
+    {
+      "char": "が",
+      "startMs": 8350,
+      "endMs": 8483
+    },
+    {
+      "char": "あ",
+      "startMs": 8483,
+      "endMs": 8594
+    },
+    {
+      "char": "り",
+      "startMs": 8594,
+      "endMs": 8706
+    },
+    {
+      "char": "、",
+      "startMs": 8706,
+      "endMs": 8817
+    },
+    {
+      "char": "伝",
+      "startMs": 9383,
+      "endMs": 9467
+    },
+    {
+      "char": "わ",
+      "startMs": 9467,
+      "endMs": 9583
+    },
+    {
+      "char": "り",
+      "startMs": 9583,
+      "endMs": 9733
+    },
+    {
+      "char": "方",
+      "startMs": 9733,
+      "endMs": 9917
+    },
+    {
+      "char": "の",
+      "startMs": 9917,
+      "endMs": 10117
+    },
+    {
+      "char": "偏",
+      "startMs": 10117,
+      "endMs": 10417
+    },
+    {
+      "char": "り",
+      "startMs": 10417,
+      "endMs": 10617
+    },
+    {
+      "char": "が",
+      "startMs": 10617,
+      "endMs": 10767
+    },
+    {
+      "char": "あ",
+      "startMs": 10767,
+      "endMs": 10856
+    },
+    {
+      "char": "る",
+      "startMs": 10856,
+      "endMs": 10944
+    },
+    {
+      "char": "。",
+      "startMs": 10944,
+      "endMs": 11033
+    }
+  ]
+}

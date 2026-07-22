@@ -1,0 +1,87 @@
+{
+  "lineId": "s3c1-01",
+  "text": "二つ目は、考える力そのものだ。",
+  "displayText": "二つ目は、考える力そのものだ。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 117,
+      "endMs": 158
+    },
+    {
+      "char": "二",
+      "startMs": 158,
+      "endMs": 200
+    },
+    {
+      "char": "つ",
+      "startMs": 200,
+      "endMs": 383
+    },
+    {
+      "char": "目",
+      "startMs": 383,
+      "endMs": 500
+    },
+    {
+      "char": "は",
+      "startMs": 500,
+      "endMs": 617
+    },
+    {
+      "char": "、",
+      "startMs": 617,
+      "endMs": 733
+    },
+    {
+      "char": "考",
+      "startMs": 1167,
+      "endMs": 1433
+    },
+    {
+      "char": "え",
+      "startMs": 1433,
+      "endMs": 1558
+    },
+    {
+      "char": "る",
+      "startMs": 1558,
+      "endMs": 1683
+    },
+    {
+      "char": "力",
+      "startMs": 1683,
+      "endMs": 1883
+    },
+    {
+      "char": "そ",
+      "startMs": 1917,
+      "endMs": 2108
+    },
+    {
+      "char": "の",
+      "startMs": 2108,
+      "endMs": 2300
+    },
+    {
+      "char": "も",
+      "startMs": 2300,
+      "endMs": 2408
+    },
+    {
+      "char": "の",
+      "startMs": 2408,
+      "endMs": 2517
+    },
+    {
+      "char": "だ",
+      "startMs": 2517,
+      "endMs": 2658
+    },
+    {
+      "char": "。",
+      "startMs": 2658,
+      "endMs": 2800
+    }
+  ]
+}

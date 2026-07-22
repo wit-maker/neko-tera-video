@@ -1,0 +1,247 @@
+{
+  "lineId": "s2c6-01",
+  "text": "頭の中の辞書は、一匹ずつ違う。しかも、使っている言葉が同じだから、違っていることに気づけない。",
+  "displayText": "頭の中の辞書は、一匹ずつ違う。\nしかも、使っている言葉が同じだから、\n違っていることに気づけない。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 250,
+      "endMs": 283
+    },
+    {
+      "char": "頭",
+      "startMs": 283,
+      "endMs": 317
+    },
+    {
+      "char": "の",
+      "startMs": 317,
+      "endMs": 567
+    },
+    {
+      "char": "中",
+      "startMs": 567,
+      "endMs": 767
+    },
+    {
+      "char": "の",
+      "startMs": 767,
+      "endMs": 933
+    },
+    {
+      "char": "辞",
+      "startMs": 933,
+      "endMs": 1150
+    },
+    {
+      "char": "書",
+      "startMs": 1150,
+      "endMs": 1300
+    },
+    {
+      "char": "は",
+      "startMs": 1300,
+      "endMs": 1408
+    },
+    {
+      "char": "、",
+      "startMs": 1408,
+      "endMs": 1517
+    },
+    {
+      "char": "一",
+      "startMs": 1950,
+      "endMs": 2117
+    },
+    {
+      "char": "匹",
+      "startMs": 2167,
+      "endMs": 2350
+    },
+    {
+      "char": "ず",
+      "startMs": 2350,
+      "endMs": 2483
+    },
+    {
+      "char": "つ",
+      "startMs": 2483,
+      "endMs": 2683
+    },
+    {
+      "char": "違",
+      "startMs": 2683,
+      "endMs": 2828
+    },
+    {
+      "char": "う",
+      "startMs": 2828,
+      "endMs": 2973
+    },
+    {
+      "char": "。",
+      "startMs": 2973,
+      "endMs": 3117
+    },
+    {
+      "char": "し",
+      "startMs": 4317,
+      "endMs": 4358
+    },
+    {
+      "char": "か",
+      "startMs": 4358,
+      "endMs": 4400
+    },
+    {
+      "char": "も",
+      "startMs": 4400,
+      "endMs": 4517
+    },
+    {
+      "char": "、",
+      "startMs": 4517,
+      "endMs": 4633
+    },
+    {
+      "char": "使",
+      "startMs": 5200,
+      "endMs": 5283
+    },
+    {
+      "char": "っ",
+      "startMs": 5283,
+      "endMs": 5417
+    },
+    {
+      "char": "て",
+      "startMs": 5417,
+      "endMs": 5550
+    },
+    {
+      "char": "い",
+      "startMs": 5550,
+      "endMs": 5642
+    },
+    {
+      "char": "る",
+      "startMs": 5642,
+      "endMs": 5733
+    },
+    {
+      "char": "言",
+      "startMs": 5733,
+      "endMs": 5933
+    },
+    {
+      "char": "葉",
+      "startMs": 5933,
+      "endMs": 6117
+    },
+    {
+      "char": "が",
+      "startMs": 6117,
+      "endMs": 6250
+    },
+    {
+      "char": "同",
+      "startMs": 6250,
+      "endMs": 6467
+    },
+    {
+      "char": "じ",
+      "startMs": 6467,
+      "endMs": 6667
+    },
+    {
+      "char": "だ",
+      "startMs": 6667,
+      "endMs": 6792
+    },
+    {
+      "char": "か",
+      "startMs": 6792,
+      "endMs": 6917
+    },
+    {
+      "char": "ら",
+      "startMs": 6917,
+      "endMs": 7042
+    },
+    {
+      "char": "、",
+      "startMs": 7042,
+      "endMs": 7167
+    },
+    {
+      "char": "違",
+      "startMs": 7633,
+      "endMs": 7767
+    },
+    {
+      "char": "っ",
+      "startMs": 7767,
+      "endMs": 7908
+    },
+    {
+      "char": "て",
+      "startMs": 7908,
+      "endMs": 8050
+    },
+    {
+      "char": "い",
+      "startMs": 8050,
+      "endMs": 8133
+    },
+    {
+      "char": "る",
+      "startMs": 8133,
+      "endMs": 8217
+    },
+    {
+      "char": "こ",
+      "startMs": 8217,
+      "endMs": 8325
+    },
+    {
+      "char": "と",
+      "startMs": 8325,
+      "endMs": 8433
+    },
+    {
+      "char": "に",
+      "startMs": 8433,
+      "endMs": 8617
+    },
+    {
+      "char": "気",
+      "startMs": 8617,
+      "endMs": 8800
+    },
+    {
+      "char": "づ",
+      "startMs": 8800,
+      "endMs": 8933
+    },
+    {
+      "char": "け",
+      "startMs": 8933,
+      "endMs": 9067
+    },
+    {
+      "char": "な",
+      "startMs": 9067,
+      "endMs": 9178
+    },
+    {
+      "char": "い",
+      "startMs": 9178,
+      "endMs": 9289
+    },
+    {
+      "char": "。",
+      "startMs": 9289,
+      "endMs": 9400
+    }
+  ]
+}

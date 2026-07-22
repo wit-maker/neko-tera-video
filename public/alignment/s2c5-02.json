@@ -1,0 +1,177 @@
+{
+  "lineId": "s2c5-02",
+  "text": "そう。『努力が足りない』と言い合う二匹は、違うものの話をしている。",
+  "displayText": "そう。『努力が足りない』と言い合う二匹は、\n違うものの話をしている。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 333,
+      "endMs": 367
+    },
+    {
+      "char": "そ",
+      "startMs": 367,
+      "endMs": 400
+    },
+    {
+      "char": "う",
+      "startMs": 400,
+      "endMs": 433
+    },
+    {
+      "char": "。",
+      "startMs": 433,
+      "endMs": 467
+    },
+    {
+      "char": "『",
+      "startMs": 1317,
+      "endMs": 1400
+    },
+    {
+      "char": "努",
+      "startMs": 1400,
+      "endMs": 1567
+    },
+    {
+      "char": "力",
+      "startMs": 1567,
+      "endMs": 1767
+    },
+    {
+      "char": "が",
+      "startMs": 1767,
+      "endMs": 1950
+    },
+    {
+      "char": "足",
+      "startMs": 1950,
+      "endMs": 2117
+    },
+    {
+      "char": "り",
+      "startMs": 2117,
+      "endMs": 2233
+    },
+    {
+      "char": "な",
+      "startMs": 2233,
+      "endMs": 2342
+    },
+    {
+      "char": "い",
+      "startMs": 2342,
+      "endMs": 2450
+    },
+    {
+      "char": "』",
+      "startMs": 2450,
+      "endMs": 2550
+    },
+    {
+      "char": "と",
+      "startMs": 2550,
+      "endMs": 2633
+    },
+    {
+      "char": "言",
+      "startMs": 2633,
+      "endMs": 2800
+    },
+    {
+      "char": "い",
+      "startMs": 2800,
+      "endMs": 2883
+    },
+    {
+      "char": "合",
+      "startMs": 2883,
+      "endMs": 3000
+    },
+    {
+      "char": "う",
+      "startMs": 3000,
+      "endMs": 3150
+    },
+    {
+      "char": "二",
+      "startMs": 3150,
+      "endMs": 3267
+    },
+    {
+      "char": "匹",
+      "startMs": 3367,
+      "endMs": 3450
+    },
+    {
+      "char": "は",
+      "startMs": 3450,
+      "endMs": 3625
+    },
+    {
+      "char": "、",
+      "startMs": 3625,
+      "endMs": 3800
+    },
+    {
+      "char": "違",
+      "startMs": 4267,
+      "endMs": 4400
+    },
+    {
+      "char": "う",
+      "startMs": 4400,
+      "endMs": 4533
+    },
+    {
+      "char": "も",
+      "startMs": 4533,
+      "endMs": 4650
+    },
+    {
+      "char": "の",
+      "startMs": 4650,
+      "endMs": 4767
+    },
+    {
+      "char": "の",
+      "startMs": 4767,
+      "endMs": 4950
+    },
+    {
+      "char": "話",
+      "startMs": 4950,
+      "endMs": 5183
+    },
+    {
+      "char": "を",
+      "startMs": 5183,
+      "endMs": 5483
+    },
+    {
+      "char": "し",
+      "startMs": 5483,
+      "endMs": 5600
+    },
+    {
+      "char": "て",
+      "startMs": 5600,
+      "endMs": 5717
+    },
+    {
+      "char": "い",
+      "startMs": 5717,
+      "endMs": 5833
+    },
+    {
+      "char": "る",
+      "startMs": 5833,
+      "endMs": 5950
+    },
+    {
+      "char": "。",
+      "startMs": 5950,
+      "endMs": 6067
+    }
+  ]
+}

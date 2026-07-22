@@ -1,0 +1,167 @@
+{
+  "lineId": "s1c4-01",
+  "text": "同じ国で生まれて、同じ学校へ行って、同じ言葉を話しているのに。",
+  "displayText": "同じ国で生まれて、同じ学校へ行って、\n同じ言葉を話しているのに。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 167,
+      "endMs": 192
+    },
+    {
+      "char": "同",
+      "startMs": 192,
+      "endMs": 217
+    },
+    {
+      "char": "じ",
+      "startMs": 217,
+      "endMs": 400
+    },
+    {
+      "char": "国",
+      "startMs": 400,
+      "endMs": 550
+    },
+    {
+      "char": "で",
+      "startMs": 550,
+      "endMs": 750
+    },
+    {
+      "char": "生",
+      "startMs": 750,
+      "endMs": 883
+    },
+    {
+      "char": "ま",
+      "startMs": 883,
+      "endMs": 983
+    },
+    {
+      "char": "れ",
+      "startMs": 983,
+      "endMs": 1100
+    },
+    {
+      "char": "て",
+      "startMs": 1100,
+      "endMs": 1217
+    },
+    {
+      "char": "、",
+      "startMs": 1217,
+      "endMs": 1333
+    },
+    {
+      "char": "同",
+      "startMs": 1667,
+      "endMs": 1800
+    },
+    {
+      "char": "じ",
+      "startMs": 1800,
+      "endMs": 1967
+    },
+    {
+      "char": "学",
+      "startMs": 1967,
+      "endMs": 2100
+    },
+    {
+      "char": "校",
+      "startMs": 2100,
+      "endMs": 2383
+    },
+    {
+      "char": "へ",
+      "startMs": 2383,
+      "endMs": 2467
+    },
+    {
+      "char": "行",
+      "startMs": 2467,
+      "endMs": 2583
+    },
+    {
+      "char": "っ",
+      "startMs": 2583,
+      "endMs": 2678
+    },
+    {
+      "char": "て",
+      "startMs": 2678,
+      "endMs": 2773
+    },
+    {
+      "char": "、",
+      "startMs": 2773,
+      "endMs": 2867
+    },
+    {
+      "char": "同",
+      "startMs": 3117,
+      "endMs": 3200
+    },
+    {
+      "char": "じ",
+      "startMs": 3200,
+      "endMs": 3400
+    },
+    {
+      "char": "言",
+      "startMs": 3400,
+      "endMs": 3567
+    },
+    {
+      "char": "葉",
+      "startMs": 3567,
+      "endMs": 3733
+    },
+    {
+      "char": "を",
+      "startMs": 3733,
+      "endMs": 3867
+    },
+    {
+      "char": "話",
+      "startMs": 3867,
+      "endMs": 4033
+    },
+    {
+      "char": "し",
+      "startMs": 4033,
+      "endMs": 4158
+    },
+    {
+      "char": "て",
+      "startMs": 4158,
+      "endMs": 4283
+    },
+    {
+      "char": "い",
+      "startMs": 4283,
+      "endMs": 4358
+    },
+    {
+      "char": "る",
+      "startMs": 4358,
+      "endMs": 4433
+    },
+    {
+      "char": "の",
+      "startMs": 4433,
+      "endMs": 4583
+    },
+    {
+      "char": "に",
+      "startMs": 4583,
+      "endMs": 4667
+    },
+    {
+      "char": "。",
+      "startMs": 4667,
+      "endMs": 4750
+    }
+  ]
+}

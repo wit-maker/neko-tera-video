@@ -1,0 +1,117 @@
+{
+  "lineId": "s7c2-01",
+  "text": "通じない理由は、一つじゃなかったんですね。",
+  "displayText": "通じない理由は、一つじゃなかったんですね。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 167,
+      "endMs": 192
+    },
+    {
+      "char": "通",
+      "startMs": 192,
+      "endMs": 217
+    },
+    {
+      "char": "じ",
+      "startMs": 217,
+      "endMs": 350
+    },
+    {
+      "char": "な",
+      "startMs": 350,
+      "endMs": 450
+    },
+    {
+      "char": "い",
+      "startMs": 450,
+      "endMs": 550
+    },
+    {
+      "char": "理",
+      "startMs": 550,
+      "endMs": 750
+    },
+    {
+      "char": "由",
+      "startMs": 750,
+      "endMs": 883
+    },
+    {
+      "char": "は",
+      "startMs": 883,
+      "endMs": 1025
+    },
+    {
+      "char": "、",
+      "startMs": 1025,
+      "endMs": 1167
+    },
+    {
+      "char": "一",
+      "startMs": 1400,
+      "endMs": 1483
+    },
+    {
+      "char": "つ",
+      "startMs": 1483,
+      "endMs": 1650
+    },
+    {
+      "char": "じ",
+      "startMs": 1650,
+      "endMs": 1717
+    },
+    {
+      "char": "ゃ",
+      "startMs": 1717,
+      "endMs": 1783
+    },
+    {
+      "char": "な",
+      "startMs": 1783,
+      "endMs": 1917
+    },
+    {
+      "char": "か",
+      "startMs": 1917,
+      "endMs": 2000
+    },
+    {
+      "char": "っ",
+      "startMs": 2000,
+      "endMs": 2083
+    },
+    {
+      "char": "た",
+      "startMs": 2083,
+      "endMs": 2167
+    },
+    {
+      "char": "ん",
+      "startMs": 2167,
+      "endMs": 2333
+    },
+    {
+      "char": "で",
+      "startMs": 2333,
+      "endMs": 2404
+    },
+    {
+      "char": "す",
+      "startMs": 2404,
+      "endMs": 2475
+    },
+    {
+      "char": "ね",
+      "startMs": 2475,
+      "endMs": 2546
+    },
+    {
+      "char": "。",
+      "startMs": 2546,
+      "endMs": 2617
+    }
+  ]
+}

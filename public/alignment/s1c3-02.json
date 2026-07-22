@@ -1,0 +1,137 @@
+{
+  "lineId": "s1c3-02",
+  "text": "いいえ。最後まで、同じ言葉で怒鳴り合っていました。",
+  "displayText": "いいえ。最後まで、同じ言葉で怒鳴り合っていました。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 150,
+      "endMs": 194
+    },
+    {
+      "char": "い",
+      "startMs": 194,
+      "endMs": 239
+    },
+    {
+      "char": "い",
+      "startMs": 239,
+      "endMs": 283
+    },
+    {
+      "char": "え",
+      "startMs": 283,
+      "endMs": 425
+    },
+    {
+      "char": "。",
+      "startMs": 425,
+      "endMs": 567
+    },
+    {
+      "char": "最",
+      "startMs": 1183,
+      "endMs": 1208
+    },
+    {
+      "char": "後",
+      "startMs": 1208,
+      "endMs": 1233
+    },
+    {
+      "char": "ま",
+      "startMs": 1233,
+      "endMs": 1356
+    },
+    {
+      "char": "で",
+      "startMs": 1356,
+      "endMs": 1478
+    },
+    {
+      "char": "、",
+      "startMs": 1478,
+      "endMs": 1600
+    },
+    {
+      "char": "同",
+      "startMs": 1700,
+      "endMs": 1833
+    },
+    {
+      "char": "じ",
+      "startMs": 1833,
+      "endMs": 1983
+    },
+    {
+      "char": "言",
+      "startMs": 1983,
+      "endMs": 2167
+    },
+    {
+      "char": "葉",
+      "startMs": 2167,
+      "endMs": 2300
+    },
+    {
+      "char": "で",
+      "startMs": 2300,
+      "endMs": 2417
+    },
+    {
+      "char": "怒",
+      "startMs": 2417,
+      "endMs": 2583
+    },
+    {
+      "char": "鳴",
+      "startMs": 2583,
+      "endMs": 2683
+    },
+    {
+      "char": "り",
+      "startMs": 2683,
+      "endMs": 2717
+    },
+    {
+      "char": "合",
+      "startMs": 2717,
+      "endMs": 2833
+    },
+    {
+      "char": "っ",
+      "startMs": 2833,
+      "endMs": 2892
+    },
+    {
+      "char": "て",
+      "startMs": 2892,
+      "endMs": 2950
+    },
+    {
+      "char": "い",
+      "startMs": 2950,
+      "endMs": 2993
+    },
+    {
+      "char": "ま",
+      "startMs": 2993,
+      "endMs": 3037
+    },
+    {
+      "char": "し",
+      "startMs": 3037,
+      "endMs": 3080
+    },
+    {
+      "char": "た",
+      "startMs": 3080,
+      "endMs": 3123
+    },
+    {
+      "char": "。",
+      "startMs": 3123,
+      "endMs": 3167
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "lineId": "s5c5-01",
+  "text": "同じものを見ているのに、見えている世界が、違う。",
+  "displayText": "同じものを見ているのに、\n見えている世界が、違う。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 117,
+      "endMs": 175
+    },
+    {
+      "char": "同",
+      "startMs": 175,
+      "endMs": 233
+    },
+    {
+      "char": "じ",
+      "startMs": 233,
+      "endMs": 450
+    },
+    {
+      "char": "も",
+      "startMs": 450,
+      "endMs": 525
+    },
+    {
+      "char": "の",
+      "startMs": 525,
+      "endMs": 600
+    },
+    {
+      "char": "を",
+      "startMs": 600,
+      "endMs": 850
+    },
+    {
+      "char": "見",
+      "startMs": 850,
+      "endMs": 950
+    },
+    {
+      "char": "て",
+      "startMs": 950,
+      "endMs": 1050
+    },
+    {
+      "char": "い",
+      "startMs": 1050,
+      "endMs": 1167
+    },
+    {
+      "char": "る",
+      "startMs": 1167,
+      "endMs": 1283
+    },
+    {
+      "char": "の",
+      "startMs": 1283,
+      "endMs": 1433
+    },
+    {
+      "char": "に",
+      "startMs": 1433,
+      "endMs": 1550
+    },
+    {
+      "char": "、",
+      "startMs": 1550,
+      "endMs": 1667
+    },
+    {
+      "char": "見",
+      "startMs": 2000,
+      "endMs": 2150
+    },
+    {
+      "char": "え",
+      "startMs": 2150,
+      "endMs": 2258
+    },
+    {
+      "char": "て",
+      "startMs": 2258,
+      "endMs": 2367
+    },
+    {
+      "char": "い",
+      "startMs": 2367,
+      "endMs": 2467
+    },
+    {
+      "char": "る",
+      "startMs": 2467,
+      "endMs": 2567
+    },
+    {
+      "char": "世",
+      "startMs": 2567,
+      "endMs": 2725
+    },
+    {
+      "char": "界",
+      "startMs": 2725,
+      "endMs": 2883
+    },
+    {
+      "char": "が",
+      "startMs": 2883,
+      "endMs": 3050
+    },
+    {
+      "char": "、",
+      "startMs": 3050,
+      "endMs": 3217
+    },
+    {
+      "char": "違",
+      "startMs": 3617,
+      "endMs": 3711
+    },
+    {
+      "char": "う",
+      "startMs": 3711,
+      "endMs": 3806
+    },
+    {
+      "char": "。",
+      "startMs": 3806,
+      "endMs": 3900
+    }
+  ]
+}

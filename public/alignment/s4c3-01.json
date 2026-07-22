@@ -1,0 +1,277 @@
+{
+  "lineId": "s4c3-01",
+  "text": "猫はみんな、頭の中に世界の地図を持っている。そして見ているのは、世界そのものではなく、自分の地図のほうだ。",
+  "displayText": "猫はみんな、頭の中に世界の地図を持っている。\nそして見ているのは、世界そのものではなく、\n自分の地図のほうだ。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 167,
+      "endMs": 267
+    },
+    {
+      "char": "猫",
+      "startMs": 267,
+      "endMs": 367
+    },
+    {
+      "char": "は",
+      "startMs": 450,
+      "endMs": 533
+    },
+    {
+      "char": "み",
+      "startMs": 533,
+      "endMs": 717
+    },
+    {
+      "char": "ん",
+      "startMs": 717,
+      "endMs": 828
+    },
+    {
+      "char": "な",
+      "startMs": 828,
+      "endMs": 939
+    },
+    {
+      "char": "、",
+      "startMs": 939,
+      "endMs": 1050
+    },
+    {
+      "char": "頭",
+      "startMs": 1433,
+      "endMs": 1733
+    },
+    {
+      "char": "の",
+      "startMs": 1733,
+      "endMs": 1950
+    },
+    {
+      "char": "中",
+      "startMs": 2050,
+      "endMs": 2133
+    },
+    {
+      "char": "に",
+      "startMs": 2133,
+      "endMs": 2367
+    },
+    {
+      "char": "世",
+      "startMs": 2367,
+      "endMs": 2533
+    },
+    {
+      "char": "界",
+      "startMs": 2533,
+      "endMs": 2700
+    },
+    {
+      "char": "の",
+      "startMs": 2700,
+      "endMs": 2950
+    },
+    {
+      "char": "地",
+      "startMs": 2950,
+      "endMs": 3117
+    },
+    {
+      "char": "図",
+      "startMs": 3117,
+      "endMs": 3283
+    },
+    {
+      "char": "を",
+      "startMs": 3283,
+      "endMs": 3417
+    },
+    {
+      "char": "持",
+      "startMs": 3417,
+      "endMs": 3533
+    },
+    {
+      "char": "っ",
+      "startMs": 3533,
+      "endMs": 3642
+    },
+    {
+      "char": "て",
+      "startMs": 3642,
+      "endMs": 3750
+    },
+    {
+      "char": "い",
+      "startMs": 3750,
+      "endMs": 3861
+    },
+    {
+      "char": "る",
+      "startMs": 3861,
+      "endMs": 3973
+    },
+    {
+      "char": "。",
+      "startMs": 3973,
+      "endMs": 4083
+    },
+    {
+      "char": "そ",
+      "startMs": 4900,
+      "endMs": 5006
+    },
+    {
+      "char": "し",
+      "startMs": 5006,
+      "endMs": 5111
+    },
+    {
+      "char": "て",
+      "startMs": 5111,
+      "endMs": 5217
+    },
+    {
+      "char": "見",
+      "startMs": 5217,
+      "endMs": 5350
+    },
+    {
+      "char": "て",
+      "startMs": 5350,
+      "endMs": 5483
+    },
+    {
+      "char": "い",
+      "startMs": 5483,
+      "endMs": 5608
+    },
+    {
+      "char": "る",
+      "startMs": 5608,
+      "endMs": 5733
+    },
+    {
+      "char": "の",
+      "startMs": 5733,
+      "endMs": 5867
+    },
+    {
+      "char": "は",
+      "startMs": 5867,
+      "endMs": 6000
+    },
+    {
+      "char": "、",
+      "startMs": 6000,
+      "endMs": 6133
+    },
+    {
+      "char": "世",
+      "startMs": 6567,
+      "endMs": 6700
+    },
+    {
+      "char": "界",
+      "startMs": 6700,
+      "endMs": 6833
+    },
+    {
+      "char": "そ",
+      "startMs": 6833,
+      "endMs": 6992
+    },
+    {
+      "char": "の",
+      "startMs": 6992,
+      "endMs": 7150
+    },
+    {
+      "char": "も",
+      "startMs": 7150,
+      "endMs": 7283
+    },
+    {
+      "char": "の",
+      "startMs": 7283,
+      "endMs": 7417
+    },
+    {
+      "char": "で",
+      "startMs": 7417,
+      "endMs": 7533
+    },
+    {
+      "char": "は",
+      "startMs": 7533,
+      "endMs": 7650
+    },
+    {
+      "char": "な",
+      "startMs": 7650,
+      "endMs": 7839
+    },
+    {
+      "char": "く",
+      "startMs": 7839,
+      "endMs": 8028
+    },
+    {
+      "char": "、",
+      "startMs": 8028,
+      "endMs": 8217
+    },
+    {
+      "char": "自",
+      "startMs": 8750,
+      "endMs": 8850
+    },
+    {
+      "char": "分",
+      "startMs": 8850,
+      "endMs": 9050
+    },
+    {
+      "char": "の",
+      "startMs": 9050,
+      "endMs": 9217
+    },
+    {
+      "char": "地",
+      "startMs": 9283,
+      "endMs": 9367
+    },
+    {
+      "char": "図",
+      "startMs": 9367,
+      "endMs": 9517
+    },
+    {
+      "char": "の",
+      "startMs": 9517,
+      "endMs": 9650
+    },
+    {
+      "char": "ほ",
+      "startMs": 9650,
+      "endMs": 9817
+    },
+    {
+      "char": "う",
+      "startMs": 9817,
+      "endMs": 9950
+    },
+    {
+      "char": "だ",
+      "startMs": 9950,
+      "endMs": 10083
+    },
+    {
+      "char": "。",
+      "startMs": 10083,
+      "endMs": 10217
+    }
+  ]
+}

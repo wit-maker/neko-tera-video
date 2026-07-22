@@ -1,0 +1,142 @@
+{
+  "lineId": "s2c1-01",
+  "text": "一つ目は、ことばだ。この言葉、どういう意味だと思う?",
+  "displayText": "一つ目は、ことばだ。\nこの言葉、どういう意味だと思う?",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 167,
+      "endMs": 175
+    },
+    {
+      "char": "一",
+      "startMs": 175,
+      "endMs": 183
+    },
+    {
+      "char": "つ",
+      "startMs": 183,
+      "endMs": 433
+    },
+    {
+      "char": "目",
+      "startMs": 433,
+      "endMs": 550
+    },
+    {
+      "char": "は",
+      "startMs": 550,
+      "endMs": 692
+    },
+    {
+      "char": "、",
+      "startMs": 692,
+      "endMs": 833
+    },
+    {
+      "char": "こ",
+      "startMs": 1133,
+      "endMs": 1142
+    },
+    {
+      "char": "と",
+      "startMs": 1142,
+      "endMs": 1150
+    },
+    {
+      "char": "ば",
+      "startMs": 1150,
+      "endMs": 1317
+    },
+    {
+      "char": "だ",
+      "startMs": 1317,
+      "endMs": 1442
+    },
+    {
+      "char": "。",
+      "startMs": 1442,
+      "endMs": 1567
+    },
+    {
+      "char": "こ",
+      "startMs": 2450,
+      "endMs": 2533
+    },
+    {
+      "char": "の",
+      "startMs": 2533,
+      "endMs": 2617
+    },
+    {
+      "char": "言",
+      "startMs": 2617,
+      "endMs": 2867
+    },
+    {
+      "char": "葉",
+      "startMs": 2867,
+      "endMs": 2983
+    },
+    {
+      "char": "、",
+      "startMs": 2983,
+      "endMs": 3100
+    },
+    {
+      "char": "ど",
+      "startMs": 3417,
+      "endMs": 3492
+    },
+    {
+      "char": "う",
+      "startMs": 3492,
+      "endMs": 3567
+    },
+    {
+      "char": "い",
+      "startMs": 3567,
+      "endMs": 3658
+    },
+    {
+      "char": "う",
+      "startMs": 3658,
+      "endMs": 3750
+    },
+    {
+      "char": "意",
+      "startMs": 3750,
+      "endMs": 3933
+    },
+    {
+      "char": "味",
+      "startMs": 3933,
+      "endMs": 4017
+    },
+    {
+      "char": "だ",
+      "startMs": 4017,
+      "endMs": 4133
+    },
+    {
+      "char": "と",
+      "startMs": 4133,
+      "endMs": 4275
+    },
+    {
+      "char": "思",
+      "startMs": 4275,
+      "endMs": 4417
+    },
+    {
+      "char": "う",
+      "startMs": 4417,
+      "endMs": 4567
+    },
+    {
+      "char": "?",
+      "startMs": 4567,
+      "endMs": 4717
+    }
+  ]
+}

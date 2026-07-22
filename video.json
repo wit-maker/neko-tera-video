@@ -1,0 +1,2750 @@
+{
+  "meta": {
+    "title": "話が通じない理由",
+    "width": 1080,
+    "height": 1920,
+    "fps": 60,
+    "fontBoard": "Yusei Magic",
+    "fontSubtitle": "Klee One",
+    "speakerColors": {
+      "sensei": "#d9a441",
+      "mike": "#8cc152"
+    },
+    "speechRateApplied": 1.2
+  },
+  "voices": {
+    "sensei": {
+      "referenceId": "46acc6307829446690cf5e8685f30447",
+      "label": "やんちゃな声"
+    },
+    "mike": {
+      "referenceId": "e363cadbc199479a9ec45eebed1b754a",
+      "label": "Мадока"
+    }
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "title": "猫寺の書斎・昼",
+      "cuts": [
+        {
+          "id": "s1c1",
+          "title": "無音・書斎の空気(木漏れ日、湯のみの湯気)",
+          "dialogue": [],
+          "fixedDurationSec": 4,
+          "camera": {
+            "shot": "wide",
+            "parallax": {
+              "panX": 0.02,
+              "zoom": 0.02,
+              "strength": 0.6
+            }
+          },
+          "bg": "placeholder",
+          "chars": [],
+          "sound": {
+            "bgmCue": "none",
+            "ambience": "garden-day",
+            "sfx": [
+              {
+                "file": "tea-pour.mp3",
+                "atSec": 1,
+                "gainDb": -7
+              }
+            ]
+          },
+          "fgLayers": [
+            "teacup:600,1400,330",
+            "steam:765,1410"
+          ]
+        },
+        {
+          "id": "s1c2",
+          "title": "ミケ、タブレットを閉じてため息",
+          "dialogue": [
+            {
+              "id": "s1c2-01",
+              "speaker": "mike",
+              "text": "先生。いま、言い争いを見ていました。\nどちらも、間違ったことは言っていないのに。",
+              "emotion": "confused",
+              "speed": 1.14,
+              "pauseAfterSec": 0.6
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "zoom": 0.015,
+              "strength": 0.5
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "tablet",
+              "position": "center"
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": [
+              {
+                "file": "tablet-close.mp3",
+                "atSec": 0.3,
+                "gainDb": -5
+              }
+            ]
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s1c2-01",
+                "displayText": "先生。いま、言い争いを\n見ていました。\nどちらも、間違ったことは\n言っていないのに。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s1c3",
+          "title": "先生、湯のみを置く",
+          "dialogue": [
+            {
+              "id": "s1c3-01",
+              "speaker": "sensei",
+              "text": "それで、決着はついたかい。",
+              "emotion": "calm",
+              "speed": 1.14,
+              "pauseAfterSec": 0.4
+            },
+            {
+              "id": "s1c3-02",
+              "speaker": "mike",
+              "text": "いいえ。最後まで、同じ言葉で怒鳴り合っていました。",
+              "emotion": "confused",
+              "speed": 1.2,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "panX": -0.015,
+              "strength": 0.5
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "tea",
+              "position": "left"
+            },
+            {
+              "speaker": "mike",
+              "pose": "stand",
+              "position": "right"
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s1c3-01",
+                "displayText": "それで、決着はついたかい。",
+                "emphasis": [],
+                "ruby": []
+              },
+              {
+                "lineId": "s1c3-02",
+                "displayText": "いいえ。最後まで、\n同じ言葉で怒鳴り合っていました。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          },
+          "fgLayers": [
+            "steam:275,1305"
+          ]
+        },
+        {
+          "id": "s1c4",
+          "title": "ミケ、顔を上げる",
+          "dialogue": [
+            {
+              "id": "s1c4-01",
+              "speaker": "mike",
+              "text": "同じ国で生まれて、同じ学校へ行って、\n同じ言葉を話しているのに。",
+              "emotion": "earnest",
+              "speed": 1.14,
+              "pauseAfterSec": 0.3
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "zoom": 0.02,
+              "strength": 0.5
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "stand",
+              "position": "center"
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s1c4-01",
+                "displayText": "同じ国で生まれて、\n同じ学校へ行って、\n同じ言葉を話しているのに。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s1c5",
+          "title": "ミケのアップ・中心の問い",
+          "dialogue": [
+            {
+              "id": "s1c5-01",
+              "speaker": "mike",
+              "text": "どうして、こんなにも話が通じないんでしょう。",
+              "emotion": "earnest",
+              "speed": 1.08,
+              "pauseAfterSec": 0.8
+            }
+          ],
+          "camera": {
+            "shot": "closeup",
+            "parallax": {
+              "zoom": 0.025,
+              "strength": 0.4
+            },
+            "dof": 0.4
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "stand",
+              "position": "center",
+              "scale": 1.3
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s1c5-01",
+                "displayText": "どうして、こんなにも\n話が通じないんでしょう。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s1c6",
+          "title": "先生、黒板へ。円を三つ描く",
+          "dialogue": [
+            {
+              "id": "s1c6-01",
+              "speaker": "sensei",
+              "text": "同じ言葉を話していれば通じるはず。\nまず、その前提から疑ってみよう。",
+              "emotion": "assertive",
+              "speed": 1.08,
+              "pauseAfterSec": 0.5
+            },
+            {
+              "id": "s1c6-02",
+              "speaker": "sensei",
+              "text": "通じない理由は、少なくとも三つある。",
+              "emotion": "assertive",
+              "speed": 1.02,
+              "pauseAfterSec": 0.8
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "panX": 0.015,
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "circle",
+                  "id": "c1",
+                  "cx": 150,
+                  "cy": 110,
+                  "r": 82
+                },
+                "atLineId": "s1c6-02",
+                "offsetSec": 0.5,
+                "drawDurationSec": 0.583
+              },
+              {
+                "element": {
+                  "kind": "circle",
+                  "id": "c2",
+                  "cx": 450,
+                  "cy": 110,
+                  "r": 82
+                },
+                "atLineId": "s1c6-02",
+                "offsetSec": 1.25,
+                "drawDurationSec": 0.583
+              },
+              {
+                "element": {
+                  "kind": "circle",
+                  "id": "c3",
+                  "cx": 750,
+                  "cy": 110,
+                  "r": 82
+                },
+                "atLineId": "s1c6-02",
+                "offsetSec": 2,
+                "drawDurationSec": 0.583
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": [
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 7.023,
+                "gainDb": -9,
+                "durationSec": 0.78
+              },
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 7.773,
+                "gainDb": -9,
+                "durationSec": 0.78
+              },
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 8.523,
+                "gainDb": -9,
+                "durationSec": 0.78
+              }
+            ]
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s1c6-01",
+                "displayText": "同じ言葉を話していれば\n通じるはず。\nまず、その前提から疑ってみよう。",
+                "emphasis": [],
+                "ruby": []
+              },
+              {
+                "lineId": "s1c6-02",
+                "displayText": "通じない理由は、\n少なくとも三つある。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "一つ目の円: ことばの辞書",
+      "cuts": [
+        {
+          "id": "s2c1",
+          "title": "円に「ことば」、横に大きく「努力」",
+          "dialogue": [
+            {
+              "id": "s2c1-01",
+              "speaker": "sensei",
+              "text": "一つ目は、ことばだ。\nこの言葉、どういう意味だと思う?",
+              "emotion": "curious",
+              "speed": 1.14,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-kotoba",
+                  "x": 150,
+                  "y": 112,
+                  "text": "ことば",
+                  "size": 40,
+                  "emphasis": false
+                },
+                "atLineId": "s2c1-01",
+                "offsetSec": 0.417,
+                "drawDurationSec": 0.583
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-doryoku",
+                  "x": 450,
+                  "y": 330,
+                  "text": "努力",
+                  "size": 80,
+                  "emphasis": true
+                },
+                "atLineId": "s2c1-01",
+                "offsetSec": 2.167,
+                "drawDurationSec": 0.75
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s2c1-01",
+                "displayText": "一つ目は、ことばだ。\nこの言葉、どういう意味だと思う?",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s2c2",
+          "title": "ミケ、即答",
+          "dialogue": [
+            {
+              "id": "s2c2-01",
+              "speaker": "mike",
+              "text": "頑張ることです。決まってます。",
+              "emotion": "assertive",
+              "speed": 1.26,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "zoom": 0.015,
+              "strength": 0.5
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "stand",
+              "position": "center"
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s2c2-01",
+                "displayText": "頑張ることです。決まってます。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s2c3",
+          "title": "円の下に一本目の線",
+          "dialogue": [
+            {
+              "id": "s2c3-01",
+              "speaker": "sensei",
+              "text": "ある猫にとっては、\n『苦しくても、耐えて続けること』だ。",
+              "emotion": "calm",
+              "speed": 1.08,
+              "pauseAfterSec": 0.4
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "line",
+                  "id": "ln-doryoku",
+                  "x1": 330,
+                  "y1": 385,
+                  "x2": 570,
+                  "y2": 385
+                },
+                "atLineId": "s2c3-01",
+                "offsetSec": 0.25,
+                "drawDurationSec": 0.5
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-taeru",
+                  "x": 450,
+                  "y": 455,
+                  "text": "耐えて続けること",
+                  "size": 38,
+                  "emphasis": false
+                },
+                "atLineId": "s2c3-01",
+                "offsetSec": 1.833,
+                "drawDurationSec": 1
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": [
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 0.6,
+                "gainDb": -9,
+                "durationSec": 0.7
+              }
+            ]
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s2c3-01",
+                "displayText": "ある猫にとっては、\n『苦しくても、耐えて\n続けること』だ。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s2c4",
+          "title": "二本目の線",
+          "dialogue": [
+            {
+              "id": "s2c4-01",
+              "speaker": "sensei",
+              "text": "別の猫にとっては、\n『工夫して、なるべく楽に成果を出すこと』だ。",
+              "emotion": "calm",
+              "speed": 1.08,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "panX": 0.01,
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-raku",
+                  "x": 450,
+                  "y": 535,
+                  "text": "楽に成果を出すこと",
+                  "size": 38,
+                  "emphasis": false
+                },
+                "atLineId": "s2c4-01",
+                "offsetSec": 2,
+                "drawDurationSec": 1
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s2c4-01",
+                "displayText": "別の猫にとっては、\n『工夫して、なるべく楽に\n成果を出すこと』だ。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s2c5",
+          "title": "ミケ、目を見開く",
+          "dialogue": [
+            {
+              "id": "s2c5-01",
+              "speaker": "mike",
+              "text": "……逆じゃないですか。\n耐えている猫から見たら、楽をするのは、ずるです。",
+              "emotion": "surprised",
+              "speed": 1.2,
+              "pauseAfterSec": 0.5
+            },
+            {
+              "id": "s2c5-02",
+              "speaker": "sensei",
+              "text": "そう。『努力が足りない』と言い合う二匹は、\n違うものの話をしている。",
+              "emotion": "calm",
+              "speed": 1.08,
+              "pauseAfterSec": 0.4
+            }
+          ],
+          "camera": {
+            "shot": "closeup",
+            "parallax": {
+              "zoom": 0.02,
+              "strength": 0.4
+            },
+            "dof": 0.3
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "stand",
+              "position": "center",
+              "scale": 1.25
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s2c5-01",
+                "displayText": "……逆じゃないですか。\n耐えている猫から見たら、\n楽をするのは、ずるです。",
+                "emphasis": [],
+                "ruby": []
+              },
+              {
+                "lineId": "s2c5-02",
+                "displayText": "そう。『努力が足りない』と\n言い合う二匹は、\n違うものの話をしている。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s2c6",
+          "title": "先生、振り返る。一つ目の核心",
+          "dialogue": [
+            {
+              "id": "s2c6-01",
+              "speaker": "sensei",
+              "text": "頭の中の辞書は、一匹ずつ違う。\nしかも、使っている言葉が同じだから、\n違っていることに気づけない。",
+              "emotion": "earnest",
+              "speed": 1.02,
+              "pauseAfterSec": 0.8
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "zoom": 0.02,
+              "strength": 0.5
+            },
+            "dof": 0.2
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "stand",
+              "position": "center"
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s2c6-01",
+                "displayText": "頭の中の辞書は、一匹ずつ違う。\nしかも、使っている言葉が\n同じだから、\n違っていることに気づけない。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "二つ目の円: 考える力",
+      "cuts": [
+        {
+          "id": "s3c1",
+          "title": "二つ目の円に「考える力」",
+          "dialogue": [
+            {
+              "id": "s3c1-01",
+              "speaker": "sensei",
+              "text": "二つ目は、考える力そのものだ。",
+              "emotion": "calm",
+              "speed": 1.14,
+              "pauseAfterSec": 0.4
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "erase",
+                  "id": "er-doryoku",
+                  "targets": [
+                    "lbl-doryoku",
+                    "ln-doryoku",
+                    "lbl-taeru",
+                    "lbl-raku"
+                  ]
+                },
+                "atLineId": "s3c1-01",
+                "offsetSec": 0.167,
+                "drawDurationSec": 0.667
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-kangaeru",
+                  "x": 450,
+                  "y": 112,
+                  "text": "考える力",
+                  "size": 36,
+                  "emphasis": false
+                },
+                "atLineId": "s3c1-01",
+                "offsetSec": 0.833,
+                "drawDurationSec": 0.667
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s3c1-01",
+                "displayText": "二つ目は、考える力そのものだ。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s3c2",
+          "title": "IQ問答",
+          "dialogue": [
+            {
+              "id": "s3c2-01",
+              "speaker": "mike",
+              "text": "IQ、ですか。",
+              "ttsText": "アイキュー、ですか。",
+              "emotion": "curious",
+              "speed": 1.2,
+              "pauseAfterSec": 0.3
+            },
+            {
+              "id": "s3c2-02",
+              "speaker": "sensei",
+              "text": "IQは、その一部でしかない。",
+              "ttsText": "アイキューは、その一部でしかない。",
+              "emotion": "assertive",
+              "speed": 1.14,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "panX": -0.01,
+              "strength": 0.5
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "stand",
+              "position": "left"
+            },
+            {
+              "speaker": "mike",
+              "pose": "stand",
+              "position": "right"
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s3c2-01",
+                "displayText": "IQ、ですか。",
+                "emphasis": [],
+                "ruby": []
+              },
+              {
+                "lineId": "s3c2-02",
+                "displayText": "IQは、その一部でしかない。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s3c3",
+          "title": "四つの力の列挙(黒板)",
+          "dialogue": [
+            {
+              "id": "s3c3-01",
+              "speaker": "sensei",
+              "text": "速さ。覚えたまま考えられる量。\nかたちを抜き出す力。関係をつかむ力。\nそれぞれ、別の力だ。",
+              "emotion": "calm",
+              "speed": 1.14,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "panY": 0.01,
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-hayasa",
+                  "x": 450,
+                  "y": 300,
+                  "text": "速さ",
+                  "size": 40,
+                  "emphasis": false
+                },
+                "atLineId": "s3c3-01",
+                "offsetSec": 0.25,
+                "drawDurationSec": 0.667
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-ryou",
+                  "x": 450,
+                  "y": 380,
+                  "text": "覚えたまま考えられる量",
+                  "size": 36,
+                  "emphasis": false
+                },
+                "atLineId": "s3c3-01",
+                "offsetSec": 1.25,
+                "drawDurationSec": 0.667
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-katachi",
+                  "x": 450,
+                  "y": 460,
+                  "text": "かたちを抜き出す力",
+                  "size": 36,
+                  "emphasis": false
+                },
+                "atLineId": "s3c3-01",
+                "offsetSec": 3.333,
+                "drawDurationSec": 0.667
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-kankei",
+                  "x": 450,
+                  "y": 540,
+                  "text": "関係をつかむ力",
+                  "size": 36,
+                  "emphasis": false
+                },
+                "atLineId": "s3c3-01",
+                "offsetSec": 5.167,
+                "drawDurationSec": 0.667
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s3c3-01",
+                "displayText": "速さ。覚えたまま考えられる量。\nかたちを抜き出す力。\n関係をつかむ力。\nそれぞれ、別の力だ。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s3c4",
+          "title": "ミケ、黒板の二行目を指す(冒頭の言い争いに着地)",
+          "dialogue": [
+            {
+              "id": "s3c4-01",
+              "speaker": "mike",
+              "text": "……さっきの言い争い、これでした。\n片方は三つ前の発言を覚えたまま話していて、\nもう片方は、目の前の一言に返事をしていました。",
+              "emotion": "discovery",
+              "speed": 1.2,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "zoom": 0.015,
+              "strength": 0.5
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "point",
+              "position": "right"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "line",
+                  "id": "ul-ryou",
+                  "x1": 190,
+                  "y1": 410,
+                  "x2": 710,
+                  "y2": 410
+                },
+                "atLineId": "s3c4-01",
+                "offsetSec": 2.333,
+                "drawDurationSec": 0.5
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": [
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 2.683,
+                "gainDb": -9,
+                "durationSec": 0.7
+              }
+            ]
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s3c4-01",
+                "displayText": "……さっきの言い争い、これでした。\n片方は三つ前の発言を\n覚えたまま話していて、\nもう片方は、目の前の\n一言に返事をしていました。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s3c5",
+          "title": "先生、うなずく",
+          "dialogue": [
+            {
+              "id": "s3c5-01",
+              "speaker": "sensei",
+              "text": "十の前提を一度に積み上げられる猫もいれば、\n一段ずつ確かめながら登る猫もいる。",
+              "emotion": "calm",
+              "speed": 1.08,
+              "pauseAfterSec": 0.3
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "panX": 0.01,
+              "strength": 0.5
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "stand",
+              "position": "center"
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s3c5-01",
+                "displayText": "十の前提を一度に\n積み上げられる猫もいれば、\n一段ずつ確かめながら\n登る猫もいる。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s3c6",
+          "title": "チョークを置いて、釘を刺す",
+          "dialogue": [
+            {
+              "id": "s3c6-01",
+              "speaker": "sensei",
+              "text": "同じ説明でも、届き方が違う。\nどちらが偉い、という話ではないよ。",
+              "emotion": "gentle",
+              "speed": 1.08,
+              "pauseAfterSec": 0.8
+            }
+          ],
+          "camera": {
+            "shot": "closeup",
+            "parallax": {
+              "zoom": 0.015,
+              "strength": 0.4
+            },
+            "dof": 0.3
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "stand",
+              "position": "center",
+              "scale": 1.25
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-day",
+            "sfx": [
+              {
+                "file": "chalk-tap.mp3",
+                "atSec": 0.5,
+                "gainDb": -8
+              }
+            ]
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s3c6-01",
+                "displayText": "同じ説明でも、届き方が違う。\nどちらが偉い、という話ではないよ。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "三つ目の円: 世界の地図",
+      "cuts": [
+        {
+          "id": "s4c1",
+          "title": "三つ目の円を大きくゆっくり囲む",
+          "dialogue": [
+            {
+              "id": "s4c1-01",
+              "speaker": "sensei",
+              "text": "三つ目は、世界の見方だ。\nわたしは、世界モデルと呼んでいる。",
+              "emotion": "calm",
+              "speed": 1.02,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "zoom": 0.015,
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "erase",
+                  "id": "er-abilities",
+                  "targets": [
+                    "lbl-hayasa",
+                    "lbl-ryou",
+                    "lbl-katachi",
+                    "lbl-kankei",
+                    "ul-ryou"
+                  ]
+                },
+                "atLineId": "s4c1-01",
+                "offsetSec": 0.25,
+                "drawDurationSec": 0.75
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-sekai",
+                  "x": 750,
+                  "y": 112,
+                  "text": "世界モデル",
+                  "size": 32,
+                  "emphasis": false
+                },
+                "atLineId": "s4c1-01",
+                "offsetSec": 3.75,
+                "drawDurationSec": 0.75
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-warm",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s4c1-01",
+                "displayText": "三つ目は、世界の見方だ。\nわたしは、世界モデルと呼んでいる。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s4c2",
+          "title": "ミケ、戸惑う",
+          "dialogue": [
+            {
+              "id": "s4c2-01",
+              "speaker": "mike",
+              "text": "世界、モデル……?",
+              "emotion": "confused",
+              "speed": 1.14,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "strength": 0.4
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "think",
+              "position": "center"
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-warm",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s4c2-01",
+                "displayText": "世界、モデル……?",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s4c3",
+          "title": "見ているのは自分の地図(核心)",
+          "dialogue": [
+            {
+              "id": "s4c3-01",
+              "speaker": "sensei",
+              "text": "猫はみんな、頭の中に世界の地図を持っている。\nそして見ているのは、世界そのものではなく、\n自分の地図のほうだ。",
+              "emotion": "earnest",
+              "speed": 1.02,
+              "pauseAfterSec": 0.7
+            }
+          ],
+          "camera": {
+            "shot": "closeup",
+            "parallax": {
+              "zoom": 0.02,
+              "strength": 0.4
+            },
+            "dof": 0.3
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "stand",
+              "position": "center",
+              "scale": 1.25
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-warm",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s4c3-01",
+                "displayText": "猫はみんな、頭の中に世界の地図を\n持っている。そして見ているのは、\n世界そのものではなく、\n自分の地図のほうだ。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s4c4",
+          "title": "左に一本軸「善←→悪」",
+          "dialogue": [
+            {
+              "id": "s4c4-01",
+              "speaker": "sensei",
+              "text": "一本の軸だけで描かれた、平らな地図もある。",
+              "emotion": "calm",
+              "speed": 1.08,
+              "pauseAfterSec": 0.4
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "panX": -0.01,
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "arrow",
+                  "id": "ax-flat",
+                  "x1": 110,
+                  "y1": 430,
+                  "x2": 400,
+                  "y2": 430,
+                  "doubleHead": true
+                },
+                "atLineId": "s4c4-01",
+                "offsetSec": 0.333,
+                "drawDurationSec": 0.75
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-zen",
+                  "x": 110,
+                  "y": 490,
+                  "text": "善",
+                  "size": 38,
+                  "emphasis": false
+                },
+                "atLineId": "s4c4-01",
+                "offsetSec": 1.333,
+                "drawDurationSec": 0.5
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-aku",
+                  "x": 400,
+                  "y": 490,
+                  "text": "悪",
+                  "size": 38,
+                  "emphasis": false
+                },
+                "atLineId": "s4c4-01",
+                "offsetSec": 1.833,
+                "drawDurationSec": 0.5
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-warm",
+            "ambience": "garden-day",
+            "sfx": [
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 0.683,
+                "gainDb": -9,
+                "durationSec": 0.95
+              }
+            ]
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s4c4-01",
+                "displayText": "一本の軸だけで描かれた、\n平らな地図もある。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s4c5",
+          "title": "右に複数軸の交差図",
+          "dialogue": [
+            {
+              "id": "s4c5-01",
+              "speaker": "sensei",
+              "text": "何本もの軸で描かれた、立体の地図もある。",
+              "emotion": "calm",
+              "speed": 1.08,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "panX": 0.01,
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "arrow",
+                  "id": "ax-multi-1",
+                  "x1": 510,
+                  "y1": 430,
+                  "x2": 800,
+                  "y2": 430,
+                  "doubleHead": true
+                },
+                "atLineId": "s4c5-01",
+                "offsetSec": 0.25,
+                "drawDurationSec": 0.5
+              },
+              {
+                "element": {
+                  "kind": "line",
+                  "id": "ax-multi-2",
+                  "x1": 655,
+                  "y1": 290,
+                  "x2": 655,
+                  "y2": 570
+                },
+                "atLineId": "s4c5-01",
+                "offsetSec": 0.833,
+                "drawDurationSec": 0.5
+              },
+              {
+                "element": {
+                  "kind": "line",
+                  "id": "ax-multi-3",
+                  "x1": 545,
+                  "y1": 320,
+                  "x2": 765,
+                  "y2": 540
+                },
+                "atLineId": "s4c5-01",
+                "offsetSec": 1.417,
+                "drawDurationSec": 0.5
+              },
+              {
+                "element": {
+                  "kind": "line",
+                  "id": "ax-multi-4",
+                  "x1": 545,
+                  "y1": 540,
+                  "x2": 765,
+                  "y2": 320
+                },
+                "atLineId": "s4c5-01",
+                "offsetSec": 2,
+                "drawDurationSec": 0.5
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-warm",
+            "ambience": "garden-day",
+            "sfx": [
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 0.6,
+                "gainDb": -9,
+                "durationSec": 0.7
+              },
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 1.183,
+                "gainDb": -9,
+                "durationSec": 0.7
+              },
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 1.767,
+                "gainDb": -9,
+                "durationSec": 0.7
+              },
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 2.35,
+                "gainDb": -9,
+                "durationSec": 0.7
+              }
+            ]
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s4c5-01",
+                "displayText": "何本もの軸で描かれた、\n立体の地図もある。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s4c6",
+          "title": "ミケ、左右を見比べる",
+          "dialogue": [
+            {
+              "id": "s4c6-01",
+              "speaker": "mike",
+              "text": "平面の地図の猫と、立体の地図の猫が、\n同じ景色の話をしている……。",
+              "emotion": "murmur",
+              "speed": 1.08,
+              "pauseAfterSec": 0.8
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "panX": 0.015,
+              "strength": 0.5
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "think",
+              "position": "right"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": []
+          },
+          "sound": {
+            "bgmCue": "main-warm",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s4c6-01",
+                "displayText": "平面の地図の猫と、\n立体の地図の猫が、\n同じ景色の話をしている……。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "同じ出来事、違う世界",
+      "cuts": [
+        {
+          "id": "s5c1",
+          "title": "冒頭の話題で試す",
+          "dialogue": [
+            {
+              "id": "s5c1-01",
+              "speaker": "sensei",
+              "text": "さっきの言い争いの話題で、試してみよう。",
+              "emotion": "calm",
+              "speed": 1.14,
+              "pauseAfterSec": 0.4
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "strength": 0.4
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "stand",
+              "position": "center"
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-warm",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s5c1-01",
+                "displayText": "さっきの言い争いの話題で、\n試してみよう。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s5c2",
+          "title": "左: Aが正しい/Bが間違い",
+          "dialogue": [
+            {
+              "id": "s5c2-01",
+              "speaker": "sensei",
+              "text": "平らな地図では、こう見える。",
+              "emotion": "calm",
+              "speed": 1.08,
+              "pauseAfterSec": 0.4
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "panX": -0.01,
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-a-tadashii",
+                  "x": 255,
+                  "y": 545,
+                  "text": "Aが正しい",
+                  "size": 34,
+                  "emphasis": false
+                },
+                "atLineId": "s5c2-01",
+                "offsetSec": 0.667,
+                "drawDurationSec": 0.583
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-b-machigai",
+                  "x": 255,
+                  "y": 598,
+                  "text": "Bはまちがい",
+                  "size": 34,
+                  "emphasis": false
+                },
+                "atLineId": "s5c2-01",
+                "offsetSec": 1.333,
+                "drawDurationSec": 0.583
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-warm",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s5c2-01",
+                "displayText": "平らな地図では、こう見える。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s5c3",
+          "title": "白か黒か",
+          "dialogue": [
+            {
+              "id": "s5c3-01",
+              "speaker": "mike",
+              "text": "白か、黒か。それだけ。",
+              "emotion": "murmur",
+              "speed": 1.08,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "closeup",
+            "parallax": {
+              "zoom": 0.015,
+              "strength": 0.4
+            },
+            "dof": 0.3
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "stand",
+              "position": "center",
+              "scale": 1.25
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-warm",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s5c3-01",
+                "displayText": "白か、黒か。それだけ。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s5c4",
+          "title": "右: 歴史/制度/経済/文化/心理/情報",
+          "dialogue": [
+            {
+              "id": "s5c4-01",
+              "speaker": "sensei",
+              "text": "立体の地図では、同じ出来事の下に、\n歴史があり、制度があり、お金の流れがあり、\n気持ちがあり、伝わり方の偏りがある。",
+              "emotion": "earnest",
+              "speed": 1.08,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "panX": 0.015,
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-rekishi",
+                  "x": 580,
+                  "y": 300,
+                  "text": "歴史",
+                  "size": 30,
+                  "emphasis": false
+                },
+                "atLineId": "s5c4-01",
+                "offsetSec": 2.917,
+                "drawDurationSec": 0.5
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-seido",
+                  "x": 745,
+                  "y": 300,
+                  "text": "制度",
+                  "size": 30,
+                  "emphasis": false
+                },
+                "atLineId": "s5c4-01",
+                "offsetSec": 4.167,
+                "drawDurationSec": 0.5
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-okane",
+                  "x": 830,
+                  "y": 480,
+                  "text": "お金",
+                  "size": 30,
+                  "emphasis": false
+                },
+                "atLineId": "s5c4-01",
+                "offsetSec": 5.417,
+                "drawDurationSec": 0.5
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-kimochi",
+                  "x": 555,
+                  "y": 565,
+                  "text": "気持ち",
+                  "size": 30,
+                  "emphasis": false
+                },
+                "atLineId": "s5c4-01",
+                "offsetSec": 7.083,
+                "drawDurationSec": 0.5
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-tsutawari",
+                  "x": 762,
+                  "y": 600,
+                  "text": "伝わり方",
+                  "size": 30,
+                  "emphasis": false
+                },
+                "atLineId": "s5c4-01",
+                "offsetSec": 8.333,
+                "drawDurationSec": 0.5
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-warm",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s5c4-01",
+                "displayText": "立体の地図では、同じ出来事の下に、\n歴史があり、制度があり、\nお金の流れがあり、\n気持ちがあり、\n伝わり方の偏りがある。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s5c5",
+          "title": "ミケ、核心の発見",
+          "dialogue": [
+            {
+              "id": "s5c5-01",
+              "speaker": "mike",
+              "text": "同じものを見ているのに、\n見えている世界が、違う。",
+              "emotion": "discovery",
+              "speed": 1.02,
+              "pauseAfterSec": 0.6
+            }
+          ],
+          "camera": {
+            "shot": "closeup",
+            "parallax": {
+              "zoom": 0.025,
+              "strength": 0.4
+            },
+            "dof": 0.4
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "stand",
+              "position": "center",
+              "scale": 1.3
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-warm",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s5c5-01",
+                "displayText": "同じものを見ているのに、\n見えている世界が、違う。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s5c6",
+          "title": "二枚の地図の間に「?」",
+          "dialogue": [
+            {
+              "id": "s5c6-01",
+              "speaker": "sensei",
+              "text": "相手の言葉は、自分の地図のどこにも載っていない。\n載っていない場所の話は、間違いに聞こえる。\nだから、議論はすれ違う。",
+              "emotion": "assertive",
+              "speed": 1.02,
+              "pauseAfterSec": 0.9
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "zoom": 0.015,
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-hatena",
+                  "x": 452,
+                  "y": 470,
+                  "text": "?",
+                  "size": 96,
+                  "emphasis": true
+                },
+                "atLineId": "s5c6-01",
+                "offsetSec": 9,
+                "drawDurationSec": 0.75
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-warm",
+            "ambience": "garden-day",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s5c6-01",
+                "displayText": "相手の言葉は、自分の地図の\nどこにも載っていない。\n載っていない場所の話は、\n間違いに聞こえる。\nだから、議論はすれ違う。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "器と中身",
+      "cuts": [
+        {
+          "id": "s6c1",
+          "title": "ミケの素朴な疑問",
+          "dialogue": [
+            {
+              "id": "s6c1-01",
+              "speaker": "mike",
+              "text": "考える力が高ければ、\n地図はひとりでに立体になるんですか?",
+              "emotion": "curious",
+              "speed": 1.2,
+              "pauseAfterSec": 0.4
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "strength": 0.5
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "think",
+              "position": "center"
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-evening",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s6c1-01",
+                "displayText": "考える力が高ければ、地図は\nひとりでに立体になるんですか?",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s6c2",
+          "title": "先生、首を横に振る",
+          "dialogue": [
+            {
+              "id": "s6c2-01",
+              "speaker": "sensei",
+              "text": "そうとは限らない。",
+              "emotion": "assertive",
+              "speed": 1.08,
+              "pauseAfterSec": 0.6
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "strength": 0.4
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "stand",
+              "position": "center"
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-evening",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s6c2-01",
+                "displayText": "そうとは限らない。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s6c3",
+          "title": "器の比喩",
+          "dialogue": [
+            {
+              "id": "s6c3-01",
+              "speaker": "sensei",
+              "text": "考える力は、器の大きさだ。\n器がどれだけ大きくても、\n注ぐものがなければ、軸は増えない。",
+              "emotion": "calm",
+              "speed": 1.02,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "closeup",
+            "parallax": {
+              "zoom": 0.015,
+              "strength": 0.4
+            },
+            "dof": 0.3
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "stand",
+              "position": "center",
+              "scale": 1.25
+            }
+          ],
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-evening",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s6c3-01",
+                "displayText": "考える力は、器の大きさだ。\n器がどれだけ大きくても、\n注ぐものがなければ、軸は増えない。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s6c4",
+          "title": "中身の列挙とミケの先走り",
+          "dialogue": [
+            {
+              "id": "s6c4-01",
+              "speaker": "mike",
+              "text": "じゃあ、経験を積めば……。",
+              "emotion": "curious",
+              "speed": 1.26,
+              "pauseAfterSec": 0.2
+            },
+            {
+              "id": "s6c4-02",
+              "speaker": "sensei",
+              "text": "経験だけでも、足りない。\n振り返らない経験は、\n同じ一本の軸を濃くするだけだからね。",
+              "emotion": "gentle",
+              "speed": 1.08,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "panY": 0.01,
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            },
+            {
+              "speaker": "mike",
+              "pose": "stand",
+              "position": "right"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "erase",
+                  "id": "er-maps",
+                  "targets": [
+                    "ax-flat",
+                    "lbl-zen",
+                    "lbl-aku",
+                    "ax-multi-1",
+                    "ax-multi-2",
+                    "ax-multi-3",
+                    "ax-multi-4",
+                    "lbl-a-tadashii",
+                    "lbl-b-machigai",
+                    "lbl-rekishi",
+                    "lbl-seido",
+                    "lbl-okane",
+                    "lbl-kimochi",
+                    "lbl-tsutawari",
+                    "lbl-hatena"
+                  ]
+                },
+                "atLineId": "s6c4-02",
+                "offsetSec": 0.167,
+                "drawDurationSec": 0.75
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-keiken",
+                  "x": 450,
+                  "y": 370,
+                  "text": "経験",
+                  "size": 38,
+                  "emphasis": false
+                },
+                "atLineId": "s6c4-02",
+                "offsetSec": 2.167,
+                "drawDurationSec": 0.583
+              },
+              {
+                "element": {
+                  "kind": "line",
+                  "id": "ln-keiken-1",
+                  "x1": 300,
+                  "y1": 430,
+                  "x2": 600,
+                  "y2": 430
+                },
+                "atLineId": "s6c4-02",
+                "offsetSec": 3.833,
+                "drawDurationSec": 0.667
+              },
+              {
+                "element": {
+                  "kind": "line",
+                  "id": "ln-keiken-2",
+                  "x1": 300,
+                  "y1": 437,
+                  "x2": 600,
+                  "y2": 437
+                },
+                "atLineId": "s6c4-02",
+                "offsetSec": 5.333,
+                "drawDurationSec": 0.667
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-evening",
+            "sfx": [
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 6.275,
+                "gainDb": -9,
+                "durationSec": 0.87
+              },
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 7.775,
+                "gainDb": -9,
+                "durationSec": 0.87
+              }
+            ]
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s6c4-01",
+                "displayText": "じゃあ、経験を積めば……。",
+                "emphasis": [],
+                "ruby": []
+              },
+              {
+                "lineId": "s6c4-02",
+                "displayText": "経験だけでも、足りない。\n振り返らない経験は、\n同じ一本の軸を\n濃くするだけだからね。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s6c5",
+          "title": "三つの円を結び「メタ認知」",
+          "dialogue": [
+            {
+              "id": "s6c5-01",
+              "speaker": "sensei",
+              "text": "自分の地図を、上から眺め直す力。\nメタ認知という。",
+              "emotion": "calm",
+              "speed": 1.02,
+              "pauseAfterSec": 0.5
+            }
+          ],
+          "camera": {
+            "shot": "board",
+            "parallax": {
+              "zoom": 0.015,
+              "strength": 0.3
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "point",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": [
+              {
+                "element": {
+                  "kind": "erase",
+                  "id": "er-keiken",
+                  "targets": [
+                    "lbl-keiken",
+                    "ln-keiken-1",
+                    "ln-keiken-2"
+                  ]
+                },
+                "atLineId": "s6c5-01",
+                "offsetSec": 0.167,
+                "drawDurationSec": 0.5
+              },
+              {
+                "element": {
+                  "kind": "arrow",
+                  "id": "ar-c1c2",
+                  "x1": 240,
+                  "y1": 110,
+                  "x2": 360,
+                  "y2": 110,
+                  "doubleHead": false
+                },
+                "atLineId": "s6c5-01",
+                "offsetSec": 0.667,
+                "drawDurationSec": 0.5
+              },
+              {
+                "element": {
+                  "kind": "arrow",
+                  "id": "ar-c2c3",
+                  "x1": 540,
+                  "y1": 110,
+                  "x2": 660,
+                  "y2": 110,
+                  "doubleHead": false
+                },
+                "atLineId": "s6c5-01",
+                "offsetSec": 1.167,
+                "drawDurationSec": 0.5
+              },
+              {
+                "element": {
+                  "kind": "label",
+                  "id": "lbl-meta",
+                  "x": 450,
+                  "y": 260,
+                  "text": "メタ認知",
+                  "size": 52,
+                  "emphasis": true
+                },
+                "atLineId": "s6c5-01",
+                "offsetSec": 3.5,
+                "drawDurationSec": 0.75
+              }
+            ]
+          },
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-evening",
+            "sfx": [
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 1.017,
+                "gainDb": -9,
+                "durationSec": 0.7
+              },
+              {
+                "file": "chalk-write.mp3",
+                "atSec": 1.517,
+                "gainDb": -9,
+                "durationSec": 0.7
+              }
+            ]
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s6c5-01",
+                "displayText": "自分の地図を、上から眺め直す力。\nメタ認知という。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s6c6",
+          "title": "黒板全景・まとめ",
+          "dialogue": [
+            {
+              "id": "s6c6-01",
+              "speaker": "sensei",
+              "text": "器と、注ぐ中身と、眺め直す力。\nそろってはじめて、地図は立体になる。",
+              "emotion": "calm",
+              "speed": 1.02,
+              "pauseAfterSec": 0.9
+            }
+          ],
+          "camera": {
+            "shot": "wide",
+            "parallax": {
+              "zoom": -0.02,
+              "strength": 0.5
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "stand",
+              "position": "left"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": []
+          },
+          "sound": {
+            "bgmCue": "main-soft",
+            "ambience": "garden-evening",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s6c6-01",
+                "displayText": "器と、注ぐ中身と、眺め直す力。\nそろってはじめて、\n地図は立体になる。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "新しい疑問",
+      "cuts": [
+        {
+          "id": "s7c1",
+          "title": "無音・黒板を見つめるミケ、木漏れ日が傾く",
+          "dialogue": [],
+          "fixedDurationSec": 3,
+          "camera": {
+            "shot": "wide",
+            "parallax": {
+              "panX": 0.02,
+              "strength": 0.6
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "stand",
+              "position": "right"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": []
+          },
+          "sound": {
+            "bgmCue": "none",
+            "ambience": "garden-evening",
+            "sfx": []
+          }
+        },
+        {
+          "id": "s7c2",
+          "title": "理由は一つじゃなかった",
+          "dialogue": [
+            {
+              "id": "s7c2-01",
+              "speaker": "mike",
+              "text": "通じない理由は、一つじゃなかったんですね。",
+              "emotion": "calm",
+              "speed": 1.14,
+              "pauseAfterSec": 0.4
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "strength": 0.5
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "stand",
+              "position": "center"
+            }
+          ],
+          "sound": {
+            "bgmCue": "outro",
+            "ambience": "garden-evening",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s7c2-01",
+                "displayText": "通じない理由は、\n一つじゃなかったんですね。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s7c3",
+          "title": "三つの確認(指折り)",
+          "dialogue": [
+            {
+              "id": "s7c3-01",
+              "speaker": "mike",
+              "text": "辞書が違う。考える力が違う。\nそして、地図そのものが違う。",
+              "emotion": "calm",
+              "speed": 1.08,
+              "pauseAfterSec": 0.6
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "zoom": 0.015,
+              "strength": 0.5
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "stand",
+              "position": "center"
+            }
+          ],
+          "board": {
+            "visible": true,
+            "actions": []
+          },
+          "sound": {
+            "bgmCue": "outro",
+            "ambience": "garden-evening",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s7c3-01",
+                "displayText": "辞書が違う。考える力が違う。\nそして、地図そのものが違う。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s7c4",
+          "title": "先生、試すように",
+          "dialogue": [
+            {
+              "id": "s7c4-01",
+              "speaker": "sensei",
+              "text": "そこまで見えたなら、\n次の問いが、もう生まれているはずだ。",
+              "emotion": "curious",
+              "speed": 1.08,
+              "pauseAfterSec": 0.6
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "strength": 0.4
+            }
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "stand",
+              "position": "left"
+            }
+          ],
+          "sound": {
+            "bgmCue": "outro",
+            "ambience": "garden-evening",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s7c4-01",
+                "displayText": "そこまで見えたなら、次の問いが、\nもう生まれているはずだ。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s7c5",
+          "title": "ミケ、核心の問い",
+          "dialogue": [
+            {
+              "id": "s7c5-01",
+              "speaker": "mike",
+              "text": "……違うのが当たり前なら、\nどうして猫は、それでも争うんでしょう。",
+              "emotion": "earnest",
+              "speed": 1.02,
+              "pauseAfterSec": 0.8
+            }
+          ],
+          "camera": {
+            "shot": "closeup",
+            "parallax": {
+              "zoom": 0.025,
+              "strength": 0.4
+            },
+            "dof": 0.4
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "mike",
+              "pose": "stand",
+              "position": "center",
+              "scale": 1.3
+            }
+          ],
+          "sound": {
+            "bgmCue": "outro",
+            "ambience": "garden-evening",
+            "sfx": []
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s7c5-01",
+                "displayText": "……違うのが当たり前なら、\nどうして猫は、\nそれでも争うんでしょう。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          }
+        },
+        {
+          "id": "s7c6",
+          "title": "お茶を注ぐ。結び「次は、心の話をしよう」",
+          "dialogue": [
+            {
+              "id": "s7c6-01",
+              "speaker": "sensei",
+              "text": "いい問いだ。それは、地図だけでは説明できない。\n次は、心の話をしよう。",
+              "emotion": "gentle",
+              "speed": 1.02,
+              "pauseAfterSec": 1.2
+            }
+          ],
+          "camera": {
+            "shot": "medium",
+            "parallax": {
+              "zoom": -0.015,
+              "strength": 0.5
+            },
+            "dof": 0.2
+          },
+          "bg": "placeholder",
+          "chars": [
+            {
+              "speaker": "sensei",
+              "pose": "tea",
+              "position": "center"
+            }
+          ],
+          "sound": {
+            "bgmCue": "outro",
+            "ambience": "garden-evening",
+            "sfx": [
+              {
+                "file": "tea-pour.mp3",
+                "atSec": 0.8,
+                "gainDb": -5
+              }
+            ]
+          },
+          "subtitle": {
+            "lines": [
+              {
+                "lineId": "s7c6-01",
+                "displayText": "いい問いだ。それは、\n地図だけでは説明できない。\n次は、心の話をしよう。",
+                "emphasis": [],
+                "ruby": []
+              }
+            ]
+          },
+          "fgLayers": [
+            "steam:505,1265"
+          ]
+        }
+      ]
+    }
+  ]
+}

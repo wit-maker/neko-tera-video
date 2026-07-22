@@ -1,0 +1,112 @@
+{
+  "lineId": "s5c1-01",
+  "text": "さっきの言い争いの話題で、試してみよう。",
+  "displayText": "さっきの言い争いの話題で、試してみよう。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 233,
+      "endMs": 233
+    },
+    {
+      "char": "さ",
+      "startMs": 233,
+      "endMs": 233
+    },
+    {
+      "char": "っ",
+      "startMs": 233,
+      "endMs": 300
+    },
+    {
+      "char": "き",
+      "startMs": 300,
+      "endMs": 383
+    },
+    {
+      "char": "の",
+      "startMs": 383,
+      "endMs": 517
+    },
+    {
+      "char": "言",
+      "startMs": 517,
+      "endMs": 683
+    },
+    {
+      "char": "い",
+      "startMs": 683,
+      "endMs": 783
+    },
+    {
+      "char": "争",
+      "startMs": 783,
+      "endMs": 983
+    },
+    {
+      "char": "い",
+      "startMs": 983,
+      "endMs": 1150
+    },
+    {
+      "char": "の",
+      "startMs": 1150,
+      "endMs": 1233
+    },
+    {
+      "char": "話",
+      "startMs": 1233,
+      "endMs": 1367
+    },
+    {
+      "char": "題",
+      "startMs": 1367,
+      "endMs": 1550
+    },
+    {
+      "char": "で",
+      "startMs": 1550,
+      "endMs": 1667
+    },
+    {
+      "char": "、",
+      "startMs": 1667,
+      "endMs": 1783
+    },
+    {
+      "char": "試",
+      "startMs": 2017,
+      "endMs": 2200
+    },
+    {
+      "char": "し",
+      "startMs": 2200,
+      "endMs": 2317
+    },
+    {
+      "char": "て",
+      "startMs": 2317,
+      "endMs": 2433
+    },
+    {
+      "char": "み",
+      "startMs": 2433,
+      "endMs": 2567
+    },
+    {
+      "char": "よ",
+      "startMs": 2567,
+      "endMs": 2656
+    },
+    {
+      "char": "う",
+      "startMs": 2656,
+      "endMs": 2744
+    },
+    {
+      "char": "。",
+      "startMs": 2744,
+      "endMs": 2833
+    }
+  ]
+}

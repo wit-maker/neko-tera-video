@@ -1,0 +1,187 @@
+{
+  "lineId": "s2c5-01",
+  "text": "……逆じゃないですか。耐えている猫から見たら、楽をするのは、ずるです。",
+  "displayText": "……逆じゃないですか。\n耐えている猫から見たら、楽をするのは、ずるです。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 83,
+      "endMs": 125
+    },
+    {
+      "char": "…",
+      "startMs": 125,
+      "endMs": 167
+    },
+    {
+      "char": "…",
+      "startMs": 167,
+      "endMs": 167
+    },
+    {
+      "char": "逆",
+      "startMs": 167,
+      "endMs": 367
+    },
+    {
+      "char": "じ",
+      "startMs": 367,
+      "endMs": 442
+    },
+    {
+      "char": "ゃ",
+      "startMs": 442,
+      "endMs": 517
+    },
+    {
+      "char": "な",
+      "startMs": 517,
+      "endMs": 592
+    },
+    {
+      "char": "い",
+      "startMs": 592,
+      "endMs": 667
+    },
+    {
+      "char": "で",
+      "startMs": 667,
+      "endMs": 792
+    },
+    {
+      "char": "す",
+      "startMs": 792,
+      "endMs": 917
+    },
+    {
+      "char": "か",
+      "startMs": 917,
+      "endMs": 1042
+    },
+    {
+      "char": "。",
+      "startMs": 1042,
+      "endMs": 1167
+    },
+    {
+      "char": "耐",
+      "startMs": 1700,
+      "endMs": 1833
+    },
+    {
+      "char": "え",
+      "startMs": 1833,
+      "endMs": 1908
+    },
+    {
+      "char": "て",
+      "startMs": 1908,
+      "endMs": 1983
+    },
+    {
+      "char": "い",
+      "startMs": 1983,
+      "endMs": 2050
+    },
+    {
+      "char": "る",
+      "startMs": 2050,
+      "endMs": 2117
+    },
+    {
+      "char": "猫",
+      "startMs": 2117,
+      "endMs": 2350
+    },
+    {
+      "char": "か",
+      "startMs": 2350,
+      "endMs": 2433
+    },
+    {
+      "char": "ら",
+      "startMs": 2433,
+      "endMs": 2517
+    },
+    {
+      "char": "見",
+      "startMs": 2517,
+      "endMs": 2667
+    },
+    {
+      "char": "た",
+      "startMs": 2667,
+      "endMs": 2783
+    },
+    {
+      "char": "ら",
+      "startMs": 2783,
+      "endMs": 2883
+    },
+    {
+      "char": "、",
+      "startMs": 2883,
+      "endMs": 2983
+    },
+    {
+      "char": "楽",
+      "startMs": 3150,
+      "endMs": 3333
+    },
+    {
+      "char": "を",
+      "startMs": 3350,
+      "endMs": 3483
+    },
+    {
+      "char": "す",
+      "startMs": 3483,
+      "endMs": 3592
+    },
+    {
+      "char": "る",
+      "startMs": 3592,
+      "endMs": 3700
+    },
+    {
+      "char": "の",
+      "startMs": 3700,
+      "endMs": 3806
+    },
+    {
+      "char": "は",
+      "startMs": 3806,
+      "endMs": 3911
+    },
+    {
+      "char": "、",
+      "startMs": 3911,
+      "endMs": 4017
+    },
+    {
+      "char": "ず",
+      "startMs": 4017,
+      "endMs": 4233
+    },
+    {
+      "char": "る",
+      "startMs": 4233,
+      "endMs": 4333
+    },
+    {
+      "char": "で",
+      "startMs": 4333,
+      "endMs": 4417
+    },
+    {
+      "char": "す",
+      "startMs": 4417,
+      "endMs": 4500
+    },
+    {
+      "char": "。",
+      "startMs": 4500,
+      "endMs": 4583
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "lineId": "s6c5-01",
+  "text": "自分の地図を、上から眺め直す力。メタ認知という。",
+  "displayText": "自分の地図を、上から眺め直す力。\nメタ認知という。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 200,
+      "endMs": 200
+    },
+    {
+      "char": "自",
+      "startMs": 200,
+      "endMs": 200
+    },
+    {
+      "char": "分",
+      "startMs": 200,
+      "endMs": 400
+    },
+    {
+      "char": "の",
+      "startMs": 400,
+      "endMs": 567
+    },
+    {
+      "char": "地",
+      "startMs": 567,
+      "endMs": 733
+    },
+    {
+      "char": "図",
+      "startMs": 733,
+      "endMs": 917
+    },
+    {
+      "char": "を",
+      "startMs": 917,
+      "endMs": 1042
+    },
+    {
+      "char": "、",
+      "startMs": 1042,
+      "endMs": 1167
+    },
+    {
+      "char": "上",
+      "startMs": 1667,
+      "endMs": 1700
+    },
+    {
+      "char": "か",
+      "startMs": 1700,
+      "endMs": 1842
+    },
+    {
+      "char": "ら",
+      "startMs": 1842,
+      "endMs": 1983
+    },
+    {
+      "char": "眺",
+      "startMs": 1983,
+      "endMs": 2300
+    },
+    {
+      "char": "め",
+      "startMs": 2300,
+      "endMs": 2483
+    },
+    {
+      "char": "直",
+      "startMs": 2483,
+      "endMs": 2617
+    },
+    {
+      "char": "す",
+      "startMs": 2617,
+      "endMs": 2917
+    },
+    {
+      "char": "力",
+      "startMs": 2917,
+      "endMs": 3142
+    },
+    {
+      "char": "。",
+      "startMs": 3142,
+      "endMs": 3367
+    },
+    {
+      "char": "メ",
+      "startMs": 4017,
+      "endMs": 4167
+    },
+    {
+      "char": "タ",
+      "startMs": 4167,
+      "endMs": 4350
+    },
+    {
+      "char": "認",
+      "startMs": 4350,
+      "endMs": 4533
+    },
+    {
+      "char": "知",
+      "startMs": 4533,
+      "endMs": 4767
+    },
+    {
+      "char": "と",
+      "startMs": 4767,
+      "endMs": 4817
+    },
+    {
+      "char": "い",
+      "startMs": 4817,
+      "endMs": 4867
+    },
+    {
+      "char": "う",
+      "startMs": 4867,
+      "endMs": 4917
+    },
+    {
+      "char": "。",
+      "startMs": 4917,
+      "endMs": 4967
+    }
+  ]
+}

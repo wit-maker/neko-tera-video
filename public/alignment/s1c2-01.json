@@ -1,0 +1,207 @@
+{
+  "lineId": "s1c2-01",
+  "text": "先生。いま、言い争いを見ていました。どちらも、間違ったことは言っていないのに。",
+  "displayText": "先生。いま、言い争いを見ていました。\nどちらも、間違ったことは言っていないのに。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 600,
+      "endMs": 646
+    },
+    {
+      "char": "先",
+      "startMs": 646,
+      "endMs": 692
+    },
+    {
+      "char": "生",
+      "startMs": 692,
+      "endMs": 738
+    },
+    {
+      "char": "。",
+      "startMs": 738,
+      "endMs": 783
+    },
+    {
+      "char": "い",
+      "startMs": 1533,
+      "endMs": 1533
+    },
+    {
+      "char": "ま",
+      "startMs": 1533,
+      "endMs": 1725
+    },
+    {
+      "char": "、",
+      "startMs": 1725,
+      "endMs": 1917
+    },
+    {
+      "char": "言",
+      "startMs": 1983,
+      "endMs": 1983
+    },
+    {
+      "char": "い",
+      "startMs": 1983,
+      "endMs": 2100
+    },
+    {
+      "char": "争",
+      "startMs": 2100,
+      "endMs": 2350
+    },
+    {
+      "char": "い",
+      "startMs": 2350,
+      "endMs": 2500
+    },
+    {
+      "char": "を",
+      "startMs": 2500,
+      "endMs": 2617
+    },
+    {
+      "char": "見",
+      "startMs": 2617,
+      "endMs": 2700
+    },
+    {
+      "char": "て",
+      "startMs": 2700,
+      "endMs": 2783
+    },
+    {
+      "char": "い",
+      "startMs": 2783,
+      "endMs": 2858
+    },
+    {
+      "char": "ま",
+      "startMs": 2858,
+      "endMs": 2933
+    },
+    {
+      "char": "し",
+      "startMs": 2933,
+      "endMs": 3008
+    },
+    {
+      "char": "た",
+      "startMs": 3008,
+      "endMs": 3083
+    },
+    {
+      "char": "。",
+      "startMs": 3083,
+      "endMs": 3158
+    },
+    {
+      "char": "ど",
+      "startMs": 3983,
+      "endMs": 4067
+    },
+    {
+      "char": "ち",
+      "startMs": 4067,
+      "endMs": 4158
+    },
+    {
+      "char": "ら",
+      "startMs": 4158,
+      "endMs": 4250
+    },
+    {
+      "char": "も",
+      "startMs": 4250,
+      "endMs": 4392
+    },
+    {
+      "char": "、",
+      "startMs": 4392,
+      "endMs": 4533
+    },
+    {
+      "char": "間",
+      "startMs": 4900,
+      "endMs": 4917
+    },
+    {
+      "char": "違",
+      "startMs": 4917,
+      "endMs": 5067
+    },
+    {
+      "char": "っ",
+      "startMs": 5067,
+      "endMs": 5150
+    },
+    {
+      "char": "た",
+      "startMs": 5150,
+      "endMs": 5233
+    },
+    {
+      "char": "こ",
+      "startMs": 5350,
+      "endMs": 5392
+    },
+    {
+      "char": "と",
+      "startMs": 5392,
+      "endMs": 5433
+    },
+    {
+      "char": "は",
+      "startMs": 5433,
+      "endMs": 5600
+    },
+    {
+      "char": "言",
+      "startMs": 5600,
+      "endMs": 5750
+    },
+    {
+      "char": "っ",
+      "startMs": 5750,
+      "endMs": 5825
+    },
+    {
+      "char": "て",
+      "startMs": 5825,
+      "endMs": 5900
+    },
+    {
+      "char": "い",
+      "startMs": 5900,
+      "endMs": 6017
+    },
+    {
+      "char": "な",
+      "startMs": 6017,
+      "endMs": 6075
+    },
+    {
+      "char": "い",
+      "startMs": 6075,
+      "endMs": 6133
+    },
+    {
+      "char": "の",
+      "startMs": 6133,
+      "endMs": 6317
+    },
+    {
+      "char": "に",
+      "startMs": 6317,
+      "endMs": 6400
+    },
+    {
+      "char": "。",
+      "startMs": 6400,
+      "endMs": 6483
+    }
+  ]
+}

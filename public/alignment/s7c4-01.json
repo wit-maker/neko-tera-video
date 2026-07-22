@@ -1,0 +1,152 @@
+{
+  "lineId": "s7c4-01",
+  "text": "そこまで見えたなら、次の問いが、もう生まれているはずだ。",
+  "displayText": "そこまで見えたなら、\n次の問いが、もう生まれているはずだ。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 217,
+      "endMs": 217
+    },
+    {
+      "char": "そ",
+      "startMs": 217,
+      "endMs": 217
+    },
+    {
+      "char": "こ",
+      "startMs": 217,
+      "endMs": 417
+    },
+    {
+      "char": "ま",
+      "startMs": 417,
+      "endMs": 533
+    },
+    {
+      "char": "で",
+      "startMs": 533,
+      "endMs": 650
+    },
+    {
+      "char": "見",
+      "startMs": 650,
+      "endMs": 817
+    },
+    {
+      "char": "え",
+      "startMs": 817,
+      "endMs": 950
+    },
+    {
+      "char": "た",
+      "startMs": 950,
+      "endMs": 1050
+    },
+    {
+      "char": "な",
+      "startMs": 1050,
+      "endMs": 1161
+    },
+    {
+      "char": "ら",
+      "startMs": 1161,
+      "endMs": 1273
+    },
+    {
+      "char": "、",
+      "startMs": 1273,
+      "endMs": 1383
+    },
+    {
+      "char": "次",
+      "startMs": 1950,
+      "endMs": 2100
+    },
+    {
+      "char": "の",
+      "startMs": 2100,
+      "endMs": 2300
+    },
+    {
+      "char": "問",
+      "startMs": 2300,
+      "endMs": 2467
+    },
+    {
+      "char": "い",
+      "startMs": 2467,
+      "endMs": 2617
+    },
+    {
+      "char": "が",
+      "startMs": 2617,
+      "endMs": 2725
+    },
+    {
+      "char": "、",
+      "startMs": 2725,
+      "endMs": 2833
+    },
+    {
+      "char": "も",
+      "startMs": 3183,
+      "endMs": 3283
+    },
+    {
+      "char": "う",
+      "startMs": 3283,
+      "endMs": 3383
+    },
+    {
+      "char": "生",
+      "startMs": 3383,
+      "endMs": 3533
+    },
+    {
+      "char": "ま",
+      "startMs": 3533,
+      "endMs": 3650
+    },
+    {
+      "char": "れ",
+      "startMs": 3650,
+      "endMs": 3758
+    },
+    {
+      "char": "て",
+      "startMs": 3758,
+      "endMs": 3867
+    },
+    {
+      "char": "い",
+      "startMs": 3867,
+      "endMs": 3950
+    },
+    {
+      "char": "る",
+      "startMs": 3950,
+      "endMs": 4033
+    },
+    {
+      "char": "は",
+      "startMs": 4033,
+      "endMs": 4167
+    },
+    {
+      "char": "ず",
+      "startMs": 4167,
+      "endMs": 4283
+    },
+    {
+      "char": "だ",
+      "startMs": 4283,
+      "endMs": 4425
+    },
+    {
+      "char": "。",
+      "startMs": 4425,
+      "endMs": 4567
+    }
+  ]
+}

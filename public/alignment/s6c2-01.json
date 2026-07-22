@@ -1,0 +1,57 @@
+{
+  "lineId": "s6c2-01",
+  "text": "そうとは限らない。",
+  "displayText": "そうとは限らない。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 400,
+      "endMs": 400
+    },
+    {
+      "char": "そ",
+      "startMs": 400,
+      "endMs": 400
+    },
+    {
+      "char": "う",
+      "startMs": 400,
+      "endMs": 400
+    },
+    {
+      "char": "と",
+      "startMs": 400,
+      "endMs": 600
+    },
+    {
+      "char": "は",
+      "startMs": 600,
+      "endMs": 800
+    },
+    {
+      "char": "限",
+      "startMs": 833,
+      "endMs": 983
+    },
+    {
+      "char": "ら",
+      "startMs": 983,
+      "endMs": 1167
+    },
+    {
+      "char": "な",
+      "startMs": 1167,
+      "endMs": 1256
+    },
+    {
+      "char": "い",
+      "startMs": 1256,
+      "endMs": 1344
+    },
+    {
+      "char": "。",
+      "startMs": 1344,
+      "endMs": 1433
+    }
+  ]
+}

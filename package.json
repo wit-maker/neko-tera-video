@@ -1,0 +1,33 @@
+{
+  "name": "neko-tera-video",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "AIオーケストレーションによる猫寺会話劇ショート動画制作システム",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render Main out/master.mp4 --codec h264 --crf 16",
+    "validate": "tsx pipeline/validate.ts",
+    "select-voices": "tsx pipeline/select-voices.ts",
+    "tts": "tsx pipeline/tts.ts",
+    "mix": "tsx pipeline/mix.ts",
+    "encode": "tsx pipeline/encode.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "@remotion/google-fonts": "^4.0.0",
+    "dotenv": "^17.4.2",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "remotion": "^4.0.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "music-metadata": "^10.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

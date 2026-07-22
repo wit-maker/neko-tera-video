@@ -1,0 +1,167 @@
+{
+  "lineId": "s2c4-01",
+  "text": "別の猫にとっては、『工夫して、なるべく楽に成果を出すこと』だ。",
+  "displayText": "別の猫にとっては、\n『工夫して、なるべく楽に成果を出すこと』だ。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 233,
+      "endMs": 258
+    },
+    {
+      "char": "別",
+      "startMs": 258,
+      "endMs": 283
+    },
+    {
+      "char": "の",
+      "startMs": 283,
+      "endMs": 450
+    },
+    {
+      "char": "猫",
+      "startMs": 450,
+      "endMs": 700
+    },
+    {
+      "char": "に",
+      "startMs": 700,
+      "endMs": 833
+    },
+    {
+      "char": "と",
+      "startMs": 833,
+      "endMs": 983
+    },
+    {
+      "char": "っ",
+      "startMs": 983,
+      "endMs": 1075
+    },
+    {
+      "char": "て",
+      "startMs": 1075,
+      "endMs": 1167
+    },
+    {
+      "char": "は",
+      "startMs": 1167,
+      "endMs": 1300
+    },
+    {
+      "char": "、",
+      "startMs": 1300,
+      "endMs": 1433
+    },
+    {
+      "char": "『",
+      "startMs": 1700,
+      "endMs": 1933
+    },
+    {
+      "char": "工",
+      "startMs": 1967,
+      "endMs": 2067
+    },
+    {
+      "char": "夫",
+      "startMs": 2067,
+      "endMs": 2250
+    },
+    {
+      "char": "し",
+      "startMs": 2250,
+      "endMs": 2394
+    },
+    {
+      "char": "て",
+      "startMs": 2394,
+      "endMs": 2539
+    },
+    {
+      "char": "、",
+      "startMs": 2539,
+      "endMs": 2683
+    },
+    {
+      "char": "な",
+      "startMs": 3183,
+      "endMs": 3225
+    },
+    {
+      "char": "る",
+      "startMs": 3225,
+      "endMs": 3267
+    },
+    {
+      "char": "べ",
+      "startMs": 3267,
+      "endMs": 3417
+    },
+    {
+      "char": "く",
+      "startMs": 3417,
+      "endMs": 3583
+    },
+    {
+      "char": "楽",
+      "startMs": 3583,
+      "endMs": 3700
+    },
+    {
+      "char": "に",
+      "startMs": 3700,
+      "endMs": 3933
+    },
+    {
+      "char": "成",
+      "startMs": 3933,
+      "endMs": 4133
+    },
+    {
+      "char": "果",
+      "startMs": 4133,
+      "endMs": 4317
+    },
+    {
+      "char": "を",
+      "startMs": 4317,
+      "endMs": 4433
+    },
+    {
+      "char": "出",
+      "startMs": 4500,
+      "endMs": 4583
+    },
+    {
+      "char": "す",
+      "startMs": 4583,
+      "endMs": 4700
+    },
+    {
+      "char": "こ",
+      "startMs": 4817,
+      "endMs": 4858
+    },
+    {
+      "char": "と",
+      "startMs": 4858,
+      "endMs": 4900
+    },
+    {
+      "char": "』",
+      "startMs": 4900,
+      "endMs": 4900
+    },
+    {
+      "char": "だ",
+      "startMs": 4900,
+      "endMs": 4983
+    },
+    {
+      "char": "。",
+      "startMs": 4983,
+      "endMs": 5067
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "lineId": "s6c6-01",
+  "text": "器と、注ぐ中身と、眺め直す力。そろってはじめて、地図は立体になる。",
+  "displayText": "器と、注ぐ中身と、眺め直す力。\nそろってはじめて、地図は立体になる。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 150,
+      "endMs": 283
+    },
+    {
+      "char": "器",
+      "startMs": 283,
+      "endMs": 417
+    },
+    {
+      "char": "と",
+      "startMs": 417,
+      "endMs": 625
+    },
+    {
+      "char": "、",
+      "startMs": 625,
+      "endMs": 833
+    },
+    {
+      "char": "注",
+      "startMs": 1150,
+      "endMs": 1317
+    },
+    {
+      "char": "ぐ",
+      "startMs": 1333,
+      "endMs": 1583
+    },
+    {
+      "char": "中",
+      "startMs": 1583,
+      "endMs": 1767
+    },
+    {
+      "char": "身",
+      "startMs": 1767,
+      "endMs": 1967
+    },
+    {
+      "char": "と",
+      "startMs": 1967,
+      "endMs": 2125
+    },
+    {
+      "char": "、",
+      "startMs": 2125,
+      "endMs": 2283
+    },
+    {
+      "char": "眺",
+      "startMs": 2550,
+      "endMs": 2817
+    },
+    {
+      "char": "め",
+      "startMs": 2817,
+      "endMs": 2983
+    },
+    {
+      "char": "直",
+      "startMs": 2983,
+      "endMs": 3133
+    },
+    {
+      "char": "す",
+      "startMs": 3133,
+      "endMs": 3417
+    },
+    {
+      "char": "力",
+      "startMs": 3417,
+      "endMs": 3683
+    },
+    {
+      "char": "。",
+      "startMs": 3683,
+      "endMs": 3950
+    },
+    {
+      "char": "そ",
+      "startMs": 4750,
+      "endMs": 4867
+    },
+    {
+      "char": "ろ",
+      "startMs": 4867,
+      "endMs": 4950
+    },
+    {
+      "char": "っ",
+      "startMs": 4950,
+      "endMs": 5050
+    },
+    {
+      "char": "て",
+      "startMs": 5050,
+      "endMs": 5150
+    },
+    {
+      "char": "は",
+      "startMs": 5300,
+      "endMs": 5383
+    },
+    {
+      "char": "じ",
+      "startMs": 5383,
+      "endMs": 5450
+    },
+    {
+      "char": "め",
+      "startMs": 5450,
+      "endMs": 5583
+    },
+    {
+      "char": "て",
+      "startMs": 5583,
+      "endMs": 5717
+    },
+    {
+      "char": "、",
+      "startMs": 5717,
+      "endMs": 5850
+    },
+    {
+      "char": "地",
+      "startMs": 6217,
+      "endMs": 6300
+    },
+    {
+      "char": "図",
+      "startMs": 6300,
+      "endMs": 6483
+    },
+    {
+      "char": "は",
+      "startMs": 6483,
+      "endMs": 6633
+    },
+    {
+      "char": "立",
+      "startMs": 6633,
+      "endMs": 6800
+    },
+    {
+      "char": "体",
+      "startMs": 6800,
+      "endMs": 7083
+    },
+    {
+      "char": "に",
+      "startMs": 7083,
+      "endMs": 7217
+    },
+    {
+      "char": "な",
+      "startMs": 7217,
+      "endMs": 7350
+    },
+    {
+      "char": "る",
+      "startMs": 7350,
+      "endMs": 7508
+    },
+    {
+      "char": "。",
+      "startMs": 7508,
+      "endMs": 7667
+    }
+  ]
+}

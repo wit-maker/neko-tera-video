@@ -1,0 +1,222 @@
+{
+  "lineId": "s6c3-01",
+  "text": "考える力は、器の大きさだ。器がどれだけ大きくても、注ぐものがなければ、軸は増えない。",
+  "displayText": "考える力は、器の大きさだ。\n器がどれだけ大きくても、\n注ぐものがなければ、軸は増えない。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 133,
+      "endMs": 233
+    },
+    {
+      "char": "考",
+      "startMs": 233,
+      "endMs": 333
+    },
+    {
+      "char": "え",
+      "startMs": 333,
+      "endMs": 450
+    },
+    {
+      "char": "る",
+      "startMs": 450,
+      "endMs": 567
+    },
+    {
+      "char": "力",
+      "startMs": 683,
+      "endMs": 767
+    },
+    {
+      "char": "は",
+      "startMs": 767,
+      "endMs": 975
+    },
+    {
+      "char": "、",
+      "startMs": 975,
+      "endMs": 1183
+    },
+    {
+      "char": "器",
+      "startMs": 1433,
+      "endMs": 1717
+    },
+    {
+      "char": "の",
+      "startMs": 1717,
+      "endMs": 1967
+    },
+    {
+      "char": "大",
+      "startMs": 1967,
+      "endMs": 2217
+    },
+    {
+      "char": "き",
+      "startMs": 2217,
+      "endMs": 2367
+    },
+    {
+      "char": "さ",
+      "startMs": 2433,
+      "endMs": 2517
+    },
+    {
+      "char": "だ",
+      "startMs": 2517,
+      "endMs": 2633
+    },
+    {
+      "char": "。",
+      "startMs": 2633,
+      "endMs": 2750
+    },
+    {
+      "char": "器",
+      "startMs": 3567,
+      "endMs": 3850
+    },
+    {
+      "char": "が",
+      "startMs": 3850,
+      "endMs": 4067
+    },
+    {
+      "char": "ど",
+      "startMs": 4067,
+      "endMs": 4217
+    },
+    {
+      "char": "れ",
+      "startMs": 4217,
+      "endMs": 4350
+    },
+    {
+      "char": "だ",
+      "startMs": 4350,
+      "endMs": 4458
+    },
+    {
+      "char": "け",
+      "startMs": 4458,
+      "endMs": 4567
+    },
+    {
+      "char": "大",
+      "startMs": 4567,
+      "endMs": 4783
+    },
+    {
+      "char": "き",
+      "startMs": 4783,
+      "endMs": 4950
+    },
+    {
+      "char": "く",
+      "startMs": 4950,
+      "endMs": 5067
+    },
+    {
+      "char": "て",
+      "startMs": 5117,
+      "endMs": 5200
+    },
+    {
+      "char": "も",
+      "startMs": 5200,
+      "endMs": 5333
+    },
+    {
+      "char": "、",
+      "startMs": 5333,
+      "endMs": 5467
+    },
+    {
+      "char": "注",
+      "startMs": 5850,
+      "endMs": 5967
+    },
+    {
+      "char": "ぐ",
+      "startMs": 5967,
+      "endMs": 6167
+    },
+    {
+      "char": "も",
+      "startMs": 6167,
+      "endMs": 6250
+    },
+    {
+      "char": "の",
+      "startMs": 6250,
+      "endMs": 6333
+    },
+    {
+      "char": "が",
+      "startMs": 6333,
+      "endMs": 6517
+    },
+    {
+      "char": "な",
+      "startMs": 6517,
+      "endMs": 6633
+    },
+    {
+      "char": "け",
+      "startMs": 6633,
+      "endMs": 6733
+    },
+    {
+      "char": "れ",
+      "startMs": 6733,
+      "endMs": 6833
+    },
+    {
+      "char": "ば",
+      "startMs": 6833,
+      "endMs": 6975
+    },
+    {
+      "char": "、",
+      "startMs": 6975,
+      "endMs": 7117
+    },
+    {
+      "char": "軸",
+      "startMs": 7667,
+      "endMs": 7750
+    },
+    {
+      "char": "は",
+      "startMs": 7750,
+      "endMs": 7917
+    },
+    {
+      "char": "増",
+      "startMs": 7917,
+      "endMs": 8200
+    },
+    {
+      "char": "え",
+      "startMs": 8200,
+      "endMs": 8283
+    },
+    {
+      "char": "な",
+      "startMs": 8283,
+      "endMs": 8383
+    },
+    {
+      "char": "い",
+      "startMs": 8383,
+      "endMs": 8483
+    },
+    {
+      "char": "。",
+      "startMs": 8483,
+      "endMs": 8583
+    }
+  ]
+}

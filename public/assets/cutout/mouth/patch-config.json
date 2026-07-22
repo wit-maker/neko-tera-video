@@ -1,0 +1,95 @@
+{
+  "sensei": {
+    "mouthAnchor": [
+      762,
+      638
+    ],
+    "mouthCanvas": 260,
+    "blinkBox": [
+      466,
+      392,
+      948,
+      606
+    ],
+    "poses": {
+      "stand": {
+        "anchor": [
+          762,
+          638
+        ],
+        "scale": 1.0,
+        "imgW": 1280,
+        "imgH": 1920
+      },
+      "point": {
+        "anchor": [
+          742,
+          556
+        ],
+        "scale": 0.95,
+        "imgW": 1344,
+        "imgH": 1792
+      },
+      "tea": {
+        "anchor": [
+          570,
+          682
+        ],
+        "scale": 1.04,
+        "imgW": 1280,
+        "imgH": 1920
+      }
+    }
+  },
+  "mike": {
+    "mouthAnchor": [
+      925,
+      695
+    ],
+    "mouthCanvas": 260,
+    "blinkBox": [
+      635,
+      440,
+      1120,
+      705
+    ],
+    "poses": {
+      "stand": {
+        "anchor": [
+          925,
+          695
+        ],
+        "scale": 1.0,
+        "imgW": 1280,
+        "imgH": 1920
+      },
+      "point": {
+        "anchor": [
+          830,
+          620
+        ],
+        "scale": 1.15,
+        "imgW": 1280,
+        "imgH": 1920
+      },
+      "think": {
+        "anchor": [
+          840,
+          668
+        ],
+        "scale": 1.0,
+        "imgW": 1280,
+        "imgH": 1920
+      },
+      "tablet": {
+        "anchor": [
+          600,
+          818
+        ],
+        "scale": 1.2,
+        "imgW": 1280,
+        "imgH": 1920
+      }
+    }
+  }
+}

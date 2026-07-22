@@ -1,0 +1,152 @@
+{
+  "lineId": "s7c3-01",
+  "text": "辞書が違う。考える力が違う。そして、地図そのものが違う。",
+  "displayText": "辞書が違う。考える力が違う。\nそして、地図そのものが違う。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 150,
+      "endMs": 208
+    },
+    {
+      "char": "辞",
+      "startMs": 208,
+      "endMs": 267
+    },
+    {
+      "char": "書",
+      "startMs": 267,
+      "endMs": 450
+    },
+    {
+      "char": "が",
+      "startMs": 450,
+      "endMs": 600
+    },
+    {
+      "char": "違",
+      "startMs": 600,
+      "endMs": 753
+    },
+    {
+      "char": "う",
+      "startMs": 753,
+      "endMs": 906
+    },
+    {
+      "char": "。",
+      "startMs": 906,
+      "endMs": 1058
+    },
+    {
+      "char": "考",
+      "startMs": 1767,
+      "endMs": 1900
+    },
+    {
+      "char": "え",
+      "startMs": 1900,
+      "endMs": 2050
+    },
+    {
+      "char": "る",
+      "startMs": 2050,
+      "endMs": 2200
+    },
+    {
+      "char": "力",
+      "startMs": 2200,
+      "endMs": 2417
+    },
+    {
+      "char": "が",
+      "startMs": 2417,
+      "endMs": 2750
+    },
+    {
+      "char": "違",
+      "startMs": 2750,
+      "endMs": 2928
+    },
+    {
+      "char": "う",
+      "startMs": 2928,
+      "endMs": 3106
+    },
+    {
+      "char": "。",
+      "startMs": 3106,
+      "endMs": 3283
+    },
+    {
+      "char": "そ",
+      "startMs": 3767,
+      "endMs": 3867
+    },
+    {
+      "char": "し",
+      "startMs": 3867,
+      "endMs": 3967
+    },
+    {
+      "char": "て",
+      "startMs": 3967,
+      "endMs": 4067
+    },
+    {
+      "char": "、",
+      "startMs": 4067,
+      "endMs": 4167
+    },
+    {
+      "char": "地",
+      "startMs": 4533,
+      "endMs": 4550
+    },
+    {
+      "char": "図",
+      "startMs": 4550,
+      "endMs": 4750
+    },
+    {
+      "char": "そ",
+      "startMs": 4750,
+      "endMs": 4858
+    },
+    {
+      "char": "の",
+      "startMs": 4858,
+      "endMs": 4967
+    },
+    {
+      "char": "も",
+      "startMs": 4967,
+      "endMs": 5083
+    },
+    {
+      "char": "の",
+      "startMs": 5083,
+      "endMs": 5200
+    },
+    {
+      "char": "が",
+      "startMs": 5200,
+      "endMs": 5417
+    },
+    {
+      "char": "違",
+      "startMs": 5417,
+      "endMs": 5467
+    },
+    {
+      "char": "う",
+      "startMs": 5467,
+      "endMs": 5517
+    },
+    {
+      "char": "。",
+      "startMs": 5517,
+      "endMs": 5567
+    }
+  ]
+}

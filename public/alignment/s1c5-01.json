@@ -1,0 +1,122 @@
+{
+  "lineId": "s1c5-01",
+  "text": "どうして、こんなにも話が通じないんでしょう。",
+  "displayText": "どうして、こんなにも話が通じないんでしょう。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 217,
+      "endMs": 217
+    },
+    {
+      "char": "ど",
+      "startMs": 217,
+      "endMs": 217
+    },
+    {
+      "char": "う",
+      "startMs": 217,
+      "endMs": 333
+    },
+    {
+      "char": "し",
+      "startMs": 333,
+      "endMs": 428
+    },
+    {
+      "char": "て",
+      "startMs": 428,
+      "endMs": 523
+    },
+    {
+      "char": "、",
+      "startMs": 523,
+      "endMs": 617
+    },
+    {
+      "char": "こ",
+      "startMs": 800,
+      "endMs": 861
+    },
+    {
+      "char": "ん",
+      "startMs": 861,
+      "endMs": 923
+    },
+    {
+      "char": "な",
+      "startMs": 923,
+      "endMs": 983
+    },
+    {
+      "char": "に",
+      "startMs": 983,
+      "endMs": 1117
+    },
+    {
+      "char": "も",
+      "startMs": 1117,
+      "endMs": 1233
+    },
+    {
+      "char": "話",
+      "startMs": 1233,
+      "endMs": 1450
+    },
+    {
+      "char": "が",
+      "startMs": 1450,
+      "endMs": 1717
+    },
+    {
+      "char": "通",
+      "startMs": 1717,
+      "endMs": 1933
+    },
+    {
+      "char": "じ",
+      "startMs": 1933,
+      "endMs": 2100
+    },
+    {
+      "char": "な",
+      "startMs": 2100,
+      "endMs": 2208
+    },
+    {
+      "char": "い",
+      "startMs": 2208,
+      "endMs": 2317
+    },
+    {
+      "char": "ん",
+      "startMs": 2317,
+      "endMs": 2408
+    },
+    {
+      "char": "で",
+      "startMs": 2408,
+      "endMs": 2500
+    },
+    {
+      "char": "し",
+      "startMs": 2500,
+      "endMs": 2563
+    },
+    {
+      "char": "ょ",
+      "startMs": 2563,
+      "endMs": 2625
+    },
+    {
+      "char": "う",
+      "startMs": 2625,
+      "endMs": 2688
+    },
+    {
+      "char": "。",
+      "startMs": 2688,
+      "endMs": 2750
+    }
+  ]
+}

@@ -1,0 +1,297 @@
+{
+  "lineId": "s5c6-01",
+  "text": "相手の言葉は、自分の地図のどこにも載っていない。載っていない場所の話は、間違いに聞こえる。だから、議論はすれ違う。",
+  "displayText": "相手の言葉は、自分の地図のどこにも載っていない。\n載っていない場所の話は、間違いに聞こえる。\nだから、議論はすれ違う。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 250,
+      "endMs": 250
+    },
+    {
+      "char": "相",
+      "startMs": 250,
+      "endMs": 250
+    },
+    {
+      "char": "手",
+      "startMs": 250,
+      "endMs": 433
+    },
+    {
+      "char": "の",
+      "startMs": 433,
+      "endMs": 583
+    },
+    {
+      "char": "言",
+      "startMs": 617,
+      "endMs": 783
+    },
+    {
+      "char": "葉",
+      "startMs": 783,
+      "endMs": 983
+    },
+    {
+      "char": "は",
+      "startMs": 983,
+      "endMs": 1133
+    },
+    {
+      "char": "、",
+      "startMs": 1133,
+      "endMs": 1283
+    },
+    {
+      "char": "自",
+      "startMs": 1700,
+      "endMs": 1800
+    },
+    {
+      "char": "分",
+      "startMs": 1800,
+      "endMs": 2017
+    },
+    {
+      "char": "の",
+      "startMs": 2017,
+      "endMs": 2183
+    },
+    {
+      "char": "地",
+      "startMs": 2183,
+      "endMs": 2350
+    },
+    {
+      "char": "図",
+      "startMs": 2350,
+      "endMs": 2517
+    },
+    {
+      "char": "の",
+      "startMs": 2517,
+      "endMs": 2633
+    },
+    {
+      "char": "ど",
+      "startMs": 2633,
+      "endMs": 2817
+    },
+    {
+      "char": "こ",
+      "startMs": 2817,
+      "endMs": 2967
+    },
+    {
+      "char": "に",
+      "startMs": 2967,
+      "endMs": 3100
+    },
+    {
+      "char": "も",
+      "startMs": 3100,
+      "endMs": 3267
+    },
+    {
+      "char": "載",
+      "startMs": 3267,
+      "endMs": 3450
+    },
+    {
+      "char": "っ",
+      "startMs": 3533,
+      "endMs": 3575
+    },
+    {
+      "char": "て",
+      "startMs": 3575,
+      "endMs": 3617
+    },
+    {
+      "char": "い",
+      "startMs": 3617,
+      "endMs": 3750
+    },
+    {
+      "char": "な",
+      "startMs": 3750,
+      "endMs": 3873
+    },
+    {
+      "char": "い",
+      "startMs": 3873,
+      "endMs": 3994
+    },
+    {
+      "char": "。",
+      "startMs": 3994,
+      "endMs": 4117
+    },
+    {
+      "char": "載",
+      "startMs": 4833,
+      "endMs": 5067
+    },
+    {
+      "char": "っ",
+      "startMs": 5133,
+      "endMs": 5175
+    },
+    {
+      "char": "て",
+      "startMs": 5175,
+      "endMs": 5217
+    },
+    {
+      "char": "い",
+      "startMs": 5217,
+      "endMs": 5350
+    },
+    {
+      "char": "な",
+      "startMs": 5350,
+      "endMs": 5417
+    },
+    {
+      "char": "い",
+      "startMs": 5417,
+      "endMs": 5483
+    },
+    {
+      "char": "場",
+      "startMs": 5483,
+      "endMs": 5650
+    },
+    {
+      "char": "所",
+      "startMs": 5650,
+      "endMs": 5783
+    },
+    {
+      "char": "の",
+      "startMs": 5783,
+      "endMs": 5900
+    },
+    {
+      "char": "話",
+      "startMs": 5900,
+      "endMs": 6133
+    },
+    {
+      "char": "は",
+      "startMs": 6133,
+      "endMs": 6358
+    },
+    {
+      "char": "、",
+      "startMs": 6358,
+      "endMs": 6583
+    },
+    {
+      "char": "間",
+      "startMs": 6867,
+      "endMs": 7083
+    },
+    {
+      "char": "違",
+      "startMs": 7150,
+      "endMs": 7267
+    },
+    {
+      "char": "い",
+      "startMs": 7267,
+      "endMs": 7450
+    },
+    {
+      "char": "に",
+      "startMs": 7450,
+      "endMs": 7583
+    },
+    {
+      "char": "聞",
+      "startMs": 7583,
+      "endMs": 7717
+    },
+    {
+      "char": "こ",
+      "startMs": 7800,
+      "endMs": 7900
+    },
+    {
+      "char": "え",
+      "startMs": 7900,
+      "endMs": 8011
+    },
+    {
+      "char": "る",
+      "startMs": 8011,
+      "endMs": 8123
+    },
+    {
+      "char": "。",
+      "startMs": 8123,
+      "endMs": 8233
+    },
+    {
+      "char": "だ",
+      "startMs": 9125,
+      "endMs": 9239
+    },
+    {
+      "char": "か",
+      "startMs": 9239,
+      "endMs": 9354
+    },
+    {
+      "char": "ら",
+      "startMs": 9354,
+      "endMs": 9468
+    },
+    {
+      "char": "、",
+      "startMs": 9468,
+      "endMs": 9583
+    },
+    {
+      "char": "議",
+      "startMs": 9933,
+      "endMs": 10000
+    },
+    {
+      "char": "論",
+      "startMs": 10000,
+      "endMs": 10183
+    },
+    {
+      "char": "は",
+      "startMs": 10183,
+      "endMs": 10383
+    },
+    {
+      "char": "す",
+      "startMs": 10417,
+      "endMs": 10500
+    },
+    {
+      "char": "れ",
+      "startMs": 10500,
+      "endMs": 10633
+    },
+    {
+      "char": "違",
+      "startMs": 10633,
+      "endMs": 10773
+    },
+    {
+      "char": "う",
+      "startMs": 10773,
+      "endMs": 10911
+    },
+    {
+      "char": "。",
+      "startMs": 10911,
+      "endMs": 11050
+    }
+  ]
+}

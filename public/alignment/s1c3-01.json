@@ -1,0 +1,77 @@
+{
+  "lineId": "s1c3-01",
+  "text": "それで、決着はついたかい。",
+  "displayText": "それで、決着はついたかい。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 267,
+      "endMs": 273
+    },
+    {
+      "char": "そ",
+      "startMs": 273,
+      "endMs": 278
+    },
+    {
+      "char": "れ",
+      "startMs": 278,
+      "endMs": 283
+    },
+    {
+      "char": "で",
+      "startMs": 283,
+      "endMs": 433
+    },
+    {
+      "char": "、",
+      "startMs": 433,
+      "endMs": 583
+    },
+    {
+      "char": "決",
+      "startMs": 900,
+      "endMs": 1000
+    },
+    {
+      "char": "着",
+      "startMs": 1000,
+      "endMs": 1217
+    },
+    {
+      "char": "は",
+      "startMs": 1217,
+      "endMs": 1450
+    },
+    {
+      "char": "つ",
+      "startMs": 1450,
+      "endMs": 1533
+    },
+    {
+      "char": "い",
+      "startMs": 1533,
+      "endMs": 1633
+    },
+    {
+      "char": "た",
+      "startMs": 1633,
+      "endMs": 1733
+    },
+    {
+      "char": "か",
+      "startMs": 1733,
+      "endMs": 1917
+    },
+    {
+      "char": "い",
+      "startMs": 1917,
+      "endMs": 2025
+    },
+    {
+      "char": "。",
+      "startMs": 2025,
+      "endMs": 2133
+    }
+  ]
+}

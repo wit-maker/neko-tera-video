@@ -1,0 +1,157 @@
+{
+  "lineId": "s4c1-01",
+  "text": "三つ目は、世界の見方だ。わたしは、世界モデルと呼んでいる。",
+  "displayText": "三つ目は、世界の見方だ。\nわたしは、世界モデルと呼んでいる。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 33,
+      "endMs": 142
+    },
+    {
+      "char": "三",
+      "startMs": 142,
+      "endMs": 250
+    },
+    {
+      "char": "つ",
+      "startMs": 417,
+      "endMs": 500
+    },
+    {
+      "char": "目",
+      "startMs": 500,
+      "endMs": 633
+    },
+    {
+      "char": "は",
+      "startMs": 633,
+      "endMs": 758
+    },
+    {
+      "char": "、",
+      "startMs": 758,
+      "endMs": 883
+    },
+    {
+      "char": "世",
+      "startMs": 1450,
+      "endMs": 1608
+    },
+    {
+      "char": "界",
+      "startMs": 1608,
+      "endMs": 1767
+    },
+    {
+      "char": "の",
+      "startMs": 1767,
+      "endMs": 1983
+    },
+    {
+      "char": "見",
+      "startMs": 1983,
+      "endMs": 2167
+    },
+    {
+      "char": "方",
+      "startMs": 2167,
+      "endMs": 2400
+    },
+    {
+      "char": "だ",
+      "startMs": 2400,
+      "endMs": 2617
+    },
+    {
+      "char": "。",
+      "startMs": 2617,
+      "endMs": 2833
+    },
+    {
+      "char": "わ",
+      "startMs": 3950,
+      "endMs": 4050
+    },
+    {
+      "char": "た",
+      "startMs": 4050,
+      "endMs": 4217
+    },
+    {
+      "char": "し",
+      "startMs": 4217,
+      "endMs": 4417
+    },
+    {
+      "char": "は",
+      "startMs": 4417,
+      "endMs": 4558
+    },
+    {
+      "char": "、",
+      "startMs": 4558,
+      "endMs": 4700
+    },
+    {
+      "char": "世",
+      "startMs": 5133,
+      "endMs": 5250
+    },
+    {
+      "char": "界",
+      "startMs": 5250,
+      "endMs": 5367
+    },
+    {
+      "char": "モ",
+      "startMs": 5367,
+      "endMs": 5633
+    },
+    {
+      "char": "デ",
+      "startMs": 5633,
+      "endMs": 5750
+    },
+    {
+      "char": "ル",
+      "startMs": 5750,
+      "endMs": 5867
+    },
+    {
+      "char": "と",
+      "startMs": 5867,
+      "endMs": 6017
+    },
+    {
+      "char": "呼",
+      "startMs": 6017,
+      "endMs": 6183
+    },
+    {
+      "char": "ん",
+      "startMs": 6183,
+      "endMs": 6308
+    },
+    {
+      "char": "で",
+      "startMs": 6308,
+      "endMs": 6433
+    },
+    {
+      "char": "い",
+      "startMs": 6433,
+      "endMs": 6589
+    },
+    {
+      "char": "る",
+      "startMs": 6589,
+      "endMs": 6744
+    },
+    {
+      "char": "。",
+      "startMs": 6744,
+      "endMs": 6900
+    }
+  ]
+}

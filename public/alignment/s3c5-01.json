@@ -1,0 +1,202 @@
+{
+  "lineId": "s3c5-01",
+  "text": "十の前提を一度に積み上げられる猫もいれば、一段ずつ確かめながら登る猫もいる。",
+  "displayText": "十の前提を一度に積み上げられる猫もいれば、\n一段ずつ確かめながら登る猫もいる。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 217,
+      "endMs": 217
+    },
+    {
+      "char": "十",
+      "startMs": 217,
+      "endMs": 217
+    },
+    {
+      "char": "の",
+      "startMs": 217,
+      "endMs": 483
+    },
+    {
+      "char": "前",
+      "startMs": 483,
+      "endMs": 683
+    },
+    {
+      "char": "提",
+      "startMs": 683,
+      "endMs": 900
+    },
+    {
+      "char": "を",
+      "startMs": 900,
+      "endMs": 1117
+    },
+    {
+      "char": "一",
+      "startMs": 1233,
+      "endMs": 1317
+    },
+    {
+      "char": "度",
+      "startMs": 1317,
+      "endMs": 1467
+    },
+    {
+      "char": "に",
+      "startMs": 1467,
+      "endMs": 1583
+    },
+    {
+      "char": "積",
+      "startMs": 1583,
+      "endMs": 1833
+    },
+    {
+      "char": "み",
+      "startMs": 1833,
+      "endMs": 1900
+    },
+    {
+      "char": "上",
+      "startMs": 1900,
+      "endMs": 2017
+    },
+    {
+      "char": "げ",
+      "startMs": 2017,
+      "endMs": 2133
+    },
+    {
+      "char": "ら",
+      "startMs": 2133,
+      "endMs": 2217
+    },
+    {
+      "char": "れ",
+      "startMs": 2217,
+      "endMs": 2325
+    },
+    {
+      "char": "る",
+      "startMs": 2325,
+      "endMs": 2433
+    },
+    {
+      "char": "猫",
+      "startMs": 2433,
+      "endMs": 2717
+    },
+    {
+      "char": "も",
+      "startMs": 2717,
+      "endMs": 2850
+    },
+    {
+      "char": "い",
+      "startMs": 2917,
+      "endMs": 3000
+    },
+    {
+      "char": "れ",
+      "startMs": 3000,
+      "endMs": 3067
+    },
+    {
+      "char": "ば",
+      "startMs": 3067,
+      "endMs": 3200
+    },
+    {
+      "char": "、",
+      "startMs": 3200,
+      "endMs": 3333
+    },
+    {
+      "char": "一",
+      "startMs": 3767,
+      "endMs": 3967
+    },
+    {
+      "char": "段",
+      "startMs": 3967,
+      "endMs": 4183
+    },
+    {
+      "char": "ず",
+      "startMs": 4183,
+      "endMs": 4333
+    },
+    {
+      "char": "つ",
+      "startMs": 4333,
+      "endMs": 4483
+    },
+    {
+      "char": "確",
+      "startMs": 4583,
+      "endMs": 4667
+    },
+    {
+      "char": "か",
+      "startMs": 4667,
+      "endMs": 4867
+    },
+    {
+      "char": "め",
+      "startMs": 4867,
+      "endMs": 4967
+    },
+    {
+      "char": "な",
+      "startMs": 4967,
+      "endMs": 5083
+    },
+    {
+      "char": "が",
+      "startMs": 5083,
+      "endMs": 5183
+    },
+    {
+      "char": "ら",
+      "startMs": 5183,
+      "endMs": 5300
+    },
+    {
+      "char": "登",
+      "startMs": 5300,
+      "endMs": 5517
+    },
+    {
+      "char": "る",
+      "startMs": 5517,
+      "endMs": 5683
+    },
+    {
+      "char": "猫",
+      "startMs": 5683,
+      "endMs": 5967
+    },
+    {
+      "char": "も",
+      "startMs": 5967,
+      "endMs": 6117
+    },
+    {
+      "char": "い",
+      "startMs": 6117,
+      "endMs": 6183
+    },
+    {
+      "char": "る",
+      "startMs": 6183,
+      "endMs": 6250
+    },
+    {
+      "char": "。",
+      "startMs": 6250,
+      "endMs": 6317
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "lineId": "s4c6-01",
+  "text": "平面の地図の猫と、立体の地図の猫が、同じ景色の話をしている……。",
+  "displayText": "平面の地図の猫と、立体の地図の猫が、\n同じ景色の話をしている……。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 167,
+      "endMs": 183
+    },
+    {
+      "char": "平",
+      "startMs": 183,
+      "endMs": 200
+    },
+    {
+      "char": "面",
+      "startMs": 200,
+      "endMs": 450
+    },
+    {
+      "char": "の",
+      "startMs": 450,
+      "endMs": 583
+    },
+    {
+      "char": "地",
+      "startMs": 583,
+      "endMs": 767
+    },
+    {
+      "char": "図",
+      "startMs": 767,
+      "endMs": 917
+    },
+    {
+      "char": "の",
+      "startMs": 917,
+      "endMs": 1033
+    },
+    {
+      "char": "猫",
+      "startMs": 1033,
+      "endMs": 1300
+    },
+    {
+      "char": "と",
+      "startMs": 1300,
+      "endMs": 1442
+    },
+    {
+      "char": "、",
+      "startMs": 1442,
+      "endMs": 1583
+    },
+    {
+      "char": "立",
+      "startMs": 1850,
+      "endMs": 1983
+    },
+    {
+      "char": "体",
+      "startMs": 1983,
+      "endMs": 2200
+    },
+    {
+      "char": "の",
+      "startMs": 2200,
+      "endMs": 2350
+    },
+    {
+      "char": "地",
+      "startMs": 2350,
+      "endMs": 2500
+    },
+    {
+      "char": "図",
+      "startMs": 2500,
+      "endMs": 2650
+    },
+    {
+      "char": "の",
+      "startMs": 2650,
+      "endMs": 2767
+    },
+    {
+      "char": "猫",
+      "startMs": 2767,
+      "endMs": 3033
+    },
+    {
+      "char": "が",
+      "startMs": 3033,
+      "endMs": 3158
+    },
+    {
+      "char": "、",
+      "startMs": 3158,
+      "endMs": 3283
+    },
+    {
+      "char": "同",
+      "startMs": 3717,
+      "endMs": 3750
+    },
+    {
+      "char": "じ",
+      "startMs": 3750,
+      "endMs": 3950
+    },
+    {
+      "char": "景",
+      "startMs": 3950,
+      "endMs": 4133
+    },
+    {
+      "char": "色",
+      "startMs": 4133,
+      "endMs": 4333
+    },
+    {
+      "char": "の",
+      "startMs": 4333,
+      "endMs": 4483
+    },
+    {
+      "char": "話",
+      "startMs": 4483,
+      "endMs": 4733
+    },
+    {
+      "char": "を",
+      "startMs": 4733,
+      "endMs": 5050
+    },
+    {
+      "char": "し",
+      "startMs": 5050,
+      "endMs": 5175
+    },
+    {
+      "char": "て",
+      "startMs": 5175,
+      "endMs": 5300
+    },
+    {
+      "char": "い",
+      "startMs": 5300,
+      "endMs": 5433
+    },
+    {
+      "char": "る",
+      "startMs": 5433,
+      "endMs": 5567
+    },
+    {
+      "char": "…",
+      "startMs": 5567,
+      "endMs": 5611
+    },
+    {
+      "char": "…",
+      "startMs": 5611,
+      "endMs": 5656
+    },
+    {
+      "char": "。",
+      "startMs": 5656,
+      "endMs": 5700
+    }
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "lineId": "s3c4-01",
+  "text": "……さっきの言い争い、これでした。片方は三つ前の発言を覚えたまま話していて、もう片方は、目の前の一言に返事をしていました。",
+  "displayText": "……さっきの言い争い、これでした。\n片方は三つ前の発言を覚えたまま話していて、\nもう片方は、目の前の一言に返事をしていました。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 250,
+      "endMs": 250
+    },
+    {
+      "char": "…",
+      "startMs": 250,
+      "endMs": 250
+    },
+    {
+      "char": "…",
+      "startMs": 250,
+      "endMs": 250
+    },
+    {
+      "char": "さ",
+      "startMs": 250,
+      "endMs": 250
+    },
+    {
+      "char": "っ",
+      "startMs": 250,
+      "endMs": 350
+    },
+    {
+      "char": "き",
+      "startMs": 350,
+      "endMs": 433
+    },
+    {
+      "char": "の",
+      "startMs": 433,
+      "endMs": 550
+    },
+    {
+      "char": "言",
+      "startMs": 550,
+      "endMs": 650
+    },
+    {
+      "char": "い",
+      "startMs": 650,
+      "endMs": 733
+    },
+    {
+      "char": "争",
+      "startMs": 733,
+      "endMs": 967
+    },
+    {
+      "char": "い",
+      "startMs": 967,
+      "endMs": 1067
+    },
+    {
+      "char": "、",
+      "startMs": 1067,
+      "endMs": 1167
+    },
+    {
+      "char": "こ",
+      "startMs": 1400,
+      "endMs": 1475
+    },
+    {
+      "char": "れ",
+      "startMs": 1475,
+      "endMs": 1550
+    },
+    {
+      "char": "で",
+      "startMs": 1550,
+      "endMs": 1613
+    },
+    {
+      "char": "し",
+      "startMs": 1613,
+      "endMs": 1675
+    },
+    {
+      "char": "た",
+      "startMs": 1675,
+      "endMs": 1738
+    },
+    {
+      "char": "。",
+      "startMs": 1738,
+      "endMs": 1800
+    },
+    {
+      "char": "片",
+      "startMs": 2433,
+      "endMs": 2567
+    },
+    {
+      "char": "方",
+      "startMs": 2567,
+      "endMs": 2750
+    },
+    {
+      "char": "は",
+      "startMs": 2750,
+      "endMs": 2883
+    },
+    {
+      "char": "三",
+      "startMs": 2883,
+      "endMs": 3017
+    },
+    {
+      "char": "つ",
+      "startMs": 3017,
+      "endMs": 3167
+    },
+    {
+      "char": "前",
+      "startMs": 3167,
+      "endMs": 3317
+    },
+    {
+      "char": "の",
+      "startMs": 3317,
+      "endMs": 3433
+    },
+    {
+      "char": "発",
+      "startMs": 3433,
+      "endMs": 3583
+    },
+    {
+      "char": "言",
+      "startMs": 3617,
+      "endMs": 3800
+    },
+    {
+      "char": "を",
+      "startMs": 3800,
+      "endMs": 3950
+    },
+    {
+      "char": "覚",
+      "startMs": 3950,
+      "endMs": 4167
+    },
+    {
+      "char": "え",
+      "startMs": 4167,
+      "endMs": 4233
+    },
+    {
+      "char": "た",
+      "startMs": 4233,
+      "endMs": 4317
+    },
+    {
+      "char": "ま",
+      "startMs": 4317,
+      "endMs": 4417
+    },
+    {
+      "char": "ま",
+      "startMs": 4417,
+      "endMs": 4533
+    },
+    {
+      "char": "話",
+      "startMs": 4533,
+      "endMs": 4700
+    },
+    {
+      "char": "し",
+      "startMs": 4700,
+      "endMs": 4808
+    },
+    {
+      "char": "て",
+      "startMs": 4808,
+      "endMs": 4917
+    },
+    {
+      "char": "い",
+      "startMs": 4917,
+      "endMs": 5011
+    },
+    {
+      "char": "て",
+      "startMs": 5011,
+      "endMs": 5106
+    },
+    {
+      "char": "、",
+      "startMs": 5106,
+      "endMs": 5200
+    },
+    {
+      "char": "も",
+      "startMs": 5533,
+      "endMs": 5625
+    },
+    {
+      "char": "う",
+      "startMs": 5625,
+      "endMs": 5717
+    },
+    {
+      "char": "片",
+      "startMs": 5717,
+      "endMs": 5900
+    },
+    {
+      "char": "方",
+      "startMs": 5900,
+      "endMs": 6067
+    },
+    {
+      "char": "は",
+      "startMs": 6067,
+      "endMs": 6175
+    },
+    {
+      "char": "、",
+      "startMs": 6175,
+      "endMs": 6283
+    },
+    {
+      "char": "目",
+      "startMs": 6500,
+      "endMs": 6550
+    },
+    {
+      "char": "の",
+      "startMs": 6550,
+      "endMs": 6633
+    },
+    {
+      "char": "前",
+      "startMs": 6633,
+      "endMs": 6800
+    },
+    {
+      "char": "の",
+      "startMs": 6800,
+      "endMs": 6917
+    },
+    {
+      "char": "一",
+      "startMs": 6917,
+      "endMs": 7050
+    },
+    {
+      "char": "言",
+      "startMs": 7050,
+      "endMs": 7233
+    },
+    {
+      "char": "に",
+      "startMs": 7233,
+      "endMs": 7400
+    },
+    {
+      "char": "返",
+      "startMs": 7400,
+      "endMs": 7567
+    },
+    {
+      "char": "事",
+      "startMs": 7567,
+      "endMs": 7700
+    },
+    {
+      "char": "を",
+      "startMs": 7700,
+      "endMs": 7783
+    },
+    {
+      "char": "し",
+      "startMs": 7783,
+      "endMs": 7867
+    },
+    {
+      "char": "て",
+      "startMs": 7867,
+      "endMs": 7950
+    },
+    {
+      "char": "い",
+      "startMs": 7950,
+      "endMs": 7993
+    },
+    {
+      "char": "ま",
+      "startMs": 7993,
+      "endMs": 8037
+    },
+    {
+      "char": "し",
+      "startMs": 8037,
+      "endMs": 8080
+    },
+    {
+      "char": "た",
+      "startMs": 8080,
+      "endMs": 8123
+    },
+    {
+      "char": "。",
+      "startMs": 8123,
+      "endMs": 8167
+    }
+  ]
+}

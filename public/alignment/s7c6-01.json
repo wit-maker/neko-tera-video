@@ -1,0 +1,182 @@
+{
+  "lineId": "s7c6-01",
+  "text": "いい問いだ。それは、地図だけでは説明できない。次は、心の話をしよう。",
+  "displayText": "いい問いだ。それは、地図だけでは説明できない。\n次は、心の話をしよう。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 333,
+      "endMs": 361
+    },
+    {
+      "char": "い",
+      "startMs": 361,
+      "endMs": 389
+    },
+    {
+      "char": "い",
+      "startMs": 389,
+      "endMs": 417
+    },
+    {
+      "char": "問",
+      "startMs": 433,
+      "endMs": 550
+    },
+    {
+      "char": "い",
+      "startMs": 550,
+      "endMs": 733
+    },
+    {
+      "char": "だ",
+      "startMs": 733,
+      "endMs": 875
+    },
+    {
+      "char": "。",
+      "startMs": 875,
+      "endMs": 1017
+    },
+    {
+      "char": "そ",
+      "startMs": 1767,
+      "endMs": 1913
+    },
+    {
+      "char": "れ",
+      "startMs": 1913,
+      "endMs": 2058
+    },
+    {
+      "char": "は",
+      "startMs": 2058,
+      "endMs": 2204
+    },
+    {
+      "char": "、",
+      "startMs": 2204,
+      "endMs": 2350
+    },
+    {
+      "char": "地",
+      "startMs": 2767,
+      "endMs": 2850
+    },
+    {
+      "char": "図",
+      "startMs": 2850,
+      "endMs": 3017
+    },
+    {
+      "char": "だ",
+      "startMs": 3017,
+      "endMs": 3133
+    },
+    {
+      "char": "け",
+      "startMs": 3133,
+      "endMs": 3250
+    },
+    {
+      "char": "で",
+      "startMs": 3250,
+      "endMs": 3375
+    },
+    {
+      "char": "は",
+      "startMs": 3375,
+      "endMs": 3500
+    },
+    {
+      "char": "説",
+      "startMs": 3733,
+      "endMs": 3817
+    },
+    {
+      "char": "明",
+      "startMs": 3817,
+      "endMs": 4000
+    },
+    {
+      "char": "で",
+      "startMs": 4000,
+      "endMs": 4117
+    },
+    {
+      "char": "き",
+      "startMs": 4117,
+      "endMs": 4233
+    },
+    {
+      "char": "な",
+      "startMs": 4233,
+      "endMs": 4378
+    },
+    {
+      "char": "い",
+      "startMs": 4378,
+      "endMs": 4523
+    },
+    {
+      "char": "。",
+      "startMs": 4523,
+      "endMs": 4667
+    },
+    {
+      "char": "次",
+      "startMs": 5600,
+      "endMs": 5733
+    },
+    {
+      "char": "は",
+      "startMs": 5733,
+      "endMs": 5950
+    },
+    {
+      "char": "、",
+      "startMs": 5950,
+      "endMs": 6167
+    },
+    {
+      "char": "心",
+      "startMs": 6800,
+      "endMs": 6833
+    },
+    {
+      "char": "の",
+      "startMs": 6833,
+      "endMs": 7050
+    },
+    {
+      "char": "話",
+      "startMs": 7050,
+      "endMs": 7283
+    },
+    {
+      "char": "を",
+      "startMs": 7283,
+      "endMs": 7600
+    },
+    {
+      "char": "し",
+      "startMs": 7650,
+      "endMs": 7733
+    },
+    {
+      "char": "よ",
+      "startMs": 7733,
+      "endMs": 7861
+    },
+    {
+      "char": "う",
+      "startMs": 7861,
+      "endMs": 7989
+    },
+    {
+      "char": "。",
+      "startMs": 7989,
+      "endMs": 8117
+    }
+  ]
+}

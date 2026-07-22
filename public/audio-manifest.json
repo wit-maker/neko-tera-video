@@ -1,0 +1,227 @@
+[
+  {
+    "lineId": "s1c2-01",
+    "file": "audio/s1c2-01.mp3",
+    "durationMs": 6728
+  },
+  {
+    "lineId": "s1c3-01",
+    "file": "audio/s1c3-01.mp3",
+    "durationMs": 2276
+  },
+  {
+    "lineId": "s1c3-02",
+    "file": "audio/s1c3-02.mp3",
+    "durationMs": 3631
+  },
+  {
+    "lineId": "s1c4-01",
+    "file": "audio/s1c4-01.mp3",
+    "durationMs": 5087
+  },
+  {
+    "lineId": "s1c5-01",
+    "file": "audio/s1c5-01.mp3",
+    "durationMs": 3151
+  },
+  {
+    "lineId": "s1c6-01",
+    "file": "audio/s1c6-01.mp3",
+    "durationMs": 5673
+  },
+  {
+    "lineId": "s1c6-02",
+    "file": "audio/s1c6-02.mp3",
+    "durationMs": 3985
+  },
+  {
+    "lineId": "s2c1-01",
+    "file": "audio/s2c1-01.mp3",
+    "durationMs": 4824
+  },
+  {
+    "lineId": "s2c2-01",
+    "file": "audio/s2c2-01.mp3",
+    "durationMs": 1802
+  },
+  {
+    "lineId": "s2c3-01",
+    "file": "audio/s2c3-01.mp3",
+    "durationMs": 5382
+  },
+  {
+    "lineId": "s2c4-01",
+    "file": "audio/s2c4-01.mp3",
+    "durationMs": 5125
+  },
+  {
+    "lineId": "s2c5-01",
+    "file": "audio/s2c5-01.mp3",
+    "durationMs": 4707
+  },
+  {
+    "lineId": "s2c5-02",
+    "file": "audio/s2c5-02.mp3",
+    "durationMs": 6105
+  },
+  {
+    "lineId": "s2c6-01",
+    "file": "audio/s2c6-01.mp3",
+    "durationMs": 9472
+  },
+  {
+    "lineId": "s3c1-01",
+    "file": "audio/s3c1-01.mp3",
+    "durationMs": 2903
+  },
+  {
+    "lineId": "s3c2-01",
+    "file": "audio/s3c2-01.mp3",
+    "durationMs": 1499
+  },
+  {
+    "lineId": "s3c2-02",
+    "file": "audio/s3c2-02.mp3",
+    "durationMs": 2644
+  },
+  {
+    "lineId": "s3c3-01",
+    "file": "audio/s3c3-01.mp3",
+    "durationMs": 8990
+  },
+  {
+    "lineId": "s3c4-01",
+    "file": "audio/s3c4-01.mp3",
+    "durationMs": 8552
+  },
+  {
+    "lineId": "s3c5-01",
+    "file": "audio/s3c5-01.mp3",
+    "durationMs": 6588
+  },
+  {
+    "lineId": "s3c6-01",
+    "file": "audio/s3c6-01.mp3",
+    "durationMs": 6646
+  },
+  {
+    "lineId": "s4c1-01",
+    "file": "audio/s4c1-01.mp3",
+    "durationMs": 6995
+  },
+  {
+    "lineId": "s4c2-01",
+    "file": "audio/s4c2-01.mp3",
+    "durationMs": 1816
+  },
+  {
+    "lineId": "s4c3-01",
+    "file": "audio/s4c3-01.mp3",
+    "durationMs": 10309
+  },
+  {
+    "lineId": "s4c4-01",
+    "file": "audio/s4c4-01.mp3",
+    "durationMs": 3719
+  },
+  {
+    "lineId": "s4c5-01",
+    "file": "audio/s4c5-01.mp3",
+    "durationMs": 3677
+  },
+  {
+    "lineId": "s4c6-01",
+    "file": "audio/s4c6-01.mp3",
+    "durationMs": 5860
+  },
+  {
+    "lineId": "s5c1-01",
+    "file": "audio/s5c1-01.mp3",
+    "durationMs": 2923
+  },
+  {
+    "lineId": "s5c2-01",
+    "file": "audio/s5c2-01.mp3",
+    "durationMs": 2117
+  },
+  {
+    "lineId": "s5c3-01",
+    "file": "audio/s5c3-01.mp3",
+    "durationMs": 2615
+  },
+  {
+    "lineId": "s5c4-01",
+    "file": "audio/s5c4-01.mp3",
+    "durationMs": 11177
+  },
+  {
+    "lineId": "s5c5-01",
+    "file": "audio/s5c5-01.mp3",
+    "durationMs": 4092
+  },
+  {
+    "lineId": "s5c6-01",
+    "file": "audio/s5c6-01.mp3",
+    "durationMs": 11269
+  },
+  {
+    "lineId": "s6c1-01",
+    "file": "audio/s6c1-01.mp3",
+    "durationMs": 4162
+  },
+  {
+    "lineId": "s6c2-01",
+    "file": "audio/s6c2-01.mp3",
+    "durationMs": 1626
+  },
+  {
+    "lineId": "s6c3-01",
+    "file": "audio/s6c3-01.mp3",
+    "durationMs": 8641
+  },
+  {
+    "lineId": "s6c4-01",
+    "file": "audio/s6c4-01.mp3",
+    "durationMs": 1892
+  },
+  {
+    "lineId": "s6c4-02",
+    "file": "audio/s6c4-02.mp3",
+    "durationMs": 7707
+  },
+  {
+    "lineId": "s6c5-01",
+    "file": "audio/s6c5-01.mp3",
+    "durationMs": 5342
+  },
+  {
+    "lineId": "s6c6-01",
+    "file": "audio/s6c6-01.mp3",
+    "durationMs": 7757
+  },
+  {
+    "lineId": "s7c2-01",
+    "file": "audio/s7c2-01.mp3",
+    "durationMs": 3011
+  },
+  {
+    "lineId": "s7c3-01",
+    "file": "audio/s7c3-01.mp3",
+    "durationMs": 6134
+  },
+  {
+    "lineId": "s7c4-01",
+    "file": "audio/s7c4-01.mp3",
+    "durationMs": 4661
+  },
+  {
+    "lineId": "s7c5-01",
+    "file": "audio/s7c5-01.mp3",
+    "durationMs": 4730
+  },
+  {
+    "lineId": "s7c6-01",
+    "file": "audio/s7c6-01.mp3",
+    "durationMs": 8214
+  }
+]

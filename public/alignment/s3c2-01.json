@@ -1,0 +1,62 @@
+{
+  "lineId": "s3c2-01",
+  "text": "アイキュー、ですか。",
+  "displayText": "IQ、ですか。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 200,
+      "endMs": 200
+    },
+    {
+      "char": "ア",
+      "startMs": 200,
+      "endMs": 200
+    },
+    {
+      "char": "イ",
+      "startMs": 200,
+      "endMs": 317
+    },
+    {
+      "char": "キ",
+      "startMs": 383,
+      "endMs": 467
+    },
+    {
+      "char": "ュ",
+      "startMs": 467,
+      "endMs": 533
+    },
+    {
+      "char": "ー",
+      "startMs": 533,
+      "endMs": 683
+    },
+    {
+      "char": "、",
+      "startMs": 683,
+      "endMs": 833
+    },
+    {
+      "char": "で",
+      "startMs": 833,
+      "endMs": 907
+    },
+    {
+      "char": "す",
+      "startMs": 907,
+      "endMs": 979
+    },
+    {
+      "char": "か",
+      "startMs": 979,
+      "endMs": 1053
+    },
+    {
+      "char": "。",
+      "startMs": 1053,
+      "endMs": 1125
+    }
+  ]
+}

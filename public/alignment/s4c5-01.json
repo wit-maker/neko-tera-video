@@ -1,0 +1,112 @@
+{
+  "lineId": "s4c5-01",
+  "text": "何本もの軸で描かれた、立体の地図もある。",
+  "displayText": "何本もの軸で描かれた、立体の地図もある。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 250,
+      "endMs": 275
+    },
+    {
+      "char": "何",
+      "startMs": 275,
+      "endMs": 300
+    },
+    {
+      "char": "本",
+      "startMs": 300,
+      "endMs": 500
+    },
+    {
+      "char": "も",
+      "startMs": 500,
+      "endMs": 617
+    },
+    {
+      "char": "の",
+      "startMs": 617,
+      "endMs": 733
+    },
+    {
+      "char": "軸",
+      "startMs": 733,
+      "endMs": 1050
+    },
+    {
+      "char": "で",
+      "startMs": 1050,
+      "endMs": 1183
+    },
+    {
+      "char": "描",
+      "startMs": 1183,
+      "endMs": 1450
+    },
+    {
+      "char": "か",
+      "startMs": 1450,
+      "endMs": 1567
+    },
+    {
+      "char": "れ",
+      "startMs": 1567,
+      "endMs": 1683
+    },
+    {
+      "char": "た",
+      "startMs": 1683,
+      "endMs": 1800
+    },
+    {
+      "char": "、",
+      "startMs": 1800,
+      "endMs": 1917
+    },
+    {
+      "char": "立",
+      "startMs": 2267,
+      "endMs": 2383
+    },
+    {
+      "char": "体",
+      "startMs": 2383,
+      "endMs": 2617
+    },
+    {
+      "char": "の",
+      "startMs": 2617,
+      "endMs": 2767
+    },
+    {
+      "char": "地",
+      "startMs": 2767,
+      "endMs": 2917
+    },
+    {
+      "char": "図",
+      "startMs": 2917,
+      "endMs": 3083
+    },
+    {
+      "char": "も",
+      "startMs": 3083,
+      "endMs": 3217
+    },
+    {
+      "char": "あ",
+      "startMs": 3217,
+      "endMs": 3339
+    },
+    {
+      "char": "る",
+      "startMs": 3339,
+      "endMs": 3461
+    },
+    {
+      "char": "。",
+      "startMs": 3461,
+      "endMs": 3583
+    }
+  ]
+}

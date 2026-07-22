@@ -1,0 +1,97 @@
+{
+  "lineId": "s3c2-02",
+  "text": "アイキューは、その一部でしかない。",
+  "displayText": "IQは、その一部でしかない。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 183,
+      "endMs": 183
+    },
+    {
+      "char": "ア",
+      "startMs": 183,
+      "endMs": 183
+    },
+    {
+      "char": "イ",
+      "startMs": 183,
+      "endMs": 333
+    },
+    {
+      "char": "キ",
+      "startMs": 383,
+      "endMs": 467
+    },
+    {
+      "char": "ュ",
+      "startMs": 467,
+      "endMs": 517
+    },
+    {
+      "char": "ー",
+      "startMs": 517,
+      "endMs": 600
+    },
+    {
+      "char": "は",
+      "startMs": 600,
+      "endMs": 725
+    },
+    {
+      "char": "、",
+      "startMs": 725,
+      "endMs": 850
+    },
+    {
+      "char": "そ",
+      "startMs": 1133,
+      "endMs": 1250
+    },
+    {
+      "char": "の",
+      "startMs": 1250,
+      "endMs": 1367
+    },
+    {
+      "char": "一",
+      "startMs": 1500,
+      "endMs": 1583
+    },
+    {
+      "char": "部",
+      "startMs": 1583,
+      "endMs": 1767
+    },
+    {
+      "char": "で",
+      "startMs": 1767,
+      "endMs": 1883
+    },
+    {
+      "char": "し",
+      "startMs": 1883,
+      "endMs": 1975
+    },
+    {
+      "char": "か",
+      "startMs": 1975,
+      "endMs": 2067
+    },
+    {
+      "char": "な",
+      "startMs": 2067,
+      "endMs": 2139
+    },
+    {
+      "char": "い",
+      "startMs": 2139,
+      "endMs": 2211
+    },
+    {
+      "char": "。",
+      "startMs": 2211,
+      "endMs": 2283
+    }
+  ]
+}

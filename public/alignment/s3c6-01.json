@@ -1,0 +1,167 @@
+{
+  "lineId": "s3c6-01",
+  "text": "同じ説明でも、届き方が違う。どちらが偉い、という話ではないよ。",
+  "displayText": "同じ説明でも、届き方が違う。\nどちらが偉い、という話ではないよ。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 183,
+      "endMs": 217
+    },
+    {
+      "char": "同",
+      "startMs": 217,
+      "endMs": 250
+    },
+    {
+      "char": "じ",
+      "startMs": 250,
+      "endMs": 433
+    },
+    {
+      "char": "説",
+      "startMs": 433,
+      "endMs": 700
+    },
+    {
+      "char": "明",
+      "startMs": 700,
+      "endMs": 883
+    },
+    {
+      "char": "で",
+      "startMs": 883,
+      "endMs": 1028
+    },
+    {
+      "char": "も",
+      "startMs": 1028,
+      "endMs": 1173
+    },
+    {
+      "char": "、",
+      "startMs": 1173,
+      "endMs": 1317
+    },
+    {
+      "char": "届",
+      "startMs": 1633,
+      "endMs": 1850
+    },
+    {
+      "char": "き",
+      "startMs": 1850,
+      "endMs": 1967
+    },
+    {
+      "char": "方",
+      "startMs": 2017,
+      "endMs": 2183
+    },
+    {
+      "char": "が",
+      "startMs": 2183,
+      "endMs": 2400
+    },
+    {
+      "char": "違",
+      "startMs": 2400,
+      "endMs": 2578
+    },
+    {
+      "char": "う",
+      "startMs": 2578,
+      "endMs": 2756
+    },
+    {
+      "char": "。",
+      "startMs": 2756,
+      "endMs": 2933
+    },
+    {
+      "char": "ど",
+      "startMs": 3650,
+      "endMs": 3800
+    },
+    {
+      "char": "ち",
+      "startMs": 3800,
+      "endMs": 3908
+    },
+    {
+      "char": "ら",
+      "startMs": 3908,
+      "endMs": 4017
+    },
+    {
+      "char": "が",
+      "startMs": 4017,
+      "endMs": 4217
+    },
+    {
+      "char": "偉",
+      "startMs": 4217,
+      "endMs": 4433
+    },
+    {
+      "char": "い",
+      "startMs": 4433,
+      "endMs": 4542
+    },
+    {
+      "char": "、",
+      "startMs": 4542,
+      "endMs": 4650
+    },
+    {
+      "char": "と",
+      "startMs": 5017,
+      "endMs": 5078
+    },
+    {
+      "char": "い",
+      "startMs": 5078,
+      "endMs": 5139
+    },
+    {
+      "char": "う",
+      "startMs": 5139,
+      "endMs": 5200
+    },
+    {
+      "char": "話",
+      "startMs": 5200,
+      "endMs": 5550
+    },
+    {
+      "char": "で",
+      "startMs": 5550,
+      "endMs": 5708
+    },
+    {
+      "char": "は",
+      "startMs": 5708,
+      "endMs": 5867
+    },
+    {
+      "char": "な",
+      "startMs": 5867,
+      "endMs": 6000
+    },
+    {
+      "char": "い",
+      "startMs": 6000,
+      "endMs": 6133
+    },
+    {
+      "char": "よ",
+      "startMs": 6133,
+      "endMs": 6300
+    },
+    {
+      "char": "。",
+      "startMs": 6300,
+      "endMs": 6467
+    }
+  ]
+}

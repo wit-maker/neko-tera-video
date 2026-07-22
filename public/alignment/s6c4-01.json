@@ -1,0 +1,77 @@
+{
+  "lineId": "s6c4-01",
+  "text": "じゃあ、経験を積めば……。",
+  "displayText": "じゃあ、経験を積めば……。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 183,
+      "endMs": 208
+    },
+    {
+      "char": "じ",
+      "startMs": 208,
+      "endMs": 233
+    },
+    {
+      "char": "ゃ",
+      "startMs": 233,
+      "endMs": 333
+    },
+    {
+      "char": "あ",
+      "startMs": 333,
+      "endMs": 375
+    },
+    {
+      "char": "、",
+      "startMs": 375,
+      "endMs": 417
+    },
+    {
+      "char": "経",
+      "startMs": 683,
+      "endMs": 750
+    },
+    {
+      "char": "験",
+      "startMs": 750,
+      "endMs": 950
+    },
+    {
+      "char": "を",
+      "startMs": 950,
+      "endMs": 1083
+    },
+    {
+      "char": "積",
+      "startMs": 1083,
+      "endMs": 1267
+    },
+    {
+      "char": "め",
+      "startMs": 1267,
+      "endMs": 1350
+    },
+    {
+      "char": "ば",
+      "startMs": 1350,
+      "endMs": 1500
+    },
+    {
+      "char": "…",
+      "startMs": 1500,
+      "endMs": 1578
+    },
+    {
+      "char": "…",
+      "startMs": 1578,
+      "endMs": 1656
+    },
+    {
+      "char": "。",
+      "startMs": 1656,
+      "endMs": 1733
+    }
+  ]
+}

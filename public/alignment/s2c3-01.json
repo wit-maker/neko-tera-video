@@ -1,0 +1,147 @@
+{
+  "lineId": "s2c3-01",
+  "text": "ある猫にとっては、『苦しくても、耐えて続けること』だ。",
+  "displayText": "ある猫にとっては、\n『苦しくても、耐えて続けること』だ。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 167,
+      "endMs": 167
+    },
+    {
+      "char": "あ",
+      "startMs": 167,
+      "endMs": 167
+    },
+    {
+      "char": "る",
+      "startMs": 167,
+      "endMs": 300
+    },
+    {
+      "char": "猫",
+      "startMs": 300,
+      "endMs": 600
+    },
+    {
+      "char": "に",
+      "startMs": 600,
+      "endMs": 733
+    },
+    {
+      "char": "と",
+      "startMs": 733,
+      "endMs": 900
+    },
+    {
+      "char": "っ",
+      "startMs": 900,
+      "endMs": 1000
+    },
+    {
+      "char": "て",
+      "startMs": 1000,
+      "endMs": 1100
+    },
+    {
+      "char": "は",
+      "startMs": 1100,
+      "endMs": 1267
+    },
+    {
+      "char": "、",
+      "startMs": 1267,
+      "endMs": 1433
+    },
+    {
+      "char": "『",
+      "startMs": 1850,
+      "endMs": 1933
+    },
+    {
+      "char": "苦",
+      "startMs": 1933,
+      "endMs": 2083
+    },
+    {
+      "char": "し",
+      "startMs": 2083,
+      "endMs": 2225
+    },
+    {
+      "char": "く",
+      "startMs": 2225,
+      "endMs": 2367
+    },
+    {
+      "char": "て",
+      "startMs": 2367,
+      "endMs": 2583
+    },
+    {
+      "char": "も",
+      "startMs": 2583,
+      "endMs": 2717
+    },
+    {
+      "char": "、",
+      "startMs": 2717,
+      "endMs": 2850
+    },
+    {
+      "char": "耐",
+      "startMs": 3167,
+      "endMs": 3367
+    },
+    {
+      "char": "え",
+      "startMs": 3367,
+      "endMs": 3458
+    },
+    {
+      "char": "て",
+      "startMs": 3458,
+      "endMs": 3550
+    },
+    {
+      "char": "続",
+      "startMs": 3550,
+      "endMs": 3817
+    },
+    {
+      "char": "け",
+      "startMs": 3817,
+      "endMs": 3958
+    },
+    {
+      "char": "る",
+      "startMs": 3958,
+      "endMs": 4100
+    },
+    {
+      "char": "こ",
+      "startMs": 4100,
+      "endMs": 4233
+    },
+    {
+      "char": "と",
+      "startMs": 4233,
+      "endMs": 4367
+    },
+    {
+      "char": "』",
+      "startMs": 4367,
+      "endMs": 4700
+    },
+    {
+      "char": "だ",
+      "startMs": 4700,
+      "endMs": 4971
+    },
+    {
+      "char": "。",
+      "startMs": 4971,
+      "endMs": 5242
+    }
+  ]
+}

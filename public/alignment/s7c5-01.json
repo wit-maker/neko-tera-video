@@ -1,0 +1,172 @@
+{
+  "lineId": "s7c5-01",
+  "text": "……違うのが当たり前なら、どうして猫は、それでも争うんでしょう。",
+  "displayText": "……違うのが当たり前なら、\nどうして猫は、それでも争うんでしょう。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 267,
+      "endMs": 267
+    },
+    {
+      "char": "…",
+      "startMs": 267,
+      "endMs": 267
+    },
+    {
+      "char": "…",
+      "startMs": 267,
+      "endMs": 267
+    },
+    {
+      "char": "違",
+      "startMs": 267,
+      "endMs": 325
+    },
+    {
+      "char": "う",
+      "startMs": 325,
+      "endMs": 383
+    },
+    {
+      "char": "の",
+      "startMs": 383,
+      "endMs": 583
+    },
+    {
+      "char": "が",
+      "startMs": 583,
+      "endMs": 733
+    },
+    {
+      "char": "当",
+      "startMs": 783,
+      "endMs": 867
+    },
+    {
+      "char": "た",
+      "startMs": 867,
+      "endMs": 967
+    },
+    {
+      "char": "り",
+      "startMs": 967,
+      "endMs": 1050
+    },
+    {
+      "char": "前",
+      "startMs": 1050,
+      "endMs": 1233
+    },
+    {
+      "char": "な",
+      "startMs": 1233,
+      "endMs": 1356
+    },
+    {
+      "char": "ら",
+      "startMs": 1356,
+      "endMs": 1478
+    },
+    {
+      "char": "、",
+      "startMs": 1478,
+      "endMs": 1600
+    },
+    {
+      "char": "ど",
+      "startMs": 1900,
+      "endMs": 2000
+    },
+    {
+      "char": "う",
+      "startMs": 2000,
+      "endMs": 2100
+    },
+    {
+      "char": "し",
+      "startMs": 2100,
+      "endMs": 2217
+    },
+    {
+      "char": "て",
+      "startMs": 2217,
+      "endMs": 2333
+    },
+    {
+      "char": "猫",
+      "startMs": 2333,
+      "endMs": 2650
+    },
+    {
+      "char": "は",
+      "startMs": 2650,
+      "endMs": 2783
+    },
+    {
+      "char": "、",
+      "startMs": 2783,
+      "endMs": 2917
+    },
+    {
+      "char": "そ",
+      "startMs": 3233,
+      "endMs": 3267
+    },
+    {
+      "char": "れ",
+      "startMs": 3267,
+      "endMs": 3300
+    },
+    {
+      "char": "で",
+      "startMs": 3300,
+      "endMs": 3417
+    },
+    {
+      "char": "も",
+      "startMs": 3417,
+      "endMs": 3533
+    },
+    {
+      "char": "争",
+      "startMs": 3533,
+      "endMs": 3917
+    },
+    {
+      "char": "う",
+      "startMs": 3933,
+      "endMs": 4050
+    },
+    {
+      "char": "ん",
+      "startMs": 4050,
+      "endMs": 4167
+    },
+    {
+      "char": "で",
+      "startMs": 4167,
+      "endMs": 4223
+    },
+    {
+      "char": "し",
+      "startMs": 4223,
+      "endMs": 4280
+    },
+    {
+      "char": "ょ",
+      "startMs": 4280,
+      "endMs": 4337
+    },
+    {
+      "char": "う",
+      "startMs": 4337,
+      "endMs": 4393
+    },
+    {
+      "char": "。",
+      "startMs": 4393,
+      "endMs": 4450
+    }
+  ]
+}

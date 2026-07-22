@@ -1,0 +1,82 @@
+{
+  "lineId": "s5c2-01",
+  "text": "平らな地図では、こう見える。",
+  "displayText": "平らな地図では、こう見える。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 150,
+      "endMs": 208
+    },
+    {
+      "char": "平",
+      "startMs": 208,
+      "endMs": 267
+    },
+    {
+      "char": "ら",
+      "startMs": 267,
+      "endMs": 400
+    },
+    {
+      "char": "な",
+      "startMs": 400,
+      "endMs": 567
+    },
+    {
+      "char": "地",
+      "startMs": 567,
+      "endMs": 683
+    },
+    {
+      "char": "図",
+      "startMs": 683,
+      "endMs": 817
+    },
+    {
+      "char": "で",
+      "startMs": 817,
+      "endMs": 933
+    },
+    {
+      "char": "は",
+      "startMs": 933,
+      "endMs": 1050
+    },
+    {
+      "char": "、",
+      "startMs": 1050,
+      "endMs": 1167
+    },
+    {
+      "char": "こ",
+      "startMs": 1383,
+      "endMs": 1467
+    },
+    {
+      "char": "う",
+      "startMs": 1467,
+      "endMs": 1550
+    },
+    {
+      "char": "見",
+      "startMs": 1550,
+      "endMs": 1750
+    },
+    {
+      "char": "え",
+      "startMs": 1750,
+      "endMs": 1844
+    },
+    {
+      "char": "る",
+      "startMs": 1844,
+      "endMs": 1939
+    },
+    {
+      "char": "。",
+      "startMs": 1939,
+      "endMs": 2033
+    }
+  ]
+}

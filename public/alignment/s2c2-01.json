@@ -1,0 +1,87 @@
+{
+  "lineId": "s2c2-01",
+  "text": "頑張ることです。決まってます。",
+  "displayText": "頑張ることです。決まってます。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 100,
+      "endMs": 150
+    },
+    {
+      "char": "頑",
+      "startMs": 150,
+      "endMs": 200
+    },
+    {
+      "char": "張",
+      "startMs": 200,
+      "endMs": 300
+    },
+    {
+      "char": "る",
+      "startMs": 300,
+      "endMs": 433
+    },
+    {
+      "char": "こ",
+      "startMs": 467,
+      "endMs": 525
+    },
+    {
+      "char": "と",
+      "startMs": 525,
+      "endMs": 583
+    },
+    {
+      "char": "で",
+      "startMs": 583,
+      "endMs": 681
+    },
+    {
+      "char": "す",
+      "startMs": 681,
+      "endMs": 778
+    },
+    {
+      "char": "。",
+      "startMs": 778,
+      "endMs": 875
+    },
+    {
+      "char": "決",
+      "startMs": 1233,
+      "endMs": 1250
+    },
+    {
+      "char": "ま",
+      "startMs": 1250,
+      "endMs": 1383
+    },
+    {
+      "char": "っ",
+      "startMs": 1383,
+      "endMs": 1433
+    },
+    {
+      "char": "て",
+      "startMs": 1433,
+      "endMs": 1483
+    },
+    {
+      "char": "ま",
+      "startMs": 1483,
+      "endMs": 1556
+    },
+    {
+      "char": "す",
+      "startMs": 1556,
+      "endMs": 1628
+    },
+    {
+      "char": "。",
+      "startMs": 1628,
+      "endMs": 1700
+    }
+  ]
+}

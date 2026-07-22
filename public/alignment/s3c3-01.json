@@ -1,0 +1,227 @@
+{
+  "lineId": "s3c3-01",
+  "text": "速さ。覚えたまま考えられる量。かたちを抜き出す力。関係をつかむ力。それぞれ、別の力だ。",
+  "displayText": "速さ。覚えたまま考えられる量。\nかたちを抜き出す力。関係をつかむ力。\nそれぞれ、別の力だ。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 250,
+      "endMs": 267
+    },
+    {
+      "char": "速",
+      "startMs": 267,
+      "endMs": 283
+    },
+    {
+      "char": "さ",
+      "startMs": 283,
+      "endMs": 458
+    },
+    {
+      "char": "。",
+      "startMs": 458,
+      "endMs": 633
+    },
+    {
+      "char": "覚",
+      "startMs": 850,
+      "endMs": 1083
+    },
+    {
+      "char": "え",
+      "startMs": 1083,
+      "endMs": 1183
+    },
+    {
+      "char": "た",
+      "startMs": 1183,
+      "endMs": 1283
+    },
+    {
+      "char": "ま",
+      "startMs": 1283,
+      "endMs": 1400
+    },
+    {
+      "char": "ま",
+      "startMs": 1400,
+      "endMs": 1533
+    },
+    {
+      "char": "考",
+      "startMs": 1650,
+      "endMs": 1767
+    },
+    {
+      "char": "え",
+      "startMs": 1767,
+      "endMs": 2050
+    },
+    {
+      "char": "ら",
+      "startMs": 2050,
+      "endMs": 2133
+    },
+    {
+      "char": "れ",
+      "startMs": 2133,
+      "endMs": 2258
+    },
+    {
+      "char": "る",
+      "startMs": 2258,
+      "endMs": 2383
+    },
+    {
+      "char": "量",
+      "startMs": 2383,
+      "endMs": 2550
+    },
+    {
+      "char": "。",
+      "startMs": 2550,
+      "endMs": 2717
+    },
+    {
+      "char": "か",
+      "startMs": 3517,
+      "endMs": 3633
+    },
+    {
+      "char": "た",
+      "startMs": 3633,
+      "endMs": 3717
+    },
+    {
+      "char": "ち",
+      "startMs": 3717,
+      "endMs": 3867
+    },
+    {
+      "char": "を",
+      "startMs": 3867,
+      "endMs": 4000
+    },
+    {
+      "char": "抜",
+      "startMs": 4000,
+      "endMs": 4183
+    },
+    {
+      "char": "き",
+      "startMs": 4183,
+      "endMs": 4267
+    },
+    {
+      "char": "出",
+      "startMs": 4267,
+      "endMs": 4367
+    },
+    {
+      "char": "す",
+      "startMs": 4367,
+      "endMs": 4550
+    },
+    {
+      "char": "力",
+      "startMs": 4550,
+      "endMs": 4592
+    },
+    {
+      "char": "。",
+      "startMs": 4592,
+      "endMs": 4633
+    },
+    {
+      "char": "関",
+      "startMs": 5533,
+      "endMs": 5733
+    },
+    {
+      "char": "係",
+      "startMs": 5733,
+      "endMs": 5867
+    },
+    {
+      "char": "を",
+      "startMs": 5867,
+      "endMs": 6050
+    },
+    {
+      "char": "つ",
+      "startMs": 6050,
+      "endMs": 6183
+    },
+    {
+      "char": "か",
+      "startMs": 6200,
+      "endMs": 6283
+    },
+    {
+      "char": "む",
+      "startMs": 6283,
+      "endMs": 6400
+    },
+    {
+      "char": "力",
+      "startMs": 6400,
+      "endMs": 6567
+    },
+    {
+      "char": "。",
+      "startMs": 6567,
+      "endMs": 6733
+    },
+    {
+      "char": "そ",
+      "startMs": 7350,
+      "endMs": 7442
+    },
+    {
+      "char": "れ",
+      "startMs": 7442,
+      "endMs": 7533
+    },
+    {
+      "char": "ぞ",
+      "startMs": 7533,
+      "endMs": 7667
+    },
+    {
+      "char": "れ",
+      "startMs": 7667,
+      "endMs": 7767
+    },
+    {
+      "char": "、",
+      "startMs": 7767,
+      "endMs": 7867
+    },
+    {
+      "char": "別",
+      "startMs": 8150,
+      "endMs": 8167
+    },
+    {
+      "char": "の",
+      "startMs": 8200,
+      "endMs": 8300
+    },
+    {
+      "char": "力",
+      "startMs": 8300,
+      "endMs": 8533
+    },
+    {
+      "char": "だ",
+      "startMs": 8533,
+      "endMs": 8700
+    },
+    {
+      "char": "。",
+      "startMs": 8700,
+      "endMs": 8867
+    }
+  ]
+}

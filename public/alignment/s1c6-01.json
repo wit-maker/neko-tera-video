@@ -1,0 +1,177 @@
+{
+  "lineId": "s1c6-01",
+  "text": "同じ言葉を話していれば通じるはず。まず、その前提から疑ってみよう。",
+  "displayText": "同じ言葉を話していれば通じるはず。\nまず、その前提から疑ってみよう。",
+  "chars": [
+    {
+      "char": " ",
+      "startMs": 217,
+      "endMs": 242
+    },
+    {
+      "char": "同",
+      "startMs": 242,
+      "endMs": 267
+    },
+    {
+      "char": "じ",
+      "startMs": 267,
+      "endMs": 450
+    },
+    {
+      "char": "言",
+      "startMs": 450,
+      "endMs": 633
+    },
+    {
+      "char": "葉",
+      "startMs": 633,
+      "endMs": 800
+    },
+    {
+      "char": "を",
+      "startMs": 800,
+      "endMs": 917
+    },
+    {
+      "char": "話",
+      "startMs": 917,
+      "endMs": 1117
+    },
+    {
+      "char": "し",
+      "startMs": 1117,
+      "endMs": 1242
+    },
+    {
+      "char": "て",
+      "startMs": 1242,
+      "endMs": 1367
+    },
+    {
+      "char": "い",
+      "startMs": 1367,
+      "endMs": 1467
+    },
+    {
+      "char": "れ",
+      "startMs": 1467,
+      "endMs": 1533
+    },
+    {
+      "char": "ば",
+      "startMs": 1533,
+      "endMs": 1667
+    },
+    {
+      "char": "通",
+      "startMs": 1667,
+      "endMs": 1900
+    },
+    {
+      "char": "じ",
+      "startMs": 1900,
+      "endMs": 2050
+    },
+    {
+      "char": "る",
+      "startMs": 2050,
+      "endMs": 2167
+    },
+    {
+      "char": "は",
+      "startMs": 2167,
+      "endMs": 2283
+    },
+    {
+      "char": "ず",
+      "startMs": 2283,
+      "endMs": 2408
+    },
+    {
+      "char": "。",
+      "startMs": 2408,
+      "endMs": 2533
+    },
+    {
+      "char": "ま",
+      "startMs": 3100,
+      "endMs": 3228
+    },
+    {
+      "char": "ず",
+      "startMs": 3228,
+      "endMs": 3356
+    },
+    {
+      "char": "、",
+      "startMs": 3356,
+      "endMs": 3483
+    },
+    {
+      "char": "そ",
+      "startMs": 3850,
+      "endMs": 3942
+    },
+    {
+      "char": "の",
+      "startMs": 3942,
+      "endMs": 4033
+    },
+    {
+      "char": "前",
+      "startMs": 4033,
+      "endMs": 4200
+    },
+    {
+      "char": "提",
+      "startMs": 4200,
+      "endMs": 4417
+    },
+    {
+      "char": "か",
+      "startMs": 4417,
+      "endMs": 4533
+    },
+    {
+      "char": "ら",
+      "startMs": 4533,
+      "endMs": 4650
+    },
+    {
+      "char": "疑",
+      "startMs": 4650,
+      "endMs": 4950
+    },
+    {
+      "char": "っ",
+      "startMs": 4950,
+      "endMs": 5042
+    },
+    {
+      "char": "て",
+      "startMs": 5042,
+      "endMs": 5133
+    },
+    {
+      "char": "み",
+      "startMs": 5133,
+      "endMs": 5267
+    },
+    {
+      "char": "よ",
+      "startMs": 5267,
+      "endMs": 5378
+    },
+    {
+      "char": "う",
+      "startMs": 5378,
+      "endMs": 5489
+    },
+    {
+      "char": "。",
+      "startMs": 5489,
+      "endMs": 5600
+    }
+  ]
+}
