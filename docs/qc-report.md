@@ -49,3 +49,10 @@ total 18236 frames = 303.9s
 ```
 
 以降、シーン別・特別判定の検分結果は docs/qc-report/*.md に格納し、F1-Mで本ファイルへ統合する。
+
+## F1〜F4 統合状況（2026-07-23）
+
+- F1: 全42カットとK1〜K3を検査。詳細は `docs/qc-report/s1.md`〜`s7.md`、`k1.md`〜`k3.md`、統合一覧は `f1-merge.md`。
+- F2: 3連続mediumの2箇所を修正し、`camera.shot`を実際の基本画角へ反映。再検証は `f2-shot-sequence.md`。
+- F4: 修正後の全編レンダーを完了。`C:\dev\github\wit-maker\neko-tera-video\out\master.mp4` は 495,248,218 bytes、303.978667秒、1080×1920、60fps、H.264/AAC。SHA-256は `20C12D9EF1D8AA487599C6C9BDA8D34BE8873EB2C243D285C2F083686041373C`。
+- F3/F5: 正式outro未配置のため、最終mix・encode・納品AACの独立音量検収は未実行。詳細は `docs/qc-report/external-blocker-outro.md`。
