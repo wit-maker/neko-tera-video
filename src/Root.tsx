@@ -21,7 +21,7 @@ export const RemotionRoot: React.FC = () => {
       fps={FPS}
       width={project.meta.width}
       height={project.meta.height}
-      defaultProps={{ project, manifest } satisfies MainProps}
+      defaultProps={{ project, manifest, showDevOverlay: false } satisfies MainProps}
     />
   );
 };
