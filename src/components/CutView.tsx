@@ -23,7 +23,9 @@ export const CutView: React.FC<{
   scene: Scene;
   cut: Cut;
   timing: CutTiming;
-}> = ({ project, scene, cut, timing }) => {
+  // 開発用オーバーレイ(カットID/タイトル)の表示。最終納品では既定で非表示。
+  showDevOverlay?: boolean;
+}> = ({ project, scene, cut, timing, showDevOverlay = false }) => {
   const frame = useCurrentFrame();
   const alignments = useAlignments(cut);
 
@@ -140,19 +142,21 @@ export const CutView: React.FC<{
         <KaraokeSubtitle project={project} cut={cut} timing={timing} alignments={alignments} />
       ) : null}
 
-      {/* 開発用オーバーレイ: カットID */}
-      <div
-        style={{
-          position: "absolute",
-          top: 24,
-          left: 24,
-          color: "#ffffff88",
-          fontSize: 34,
-          fontFamily: "monospace",
-        }}
-      >
-        {scene.id} / {cut.id} {cut.title}
-      </div>
+      {/* 開発用オーバーレイ: カットID(既定OFF。studioで showDevOverlay を切替可) */}
+      {showDevOverlay ? (
+        <div
+          style={{
+            position: "absolute",
+            top: 24,
+            left: 24,
+            color: "#ffffff88",
+            fontSize: 34,
+            fontFamily: "monospace",
+          }}
+        >
+          {scene.id} / {cut.id} {cut.title}
+        </div>
+      ) : null}
     </AbsoluteFill>
   );
 };
