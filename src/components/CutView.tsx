@@ -14,6 +14,15 @@ import { Steam } from "./Steam";
 const BOARD_SURFACE = { x0: 428, y0: 262, x1: 1488, y1: 1026 };
 const BOARD_RECT = { x: 100, y: 300, w: 880, h: 634 };
 const BOARD_SCALE = BOARD_RECT.w / (BOARD_SURFACE.x1 - BOARD_SURFACE.x0);
+// shotは演出データであると同時に、背景・黒板・キャラへ適用する基本画角。
+// 字幕はこの変換の外側に残し、セーフエリアを常に保つ。
+const SHOT_SCALE = {
+  wide: 1,
+  medium: 1,
+  closeup: 1.1,
+  board: 1,
+  insert: 1.06,
+} as const;
 
 /**
  * カット1枚の描画(本素材)。背景・黒板・キャラはクロマキー抜き済みPNG。
@@ -40,7 +49,7 @@ export const CutView: React.FC<{
           ? Easing.out(Easing.ease)
           : Easing.inOut(Easing.ease),
   });
-  const zoom = 1 + cut.camera.parallax.zoom * progress;
+  const zoom = SHOT_SCALE[cut.camera.shot] * (1 + cut.camera.parallax.zoom * progress);
   const panX = cut.camera.parallax.panX * progress * project.meta.width;
   const panY = cut.camera.parallax.panY * progress * project.meta.height;
 
