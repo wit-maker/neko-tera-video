@@ -1,0 +1,133 @@
+{
+  "project": "neko-tera-video",
+  "description": "video.json を SSOT とするデータ駆動 Remotion 縦型ショート動画制作システム",
+  "updated": "2026-07-22",
+  "source": "docs/cto-handoff.md, docs/tech-lead-plan.md",
+  "features": [
+    {
+      "id": "ssot",
+      "name": "video.json SSOT",
+      "description": "全工程の入力を単一の video.json に集約し zod スキーマで検証する",
+      "artifacts": ["video.json", "src/schema.ts", "pipeline/validate.ts"],
+      "status": "done"
+    },
+    {
+      "id": "agents",
+      "name": "AI エージェントオーケストレーション",
+      "description": "創造的判断(脚本・声・演出・組版・QC)を担当フィールドへの書き戻しに限定",
+      "artifacts": ["agents/story.md", "agents/voice-director.md", "agents/visual-director.md", "agents/subtitle.md", "agents/qc.md"],
+      "status": "partial"
+    }
+  ],
+  "pipeline": [
+    {
+      "stage": "tts",
+      "name": "音声合成",
+      "runner": "pipeline/tts.ts",
+      "command": "npm run tts",
+      "input": "video.json(dialogue)",
+      "output": "public/audio/*.mp3, public/audio-manifest.json",
+      "status": "done"
+    },
+    {
+      "stage": "align",
+      "name": "強制アラインメント",
+      "runner": "pipeline/align.py",
+      "command": "python pipeline/align.py",
+      "input": "public/audio/*.mp3",
+      "output": "public/alignment/*.json",
+      "env": ".venv (stable-ts/Whisper 専用)",
+      "status": "done"
+    },
+    {
+      "stage": "cutout",
+      "name": "切り抜き(クロマキー)",
+      "runner": "pipeline/cutout.py",
+      "command": "python pipeline/cutout.py",
+      "input": "public/assets/{chars,bg,fx}",
+      "output": "public/assets/cutout/",
+      "env": "system python (Pillow/numpy)",
+      "status": "done"
+    },
+    {
+      "stage": "patch",
+      "name": "口パッチ生成",
+      "runner": "pipeline/mouthpatch.py",
+      "command": "python pipeline/mouthpatch.py",
+      "input": "public/assets/cutout/chars",
+      "output": "public/assets/cutout/mouth/, patch-config.json ×2",
+      "env": "system python (Pillow/numpy)",
+      "status": "done"
+    },
+    {
+      "stage": "fixbg",
+      "name": "背景の小黒板インペイント",
+      "runner": "pipeline/fixbg.py",
+      "command": "python pipeline/fixbg.py",
+      "input": "public/assets/bg/_orig/",
+      "output": "public/assets/bg/",
+      "env": "system python (Pillow/numpy)",
+      "status": "done"
+    },
+    {
+      "stage": "sfxcue",
+      "name": "SFXキュー自動導出",
+      "runner": "pipeline/sfxcue.mjs",
+      "command": "node pipeline/sfxcue.mjs",
+      "input": "video.json(board), audio-manifest.json",
+      "output": "video.json(sound.sfx) 上書き(冪等)",
+      "status": "done"
+    },
+    {
+      "stage": "typeset",
+      "name": "字幕組版",
+      "runner": "pipeline/typeset.mjs",
+      "command": "node pipeline/typeset.mjs",
+      "input": "内蔵の組版マップ",
+      "output": "video.json(subtitle) 上書き(冪等)",
+      "status": "done"
+    },
+    {
+      "stage": "mix",
+      "name": "音声ミックス",
+      "runner": "pipeline/mix.ts",
+      "command": "npm run mix",
+      "input": "video.json, audio-manifest.json, audio/, bgm/, ambience/, sfx/",
+      "output": "out/master-audio.wav",
+      "status": "done"
+    },
+    {
+      "stage": "render",
+      "name": "映像レンダリング(Remotion)",
+      "runner": "src/ (Main コンポジション)",
+      "command": "npm run render",
+      "input": "video.json + 全派生物",
+      "output": "out/master.mp4",
+      "status": "done"
+    },
+    {
+      "stage": "encode",
+      "name": "最終エンコード / mux",
+      "runner": "pipeline/encode.ts",
+      "command": "npm run encode",
+      "input": "out/master.mp4 + out/master-audio.wav",
+      "output": "out/final-master.mp4",
+      "status": "done"
+    }
+  ],
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render Main out/master.mp4 --codec h264 --crf 16",
+    "validate": "tsx pipeline/validate.ts",
+    "select-voices": "tsx pipeline/select-voices.ts",
+    "tts": "tsx pipeline/tts.ts",
+    "mix": "tsx pipeline/mix.ts",
+    "encode": "tsx pipeline/encode.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "remaining": [
+    "QC 巡回(全42カット検分 → 修正 → 該当工程再実行 → 再検分)",
+    "outro.mp3 反映(発注者の配置待ち、その後 mix + encode のみ)",
+    "納品(final-master.mp4 + 検収報告)"
+  ]
+}
