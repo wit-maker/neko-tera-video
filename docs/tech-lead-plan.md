@@ -14,7 +14,7 @@
 
 | # | 論点 | 確定 |
 |---|---|---|
-| TL-1 | バージョン管理(現状 git 非管理) | **git は導入しない**。代替として **スナップショット規約**(§9 State)を採用。素材は `_orig/` 退避、編集ソース(`video.json`/`mouthpatch.py`/`fixbg.py`)は編集前に `backups/<UTCタイムスタンプ>/` へコピー。ブランチ=物理コピーで代替 |
+| TL-1 | バージョン管理 | **2026-07-22改訂: git導入済み**。PM主導で`git init`→`.gitignore`(`node_modules/`/`.venv/`/`out/`/`.env`)→GitHub private リポジトリ`wit-maker/neko-tera-video`作成・push・CI(`check.yml`)配置が完了し、README/PROJECT_STATE.md等の整備タスクが`worktree-task-pipeline`経由でマージ済み(mainに3PR統合)。当初のTL-1「git非導入・backups/スナップショット規約」は**廃止**。`video.json`/`mouthpatch.py`/`fixbg.py`はいずれもgit追跡対象になったため、編集前は`git status`がcleanであることを確認し、編集後は`git diff`で差分確認・コミットで確定する運用に切替。`backups/<UTCタイムスタンプ>/`への物理コピーは不要(F0-0タスクは削除)。ただし`out/`はgitignore対象(490MB超の成果物のためGitHub非追跡)につき、レンダリング成果物・stillの世代管理は従来通りファイル名で区別する(例: `out/qc-<cut>-<v2>.png`)。`_orig/`退避(fixbg.pyの冪等復元用)は素材固有の仕組みでgitと独立、変更なし |
 | TL-2 | 検収loudness/TP基準 | **ADR-9 準拠**: 検収ゲート=納品AACの `I=-14±0.5 LUFS` かつ `TP≤-1.0 dBTP`。§2「≤-1.5」は mix内部ターゲット。現行 `-1.4 dBTP` は**合格**。**追記**: `docs/qc-checklist.md`の「WAVマスター -1.5 dBTP以下」表記は**参考値であり検収ゲートではない**(ゲートは納品AAC ≤-1.0 のみ)。現行WAV実測-1.4はADR-9上許容範囲内(目安として>-1.3で mixパラメータ見直しを起票、-1.4はこれも下回るため対応不要)。qc-checklist.md該当項目はこのTL-2に合わせて表現を訂正済み(§17.2-1「測ったが証拠」原則の再適用) |
 | TL-3 | §16.4 任意3項目 | **全て非実施・スコープ外**(深度パララックス/ハロー低減チューニング/zod負債)。申し送りのみ |
 | TL-4 | §15 既知問題1〜3 | **必須QC判定**。実寸視聴で採否、不合格のみ修正。証跡(still/タイムコード)を検収報告に添付 |
@@ -92,13 +92,13 @@ F0 ──▶ F1 ──▶ F2 ──▶ F4 ──▶ F5      ← クリティカ�
 ### F0 — 検証ハーネス基盤 [担当: QC-Harness Agent]
 | ID | タスク | 依存 | 完了条件(測定) |
 |---|---|---|---|
-| F0-0 | `backups/` ディレクトリ作成(TL-1のスナップショット運用の受け皿。現状未作成) | — | `backups/` が実在(空でよい)。以後の video.json/mouthpatch.py/fixbg.py 編集前コピー先として使用 |
+| ~~F0-0~~ | ~~`backups/` ディレクトリ作成~~ **2026-07-22廃止**(TL-1改訂によりgit管理下へ移行。物理スナップショット不要、`git status`/`git diff`/コミットで代替) | — | — |
 | F0-1 | `npx tsx pipeline/print-timing.ts` 実行→42カットの from/dur/秒・総フレームを取得 | — | 出力を `docs/qc-report.md` 冒頭のフレーム早見表に記録。総フレーム数を明示 |
 | F0-2 | still生成の疎通: `npx remotion still Main --frame=<F0-1のfrom> --output=out/qc-test.png` | F0-1 | `out/qc-test.png` が**実在しサイズ>0**(exit codeでなくファイルで確認) |
 | F0-3 | ピクセルプローブ疎通確認(**ツールは`pipeline/probe.py`としてTechLeadが実装・動作検証済み**。ゼロから作らない) | — | `python pipeline/probe.py out/qc-test.png 100 100` が実行でき、RGBA値を出力する(必ず`python`コマンド。`.venv`不可、TL-12) |
 | F0-4 | 合成プレビュー疎通確認(**ツールは`pipeline/contactsheet.py`としてTechLeadが実装・動作検証済み**) | F0-2 | `python pipeline/contactsheet.py out/qc-test-sheet.png out/qc-test.png` が実行でき、シートpngが生成される |
 | F0-5 | 検分手順の疎通確認(**手順は`docs/qc-procedure.md`としてTechLeadが18項目分すべて記述済み**。新規に規約を考えない) | — | 任意カット1件(例: s1c2)で`docs/qc-procedure.md`記載の手順を1周実行し、コマンドが全て失敗せず完走することを確認 |
-**Feature DoD**: F0-1〜5全完了。**以後の全修正が「40秒/still」で検証可能な状態**(§17.2-7)。F0-3/4/5はTechLead提供物の疎通確認であり、新規設計は不要(TL-13)。
+**Feature DoD**: F0-1〜5全完了(F0-0は廃止のため対象外)。**以後の全修正が「40秒/still」で検証可能な状態**(§17.2-7)。F0-3/4/5はTechLead提供物の疎通確認であり、新規設計は不要(TL-13)。
 
 ### F1 — QC検分スイープ [担当: QC-Inspector Agent ×7シャード]
 | ID | タスク | 依存 | 完了条件 |
@@ -213,15 +213,14 @@ Inspector と Fix は分離(検分の客観性維持)。**agents/*.md(qc.md等)�
 
 ---
 
-## 9. ブランチ戦略 / 成果物管理(git非管理環境・TL-1)
+## 9. ブランチ戦略 / 成果物管理(git管理環境・TL-1改訂)
 
-- **ベース方針**: git 非導入。**物理スナップショットで版管理**を代替。
-- **編集前スナップショット(必須)**: `video.json` / `pipeline/mouthpatch.py` / `pipeline/fixbg.py` を編集する前に
-  `backups/<UTC yyyymmdd-hhmmss>/` へコピー。ロールバック=コピーで復元。
-- **素材の破壊的操作**: 必ず `_orig/` 退避を確認してから(fixbg は `_orig` から再構築するため冪等)。
-- **ビルド成果物**: `out/`(master.mp4/master-audio.wav/premaster.wav/mix-filter.txt/final-master.mp4)。
-  F4前に現行 final-master を `out/_baseline/` へ退避(ゴールデン回帰用)。
-- **QC成果物**: `docs/qc-report.md`(不合格記録・証跡)、`out/qc-*.png`(検分still)。
+- **ベース方針**: git導入済み(`wit-maker/neko-tera-video`、private、`main`)。ロールバックは`git diff`/`git checkout -- <file>`/コミット履歴で行う。物理スナップショット(`backups/`)は不要。
+- **video.json / pipeline/mouthpatch.py / pipeline/fixbg.py の編集**: 編集前に`git status`がcleanであることを確認(未コミットの変更が残っていないか)。編集後は`git diff`で差分を見てから、意味のある単位でコミットする。QCの反復修正(3〜5回が正常、§17.3)は1コミットにまとめず、収束の節目ごとにコミットしておくと、途中の状態へ戻せる。
+- **素材の破壊的操作**: `_orig/`退避の確認は従来通り必須(fixbgは`_orig`から再構築するため冪等)。`public/`配下は git追跡対象になったため、`_orig/`自体もコミット履歴に残る。
+- **ビルド成果物**: `out/`は`.gitignore`対象(490MB超の成果物のためGitHub非追跡)。F4前に現行final-masterを`out/_baseline/`へ退避する運用(ゴールデン回帰用)は変更なし。
+- **QC成果物**: `docs/qc-report.md`(不合格記録・証跡)、`out/qc-*.png`(検分still)。いずれも`out/`同様gitignore対象外のdocsはコミット、stillはローカルのみ。
+- **修正のPR化(任意)**: F2の各修正は、ローカルcommitのみでも、ブランチを切って`gh pr create`しても、どちらでもよい。ただしQC修正は実寸視聴という人間・AIの主観判定を伴うため、`worktree-task-pipeline`の自動マージ(承認+CI+ファイル非重複での無人マージ)は使わない。使うとしても`autoMerge:false`で、実寸検分の合格をTech Lead/PMが確認してからマージする運用にする。
 - **納品成果物**: `out/final-master.mp4` + 検収報告(`docs/acceptance-report.md`)。
 - **禁止**: 派生物(sfx/subtitle/patch-config/audio-manifest)の手編集(TL-6)。
 
