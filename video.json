@@ -188,7 +188,7 @@
             }
           ],
           "camera": {
-            "shot": "medium",
+            "shot": "closeup",
             "parallax": {
               "zoom": 0.02,
               "strength": 0.5
@@ -2615,7 +2615,7 @@
             }
           ],
           "camera": {
-            "shot": "medium",
+            "shot": "closeup",
             "parallax": {
               "strength": 0.4
             }
