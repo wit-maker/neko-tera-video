@@ -1,0 +1,127 @@
+# P0 proof vertical slice
+
+## Scope and boundary
+
+P0 uses the existing representation A pipeline and existing assets only. It records one `s7c6`
+baseline for reproducible evidence. This is a P0-only working contract: neither its schemas nor
+its review UI automatically promotes an architecture, ADR, candidate selection, or quality approval.
+
+Out of scope: a new representation, enhancement, phoneme recognition, real-time processing,
+new dependencies, cloud, paid services, external APIs during rendering, Vault work, PR #18,
+Knowledge extraction, Community Plugins, and automatic synchronization. The only exception was
+the separately approved, one-time font acquisition recorded below; it is complete and does not
+permit any later external request.
+
+## Fixed baseline
+
+- `baseline_source_commit`: `e43ebb29148216216bd85c3d681f46e1d3b2fa13`
+- cut `s7c6`; global frames `17617..18235`; 619 frames at 60 fps
+- baseline command: `.\node_modules\.bin\remotion.cmd render Main out\p0\a-s7c6-e43ebb2\baseline.mp4 --frames=17617-18235 --codec=h264 --crf=16`
+- review stills: local `0`, `309`, `618`; global `17617`, `17926`, `18235`
+- review slow speed uses HTML `video.playbackRate = 0.25`; no derived slow video is produced.
+
+Tracked text identity is checked with canonical Git blob IDs (including the lockfile), never raw
+worktree SHA-256. Binary input identity is SHA-256. `p0_tool_commit` is stored independently in
+the manifest, so P0 code can advance without claiming that its HEAD equals the baseline source.
+
+## P0 contract
+
+`manifest.json`, `conformance.json`, and `evaluation.json` are separate artifacts. Conformance
+verifies existence, output SHA-256, `ffprobe -count_frames`, 60 fps/dimensions, and all-frame
+`ffmpeg` decode. `conformance=pass` is only contract conformance, not a quality approval or
+representation decision. Evaluation records review assets, observations, known failures, or
+`not_evaluated`; it has no score, ranking, pass, or adoption field.
+
+The review UI distinguishes `review-ready`, `invalid`, `not-evaluated`, and `known-failure`.
+Invalid artifacts are excluded from normal review. `visual-integrity.json` and its three
+difference PNGs verify only that each review still is an exact ffmpeg extraction of the normal
+baseline frame. They do not assess quality, select a representation, or compare to quarantined artifacts.
+
+## Commands
+
+After P0 tool code is intentionally committed, execute in this order:
+
+```powershell
+npm run p0:verify-input
+npm run p0:verify-network
+npm run p0:render
+npm run p0:manifest
+npm run p0:validate
+npm run p0:evaluate
+npm run p0:present
+npm run p0:visual-integrity
+npm run p0:negative-test
+npm run p0:verify
+```
+
+The ignored artifact directory is `out/p0/a-s7c6-e43ebb2/`. Its execution commit, command,
+tool versions, artifact SHA-256, conformance result, evaluation state, visual-integrity state,
+and saved location are
+recorded in the execution record below before handoff.
+
+## Execution record
+
+This is an **accepted P0 evidence candidate**, not a quality approval or a representation decision.
+It uses the approved local-font exception and the existing representation-A pipeline.
+
+- baseline render / manifest `p0_tool_commit`: `dbe6b2469de2ca7cb2515be442a7a071826656c4`
+- final verifier/tooling commit: `17d15c0`
+- normal artifact location: `out/p0/a-s7c6-e43ebb2/`
+- baseline SHA-256 (unchanged through final verification): `6353866D986A2C70E5956EAC0C6B3CA22DD686592C51CFFBB77FB64039BDA561`
+- command sequence: `p0:verify-input`, `p0:verify-network`, `p0:render`, `p0:manifest`, `p0:validate`, `p0:evaluate`, `p0:present`, `p0:visual-integrity`, `p0:negative-test`, `p0:verify`
+- conformance: `pass`; evaluation: `evaluated`; review presentation: `review-ready`; visual integrity: `pass` (three review extractions have maximum RGB byte difference `0`)
+- negative fixtures: isolated under `out/p0/a-s7c6-e43ebb2/fixtures/`; `wrong-frame-count` and `truncated` both have conformance `fail`, while the normal baseline hash remains unchanged
+- environment: Node `v24.15.0`, npm `11.14.1`, Remotion `4.0.494`, FFmpeg/FFprobe `8.1.1`; outbound firewall block was active for the exact worktree Chrome executable with loopback-only exceptions; Chrome processes after verification: `0`
+- quarantined historical locations: `out/p0/a-s7c6-e43ebb2-pre-final-3ef3ffe/` and `out/p0/a-s7c6-e43ebb2-blocked-external-font/`
+
+| Artifact | SHA-256 |
+| --- | --- |
+| `manifest.json` | `4CDC57EBAD687ABCB923E765BAAD9AC60BF252C3BA7081496659D48CA9BBA6A9` |
+| `conformance.json` | `A65F64E32F2C738CFD8561DDD18FA6344165790F17576EDC4E73D575897F0123` |
+| `evaluation.json` | `241852E25EC0E8982D12DBA0A26CF62E504F47CFCD3ADA45F3E0B762EAFE7C79` |
+| `review/index.html` | `C857AF678CB01E907F320D48055A786308B3ECB07E947F362717CE4390E3C112` |
+| `review/visual-integrity.json` | `2AD9889D274C48982C4233D994EB4285EE5103B4E7EB5B474FCDA52BFE3C8314` |
+
+### Historical blocked attempts
+
+Before the approved local-font exception, the existing pipeline attempted external font requests
+during rendering. Those runs were blocked and are not accepted artifacts; do not use either
+archived attempt for review.
+
+- execution path: A — existing local checkout `node_modules`, linked into this worktree without install or dependency changes
+- execution commit / p0 tool commit: `586a7e0c4f42c26e4a309a99316ab894f9ea0671`
+- quarantined invalid artifact locations: `out/p0/a-s7c6-e43ebb2-pre-final-3ef3ffe/` and `out/p0/a-s7c6-e43ebb2-blocked-external-font/`
+- accepted baseline SHA-256 / conformance / evaluation: **none**
+- visual-integrity status / per-frame maximum RGB difference / diff PNG SHA-256: **none**
+- observed blocker: `@remotion/google-fonts` loaded Yusei Magic and Klee One through network requests (121 and 124 requests respectively)
+- tool versions: Node `v24.15.0`, npm `11.14.1`, Remotion `4.0.494`, FFmpeg/FFprobe `8.1.1`
+
+## Approved local-font provenance
+
+The following four files were retrieved exactly once on `2026-07-23T21:06:17+09:00`, under
+mi3san's explicit P0 blocker approval. No external requests are permitted after this record.
+
+| Repository source URL | Repository path | Saved path | SHA-256 | License path |
+| --- | --- | --- | --- | --- |
+| `https://raw.githubusercontent.com/google/fonts/main/ofl/yuseimagic/YuseiMagic-Regular.ttf` | `google/fonts` `main/ofl/yuseimagic/YuseiMagic-Regular.ttf` | `public/fonts/YuseiMagic-Regular.ttf` | `82098615F39ED9DA6A8CCC674B9006E49C70DD5B775A7A1697F6BEDD22CE25A2` | `public/fonts/licenses/YuseiMagic-OFL.txt` |
+| `https://raw.githubusercontent.com/google/fonts/main/ofl/yuseimagic/OFL.txt` | `google/fonts` `main/ofl/yuseimagic/OFL.txt` | `public/fonts/licenses/YuseiMagic-OFL.txt` | `C74E8C47951DDD9C902F07097761CFA0457993E28D8E1E946E273C0250BE77C9` | self |
+| `https://raw.githubusercontent.com/fontworks-fonts/Klee/master/fonts/ttf/KleeOne-SemiBold.ttf` | `fontworks-fonts/Klee` `master/fonts/ttf/KleeOne-SemiBold.ttf` | `public/fonts/KleeOne-SemiBold.ttf` | `9DBB25466C575F6DC8768A28845798F67FA5D47A5D20A6408C30C58D700A1044` | `public/fonts/licenses/KleeOne-OFL.txt` |
+| `https://raw.githubusercontent.com/fontworks-fonts/Klee/master/OFL.txt` | `fontworks-fonts/Klee` `master/OFL.txt` | `public/fonts/licenses/KleeOne-OFL.txt` | `E376B0DF8E8A2345A9533DB6F0A5333A1107975569AD9D1973A7EE557161CA38` | self |
+
+The render path uses these local files only. `src/components/ChalkBoard.tsx` and
+`src/components/KaraokeSubtitle.tsx` are P0-approved local-font overrides from
+`baseline_source_commit`; the pre-render gate rejects remote Remotion font imports and remote
+font URLs before starting a baseline render.
+
+The separately approved cache-only zod repair pins `zod` to `4.3.6`. Its exact P0 runtime
+overrides are `package-lock.json` blob `808bdd1a6f6188fa55671f373bfa4f67be9036c8` and
+`src/schema.ts` blob `c357fd311841cf52f0989d8d4016e8e4849789fa`; the schema defaults are
+explicit values equivalent to the former nested defaults. No other baseline input is exempt.
+
+## Stop conditions
+
+Stop instead of expanding scope if any fixed input identity fails; the baseline needs a new
+dependency, `npm install`, unapproved `npm ci`, cloud, paid service, external API, or external
+asset; conformance and evaluation cannot stay separate; or an invalid fixture would mutate a
+source asset or normal artifact. The only allowed environment route is the approved existing
+local checkout's `node_modules`, referenced without changing that checkout.

@@ -41,7 +41,7 @@ export const Camera = z.object({
       zoom: z.number().default(0), // 正=寄る, 負=引く(カット内の変化量)
       strength: z.number().min(0).max(1).default(0.5), // 深度差の強さ
     })
-    .default({}),
+    .default({ panX: 0, panY: 0, zoom: 0, strength: 0.5 }),
   dof: z.number().min(0).max(1).default(0), // 被写界深度ボケの強さ
   easing: z.enum(["linear", "inOut", "out"]).default("inOut"),
 });
@@ -154,7 +154,7 @@ export const Cut = z.object({
   fgLayers: z.array(z.string()).default([]), // 前景(湯気・木漏れ日等)のアセット名
   board: z.object({ visible: z.boolean(), actions: z.array(BoardAction) }).optional(),
   subtitle: SubtitleSpec.optional(),
-  sound: SoundSpec.default({}),
+  sound: SoundSpec.default({ bgmCue: "none", ambience: "garden-day", sfx: [] }),
 });
 export type Cut = z.infer<typeof Cut>;
 

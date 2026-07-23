@@ -149,6 +149,19 @@
 - 適用範囲: アーキテクチャ、運用規約、PoC、依存関係、ツール採用
 - 昇格先: `docs/architecture-governance.md` と本 `AGENTS.md`
 
+### AP-009: Local render assumed to be offline although the existing font loader performs network requests
+
+- 迥ｶ諷・ `active`
+- 隕ｳ貂ｬ譌･: 2026-07-23
+- 譁・ц: P0 representation-A baseline render under the no-external-API constraint
+- 隕ｳ貂ｬ莠句ｮ・: The existing `@remotion/google-fonts` loader made 121 requests for Yusei Magic and 124 requests for Klee One while rendering. The renderer was stopped and no output was accepted as a P0 artifact.
+- 險ｼ諡: Remotion render log emitted by the approved local-checkout execution path on 2026-07-23.
+- 譬ｹ譛ｬ蜴溷屏: Do not infer that a local binary or existing `node_modules` implies offline execution; runtime asset loaders can still access the network.
+- 遖∵ｭ｢繝代ち繝ｼ繝ｳ: Do not render under a no-external-API contract until every runtime asset, including fonts, has a verified local-only resolution path. Stop at the first observed request.
+- 莉｣譖ｿ遲・: Add a pre-render network-dependency gate or use an explicitly approved local font asset path before retrying. This P0 contract does not itself approve either change.
+- 驕ｩ逕ｨ遽・峇: Remotion or browser-based render pipelines with remote font or asset loaders.
+- 譏・ｼ蜈・: P0 stop condition and pre-render acceptance checklist.
+
 ## Superseded
 
 現時点ではなし。

@@ -13,7 +13,17 @@
     "mix": "tsx pipeline/mix.ts",
     "encode": "tsx pipeline/encode.ts",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "p0:verify-input": "tsx pipeline/p0/fixed-input.ts --verify",
+    "p0:verify-network": "tsx pipeline/p0/verify-network.ts --verify",
+    "p0:render": "tsx pipeline/p0/render-baseline.ts",
+    "p0:manifest": "tsx pipeline/p0/write-manifest.ts",
+    "p0:validate": "tsx pipeline/p0/validate.ts",
+    "p0:evaluate": "tsx pipeline/p0/evaluate.ts",
+    "p0:present": "tsx pipeline/p0/present.ts",
+    "p0:visual-integrity": "tsx pipeline/p0/visual-integrity.ts",
+    "p0:negative-test": "tsx pipeline/p0/negative-test.ts",
+    "p0:verify": "tsx pipeline/p0/verify.ts"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",
@@ -22,7 +32,7 @@
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
     "remotion": "^4.0.0",
-    "zod": "^3.23.0"
+    "zod": "4.3.6"
   },
   "devDependencies": {
     "@types/react": "^18.3.0",
