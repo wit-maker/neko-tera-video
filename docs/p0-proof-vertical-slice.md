@@ -33,7 +33,9 @@ representation decision. Evaluation records review assets, observations, known f
 `not_evaluated`; it has no score, ranking, pass, or adoption field.
 
 The review UI distinguishes `review-ready`, `invalid`, `not-evaluated`, and `known-failure`.
-Invalid artifacts are excluded from normal review.
+Invalid artifacts are excluded from normal review. `visual-integrity.json` and its three
+difference PNGs verify only that each review still is an exact ffmpeg extraction of the normal
+baseline frame. They do not assess quality, select a representation, or compare to quarantined artifacts.
 
 ## Commands
 
@@ -47,12 +49,14 @@ npm run p0:manifest
 npm run p0:validate
 npm run p0:evaluate
 npm run p0:present
+npm run p0:visual-integrity
 npm run p0:negative-test
 npm run p0:verify
 ```
 
 The ignored artifact directory is `out/p0/a-s7c6-e43ebb2/`. Its execution commit, command,
-tool versions, artifact SHA-256, conformance result, evaluation state, and saved location are
+tool versions, artifact SHA-256, conformance result, evaluation state, visual-integrity state,
+and saved location are
 recorded in the execution record below before handoff.
 
 ## Execution record
@@ -65,6 +69,7 @@ stopped before it could become a valid artifact; do not use either archived atte
 - execution commit / p0 tool commit: `586a7e0c4f42c26e4a309a99316ab894f9ea0671`
 - quarantined invalid artifact locations: `out/p0/a-s7c6-e43ebb2-pre-final-3ef3ffe/` and `out/p0/a-s7c6-e43ebb2-blocked-external-font/`
 - accepted baseline SHA-256 / conformance / evaluation: **none**
+- visual-integrity status / per-frame maximum RGB difference / diff PNG SHA-256: **none**
 - observed blocker: `@remotion/google-fonts` loaded Yusei Magic and Klee One through network requests (121 and 124 requests respectively)
 - tool versions: Node `v24.15.0`, npm `11.14.1`, Remotion `4.0.494`, FFmpeg/FFprobe `8.1.1`
 

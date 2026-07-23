@@ -21,6 +21,7 @@
     "p0:validate": "tsx pipeline/p0/validate.ts",
     "p0:evaluate": "tsx pipeline/p0/evaluate.ts",
     "p0:present": "tsx pipeline/p0/present.ts",
+    "p0:visual-integrity": "tsx pipeline/p0/visual-integrity.ts",
     "p0:negative-test": "tsx pipeline/p0/negative-test.ts",
     "p0:verify": "tsx pipeline/p0/verify.ts"
   },
