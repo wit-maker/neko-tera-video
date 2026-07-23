@@ -4,18 +4,38 @@ import type { Cut, VideoProject } from "../schema";
 import type { CutTiming } from "../lib/timing";
 import { arrowHead, wobblyCircle, wobblyLine } from "../lib/chalk";
 
+const LOCAL_FONT_ATTEMPT_TIMEOUT_MS = 18_000;
+const LOCAL_FONT_MAX_ATTEMPTS = 2;
+
 const loadLocalFont = (family: string, file: string, weight: string): string => {
   if (typeof document === "undefined") return family;
-  const handle = delayRender(`Load local font ${file}`);
-  const font = new FontFace(family, `url(${staticFile(file)}) format("truetype")`, { style: "normal", weight });
-  font.load().then((loaded) => {
-    (document.fonts as unknown as { add(value: FontFace): void }).add(loaded);
-    continueRender(handle);
-  }).catch((error: unknown) => cancelRender(error instanceof Error ? error : new Error(String(error))));
+  const handle = delayRender(`Load local font ${file}`, { timeoutInMilliseconds: 60_000 });
+  const loadAttempt = (remainingAttempts: number): void => {
+    const font = new FontFace(family, `url(${staticFile(file)}) format("truetype")`, { style: "normal", weight });
+    const timedLoad = new Promise<FontFace>((resolve, reject) => {
+      const timeout = setTimeout(() => reject(new Error(`Timed out loading local P0 font ${file}`)), LOCAL_FONT_ATTEMPT_TIMEOUT_MS);
+      font.load().then(
+        (loaded) => { clearTimeout(timeout); resolve(loaded); },
+        (error: unknown) => { clearTimeout(timeout); reject(error); },
+      );
+    });
+    timedLoad.then((loaded) => {
+      (document.fonts as unknown as { add(value: FontFace): void }).add(loaded);
+      continueRender(handle);
+    }).catch((error: unknown) => {
+      if (remainingAttempts > 1) {
+        loadAttempt(remainingAttempts - 1);
+        return;
+      }
+      const reason = error instanceof Error ? error.message : String(error);
+      cancelRender(new Error(`Failed to load local P0 font ${file} after ${LOCAL_FONT_MAX_ATTEMPTS} attempts: ${reason}`));
+    });
+  };
+  loadAttempt(LOCAL_FONT_MAX_ATTEMPTS);
   return family;
 };
 
-const fontFamily = loadLocalFont("Yusei Magic", "public/fonts/YuseiMagic-Regular.ttf", "400");
+const fontFamily = loadLocalFont("Yusei Magic", "fonts/YuseiMagic-Regular.ttf", "400");
 
 const CHALK = "#eeeae0";
 const CHALK_EMPHASIS = "#f2d478";
