@@ -27,6 +27,7 @@
 
 ## 入口
 
+- LLM共通の設計運用規約: `LLM_GUIDE.md`
 - 次期技術戦略: `docs/character-architecture-strategy.md`
 - 判断状態とhard blocker: `docs/architecture-governance.md`
 - 採択済み比較境界: `docs/adr/001-next-character-comparison-boundaries.md`

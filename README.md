@@ -7,6 +7,7 @@
 ## 現在地と次期アーキテクチャ
 
 - 現在の納品・再開状態: `PROJECT_STATE.md`
+- Codex、Claude、そのほかのLLMが共有する設計運用規約: `LLM_GUIDE.md`
 - 次期キャラクター表現基盤のCTO提案: `docs/character-architecture-strategy.md`
 - 提案・承認・未決事項の状態管理: `docs/architecture-governance.md`
 - 採択済みの比較境界: `docs/adr/001-next-character-comparison-boundaries.md`
