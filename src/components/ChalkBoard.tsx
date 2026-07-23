@@ -15,7 +15,7 @@ const loadLocalFont = (family: string, file: string, weight: string): string => 
   return family;
 };
 
-const fontFamily = loadLocalFont("Yusei Magic", "fonts/YuseiMagic-Regular.ttf", "400");
+const fontFamily = loadLocalFont("Yusei Magic", "public/fonts/YuseiMagic-Regular.ttf", "400");
 
 const CHALK = "#eeeae0";
 const CHALK_EMPHASIS = "#f2d478";

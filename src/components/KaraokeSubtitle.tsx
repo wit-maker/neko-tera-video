@@ -16,7 +16,7 @@ const loadLocalFont = (family: string, file: string, weight: string): string => 
   return family;
 };
 
-const fontFamily = loadLocalFont("Klee One", "fonts/KleeOne-SemiBold.ttf", "600");
+const fontFamily = loadLocalFont("Klee One", "public/fonts/KleeOne-SemiBold.ttf", "600");
 
 /**
  * カラオケ字幕: アラインメントの文字タイムスタンプで発話済みの文字をハイライトする。
