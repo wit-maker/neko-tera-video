@@ -3,6 +3,7 @@ import { basename } from "node:path";
 import { spawnSync } from "node:child_process";
 import { ARTIFACT_RELATIVE_PATH } from "./contracts";
 import { argValue, pathFromRoot, sha256 } from "./lib";
+import { stagedFixtureArtifactPath } from "./negative-fixture-path";
 
 const artifact = argValue("--artifact", ARTIFACT_RELATIVE_PATH);
 const normal = pathFromRoot(`${artifact}/baseline.mp4`);
@@ -19,11 +20,12 @@ const normalHashAfter = sha256(normal);
 if (normalHashBefore !== normalHashAfter) throw new Error("Negative fixtures changed the normal baseline.");
 
 function validateFixture(file: string): { failed: boolean; conformance: unknown } {
-  const staged = `${fixtureRoot}/staged-${basename(file, ".mp4")}`;
+  const stagedArtifact = stagedFixtureArtifactPath(artifact, file);
+  const staged = pathFromRoot(stagedArtifact);
   mkdirSync(staged, { recursive: true });
   copyFileSync(file, `${staged}/baseline.mp4`);
   copyFileSync(pathFromRoot(`${artifact}/manifest.json`), `${staged}/manifest.json`);
-  const result = spawnSync(process.execPath, [pathFromRoot("node_modules/tsx/dist/cli.mjs"), pathFromRoot("pipeline/p0/validate.ts"), "--artifact", `${artifact}/fixtures/staged`], { cwd: process.cwd(), encoding: "utf8" });
+  const result = spawnSync(process.execPath, [pathFromRoot("node_modules/tsx/dist/cli.mjs"), pathFromRoot("pipeline/p0/validate.ts"), "--artifact", stagedArtifact], { cwd: process.cwd(), encoding: "utf8" });
   return { failed: result.status !== 0, conformance: JSON.parse(readFileSync(`${staged}/conformance.json`, "utf8")) };
 }
 const wrongResult = validateFixture(wrong);
