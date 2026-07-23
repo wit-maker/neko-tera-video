@@ -1,5 +1,5 @@
 import { existsSync } from "node:fs";
-import { ARTIFACT_RELATIVE_PATH, BASELINE, BASELINE_SOURCE_COMMIT, P0_LOCAL_FONT_SHA256, P0_LOCAL_FONT_SOURCE_OVERRIDES } from "./contracts";
+import { ARTIFACT_RELATIVE_PATH, BASELINE, BASELINE_SOURCE_COMMIT, P0_APPROVED_TRACKED_OVERRIDE_BLOBS, P0_LOCAL_FONT_SHA256 } from "./contracts";
 import { assertFixedInputs } from "./fixed-input";
 import { argValue, pathFromRoot, readJson, run, sha256, writeJson } from "./lib";
 
@@ -17,7 +17,10 @@ const manifest = {
   baseline: { ...BASELINE, sha256: sha256(baseline) },
   inputs: verification,
   localFontProvenance: {
-    sourceOverrides: P0_LOCAL_FONT_SOURCE_OVERRIDES,
+    sourceOverrides: {
+      "src/components/ChalkBoard.tsx": P0_APPROVED_TRACKED_OVERRIDE_BLOBS["src/components/ChalkBoard.tsx"],
+      "src/components/KaraokeSubtitle.tsx": P0_APPROVED_TRACKED_OVERRIDE_BLOBS["src/components/KaraokeSubtitle.tsx"],
+    },
     assets: P0_LOCAL_FONT_SHA256,
     networkBoundary: "local-only; verified before render",
   },
