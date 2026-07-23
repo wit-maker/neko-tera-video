@@ -15,14 +15,19 @@
 
 ## 次の段階
 
-1. `docs/character-architecture-strategy.md` をラピスが敵対的レビューする。
-2. mi3sanが同文書 §15 の未確定事項を判断する。
-3. 合意後、オービットがP0（比較プロトコル）をPoC・依存関係・受入条件へ分解する。
-4. 失敗から一般化できる知見は `docs/anti-patterns.md` へ追記し、再発可能ならvalidator、test、ADR、DoDへ昇格する。
+- PR #17でラピスのRequest Changesレビューを受領し、アトラスが戦略v0.2へ反映した。
+- 現在もgoal段階であり、P0のタスク、依存関係、受入条件は未作成である。
+
+1. ラピスが戦略v0.2、判断状態、ツール拡張案を再レビューする。
+2. mi3sanが `docs/architecture-governance.md` のhard blocker `GOV-013`〜`GOV-016` を判断する。
+3. 争点収束と承認後にのみ、オービットがP0をPoC・依存関係・受入条件へ分解する。
+4. 実験後の失敗から一般化できる知見は `docs/anti-patterns.md` へ追記し、再発可能ならvalidator、test、ADR、DoDへ昇格する。
 
 ## 入口
 
 - 次期技術戦略: `docs/character-architecture-strategy.md`
+- 判断状態とhard blocker: `docs/architecture-governance.md`
+- 環境拡張の段階案: `docs/tooling-extension-strategy.md`
 - 永続アンチパターン: `docs/anti-patterns.md`
 - 現行動画の詳細設計・旧教訓: `docs/cto-handoff.md`
 - 完了した納品工程: `docs/qc-delivery-task-board.md`

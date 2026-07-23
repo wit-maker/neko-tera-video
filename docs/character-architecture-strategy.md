@@ -1,475 +1,686 @@
-# 次期キャラクター表現基盤: CTO初期戦略
+# 次期キャラクター表現基盤: CTO改訂戦略
 
-状態: **提案・未決定**  
-作成日: 2026-07-23  
-責任者: アトラス（Codex CTO）  
+状態: **アトラス提案・ラピス再レビュー待ち**
+
+版: v0.2
+
+改訂日: 2026-07-23
+
+責任者: アトラス（Codex CTO）
 最終採否: mi3san
 
-## 0. 結論
+判断状態の定義と現在の台帳は `docs/architecture-governance.md`、環境拡張案は `docs/tooling-extension-strategy.md` を正本とする。
 
-この課題は「口パク方式の置換」ではなく、次のように再定義する。
+## 0. 改訂結論
 
-> **同一のキャラクター設計と顔動作意図に対して、方式固有の適切な素材を与えたとき、各表現アーキテクチャが到達できる視覚品質、制作可能性、再現性、操作性を、実映像で比較する。**
+この課題は「口パッチを何へ交換するか」ではない。
 
-初期方針は次の通り。
+> **同一のキャラクター設計とperformance intentに対して、方式ごとのネイティブ素材と専門技能を与えたとき、各表現アーキテクチャが到達する映像、必要投資、再現性、操作性、失敗条件を、正規化されたartifactで比較する。**
 
-1. 現行口パッチは修理対象ではなく、最低基準と構造的失敗の対照群として凍結する。
-2. 公平性は「同じPNG」ではなく、同じキャラクターバイブル、動作意図、カメラ、尺、出力仕様、評価手順で担保する。
-3. 方式は、離散2D、連続2D、2.5D、完全3D、ニューラル、ハイブリッドの6系統に分ける。
-4. 最初の本比較は、現行対照群に加えて、連続2D、Blender 2.5D、Blender完全3Dの**スタイル付き頭部バスト**を作る。全身や本編統合はまだ行わない。
-5. ニューラルとハイブリッドは候補から削除しないが、決定的リグの基準映像ができるまで本比較へ入れない。先に入れると改善箇所と失敗原因を分離できないためである。
-6. Remotionは各方式の正解レンダラーではなく、manifest検証、横並び、スロー、拡大、デバッグ注釈、差分表示を担当する**比較・提示層**に置く。
-7. 比較の一次判定は、方式名を隠した実映像のペア比較とする。視覚品質とコストを一つの重み付き点数へ早期に潰さない。
+ラピスの指摘を受け、初稿を次のように修正する。
 
-これは方式選定ではない。比較可能な状態を作るための技術戦略である。
+1. 候補を単純な6系統へ固定しない。離散lookup、手描き／vector keyframed 2D、連続2D、2.5D、完全3D、手描きcleanup、ニューラル、ニューラル残差を分離する。
+2. 共通Face Motion Schemaを、`Performance Intent`、`Observable Reference`、`Adapter Native Controls`の三層へ分ける。
+3. 公平性を、同じ予算での到達点と、各方式の改善飽和点の二本立てで評価する。
+4. P1でview依存と時間連続性を必ず露出する。
+5. ニューラル本比較は後段のまま維持するが、候補を事実上排除しないため早期N0 feasibility spikeを置く。
+6. validatorをRemotionから分離する。Remotionを提示層へ限定する案は維持するが、まだ `PROPOSED` であり不変条件ではない。
+7. artifact contractへtimebase、色、alpha、camera、crop、AA、背景合成の正規化を追加する。
+8. 根拠のない相対点数を廃止し、質的な投資階級と未確定性を示す。
+9. 提案、レビュー上のguardrail、mi3san承認、実験結果、ADRを状態管理する。
+10. Blender、Live2D、ニューラル、2D制作環境は、閉じた検証ループに必要になった段階で導入する。
 
-## 1. 前提の仕分け
+これは方式選定でもP0実装計画でもない。比較戦略の再提案である。
 
-### 妥当
+## 1. ラピスレビューへの回答
 
-- 現行完成画像が持たない解剖・奥行き・隠れ領域を、局所画像差し替えだけで回復することには構造的な上限がある。
-- 表現方式を先に定め、その方式が本来必要とする素材を制作する方が、汎用的な完成画像再構築を目指すより問題が小さい。
-- 入力タイミング精度と描画品質は分離して評価すべきである。
-- mi3sanが実映像を通常速度、スロー、拡大、デバッグ表示で見て採否を決める方針は正しい。
-- PoC段階から共通化すべきなのは、比較プロトコル、入出力契約、検証、再生成であり、全方式の内部実装ではない。
+| 指摘 | アトラス判断 | 改訂 |
+|---|---|---|
+| AP-004が未観測リスク | 同意 | 実際に観測した局所パッチの失敗へ再接地。別途AP-007を登録 |
+| 手描き2Dが分類から消えた | 同意 | B1とB2を分離し、B2を品質上限対照へ追加 |
+| motion schemaがrig寄り | 同意 | Intent / Observable / Native Controlへ三層化 |
+| artist差対策が不足 | 同意 | 固定予算と到達品質の二トラック化 |
+| P1のview/temporal不足 | 同意 | T7とT9をP1必須へ追加 |
+| neuralがP4まで無検証 | 同意 | 比較外のN0 feasibilityを早期追加 |
+| validatorとRemotionが未分離 | 同意 | benchmark CLIを正本validatorとする案へ修正 |
+| artifact正規化不足 | 同意 | timebase、色、alpha、camera等を契約へ追加 |
+| 投資表が擬似精度 | 同意 | 数値を撤回し質的階級へ変更 |
+| 未承認提案がAGENTS規約 | 同意 | `docs/architecture-governance.md`を追加し規約を分離 |
+| Blender license表現が粗い | 同意 | artwork、`bpy` script/add-on、Blender本体を分離 |
+| hard blockerが多すぎる | 同意 | P0前4項目と延期可能事項に分離 |
 
-### 修正する
+異論は、手描き2Dやニューラルを必ず同じ深さまで制作すべき、という意味にはしない点だけである。早期実験の目的は全候補へ同額投資することではなく、次の投資判断を変え得る情報を最小コストで得ることである。
 
-- 「同じ顔動作」を、全方式に同じ頂点、同じShape Key、同じvisemeを要求することとは定義しない。共通化するのは**意味上の動作意図**であり、各adapterがネイティブ制御へ写像する。
-- 「視覚品質」は一軸ではない。構造、時間連続性、同一性、画風、操作性、視点耐性を分離する。
-- 「2.5D」と「完全3D」はBlenderというツール名で分類しない。奥行きを持つ表現でも、view-dependentな板・層・浅い形状なのか、任意視点で成立する体積モデルなのかで分ける。
-- ニューラル方式の比較を、単一画像からの汎用再描画に限定しない。identity-specific学習、3D Gaussian、決定的リグへの残差などは別系統である。
+## 2. 判断状態
 
-### まだ判断できない
+### `OWNER_DIRECTIVE`
 
-- 2Dらしい線と塗りを最優先するか、顎・口腔・頬の立体整合性を最優先するか。
-- 正面寄りの固定カメラだけでよいか、将来の頭部yaw/pitchや別構図まで必要か。
-- Live2D Cubismなどの専有ツールを制作工程に許容するか。OSS化する比較基盤の中核に専有runtimeを置くかは別問題である。
-- 猫寺固有素材をどこまで公開できるか。
-- 利用できるキャラクターデザイナー、2D rigger、3Dモデラーの技能と予算。
-- ローカルGPU、VRAM、許容レンダー時間、クラウド利用可否。
+- 方式名や理論だけで採否を決めず、mi3sanが実映像を比較する。
+- 方式ごとにネイティブ素材を制作する。
+- 同じ完成PNGを全方式へ強制しない。
+- 音素認識・時間同期と描画品質を分離する。
+- 再利用可能な失敗を永続的に継承する。
 
-## 2. 現行方式の品質上限
+### `REVIEW_GUARDRAIL`
 
-現行コードは、文字アラインメントから `a/i/u/e/o/closed` の6離散状態を選び、ポーズ画像の上に口のPNGパッチをアンカー配置する。`src/components/Character.tsx` では、顔本体は静止画のまま、口パッチだけが独立して差し替わる。
+- 観測事実、将来リスク、設計仮説を分離する。
+- 視覚品質は最終表示、slow、crop、debugを含む成果物で見る。
+- 視覚品質、制作量、計算資源、再現性、操作性、licenseを未合意の重みで統合しない。
 
-品質上限を作る原因はフェザー精度ではなく、表現の自由度と結合関係である。
+### `PROPOSED`
 
-- 顎骨と頭蓋の相対運動がない。
-- 上唇、下唇、左右口角、マズル、頬が独立または連動する連続パラメータを持たない。
-- 口腔、歯、舌、顎下、隠れた毛並みの前後関係がない。
-- 状態間は形状補間ではなく画像差し替えで、時間連続性を保証しない。
-- パッチ境界の内外で、陰影、毛流れ、輪郭、体積が別々に振る舞う。
-- 発話中の頭部回転や非正面ポーズに対し、同じ局所座標の再利用を強いられる。
-- 入力が母音中心なので、閉鎖、狭め、破裂、非対称、情動などの動作意図を表現できない。
+- 本書の候補分類
+- 三層motion contract
+- P0〜P4とN0
+- benchmark validatorとRemotionの境界
+- 二つの比較トラック
+- artifact contract v0.1
+- 環境拡張順序
 
-したがって、現行方式の改良は「ハローを減らした比較対照群」までは有用だが、次期方式の土台にはしない。
+`PROPOSED`はP0の実装要件ではない。ラピス再レビューとmi3san承認後に、必要な項目だけADRへ昇格する。
 
-## 3. アーキテクチャ分類
+## 3. 比較で解く問い
 
-| 系統 | 代表 | 表現の本体 | 到達しやすい強み | 主な上限 | 本比較での扱い |
-|---|---|---|---|---|---|
-| A. 局所離散2D | 現行口パッチ | 局所画像状態 | 既存素材、低コスト | 構造非結合、継ぎ目、離散遷移 | 凍結した最低基準 |
-| B. 全頭部離散2D | 頭部/顔状態スプライト | 完成画像の状態集合 | 画風を完全保持しやすい | 状態組合せ爆発、補間、制作量 | 校正用対照群。 finalistにはしない |
-| C. 連続2Dリグ | ArtMesh、warp、mask、draw order | 2D頂点・層の連続変形 | 正面寄りの2D画風、低い実行コスト | 大回転、体積、複雑な口腔 | 初回の本候補 |
-| D. 2.5D解剖リグ | 層、浅いgeometry、jaw、shape、depth | view依存の奥行き付き形状 | 2D画風と構造の折衷 | 有効視点範囲、層境界、rig複雑性 | 初回の本候補 |
-| E. 完全3Dリグ | mesh、armature、corrective shape、shader | 体積・トポロジー | 顎・口腔・任意視点・再利用 | 初期制作量、2D画風再現 | 初回の本候補 |
-| F. ニューラル再描画 | diffusion、NeRF、3D Gaussian等 | 学習された外観・形状 | 高周波ディテール、残差表現 | データ、再現性、制御、猫への転用、license | 決定的baseline後にgate |
-| G. 決定的+ニューラル残差 | C/D/E + learned residual | 構造はrig、外観は残差 | 構造と高周波の両立可能性 | 学習対の作成、原因切分け | Fの後 |
+比較の主質問:
 
-全頭部スプライトを早期に外す理由は品質が低いからではない。少数状態では遷移が離散的になり、密にすると `jaw × width × corner × tongue × expression × view` の直積で素材数が増えるため、一般基盤としての伸びが悪いからである。ただし「完成絵を丸ごと描けば局所パッチよりどこまで良くなるか」を測る短い対照群としては価値がある。
+> 適切な素材と制作技能を与えたとき、どの表現方式が、猫寺の要求する画風と顔下部の構造連動を、許容可能な制作・計算・運用コストで実現できるか。
 
-## 4. 素材契約
+副質問:
 
-### 全方式共通: Character Bible
+- 正面中心と小さなhead turnで、品質順位は変わるか。
+- 構造的な正しさと2D画風の維持は、どこでtrade-offになるか。
+- 追加表情、別キャラクター、別cameraの増分コストはどれくらいか。
+- artistが失敗を特定し、局所修正し、同じ結果を再生成できるか。
+- OSS化できる境界は、renderer、adapter、asset、runtime、weightsのどこか。
+- RTX 3060 Ti 8GBとWindows localでどこまで閉じたloopが成立するか。
+
+比較しない問い:
+
+- 音声認識や音素推定の優劣
+- 任意の完成画像から可動assetを復元する汎用system
+- 本編42カットを直ちに次期方式へ移行する工程
+- 一つのweighted scoreによる自動採用
+
+## 4. 現行方式から確認済みのこと
+
+現行コードは `a/i/u/e/o/closed` の6状態を選び、静止した顔画像へ口PNGを局所配置する。`src/components/Character.tsx`では、顔本体と口パッチが別の表現として動く。
+
+実映像と既存QCで観測した上限:
+
+- 顎骨、唇、マズル、頬、顎下が一体で変形しない。
+- パッチ境界で毛、陰影、輪郭、体積の連続性が切れる。
+- 口腔、歯、舌、隠れ領域の前後関係を表現できない。
+- 非stand poseへ同じ口patchをpose別anchor/scaleで合わせる必要が生じた。
+- 離散状態間の時間連続性を表現側で保証できない。
+
+ここから確定できるのは、「素材契約に存在しない構造を局所rendererだけで回復する方式には上限がある」ことまでである。「同じPNGを別方式へ投入した比較が失敗した」とはまだ観測していない。
+
+## 5. 候補分類
+
+| ID | 系統 | 表現の正本 | 得たい判断 | 現在の扱い |
+|---|---|---|---|---|
+| A | 局所離散2D | 現行口patch + pose画像 | 現行の最低基準と既知failure | 必須baseline |
+| B1 | 全頭部離散lookup | 完成頭部state集合 | patch境界を消すだけで得られる改善とstate explosion | 短尺対照、finalist可否はOPEN |
+| B2 | 手描き／vector keyframed 2D | key pose、中割り、vector morph | 2D画風で到達できる短尺の品質上限 | T1/T3/T8の品質上限対照 |
+| C | 連続2Dパラメトリック | layer、mesh、deformer、mask、draw order | 正面2D画風と連続制御の両立 | 本候補 |
+| D | 2.5D解剖rig | layer/plate/浅いgeometry、jaw、depth | 2D画風とvolume/occlusionの折衷 | 本候補 |
+| E | 完全3D rig | volume mesh、armature、corrective shape、shader | 口腔、view、再利用の上限 | 本候補 |
+| F | 決定的D/E + 手描きcleanup | base frame + cleanup layer | 構造と手描き画風のproduction両立 | 独立候補 |
+| G | neural再描画／avatar | learned geometry/appearance | 高周波detailと非決定性・data負担 | N0後に本比較可否 |
+| H | 決定的base + neural residual | C/D/E + learned residual | 構造fallbackとappearance補正 | base成立後 |
+
+物理simulationは独立した画面表現ではなく、C/D/E内のsecondary motion実装として扱う。方式固有の物理を共通入力へ強制しない。
+
+B1をfinalistから除外する初稿判断は撤回する。B1の状態数と増分コストは実測し、品質と運用の両面から判断する。
+
+## 6. 共通化するもの、しないもの
+
+### 共通化する
+
+- Character Bible
+- Performance Intent
+- Observable Referenceの定義と許容差
+- timebase、frame区間
+- 基準cameraと比較crop
+- 出力の色・alpha・pixel contract
+- テストsequence
+- artifact manifest
+- effort/provenance記録
+- 評価手順
+
+### 方式固有にする
+
+- layer分割、mesh、topology、skeleton、shape、draw order
+- 口腔、歯、舌、隠れ領域の実装
+- native control、constraint、corrective
+- texture、shader、line、groom
+- key poseと中割り
+- training data、latent、weights
+- renderer、sample数、内部解像度
+- artist向け編集UI
+
+### 共通化してはいけない
+
+- 同じPNG
+- 同じ頂点数やtopology
+- 同じboneやShape Key
+- 同じnative parameter名
+- 同じ制作手順
+- 全方式へ同じtool経験を持つ担当者
+
+## 7. 三層Motion Contract
+
+### 7.1 Performance Intent
+
+演技として何を起こしたいかを示す。解剖やrig操作を指定しない。
+
+v0.1候補:
+
+- `neutral_hold`
+- `speech_opening`
+- `speech_closure`
+- `speech_spread`
+- `speech_round`
+- `left_right_asymmetry`
+- `large_open_emphasis`
+- `tongue_presence`
+- `head_orientation_target`
+- `continuous_performance`
+
+各eventは `start`, `end`, `strength`, `side`, `easing class`, `priority`を持てる。`jaw boneを15度回す`や`shape keyを0.7`はここへ書かない。
+
+### 7.2 Observable Reference
+
+結果として画面または基準空間で観測したい状態を定義する。
+
+v0.1候補:
+
+- mouth aperture ratio
+- mouth width ratio
+- lip/contact state
+- left/right corner displacement
+- muzzle outer contour
+- visible oral-cavity ratio
+- tongue visibility
+- teeth/tongue/ lipのocclusion order
+- head poseまたは基準camera上のlandmark projection
+- silhouette continuity
+
+Observable Referenceは全方式へ同じ形を強制するground truthではない。意図が再現されたか、方式間で何が違うかを測る共通物差しである。手描き2Dではartistのreference drawing、3Dではlandmark projection、ニューラルではtracking結果など、取得方法をmanifestへ記録する。
+
+### 7.3 Adapter Native Controls
+
+方式内部でintentとobservableを実現する制御。
+
+例:
+
+- sprite state ID
+- key drawing / exposure
+- vector control point
+- Live2D parameter
+- jaw bone rotation
+- blend/shape key weight
+- constraint、simulation input
+- neural latent、conditioning map、seed
+
+adapterは各intent/observableに対し、`native`、`approximated`、`unsupported`、`artist_authored`を宣言する。`unsupported`を0へ丸めて隠さない。
+
+### 7.4 三層を分ける理由
+
+- 同じintentを異なる機構で実現できる。
+- native controlの数が多い方式を暗黙に有利にしない。
+- 手描き2Dをrig schemaへ従属させない。
+- observableとnative controlの差から、adapter biasを検出できる。
+- 音素変換は将来、Performance Intentを生成する上流として追加できる。
+
+## 8. 方式別素材契約
+
+### 共通Character Bible
 
 - 正面、3/4、側面の外見基準
-- 頭身、頭蓋、顎、マズル、頬、耳、目、ひげの比率
-- 色、模様、線、塗り、毛の密度、陰影のルール
-- neutral、閉口、大開口、横引き、すぼめ、口角左右、頬圧縮のshape sheet
+- 頭蓋、顎、マズル、頬、耳、目、ひげの比率
+- 色、模様、線、塗り、毛、陰影のルール
+- neutral、閉口、大開口、spread、round、左右非対称のreference
 - 歯、舌、口腔の見え方と禁止表現
-- 基準カメラ、焦点距離相当、照明、背景
-- キャラクター同一性を判定するランドマーク
+- 基準camera、照明、背景
+- 同一性を判定するlandmarkとsilhouette
 
-### A. 局所口パッチ
+### A / B1
 
-- 完成ポーズ画像
-- 口状態PNG、フェザー、アンカー、scale
-- パッチ生成元と再生成スクリプト
+- 完成pose/state画像
+- stateの意味と許可遷移
+- anchor、scale、mask、crossfade規則
+- state追加時の制作量
 
-### B. 全頭部状態
+### B2
 
-- 状態ごとの頭部完成画像
-- 状態格子と命名規約
-- 状態間の許可遷移、補間またはcrossfade規則
-- 共通の輪郭、カメラ、照明、髪・ひげ整合
+- key drawing、breakdown、中割り
+- exposure sheetまたはvector timeline
+- line、palette、brush、cleanup規則
+- 手動修正frame一覧
+- source fileとlossless export
 
-### C. 連続2D
+### C
 
-- 分割済みレイヤー、隠れ領域、変形余白
-- ArtMesh、親子deformer、mask、draw order
-- 上下唇、左右口角、左右マズル、頬、下顎、顎下毛、ひげ根元
-- 口腔、歯、舌の独立層
-- パラメータkeyformと組合せ補正
-- export/runtimeのバージョンとlicense manifest
+- 分割layer、隠れ領域、変形余白
+- mesh、deformer、mask、draw order
+- 唇、口角、マズル、頬、下顎、顎下毛、ひげ根元
+- 口腔、歯、舌
+- keyformと組合せ補正
+- Editor/runtime/version/license manifest
 
-Live2D Cubismを代表実装に使う場合、mesh/deformer/parameterによる連続変形は比較目的に合う。一方でSDK公開には利用形態に応じた契約が関係し、Coreは完全なOSSではないため、**Live2D adapterとOSS比較基盤を分離**する。
+### D
 
-### D. Blender 2.5D
+- view-aligned layer/plate/浅いgeometry
+- 頭蓋、下顎pivot、口腔volume
+- lip/muzzle/cheek topology
+- armature、constraint、shape/corrective
+- depth、occlusion、valid camera range
+- 毛、ひげ、lineの追従規則
 
-- 正面基準の層または浅いgeometry
-- 頭蓋、回転中心を持つ下顎、口腔volume
-- 唇・マズル・頬の変形用topology
-- armature、constraints、shape keys、corrective shapes
-- 層間のdepth、occlusion、camera有効範囲
-- 毛・ひげ・線画の追従規則
-- 決定的生成または検証用Python script
+### E
 
-### E. Blender完全3D
-
-- 正面・側面・3/4 model sheet
-- watertightである必要はないが、変形に耐える頭部topology
+- 正面、側面、3/4 model sheet
+- deformation topology
 - 頭蓋、下顎、口腔、歯、舌
-- armature、skin weights、facial shape keys、corrective shapes、constraints
-- UV、texture、shader、groom/毛、ひげ
-- camera、light、color management、render engine設定
-- headless再生成・レンダーscript
+- armature、weight、facial shape、corrective
+- UV、texture、shader、groom、line
+- camera、light、color management、render settings
 
-### F. ニューラル
+### F
 
-- 学習データの由来、同意、license
-- identity reference、必要なmulti-view/動画/scanの条件
-- conditioning schemaと追跡方式
-- model、weights、seed、環境lock、学習・推論設定
-- temporal consistencyとfailure case
-- model card、VRAM、時間、再配布可否
+- D/Eの再生成可能なbase
+- cleanup対象frameとlayer
+- base差分、修正理由、適用範囲
+- 再render時のrebase規則
 
-現在の高品質neural head avatar研究の多くは人間の頭部モデル、portrait video、multi-view、3DMM/FLAME等のpriorを前提にしている。猫寺のstylized catへそのまま一般化できるとは扱わず、独立した研究リスクとして予算化する。
+### G / H
 
-### G. ハイブリッド残差
+- datasetの由来、同意、license
+- identity referenceと必要view/expression
+- conditioning、tracking、model、weights、seed
+- environment/container hash
+- temporal/identity failure
+- residual無効時のfallback
 
-- C/D/Eの完全な決定的base
-- base renderと目標画像の対応データ
-- 残差を許す領域、最大振幅、confidence
-- geometry/occlusionを壊さないcomposite規則
-- residual無効時にbaseへ戻れるfallback
+## 9. Artifact Contract v0.1候補
 
-## 5. 共通Face Motion Schema
-
-音素や母音を共通入力にせず、描画方式から独立した**動作意図**を時系列で与える。
-
-```json
-{
-  "schemaVersion": "0.1",
-  "fps": 60,
-  "frames": [
-    {
-      "frame": 0,
-      "jawOpen": 0.0,
-      "jawForward": 0.0,
-      "lipClosure": 1.0,
-      "mouthWidth": 0.0,
-      "mouthNarrow": 0.0,
-      "cornerLeft": 0.0,
-      "cornerRight": 0.0,
-      "upperLipRaise": 0.0,
-      "lowerLipDepress": 0.0,
-      "muzzleCompressLeft": 0.0,
-      "muzzleCompressRight": 0.0,
-      "cheekPuff": 0.0,
-      "tongueOut": 0.0,
-      "headYawDeg": 0.0,
-      "headPitchDeg": 0.0
-    }
-  ]
-}
-```
-
-実装時はJSONをそのまま巨大化せず、curve + keyframe形式を正規形にする。重要なのは次の契約である。
-
-- 値域、neutral、単位、clampをschemaで固定する。
-- 左右非対称を表現できる。
-- adapterは `native / approximated / unsupported / derived` をチャンネルごとに宣言する。
-- `unsupported` を0として黙って無視しない。比較manifestへ残す。
-- 方式固有の補正値やsecondary motionはadapter内部に置き、共通schemaへ漏らさない。
-- 将来の音素変換は、このmotion schemaを生成する上流adapterとして追加する。
-
-## 6. Artifact Contract
-
-各方式は、同じディレクトリ構造で証拠を出す。
+各adapterは次を出す。
 
 ```text
 artifacts/<run-id>/<adapter-id>/
   manifest.json
+  validation.json
   frames/000000.png ...
   debug/
+  observable/
   metrics.json
   logs/
   asset-contract.md
   known-failures.md
 ```
 
-`manifest.json` には最低限、adapter/version、source commit、asset hash、motion hash、camera、fps、解像度、色空間、seed、render command、開始終了時刻、GPU/CPU、peak VRAM、成功状態を持たせる。
+### Timeline
 
-標準出力:
+- rational timebase (`fpsNumerator` / `fpsDenominator`)
+- frame 0の意味
+- half-open区間 `[startFrame, endFrame)`
+- durationからframe数への丸め規則
+- frame countと欠損禁止
 
-- losslessなframe sequence。比較の正本は圧縮動画にしない。
-- 60fps、同一frame count、同一camera crop。
-- neutral背景またはalpha。alpha解釈と色空間を固定。
-- normal、25% slow、200% mouth cropは比較層が生成する。
-- debug passは方式に応じ、mesh/wire、bones、controls、depth、normal、mask、draw orderを出す。
-- 再実行時に同一入力から同一結果を期待する方式はframe hashを比較する。
-- ニューラル方式はseed固定だけで決定的とみなさず、複数runの分散を記録する。
+### Pixel / Color
 
-## 7. 比較シーケンス
+- container/codecではなくframe format
+- bit depth、channel、pixel format
+- color primaries、transfer、matrix、range
+- ICC profileまたはOCIO config/view/hash
+- working space、exposure、tone mapping、view transform
+- straight / premultiplied alpha
+- matte/background color
+- pixel aspect ratio
+- dithering規則
 
-本編台詞を最初から使わない。原因の切り分けができる短いmotion suiteを先に使う。
+### Camera / Canvas
 
-| ID | 内容 | 見るもの |
+- coordinate system、handedness、up/forward axis、unit
+- perspective / orthographic
+- focal lengthまたはequivalent FOV、sensor相当
+- camera extrinsics
+- crop前canvas
+- comparison crop rectangle
+- safe areaとreference landmark
+
+### Rendering
+
+- renderer/version
+- anti-aliasing、sample数、filter
+- transparencyとbackground composite規則
+- seedと決定性設定
+- debug passの意味
+
+### Provenance / Effort
+
+- adapter/source commit
+- asset hash、intent hash、observable hash
+- commandとenvironment version
+- CPU/GPU/driver、peak VRAM、時間、容量
+- operator、関連技能、tool経験
+- person-hours、iteration、manual correction
+- external assetとlicense
+- success / failed / partial
+
+### Validatorと表示層
+
+`validation.json`はRemotionではなく独立benchmark CLIが生成する。frame欠損、hash、timebase、pixel/color、alpha、camera/crop、成功状態を検査する。
+
+Remotionは`validation=pass`のartifactだけを通常比較へ載せる。失敗artifactを表示する場合は、赤いinvalid表示を付け、通常候補と混同しない。
+
+## 10. 比較sequence
+
+| ID | Intent | 主に見るもの |
 |---|---|---|
-| T0 | neutral hold | 同一性、基準画風、静止時ノイズ |
-| T1 | jawOpen 0→1→0 | 顎関節、顎下、口腔、体積 |
-| T2 | mouthWidth / mouthNarrow | 唇・マズル・頬の連続変形 |
-| T3 | jawOpen中のlipClosure | 閉鎖、唇の接触、歯の隠れ |
-| T4 | 左右口角の非対称 | 独立制御、同一性 |
-| T5 | tongue、teeth、large-open | 前後関係、clip、口腔 |
-| T6 | 2パラメータ格子と境界sweep | 組合せ破綻、補正shape不足 |
-| T7 | ±15° yaw/pitch中の発話 | view依存、層境界、volume |
-| T8 | 6〜10秒の共通performance | 時間連続性、coarticulation、通常速度の自然さ |
+| T0 | neutral hold | 同一性、静止時noise/drift |
+| T1 | opening ramp | 顔下部の連動、口腔、volume |
+| T2 | spread / round | 唇、マズル、頬、contour |
+| T3 | open中のclosure | 接触、歯の隠れ、occlusion |
+| T4 | 左右非対称 | 独立制御、同一性 |
+| T5 | large open + tongue | 口腔、tongue、clip |
+| T6 | 二軸combination sweep | 組合せ破綻、補正不足 |
+| T7 | 暫定yaw/pitch中の動作 | view依存、layer gap、volume |
+| T8 | 6〜10秒performance | 通常速度の自然さ、coarticulation |
+| T9 | 速度変化・hold・方向反転 | temporal continuity、overshoot、flicker |
 
-最初のsuiteは総尺20〜30秒以内に保つ。全方式を高速に再実行できることを優先する。
+最大yaw/pitchはmi3sanのP0前判断事項である。値が決まるまでT7を設計から削除しない。
 
-## 8. 評価
+P1最小集合は `T0 + T1 + T3 + T6 + T7 + T9` とする。B2品質上限対照は少なくとも `T1 + T3 + T8` を持つ。
 
-### 8.1 視覚品質
+## 11. 公平性: 二つの比較トラック
 
-1. 顎関節を起点に見えるか。
-2. 唇、口角、マズル、頬、顎下が一構造として動くか。
-3. 歯、舌、口腔、毛、ひげのocclusionが正しいか。
-4. 輪郭、毛流れ、陰影、線が時間的に連続するか。
-5. texture stretch、volume loss、mesh fold、layer gapがないか。
-6. neutralから極端形状までキャラクター同一性を保つか。
-7. 単体パラメータだけでなく組合せで破綻しないか。
-8. 通常速度で自然か、25%で破綻が露呈しないか。
-9. 顔全体と200%口元の両方で成立するか。
-10. 小さなhead turnで品質が崩れないか。
+### Track A: 固定予算
 
-### 8.2 制作・運用
+目的: 同じ投資で得られる到達点を比較する。
 
-- 初回素材制作量
-- 1つの新表情・新キャラクター・新cameraを追加する増分コスト
-- artistが意図した修正を局所的に行えるか
-- headless再生成、決定性、version lock
-- 1 frame / suite / 1分映像の時間、peak VRAM、成果物容量
-- runtimeやEditorのlicense、asset再配布、商用、OSS可否
+共通化:
 
-### 8.3 判定方法
+- person-hours
+- iteration上限
+- compute時間または課金上限
+- 共通referenceとreview回数
 
-- 方式名、ツール名、制作時間を隠したA/Bペア比較を先に行う。
-- mi3sanの一次判定と、ラピスの破綻指摘を分けて記録する。
-- 5段階の絶対点より、「どちらが良いか / 差なし / 判定不能」と理由を残す。
-- 視覚品質、制作コスト、計算資源、再現性を別表にし、重みはmi3san合意後に付ける。
-- 1本のデモが良いだけでは採用しない。T0〜T8のcoverageと既知failureを確認する。
+方式ごとに適切なoperatorを使ってよい。ただし、operatorの経験年数、tool経験、外部template、manual correctionをmanifestへ残す。
 
-## 9. 実装順序とstage gate
+### Track B: 到達品質
 
-### P0: 比較プロトコル
+目的: 方式へ適切な専門技能を与えた場合の品質上限を比較する。
 
-作るもの:
+- 方式ごとのspecialistを許可
+- 改善履歴と追加投資を保存
+- 連続するreview cycleで主要failureが改善しない、またはmi3sanが十分と判断するまで継続
+- 飽和までの累積person-hours、compute、asset量を結果の一部とする
 
-- Character Bible v0.1
-- Face Motion Schema v0.1
-- adapter CLI contract
-- artifact manifestとvalidator
-- T0〜T8 curves
-- Remotion comparison composition
-- 現行口パッチbaseline
+Track Aの勝者とTrack Bの勝者が違っても矛盾ではない。「今の予算で採用する方式」と「将来投資する価値のある方式」を分けて判断できる。
 
-Gate:
+## 12. 評価
 
-- 同じartifactを2回読み、frame-accurateに同じ比較動画を作れる。
-- 欠損frame、fps、crop、hash不一致でvalidatorが失敗する。
-- 失敗runが成功表示されない。
+### 視覚品質
 
-### P1: mechanism slice
+- 貼り付け感
+- 顎を起点とする顔下部連動
+- lip/corner/muzzle/cheekの形状とvolume
+- teeth/tongue/oral cavityのocclusion
+- fur/whisker/line/shadingの連続性
+- neutralからextremeまでの同一性
+- 組合せ破綻
+- view依存
+- temporal drift、flicker、速度変化
 
-連続2D、2.5D、完全3Dで、無彩色または単純材質の頭部を使いT1、T3、T6だけを通す。ここでは最終画風を採点せず、必要な自由度、rigの成立、口腔・occlusion、adapter難度を確認する。
+### 制作・運用
 
-Gate:
+- 初回素材制作
+- 新表情、新character、新cameraの増分
+- artistの局所修正可能性
+- headless再生成、version lock
+- render/training時間、peak VRAM、容量
+- runtime、Editor、asset、weightsのlicense
 
-- 顎、唇、マズル、頬、口腔が個別に制御可能。
-- 2パラメータ境界sweepで致命的なfold/gapがない。
-- headlessまたは記録済み手順で再生成できる。
+### Blind presentation
 
-### P2: styled head bust
+- 方式名とtool名を隠す
+- 順序をrandomizeする
+- 左右配置を入れ替える
+- 同じ映像をduplicateとして混ぜる
+- mi3sanの同一映像判定の一貫性を確認する
+- 「差なし」「判定不能」を許可する
 
-同じCharacter Bibleから、C/D/Eそれぞれに適した最小の**色・模様・毛・線を持つ頭部バスト**を制作し、T0〜T8を全実行する。全身、本編42カット、音声認識は作らない。
+mi3sanの一次判定と、ラピスのfailure指摘は別記録にする。制作コストは視覚判定後に開示する。
 
-Gate:
+## 13. 投資順序
 
-- mi3sanが方式名を隠したnormal/slow/crop比較を完了できる。
-- 各方式の既知failure、追加制作量、計算量が実測で出ている。
-- 方式差よりartist差が支配的でないか、ラピスがレビューする。
+### P0: 比較契約（`PROPOSED`）
 
-### P3: finalist production slice
+目的:
 
-上位1〜2方式だけを、実台詞6〜10秒、耳・目・ひげ・呼吸を含む一つの完成カットへ拡張する。
+- Character Bible
+- Intent / Observable contract v0.1
+- artifact contractと独立validator境界
+- comparison presentation
+- baselineの再現
 
-Gate:
+P0の詳細タスク、依存関係、受入条件はまだ作らない。GOV-013〜016の回答と本書の再レビュー後に、オービットがplanとして作る。
 
-- 本番相当の画風と演出で品質差が再現する。
-- 修正1回の所要、再レンダー、差分検査が成立する。
+### N0: neural feasibility（比較外）
 
-### P4: neural gate
+P0後半またはP1前に、小さく確認する。
 
-決定的finalistのframeを基準に、ニューラル単体または残差が改善する具体的failureだけを対象にする。
+- stylized catへ適用できる入力形式か
+- 必要な教師データと権利
+- RTX 3060 Ti 8GBでinference/低解像度spikeが動くか
+- identity drift、temporal drift
+- model、weights、datasetのOSS再配布境界
+- cloudが必要な場合の追加費用
 
-開始条件:
+N0は品質順位を付けない。P2/P4へ残す価値があるかだけを判断する。
 
-- 改善対象が画素・領域・frameで特定されている。
-- 学習データとlicenseが用意できる。
-- baseを壊したときに自動または目視で検出できる。
-- neural無効時のfallbackがある。
+### P1: Mechanism evidence（`PROPOSED`）
 
-## 10. 初期投資の比較
+- A、C、D、Eを中心にT0/T1/T3/T6/T7/T9
+- B1はstate増加とtransitionを確認
+- B2は品質上限対照の制作条件を確認
+- 画風順位ではなく、自由度、occlusion、view、temporal、再生成を確認
 
-数値はスケジュールではなく、P2の頭部バスト1体を作る相対レンジである。担当者の技能で大きく変わるため、P1で実測へ置き換える。
+### P2: Styled comparison（`PROPOSED`）
 
-| 方式 | 素材制作 | rig/実装 | 実行資源 | 技術不確実性 |
-|---|---:|---:|---:|---:|
-| 現行パッチ | 1 | 1 | CPU/低VRAM | 低 |
-| 全頭部状態 | 3〜8 | 1〜2 | CPU/低VRAM | 状態数で急増 |
-| 連続2D | 4〜8 | 4〜8 | CPU〜一般GPU | 中 |
-| 2.5D | 6〜12 | 6〜12 | 一般GPU 8〜16GB級から検証 | 中〜高 |
-| 完全3D | 8〜20 | 8〜20 | 一般GPU、final品質で増加 | 中〜高 |
-| ニューラル | 10〜30+ | 10〜30+ | 24GB級以上を想定し要実測 | 非常に高い |
-| ハイブリッド | baseに追加 | 8〜20+ | base + 学習/推論 | 高 |
+- P1/N0後に残った候補
+- Track AとTrack Bを分ける
+- Character Bibleに沿ったhead bust
+- B2を短尺の2D品質上限対照として含める
+- FはD/Eのstyle gapが主要failureなら追加
 
-上限値は契約ではない。特に毛、2D風line、corrective shapes、学習データ制作が支配項になる。
+### P3: Production slice（`PROPOSED`）
 
-## 11. Remotionの境界
+- 上位候補を実台詞6〜10秒へ拡張
+- 耳、目、ひげ、呼吸、演出を含む
+- 修正1回のcostと再renderを測る
 
-Remotionは次を担当する。
+### P4: Neural / residual本比較（`PROPOSED`）
 
-- artifact manifestの読込み
-- 同一frameの横並び
-- normal / 25% slow / 200% crop
-- control値、adapter名、run hash、計測値の注釈
-- frame difference、contact sheet、review用動画
-- mi3san向けの決定的な比較成果物
+- N0を通過
+- 改善対象がpixel/region/frameで特定
+- data/licenseが用意できる
+- deterministic fallbackがある
+- 複数seed/runの分散を比較する
 
-Remotionへ置かないもの:
+## 14. 投資の質的比較
 
-- Blender rig、physics、shape key解決
-- Live2D等のネイティブ変形の正本
-- neural inferenceの内部
-- 方式固有assetの自動救済
+現時点では数値pointを置かない。
 
-Remotionは `useCurrentFrame()` でframeを正確に選べ、image sequenceと`Sequence`で比較レイアウトを作れる。したがって提示層には適する。一方、canonical evidenceは各adapterが出したlossless frame sequenceとし、Remotion内で方式ごとに別の変形ロジックを持たない。これにより比較層のバグと方式本体のバグを分離できる。
+| 方式 | 初回素材 | specialist依存 | compute | 不確実性 | 主な支配項 |
+|---|---|---|---|---|---|
+| A | 低 | 低 | 低 | 低 | patch品質上限 |
+| B1 | 中〜高 | 中 | 低 | 中 | state直積 |
+| B2 | 高 | 非常に高 | 低 | 中 | drawing/cleanup人時 |
+| C | 中〜高 | 高 | 低〜中 | 中 | layer設計、組合せ補正 |
+| D | 高 | 高 | 中 | 高 | topology、line/fur、view範囲 |
+| E | 非常に高 | 非常に高 | 未実測 | 高 | model、rig、groom、NPR |
+| F | baseに追加 | 非常に高 | 中 | 高 | cleanup/rebase |
+| G | data依存 | 高 | 未実測 | 非常に高 | data、VRAM、drift、license |
+| H | base + data | 非常に高 | 未実測 | 非常に高 | residual dataとfallback |
 
-## 12. OSS境界
+`未実測`は悲観・楽観のどちらにも読み替えない。RTX 3060 Ti 8GBでの最小実験後に `EXPERIMENT_RESULT` として更新する。
 
-### PoCから共通化する
+## 15. Remotionとbenchmark coreの境界
 
-- Face Motion Schema
-- adapter CLIとmanifest
-- artifact validator
-- T0〜T8 motion suite
-- Remotion比較composition
-- frame差分、contact sheet、performance計測
-- license manifest
-- アンチパターン台帳と再現手順
+これは `PROPOSED` である。
 
-### 採用方式が見えてから共通化する
+### Benchmark core / CLI
 
-- Blender rig generatorの汎用化
-- 2D deformer template
-- 毛・線画shaderの抽象化
-- キャラクターasset package規格
-- neural residual interface
+- manifest/schema検査
+- frame欠損、hash、timebase
+- pixel/color/alpha/camera/crop
+- artifact success状態
+- deterministic rerun比較
+- validation report
 
-### OSS coreへ直接入れない
+### Remotion
 
-- 猫寺固有で公開不可の素材
-- 再配布不可のmodel weights、sample data、Editor runtime
-- Live2D等の専有runtimeそのもの。必要なら外部adapterと導入手順に分離する。
+- validation済みartifactの横並び
+- normal / slow / crop
+- debug overlay、control/observable表示
+- difference/contact sheet
+- blind presentationのrandomize
+- review動画
 
-BlenderはGPLであり、Blenderで作ったartwork自体にGPLが自動適用されるわけではない。一方、Live2D SDKは公開形態に応じたPublication Licenseが関係し、Cubism Coreは完全な公開ソースではない。OSSを本気で狙うなら、reference adapterはBlenderを優先し、Live2Dは互換adapterとして扱うのが安全である。
+### Adapter
 
-## 13. 最大の失敗リスク
+- native asset読込み
+- intent/observableからnative controlへのmapping
+- 方式固有render
+- debug passとprovenance出力
 
-1. **artist差をarchitecture差と誤認する**  
-   同じ担当品質、同じCharacter Bible、同等の修正回数を記録する。
+Remotionにvalidatorを置かないことで、表示不具合とartifact不具合を分離する。Remotionが不採用になっても、artifactとvalidationは残る。
 
-2. **共通schemaが一方式の都合へ寄る**  
-   semantic intentだけを共通化し、native mappingとunsupportedを公開する。
+## 16. License境界
 
-3. **grayboxの勝敗を最終画風の勝敗にする**  
-   P1は成立性、P2はstyled visualを判定する。混同しない。
+### Blender
 
-4. **3Dの初期的なtoon不足を3D構造の敗北とみなす**  
-   geometry、deformation、shader/styleを別々にレビューする。
+- Blender本体: GPL
+- Blenderで制作したartwork: Blender本体のGPLが自動適用されるわけではない
+- `bpy`を使いBlenderと結合して配布するscript/add-on: GPL互換性を個別確認
+- texture、font、HDRI、model: 各asset license
+- `.blend`内の埋込みscript: 権利とsecurityの双方を確認
 
-5. **ニューラルの一つの良いsampleを品質上限とみなす**  
-   seed/run分散、全suite、failure case、license、再現性を要求する。
+したがって「BlenderだからOSS上安全」とは書かない。
 
-6. **比較基盤を作り過ぎ、映像が出ない**  
-   P0のschemaはT0〜T8と3方式に必要な最小フィールドだけにする。
+### Live2D
 
-7. **失敗を文章に残しただけで工程を変えない**  
-   `docs/anti-patterns.md` に記録し、再発可能ならvalidator、test、DoDへ昇格する。
+- Editor利用条件
+- Cubism Core
+- SDK source部分
+- Publication License
+- model asset
+- 出力動画
 
-## 14. 現時点での候補整理
+を分離する。Live2D adapterを作る場合も、専有runtimeをOSS coreへ同梱しない。
 
-- 現行口パッチ: 維持。対照群。
-- 全頭部状態: finalistからは除外。短い校正対照群として任意。
-- 連続2D: 採用候補。P1/P2へ。
-- Blender 2.5D: 採用候補。P1/P2へ。
-- Blender完全3D: 採用候補。P1/P2へ。
-- ニューラル単体: 方式自体は除外しないがP4まで延期。
-- 決定的+ニューラル残差: 最終的な有力候補だが、baseなしには評価不能なのでP4まで延期。
+### Neural
 
-## 15. mi3sanに確認する決定事項
+- code
+- weights
+- dataset
+- base model
+- tracker/3DMM
+- output terms
 
-P0開始前に、少なくとも次を確認する。
+を分離する。codeが公開されていても、非商用weightsや再配布不可datasetならOSS referenceにはできない。
 
-1. 正面中心でよいか。将来必要な最大yaw/pitchは何度か。
-2. 「元の2D画風の完全保持」と「口・頬・顎の立体整合性」のどちらを優先するか。
-3. 3Dらしい陰影を許容するか。2D線画・塗りの再現を必須にするか。
-4. リアルタイム利用も対象か、事前レンダー動画だけか。
-5. 専有Editor/runtimeを許容するか。OSS coreは完全OSSが必須か。
-6. 猫寺固有assetの公開可能範囲。
-7. 利用可能な2D/3D制作者、予算、期間。
-8. GPU機種・VRAM、クラウド可否、許容render時間。
-9. mi3sanが比較時に最も重視する上位3軸。
+## 17. 最大リスク
 
-## 16. 初回のCTO判断
+### 観測済み
 
-現時点で採用方式を一つに決めるべきではない。最も情報価値が高い投資は、次の順である。
+- 素材契約にない構造を局所rendererで回復しようとし、貼り付け感と非連動が生じた。
+- 未観測の比較リスクをAP-004へ観測済みとして登録した。
+- 未承認のRemotion境界をAGENTS不変条件へ先に昇格した。
 
-1. P0の比較契約と検証基盤
-2. C/D/Eのmechanism slice
-3. 同一Character Bibleによる3方式のstyled head bust
-4. 方式名を隠したmi3sanの実映像比較
-5. 上位1〜2方式だけのproduction slice
-6. 明確な残差が残った場合だけneural/hybrid
+### 将来リスク
 
-私の事前仮説は、**正面中心・2D画風最優先なら連続2Dまたは2.5D、視点自由度・口腔・再利用性まで含めるなら完全3Dが優位**である。ただし、これは採用判断ではない。特に猫のマズル、毛、ひげ、2D線画は実物を作らないと逆転し得るため、P2の映像を証拠に更新する。
+- artist差をarchitecture差と誤認する。
+- intent/observable contractが一方式へ寄る。
+- grayboxの勝敗を最終画風の勝敗にする。
+- 3Dの未完成NPRを3D構造の上限とみなす。
+- neuralのbest sampleだけを見る。
+- B2を量産性だけで切り、2D品質上限対照を失う。
+- 色、alpha、camera差を方式差と誤認する。
+- 8GBで動く／動かないを実測前に確定する。
+- MCPの操作成功を再現可能なpipelineと混同する。
 
-## 17. 技術参照
+将来リスクはアンチパターン台帳へ登録しない。実際に観測した場合だけ証拠と共に昇格する。
 
-- Remotion: `useCurrentFrame()`、image sequence、`Sequence`を比較提示に利用  
-  https://www.remotion.dev/docs/use-current-frame  
+## 18. mi3sanの判断事項
+
+### P0前hard blocker
+
+1. 試験する最大yaw/pitchの暫定値
+2. 事前renderだけか、realtimeも同じ候補選定へ含めるか
+3. P2で最低限再現すべき画風
+4. 追加費用またはcloud利用の許容範囲
+
+### P1/P2まで延期可能
+
+- 猫寺固有assetの公開範囲
+- 完全OSSを必須とする範囲
+- 専有Editor/runtime許容
+- 最終評価軸の重み
+- 長期運用で必要な別character数
+- 本番camera range
+
+延期事項をP0開始のblockerにしない。ただし各artifactのlicense/provenance記録は最初から行う。
+
+## 19. 現時点のアトラス判断
+
+方式を一つに絞る根拠はまだない。
+
+情報価値の高い順序は、比較契約、早期N0、view/temporalを含むmechanism evidence、B2を含むstyled comparison、production slice、neural/residual本比較である。
+
+事前仮説:
+
+- 正面中心・2D画風優先ではB2/C/Dが強い可能性がある。
+- view、口腔、別camera、再利用ではEが強い可能性がある。
+- FはD/Eの構造を維持しながらstyle gapを埋める独立候補になり得る。
+- G/Hは高周波detailを改善し得るが、stylized cat、8GB、data、license、driftが未確認である。
+
+これらは `PROPOSED` または将来リスクであり、採用判断ではない。次のアクションはP0 task化ではなく、ラピスの再レビューとmi3sanによるGOV-013〜016の暫定判断である。
+
+## 20. 技術参照
+
+- Remotion frame-driven presentation
+
+  https://www.remotion.dev/docs/use-current-frame
   https://www.remotion.dev/docs/sequence
-- Live2D Cubism: ArtMesh/deformer/parameterと補間特性  
-  https://docs.live2d.com/en/cubism-editor-manual/deformer/  
-  https://docs.live2d.com/en/cubism-editor-manual/edit-parameters/
-- Live2D SDK Publication License  
-  https://www.live2d.com/en/sdk/license/
-- Blender riggingの構成要素とGPL/artworkの境界  
-  https://docs.blender.org/manual/en/latest/animation/introduction.html  
-  https://docs.blender.org/manual/en/latest/getting_started/about/license.html
-- Neural avatarの代表例（人間頭部・特定データ前提を確認するための一次資料）  
-  https://github.com/YuelangX/Gaussian-Head-Avatar  
-  https://github.com/ShenhanQian/GaussianAvatars
 
+- Live2D deformer / parameter / license
+
+  https://docs.live2d.com/en/cubism-editor-manual/deformer/
+  https://docs.live2d.com/en/cubism-editor-manual/edit-parameters/
+  https://www.live2d.com/en/sdk/license/
+
+- Blender LTS / requirements / Python / license
+
+  https://www.blender.org/download/lts/4-5/
+  https://www.blender.org/download/requirements/
+  https://docs.blender.org/api/current/
+  https://docs.blender.org/manual/en/latest/getting_started/about/license.html
+
+- OpenColorIO / glTF validation
+
+  https://opencolorio.readthedocs.io/en/stable/guides/using_ocio/using_ocio.html
+  https://github.com/KhronosGroup/glTF-Validator
+
+- Hand-drawn/vector 2D候補
+
+  https://opentoonz.github.io/
+  https://www.synfig.org/
+
+- Neural avatarの環境・data・license例
+
+  https://github.com/YuelangX/Gaussian-Head-Avatar
+  https://github.com/ShenhanQian/GaussianAvatars

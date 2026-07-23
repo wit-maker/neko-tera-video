@@ -8,6 +8,8 @@
 
 - 現在の納品・再開状態: `PROJECT_STATE.md`
 - 次期キャラクター表現基盤のCTO提案: `docs/character-architecture-strategy.md`
+- 提案・承認・未決事項の状態管理: `docs/architecture-governance.md`
+- PoC前・方式別・採用後の環境拡張提案: `docs/tooling-extension-strategy.md`
 - 実際の失敗から得た再発防止ルール: `docs/anti-patterns.md`
 - エージェントが必ず守るプロジェクト規約: `AGENTS.md`
 
