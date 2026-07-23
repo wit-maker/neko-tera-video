@@ -2,7 +2,8 @@
 
 Repository SSOT: `docs/tooling-extension-strategy.md`.
 
-- This is PROPOSED, not an adopted toolchain.
+- Lapis approved the staged strategy, but it remains PROPOSED and is not an adopted toolchain.
+- Prefer local RTX 3060 Ti 8GB. Paid/cloud use requires mi3san's proactive instruction or explicit approval of a concrete proposal; never infer approval from silence, a free tier, or past approval.
 - Prefer CLI, then Python/API, then GUI automation, then MCP. Add tools only when they close the design-build-observe-correct-verify loop.
 - Stage 1 proposal: independent benchmark core plus OIIO/OCIO and Blender 4.5 LTS Python CLI.
 - Candidate-specific tools stay deferred until that candidate is tested: 2D editors, Live2D, Blender pipelines, or neural WSL2/container environments.

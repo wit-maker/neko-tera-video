@@ -1,8 +1,8 @@
 # 次期キャラクター表現基盤: CTO改訂戦略
 
-状態: **アトラス提案・ラピス再レビュー待ち**
+状態: **goal段階レビュー収束・P0計画へ移管可能**
 
-版: v0.2
+版: v0.3
 
 改訂日: 2026-07-23
 
@@ -19,7 +19,7 @@
 
 ラピスの指摘を受け、初稿を次のように修正する。
 
-1. 候補を単純な6系統へ固定しない。離散lookup、手描き／vector keyframed 2D、連続2D、2.5D、完全3D、手描きcleanup、ニューラル、ニューラル残差を分離する。
+1. 候補をbase representationとenhancement layerの二軸へ分ける。cleanup、neural redraw、neural residualをbase方式と排他的な候補にしない。
 2. 共通Face Motion Schemaを、`Performance Intent`、`Observable Reference`、`Adapter Native Controls`の三層へ分ける。
 3. 公平性を、同じ予算での到達点と、各方式の改善飽和点の二本立てで評価する。
 4. P1でview依存と時間連続性を必ず露出する。
@@ -29,8 +29,10 @@
 8. 根拠のない相対点数を廃止し、質的な投資階級と未確定性を示す。
 9. 提案、レビュー上のguardrail、mi3san承認、実験結果、ADRを状態管理する。
 10. Blender、Live2D、ニューラル、2D制作環境は、閉じた検証ループに必要になった段階で導入する。
+11. conformanceとevaluationを別artifact・別判定にし、契約適合を視覚品質合格と呼ばない。
+12. blockerをP0計画前、P1実行前、P2計画前へ分ける。
 
-これは方式選定でもP0実装計画でもない。比較戦略の再提案である。
+これは方式選定でもP0実装計画でもない。goal段階の比較戦略であり、ラピス再レビュー条件を反映したため、次はオービットがP0計画を作る。
 
 ## 1. ラピスレビューへの回答
 
@@ -47,9 +49,23 @@
 | 投資表が擬似精度 | 同意 | 数値を撤回し質的階級へ変更 |
 | 未承認提案がAGENTS規約 | 同意 | `docs/architecture-governance.md`を追加し規約を分離 |
 | Blender license表現が粗い | 同意 | artwork、`bpy` script/add-on、Blender本体を分離 |
-| hard blockerが多すぎる | 同意 | P0前4項目と延期可能事項に分離 |
+| hard blockerが多すぎる | 同意 | P0前、P1実行前、P2計画前へ再分類 |
 
 異論は、手描き2Dやニューラルを必ず同じ深さまで制作すべき、という意味にはしない点だけである。早期実験の目的は全候補へ同額投資することではなく、次の投資判断を変え得る情報を最小コストで得ることである。
+
+### 1.1 ラピス再レビューへの回答
+
+レビュー証跡: https://github.com/wit-maker/neko-tera-video/pull/17#issuecomment-5054939040
+
+| 条件付きComment | v0.3での反映 |
+|---|---|
+| 候補分類を二軸化 | Base A/B1/B2/C/D/Eと、Enhancement none/manual cleanup/neural redraw/neural residualへ分離 |
+| Observable Referenceの測定契約を追加 | support状態、method/version、coordinate space、tolerance、confidence/manual、frame/intervalを必須metadata化 |
+| Track Bの飽和判定を証拠化 | cycleごとにfailure、人時、before/after、結果、継続・停止理由を保存 |
+| conformanceとevaluationを分離 | `conformance.json`と`evaluation.json`を別生成し、passの意味を限定 |
+| blockerの判断時期を再分類 | GOV-014/016はP0前、GOV-013はP1実行前、GOV-015はP2計画前。4件ともmi3san決定済み |
+
+初回12項目は解消、環境拡張案はラピス承認済みである。上記5点を反映したため、ラピス側のgoal段階レビュー条件は満たした。
 
 ## 2. 判断状態
 
@@ -69,7 +85,7 @@
 
 ### `PROPOSED`
 
-- 本書の候補分類
+- 本書の候補二軸
 - 三層motion contract
 - P0〜P4とN0
 - benchmark validatorとRemotionの境界
@@ -77,7 +93,16 @@
 - artifact contract v0.1
 - 環境拡張順序
 
-`PROPOSED`はP0の実装要件ではない。ラピス再レビューとmi3san承認後に、必要な項目だけADRへ昇格する。
+### `ACCEPTED_DECISION`
+
+- P1の暫定視点範囲はyaw ±15°、pitch ±10°。
+- 最初の候補選定は事前レンダーだけで行い、リアルタイム性能は後段で別評価する。
+- P2では現行キャラクターの同一性、輪郭、毛並み、色面、口腔表現を最低限維持し、写実化を要求しない。
+- RTX 3060 Ti 8GBのローカル実行を優先する。有料・クラウド利用はmi3sanの自発的明示または提案への明示承認がある場合だけ許可する。
+
+正本は `docs/adr/001-next-character-comparison-boundaries.md` とする。
+
+`PROPOSED`はP0の実装要件ではない。P0計画で仕様と受入条件を具体化し、mi3sanが承認した項目だけ別ADRへ昇格する。
 
 ## 3. 比較で解く問い
 
@@ -117,6 +142,10 @@
 
 ## 5. 候補分類
 
+候補IDは `baseRepresentation` と `enhancementLayer` の組で表す。enhancementをbaseと排他的な一候補として扱わない。
+
+### 5.1 Base representation
+
 | ID | 系統 | 表現の正本 | 得たい判断 | 現在の扱い |
 |---|---|---|---|---|
 | A | 局所離散2D | 現行口patch + pose画像 | 現行の最低基準と既知failure | 必須baseline |
@@ -125,11 +154,19 @@
 | C | 連続2Dパラメトリック | layer、mesh、deformer、mask、draw order | 正面2D画風と連続制御の両立 | 本候補 |
 | D | 2.5D解剖rig | layer/plate/浅いgeometry、jaw、depth | 2D画風とvolume/occlusionの折衷 | 本候補 |
 | E | 完全3D rig | volume mesh、armature、corrective shape、shader | 口腔、view、再利用の上限 | 本候補 |
-| F | 決定的D/E + 手描きcleanup | base frame + cleanup layer | 構造と手描き画風のproduction両立 | 独立候補 |
-| G | neural再描画／avatar | learned geometry/appearance | 高周波detailと非決定性・data負担 | N0後に本比較可否 |
-| H | 決定的base + neural residual | C/D/E + learned residual | 構造fallbackとappearance補正 | base成立後 |
 
-物理simulationは独立した画面表現ではなく、C/D/E内のsecondary motion実装として扱う。方式固有の物理を共通入力へ強制しない。
+### 5.2 Enhancement layer
+
+| ID | layer | 接続対象 | 得たい判断 | 旧分類 |
+|---|---|---|---|---|
+| X0 | none | A/B1/B2/C/D/E | base単体の能力とfailure | なし |
+| X1 | manual cleanup | 主にD/E、必要なら他base | 構造を維持しながら手描き画風へ近づける効果とrebase cost | F |
+| X2 | neural redraw | 対応可能な複数base | 高周波detail・画風変換とidentity/temporal drift | G |
+| X3 | neural residual | 主にC/D/E | deterministic fallbackを残したappearance補正 | H |
+
+全組合せの直積を制作しない。base単体で特定されたfailureを改善できるlayerだけを、追加投資の判断後に接続する。manifestは `baseRepresentation` と `enhancementLayer` を別fieldで持つ。
+
+物理simulationは独立したbase/enhancementではなく、C/D/E内のsecondary motion実装として扱う。方式固有の物理を共通入力へ強制しない。
 
 B1をfinalistから除外する初稿判断は撤回する。B1の状態数と増分コストは実測し、品質と運用の両面から判断する。
 
@@ -207,6 +244,18 @@ v0.1候補:
 - silhouette continuity
 
 Observable Referenceは全方式へ同じ形を強制するground truthではない。意図が再現されたか、方式間で何が違うかを測る共通物差しである。手描き2Dではartistのreference drawing、3Dではlandmark projection、ニューラルではtracking結果など、取得方法をmanifestへ記録する。
+
+各observableは、値だけでなく次の測定契約を持つ。
+
+- `support`: `required` / `optional` / `unsupported`
+- `method`と`methodVersion`
+- `coordinateSpace`
+- `tolerance`
+- `confidence`、または`manualAnnotation=true`
+- `temporalScope`: `singleFrame` / `frameInterval`
+- manual annotationの場合はannotatorと根拠artifact
+
+測定不能、測定誤差、adapter非対応を、表現方式の品質failureへ自動変換しない。`unsupported`は欠損値として明示し、0や成功値で埋めない。
 
 ### 7.3 Adapter Native Controls
 
@@ -287,21 +336,21 @@ adapterは各intent/observableに対し、`native`、`approximated`、`unsupport
 - UV、texture、shader、groom、line
 - camera、light、color management、render settings
 
-### F
+### X1: manual cleanup
 
-- D/Eの再生成可能なbase
+- 対象baseと再生成可能なbase artifact
 - cleanup対象frameとlayer
 - base差分、修正理由、適用範囲
 - 再render時のrebase規則
 
-### G / H
+### X2 / X3: neural redraw / residual
 
 - datasetの由来、同意、license
 - identity referenceと必要view/expression
 - conditioning、tracking、model、weights、seed
 - environment/container hash
 - temporal/identity failure
-- residual無効時のfallback
+- 対象baseと、layer無効時のfallback
 
 ## 9. Artifact Contract v0.1候補
 
@@ -310,7 +359,8 @@ adapterは各intent/observableに対し、`native`、`approximated`、`unsupport
 ```text
 artifacts/<run-id>/<adapter-id>/
   manifest.json
-  validation.json
+  conformance.json
+  evaluation.json
   frames/000000.png ...
   debug/
   observable/
@@ -371,9 +421,11 @@ artifacts/<run-id>/<adapter-id>/
 
 ### Validatorと表示層
 
-`validation.json`はRemotionではなく独立benchmark CLIが生成する。frame欠損、hash、timebase、pixel/color、alpha、camera/crop、成功状態を検査する。
+`conformance.json`はRemotionではなく独立benchmark CLIが生成する。schema、frame欠損、hash、timebase、pixel/color、alpha、camera/crop、成功状態など、artifact contractへの適合だけを検査する。
 
-Remotionは`validation=pass`のartifactだけを通常比較へ載せる。失敗artifactを表示する場合は、赤いinvalid表示を付け、通常候補と混同しない。
+`evaluation.json`は自然さ、同一性、時間連続性、視覚品質、制作量、計算資源などを記録する。自動計測と人間評価を区別し、`conformance=pass`から品質合格を導出しない。
+
+Remotionは原則として`conformance=pass`のartifactだけを通常比較へ載せる。conformance失敗artifactを表示する場合は、赤いinvalid表示を付け、通常候補と混同しない。
 
 ## 10. 比較sequence
 
@@ -386,11 +438,11 @@ Remotionは`validation=pass`のartifactだけを通常比較へ載せる。失�
 | T4 | 左右非対称 | 独立制御、同一性 |
 | T5 | large open + tongue | 口腔、tongue、clip |
 | T6 | 二軸combination sweep | 組合せ破綻、補正不足 |
-| T7 | 暫定yaw/pitch中の動作 | view依存、layer gap、volume |
+| T7 | yaw ±15° / pitch ±10°内の動作 | view依存、layer gap、volume |
 | T8 | 6〜10秒performance | 通常速度の自然さ、coarticulation |
 | T9 | 速度変化・hold・方向反転 | temporal continuity、overshoot、flicker |
 
-最大yaw/pitchはmi3sanのP0前判断事項である。値が決まるまでT7を設計から削除しない。
+T7の暫定最大値は `GOV-013` として決定済みである。本番camera rangeではなく、P1で方式差を露出する比較範囲として使う。
 
 P1最小集合は `T0 + T1 + T3 + T6 + T7 + T9` とする。B2品質上限対照は少なくとも `T1 + T3 + T8` を持つ。
 
@@ -417,6 +469,16 @@ P1最小集合は `T0 + T1 + T3 + T6 + T7 + T9` とする。B2品質上限対照
 - 改善履歴と追加投資を保存
 - 連続するreview cycleで主要failureが改善しない、またはmi3sanが十分と判断するまで継続
 - 飽和までの累積person-hours、compute、asset量を結果の一部とする
+
+各review cycleは次を一組で保存する。
+
+- 対象failure IDと仮説
+- 追加person-hours、compute、外部費用
+- before / after artifact
+- 改善した指標、改善しなかった指標、新たなfailure
+- 次cycleを継続する理由、または停止する理由
+
+「担当者の感覚でこれ以上無理」を飽和根拠にしない。停止判断は保存されたcycle履歴から再検討可能にする。
 
 Track Aの勝者とTrack Bの勝者が違っても矛盾ではない。「今の予算で採用する方式」と「将来投資する価値のある方式」を分けて判断できる。
 
@@ -466,7 +528,7 @@ mi3sanの一次判定と、ラピスのfailure指摘は別記録にする。制�
 - comparison presentation
 - baselineの再現
 
-P0の詳細タスク、依存関係、受入条件はまだ作らない。GOV-013〜016の回答と本書の再レビュー後に、オービットがplanとして作る。
+goal段階レビューとP0前blockerは解消した。次にオービットがP0の詳細タスク、依存関係、受入条件をplanとして作る。P0計画は `PROPOSED` 項目を無条件に採択せず、mi3sanが実装範囲を承認できる粒度へ分解する。
 
 ### N0: neural feasibility（比較外）
 
@@ -494,7 +556,7 @@ N0は品質順位を付けない。P2/P4へ残す価値があるかだけを判�
 - Track AとTrack Bを分ける
 - Character Bibleに沿ったhead bust
 - B2を短尺の2D品質上限対照として含める
-- FはD/Eのstyle gapが主要failureなら追加
+- X1 manual cleanupはD/Eなどのbaseでstyle gapが主要failureと確認された場合に追加
 
 ### P3: Production slice（`PROPOSED`）
 
@@ -502,19 +564,20 @@ N0は品質順位を付けない。P2/P4へ残す価値があるかだけを判�
 - 耳、目、ひげ、呼吸、演出を含む
 - 修正1回のcostと再renderを測る
 
-### P4: Neural / residual本比較（`PROPOSED`）
+### P4: Neural enhancement本比較（`PROPOSED`）
 
 - N0を通過
 - 改善対象がpixel/region/frameで特定
 - data/licenseが用意できる
 - deterministic fallbackがある
 - 複数seed/runの分散を比較する
+- X2 neural redrawとX3 neural residualを対象baseとの組で比較する
 
 ## 14. 投資の質的比較
 
 現時点では数値pointを置かない。
 
-| 方式 | 初回素材 | specialist依存 | compute | 不確実性 | 主な支配項 |
+| Base | 初回素材 | specialist依存 | compute | 不確実性 | 主な支配項 |
 |---|---|---|---|---|---|
 | A | 低 | 低 | 低 | 低 | patch品質上限 |
 | B1 | 中〜高 | 中 | 低 | 中 | state直積 |
@@ -522,9 +585,13 @@ N0は品質順位を付けない。P2/P4へ残す価値があるかだけを判�
 | C | 中〜高 | 高 | 低〜中 | 中 | layer設計、組合せ補正 |
 | D | 高 | 高 | 中 | 高 | topology、line/fur、view範囲 |
 | E | 非常に高 | 非常に高 | 未実測 | 高 | model、rig、groom、NPR |
-| F | baseに追加 | 非常に高 | 中 | 高 | cleanup/rebase |
-| G | data依存 | 高 | 未実測 | 非常に高 | data、VRAM、drift、license |
-| H | base + data | 非常に高 | 未実測 | 非常に高 | residual dataとfallback |
+
+| Enhancement | 追加素材 | specialist依存 | compute | 不確実性 | 主な支配項 |
+|---|---|---|---|---|---|
+| X0 none | なし | なし | 追加なし | 低 | base単体のfailure |
+| X1 manual cleanup | baseに追加 | 非常に高 | 低〜中 | 高 | cleanup/rebase |
+| X2 neural redraw | data依存 | 高 | 未実測 | 非常に高 | data、VRAM、drift、license |
+| X3 neural residual | base + data | 非常に高 | 未実測 | 非常に高 | residual dataとfallback |
 
 `未実測`は悲観・楽観のどちらにも読み替えない。RTX 3060 Ti 8GBでの最小実験後に `EXPERIMENT_RESULT` として更新する。
 
@@ -534,16 +601,18 @@ N0は品質順位を付けない。P2/P4へ残す価値があるかだけを判�
 
 ### Benchmark core / CLI
 
+- conformanceとevaluationのschemaを別管理
 - manifest/schema検査
 - frame欠損、hash、timebase
 - pixel/color/alpha/camera/crop
 - artifact success状態
 - deterministic rerun比較
-- validation report
+- `conformance.json`生成
+- 自動evaluation metricの出力。ただしconformance判定へ混ぜない
 
 ### Remotion
 
-- validation済みartifactの横並び
+- conformance済みartifactの横並び
 - normal / slow / crop
 - debug overlay、control/observable表示
 - difference/contact sheet
@@ -557,7 +626,7 @@ N0は品質順位を付けない。P2/P4へ残す価値があるかだけを判�
 - 方式固有render
 - debug passとprovenance出力
 
-Remotionにvalidatorを置かないことで、表示不具合とartifact不具合を分離する。Remotionが不採用になっても、artifactとvalidationは残る。
+Remotionにvalidatorを置かないことで、表示不具合とartifact不具合を分離する。Remotionが不採用になっても、artifact、conformance、evaluationは残る。
 
 ## 16. License境界
 
@@ -609,6 +678,10 @@ Remotionにvalidatorを置かないことで、表示不具合とartifact不具�
 - 3Dの未完成NPRを3D構造の上限とみなす。
 - neuralのbest sampleだけを見る。
 - B2を量産性だけで切り、2D品質上限対照を失う。
+- enhancement layerをbase representationと排他的な候補として比較する。
+- conformance passを視覚品質合格と誤認する。
+- Observable Referenceの測定誤差を方式failureと誤認する。
+- Track Bを停止根拠のない「飽和」で打ち切る。
 - 色、alpha、camera差を方式差と誤認する。
 - 8GBで動く／動かないを実測前に確定する。
 - MCPの操作成功を再現可能なpipelineと混同する。
@@ -617,12 +690,17 @@ Remotionにvalidatorを置かないことで、表示不具合とartifact不具�
 
 ## 18. mi3sanの判断事項
 
-### P0前hard blocker
+### P0計画前blocker
 
-1. 試験する最大yaw/pitchの暫定値
-2. 事前renderだけか、realtimeも同じ候補選定へ含めるか
-3. P2で最低限再現すべき画風
-4. 追加費用またはcloud利用の許容範囲
+- GOV-014: 最初の候補選定は事前レンダーだけ。リアルタイム性能は後段評価。**決定済み**
+- GOV-016: RTX 3060 Ti 8GBのローカル実行を優先。有料・クラウドはmi3sanの自発的明示または提案への明示承認時だけ。**決定済み**
+
+### 後続段階blocker
+
+- GOV-013: P1実行前。yaw ±15°、pitch ±10°。**前倒し決定済み**
+- GOV-015: P2計画前。現行キャラクターの同一性、輪郭、毛並み、色面、口腔表現を維持し、写実化は不要。**前倒し決定済み**
+
+決定の正本は `docs/adr/001-next-character-comparison-boundaries.md` とする。
 
 ### P1/P2まで延期可能
 
@@ -633,7 +711,7 @@ Remotionにvalidatorを置かないことで、表示不具合とartifact不具�
 - 長期運用で必要な別character数
 - 本番camera range
 
-延期事項をP0開始のblockerにしない。ただし各artifactのlicense/provenance記録は最初から行う。
+延期事項をP0計画のblockerにしない。ただし各artifactのlicense/provenance記録は最初から行う。
 
 ## 19. 現時点のアトラス判断
 
@@ -645,10 +723,10 @@ Remotionにvalidatorを置かないことで、表示不具合とartifact不具�
 
 - 正面中心・2D画風優先ではB2/C/Dが強い可能性がある。
 - view、口腔、別camera、再利用ではEが強い可能性がある。
-- FはD/Eの構造を維持しながらstyle gapを埋める独立候補になり得る。
-- G/Hは高周波detailを改善し得るが、stylized cat、8GB、data、license、driftが未確認である。
+- X1はD/Eなどのbase構造を維持しながらstyle gapを埋めるenhancementになり得る。
+- X2/X3は高周波detailを改善し得るが、stylized cat、8GB、data、license、driftが未確認である。
 
-これらは `PROPOSED` または将来リスクであり、採用判断ではない。次のアクションはP0 task化ではなく、ラピスの再レビューとmi3sanによるGOV-013〜016の暫定判断である。
+これらは `PROPOSED` または将来リスクであり、採用判断ではない。goal段階レビューとGOV-013〜016の判断は完了した。次のアクションは、オービットによるP0計画化と、その計画に対するmi3sanの承認である。
 
 ## 20. 技術参照
 

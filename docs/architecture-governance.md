@@ -49,11 +49,22 @@
 | GOV-009 | `PROPOSED` | Performance Intent、Observable Reference、Adapter Native Controlsの三層契約 |
 | GOV-010 | `PROPOSED` | benchmark validatorを表示層から独立させ、Remotionは検証済みartifactの提示に限定する |
 | GOV-011 | `PROPOSED` | P0〜P4と早期N0 feasibility spikeの投資順序 |
-| GOV-012 | `PROPOSED` | B1/B2/C/D/E/F/G/Hの候補分類 |
-| GOV-013 | `OPEN` | 比較で試験する最大yaw/pitch |
-| GOV-014 | `OPEN` | 事前レンダーとリアルタイムを同じ候補選定に含めるか |
-| GOV-015 | `OPEN` | P2で最低限再現すべき画風 |
-| GOV-016 | `OPEN` | 追加費用またはクラウド利用の許容範囲 |
+| GOV-012 | `PROPOSED` | Base representation A/B1/B2/C/D/Eと、enhancement layer none/manual cleanup/neural redraw/neural residualの二軸分類 |
+| GOV-013 | `ACCEPTED_DECISION` | P1の暫定最大視点をyaw ±15°、pitch ±10°とする |
+| GOV-014 | `ACCEPTED_DECISION` | 最初の候補選定は事前レンダーだけとし、リアルタイム性能は後段で別評価する |
+| GOV-015 | `ACCEPTED_DECISION` | P2では現行キャラクターの同一性、輪郭、毛並み、色面、口腔表現を最低限維持し、写実化は要求しない |
+| GOV-016 | `ACCEPTED_DECISION` | RTX 3060 Ti 8GBのローカル実行を優先し、クラウド・有料利用はmi3sanの自発的明示または提案への明示承認がある場合だけ許可する |
+
+`GOV-013`〜`GOV-016`の根拠、適用範囲、再検討条件は `docs/adr/001-next-character-comparison-boundaries.md` を正本とする。
+
+## 判断時期
+
+| ID | 判断時期 | 現在 |
+|---|---|---|
+| GOV-014 | P0計画前 | 決定済み |
+| GOV-016 | P0計画前 | 決定済み |
+| GOV-013 | P1実行前 | 前倒し決定済み |
+| GOV-015 | P2計画前 | 前倒し決定済み |
 
 ## ADRの役割
 
@@ -67,4 +78,6 @@ ADRは方式の宣伝資料ではない。次を記録する。
 - 再検討を開始する条件
 - supersedeする旧判断
 
-P0の詳細計画へ進む前に、少なくともGOV-013〜016をmi3sanが暫定決定する。Remotion境界、候補分類、stage構造は、ラピス再レビュー後も `PROPOSED` のまま維持し、mi3san承認後に初めてADRへ昇格する。
+P0前blockerであるGOV-014とGOV-016は解消した。GOV-013とGOV-015も後続段階に先行して決定済みである。
+
+三層Motion Contract、独立validator、候補二軸、stage構造はラピスの方向性承認を得たが、mi3sanによるアーキテクチャ採択ではない。P0計画で仕様と受入条件を具体化し、必要な項目だけ別ADRで `ACCEPTED_DECISION` へ昇格する。
