@@ -28,3 +28,11 @@
 
 - 現在の `out/final-master.mp4` はF2前のbaselineであり、納品候補として更新していない。
 - baselineは `out/_baseline/final-master-before-f2.mp4` に保全済み。
+
+## 解消結果（2026-07-23）
+
+- 発注者提供のoutro原本は44.1 kHz stereo MP3だったため、同一音源のみを48 kHz stereo MP3へ変換した。原本はGit管理外の安全な場所へバックアップ済みで、別曲・ダミー・既存main BGMは使用していない。
+- 反映後の `public/bgm/outro.mp3` はffprobeで `codec_name=mp3`、`sample_rate=48000`、`channels=2` を確認した。
+- `npm run mix` と `npm run encode` は成功し、BGM未配置警告は0件。新しい納品候補は `out/final-master.mp4`（495,418,678 bytes）である。
+- 独立測定: H.264 1080x1920/60fps + AAC 48 kHz stereo、映像303.900秒/音声303.916秒（差0.016秒）、統合ラウドネス -14.0 LUFS、AAC True Peak -1.4 dBTP。全基準に適合した。
+- 全編デコードおよびoutro開始・中間・終端の映像/字幕/音声接続QCは合格。最終SHA-256は `0753B72BF606FB89F6AECAF951F27C615B5E8EA8BFE8BDDED1730A4B50BA85BF`。本blockerは解消済み。

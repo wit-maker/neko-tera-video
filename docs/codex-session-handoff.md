@@ -123,3 +123,11 @@ git status --short --branch
 - `.serena/`を変更・削除・commitしない。
 - 完了済みF1/F2を理由なく再実行しない。
 - 既存 `master.mp4`、`final-master.mp4`、baselineを削除しない。
+
+## 11. 最終完了記録（2026-07-23）
+
+- 正式outro原本（44.1 kHz stereo MP3、SHA-256 `0F4E8F3E5C5FD64B4696ED5A7E66F2F003CE6FD1FC9966589EAF99DFE56588B3`）をGit管理外の安全なバックアップ先へ保全し、同一音源を48 kHz stereo MP3に変換して `public/bgm/outro.mp3` へ反映した。ffprobe確認値は `mp3` / `48000 Hz` / `2 channels`。
+- F4の `out/master.mp4` を再レンダーせず、`npm run mix` と `npm run encode` を各1回実行した。mixログにBGM未配置警告はなく、F0/F1/F1-M/F2/F4は再実行していない。
+- 最終 `out/final-master.mp4`: 495,418,678 bytes、H.264 1080x1920/60fps、AAC 48 kHz stereo、映像303.900秒、音声303.916秒、尺差0.016秒。
+- 独立EBU R128測定: Integrated loudness `-14.0 LUFS`、AAC True Peak `-1.4 dBTP`。全編デコードとoutro区間s7c4/s7c5/s7c6/終端の映像・字幕・音声接続QCは合格し、BLOCKER/MAJORは0件。
+- 最終SHA-256: `0753B72BF606FB89F6AECAF951F27C615B5E8EA8BFE8BDDED1730A4B50BA85BF`。

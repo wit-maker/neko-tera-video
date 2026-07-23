@@ -56,3 +56,12 @@ total 18236 frames = 303.9s
 - F2: 3連続mediumの2箇所を修正し、`camera.shot`を実際の基本画角へ反映。再検証は `f2-shot-sequence.md`。
 - F4: 修正後の全編レンダーを完了。`C:\dev\github\wit-maker\neko-tera-video\out\master.mp4` は 495,248,218 bytes、303.978667秒、1080×1920、60fps、H.264/AAC。SHA-256は `20C12D9EF1D8AA487599C6C9BDA8D34BE8873EB2C243D285C2F083686041373C`。
 - F3/F5: 正式outro未配置のため、最終mix・encode・納品AACの独立音量検収は未実行。詳細は `docs/qc-report/external-blocker-outro.md`。
+
+## F3/F5 最終音声統合・検収（2026-07-23）
+
+- 正式outroは、受領した同一音源を48 kHz stereo MP3へ変換して `public/bgm/outro.mp3` に反映した。変換前の44.1 kHz stereo原本（SHA-256 `0F4E8F3E5C5FD64B4696ED5A7E66F2F003CE6FD1FC9966589EAF99DFE56588B3`）はGit管理外の安全なバックアップ先に保全した。変換後は `mp3` / `48000 Hz` / `2 channels` をffprobeで確認した。
+- 既存のF4映像 `out/master.mp4` に対してのみ `npm run mix` と `npm run encode` を各1回実行した。mixログはBGM 4区間を処理し、`[warn] BGM 未配置` は出力されなかった。F0、F1、F1-M、F2、F4は再実行していない。
+- 納品候補 `out/final-master.mp4`: 495,418,678 bytes、H.264 1080x1920 / 60fps、AAC 48 kHz stereo。映像303.900秒、音声303.916秒、尺差0.016秒（<=0.1秒）。
+- パイプラインから独立して `ffmpeg -af ebur128=peak=true:framelog=verbose` を実行し、統合ラウドネス `-14.0 LUFS`、AAC True Peak `-1.4 dBTP` を確認した。いずれも受入基準（-14 +/-0.5 LUFS、TP <= -1.0 dBTP）に適合する。
+- 全編の映像・音声デコードを完走し、outro区間s7c4（281.0秒）・s7c5（287.2秒）・s7c6（293.6秒）・終端（302.5秒）の目視QCで字幕、画面、outro接続を確認した。BLOCKER/MAJORは0件。
+- 最終SHA-256: `0753B72BF606FB89F6AECAF951F27C615B5E8EA8BFE8BDDED1730A4B50BA85BF`。
