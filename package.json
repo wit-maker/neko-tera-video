@@ -23,7 +23,8 @@
     "p0:present": "tsx pipeline/p0/present.ts",
     "p0:visual-integrity": "tsx pipeline/p0/visual-integrity.ts",
     "p0:negative-test": "tsx pipeline/p0/negative-test.ts",
-    "p0:verify": "tsx pipeline/p0/verify.ts"
+    "p0:verify": "tsx pipeline/p0/verify.ts",
+    "p0b:validate-contract": "tsx pipeline/p0b/validate-contract.ts"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",
