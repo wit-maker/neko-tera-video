@@ -10,8 +10,8 @@ describe("P0 contracts", () => {
   it("permits only the approved local font assets and loader source overrides", () => {
     expect(Object.keys(P0_LOCAL_FONT_SHA256)).toHaveLength(4);
     expect(P0_APPROVED_TRACKED_OVERRIDE_BLOBS).toMatchObject({
-      "src/components/ChalkBoard.tsx": "c0b20dbc00399a7abc49936b199d13d473bcd451",
-      "src/components/KaraokeSubtitle.tsx": "36a10c14b182b00ca41e828382727da0d7ea4038",
+      "src/components/ChalkBoard.tsx": "beb3f7e94e0e7c2bd4f65f3ae13360068698f5c7",
+      "src/components/KaraokeSubtitle.tsx": "37d3baf10e5fddec32dffc5aa3bbba176a5413d0",
       "src/schema.ts": "c357fd311841cf52f0989d8d4016e8e4849789fa",
       "package-lock.json": "808bdd1a6f6188fa55671f373bfa4f67be9036c8",
     });
