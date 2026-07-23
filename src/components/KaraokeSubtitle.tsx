@@ -8,7 +8,7 @@ import type { Alignment } from "../lib/viseme";
 const loadLocalFont = (family: string, file: string, weight: string): string => {
   if (typeof document === "undefined") return family;
   const handle = delayRender(`Load local font ${file}`);
-  const font = new FontFace(family, `url(${staticFile(file)})`, { style: "normal", weight });
+  const font = new FontFace(family, `url(${staticFile(file)}) format("truetype")`, { style: "normal", weight });
   font.load().then((loaded) => {
     (document.fonts as unknown as { add(value: FontFace): void }).add(loaded);
     continueRender(handle);
