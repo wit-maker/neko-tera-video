@@ -11,9 +11,14 @@ export type BaseRepresentation = (typeof BASE_REPRESENTATIONS)[number];
 export type EnhancementLayer = (typeof ENHANCEMENT_LAYERS)[number];
 export type SupportStatus = "required" | "optional" | "unsupported";
 
+interface HalfOpenFrameRange {
+  startFrame: number;
+  endFrameExclusive: number;
+}
+
 type TimeScope =
   | { kind: "single-frame"; frame: number }
-  | { kind: "interval"; startFrame: number; endFrame: number };
+  | ({ kind: "interval" } & HalfOpenFrameRange);
 
 export interface ObservableReference {
   id: string;
@@ -42,12 +47,12 @@ export interface P0bComparisonContract {
     referenceConstraints: string[];
     prohibitedSharedDeliverables: string[];
   };
-  performanceIntent: { id: string; description: string; timebase: { fps: number; startFrame: number; endFrame: number } };
+  performanceIntent: { id: string; description: string; timebase: { fps: number } & HalfOpenFrameRange };
   observableReferences: ObservableReference[];
   adapters: AdapterNativeAssetContract[];
   candidateSpace: { base: BaseRepresentation[]; enhancement: EnhancementLayer[] };
   artifactContract: {
-    timebase: { fps: number; startFrame: number; endFrame: number };
+    timebase: { fps: number } & HalfOpenFrameRange;
     color: string;
     alpha: string;
     camera: string;
@@ -57,7 +62,7 @@ export interface P0bComparisonContract {
     knownFailure: string[];
     presentation: readonly ["normal", "slow", "crop", "debug", "still"];
   };
-  conformance: { status: "pass" | "fail"; checks: string[] };
+  conformance: { status: "not-run" | "pass" | "fail"; checks: string[] };
   evaluation: { status: "evaluated" | "not-evaluated"; observations: string[]; representationDecision: "not-made" };
   p0aEvidence: { pullRequest: string; artifactPath: string; sha256: string };
 }
@@ -70,7 +75,14 @@ const isEnhancement = (value: unknown): value is EnhancementLayer =>
 /** Returns every contract violation without making a quality or selection decision. */
 export function validateP0bContract(contract: P0bComparisonContract): string[] {
   const errors: string[] = [];
+  const validateTimebase = (label: string, timebase: { fps: number } & HalfOpenFrameRange) => {
+    if (timebase.fps !== 60 || timebase.startFrame !== 0 || timebase.endFrameExclusive !== 619) {
+      errors.push(`${label} must be the explicit half-open 619-frame range [0, 619) at 60 fps`);
+    }
+  };
   if (contract.status !== "PROPOSED" || contract.scope !== "P0b working comparison contract") errors.push("contract must remain the P0b PROPOSED working contract");
+  validateTimebase("performance intent timebase", contract.performanceIntent.timebase);
+  validateTimebase("artifact timebase", contract.artifactContract.timebase);
   if (contract.characterBible.prohibitedSharedDeliverables.length === 0) errors.push("character bible must prohibit forced shared deliverables");
   if (contract.candidateSpace.base.some((base) => !isBase(base))) errors.push("candidate base contains a non-base representation");
   if (contract.candidateSpace.enhancement.some((enhancement) => !isEnhancement(enhancement))) errors.push("candidate enhancement contains a non-enhancement layer");
@@ -84,7 +96,8 @@ export function validateP0bContract(contract: P0bComparisonContract): string[] {
     if (typeof observable.manualAnnotation.required !== "boolean" || !observable.manualAnnotation.instructions) errors.push(`observable ${observable.id} lacks manual annotation declaration`);
     const time = observable.timeScope;
     if (time.kind === "single-frame" && !Number.isInteger(time.frame)) errors.push(`observable ${observable.id} has invalid single-frame scope`);
-    if (time.kind === "interval" && (!Number.isInteger(time.startFrame) || !Number.isInteger(time.endFrame) || time.endFrame < time.startFrame)) errors.push(`observable ${observable.id} has invalid interval scope`);
+    if (time.kind === "interval" && (!Number.isInteger(time.startFrame) || !Number.isInteger(time.endFrameExclusive) || time.endFrameExclusive <= time.startFrame || time.startFrame < 0 || time.endFrameExclusive > 619)) errors.push(`observable ${observable.id} has invalid half-open interval scope`);
+    if (time.kind === "single-frame" && (time.frame < 0 || time.frame >= 619)) errors.push(`observable ${observable.id} falls outside the half-open P0b timebase`);
   }
   for (const adapter of contract.adapters) {
     if (!isBase(adapter.base)) errors.push("adapter must declare a Base A/B1/B2/C/D/E");
@@ -92,6 +105,7 @@ export function validateP0bContract(contract: P0bComparisonContract): string[] {
     if (adapter.prohibitedSharedAssumptions.join(",") !== "shared-completed-png,shared-topology,shared-bones") errors.push(`adapter ${adapter.base} must prohibit forced shared PNG/topology/bones`);
   }
   if (contract.artifactContract.presentation.join(",") !== "normal,slow,crop,debug,still") errors.push("presentation must contain normal/slow/crop/debug/still");
+  if (!["not-run", "pass", "fail"].includes(contract.conformance.status)) errors.push("conformance status must be not-run, pass, or fail");
   if (contract.conformance.status === "pass" && contract.evaluation.representationDecision !== "not-made") errors.push("conformance pass must not infer a quality or representation decision");
   if (!contract.p0aEvidence.pullRequest.includes("/pull/19") || !contract.p0aEvidence.artifactPath || !/^[A-F0-9]{64}$/.test(contract.p0aEvidence.sha256)) errors.push("P0a evidence link/path/SHA-256 is incomplete");
   return errors;
@@ -123,10 +137,10 @@ export const P0B_WORKING_CONTRACT: P0bComparisonContract = {
     referenceConstraints: ["approved camera/output framing", "same performance intent"],
     prohibitedSharedDeliverables: ["shared completed PNG", "shared topology", "shared bones"],
   },
-  performanceIntent: { id: "p1-mechanism-intent-draft", description: "Expose mouth, muzzle, cheek, occlusion, and temporal continuity without assigning a quality rank.", timebase: { fps: 60, startFrame: 0, endFrame: 618 } },
+  performanceIntent: { id: "p1-mechanism-intent-draft", description: "Expose mouth, muzzle, cheek, occlusion, and temporal continuity without assigning a quality rank.", timebase: { fps: 60, startFrame: 0, endFrameExclusive: 619 } },
   observableReferences: [
-    observable("jaw-lip-corner", "required", { kind: "interval", startFrame: 0, endFrame: 618 }),
-    observable("muzzle-cheek-occlusion", "required", { kind: "interval", startFrame: 0, endFrame: 618 }),
+    observable("jaw-lip-corner", "required", { kind: "interval", startFrame: 0, endFrameExclusive: 619 }),
+    observable("muzzle-cheek-occlusion", "required", { kind: "interval", startFrame: 0, endFrameExclusive: 619 }),
     observable("oral-cavity", "optional", { kind: "single-frame", frame: 309 }),
     observable("unsupported-example", "unsupported", { kind: "single-frame", frame: 0 }),
   ],
@@ -140,9 +154,9 @@ export const P0B_WORKING_CONTRACT: P0bComparisonContract = {
   ],
   candidateSpace: { base: ["A", "B1", "B2", "C", "D", "E"], enhancement: ["X0", "X1", "X2", "X3"] },
   artifactContract: {
-    timebase: { fps: 60, startFrame: 0, endFrame: 618 }, color: "declared output color space", alpha: "declared opaque/premultiplied handling", camera: "declared camera and view", crop: "declared crop coordinates", provenance: ["source commit", "input hash", "tool version"], effortLog: ["track", "hours", "iteration reason"], knownFailure: ["failure id", "scope", "evidence"], presentation: ["normal", "slow", "crop", "debug", "still"],
+    timebase: { fps: 60, startFrame: 0, endFrameExclusive: 619 }, color: "declared output color space", alpha: "declared opaque/premultiplied handling", camera: "declared camera and view", crop: "declared crop coordinates", provenance: ["source commit", "input hash", "tool version"], effortLog: ["track", "hours", "iteration reason"], knownFailure: ["failure id", "scope", "evidence"], presentation: ["normal", "slow", "crop", "debug", "still"],
   },
-  conformance: { status: "pass", checks: ["schema declaration only"] },
+  conformance: { status: "not-run", checks: ["future artifact conformance checks"] },
   evaluation: { status: "not-evaluated", observations: [], representationDecision: "not-made" },
   p0aEvidence: { pullRequest: "https://github.com/wit-maker/neko-tera-video/pull/19", artifactPath: "out/p0/a-s7c6-e43ebb2", sha256: "6353866D986A2C70E5956EAC0C6B3CA22DD686592C51CFFBB77FB64039BDA561" },
 };
