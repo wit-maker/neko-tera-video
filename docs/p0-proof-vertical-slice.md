@@ -61,9 +61,32 @@ recorded in the execution record below before handoff.
 
 ## Execution record
 
-The approved run is **blocked**, not accepted. The existing pipeline attempted external font
-requests during rendering, which violates the P0 no-external-API condition. The render was
-stopped before it could become a valid artifact; do not use either archived attempt for review.
+This is an **accepted P0 evidence candidate**, not a quality approval or a representation decision.
+It uses the approved local-font exception and the existing representation-A pipeline.
+
+- baseline render / manifest `p0_tool_commit`: `dbe6b2469de2ca7cb2515be442a7a071826656c4`
+- final verifier/tooling commit: `17d15c0`
+- normal artifact location: `out/p0/a-s7c6-e43ebb2/`
+- baseline SHA-256 (unchanged through final verification): `6353866D986A2C70E5956EAC0C6B3CA22DD686592C51CFFBB77FB64039BDA561`
+- command sequence: `p0:verify-input`, `p0:verify-network`, `p0:render`, `p0:manifest`, `p0:validate`, `p0:evaluate`, `p0:present`, `p0:visual-integrity`, `p0:negative-test`, `p0:verify`
+- conformance: `pass`; evaluation: `evaluated`; review presentation: `review-ready`; visual integrity: `pass` (three review extractions have maximum RGB byte difference `0`)
+- negative fixtures: isolated under `out/p0/a-s7c6-e43ebb2/fixtures/`; `wrong-frame-count` and `truncated` both have conformance `fail`, while the normal baseline hash remains unchanged
+- environment: Node `v24.15.0`, npm `11.14.1`, Remotion `4.0.494`, FFmpeg/FFprobe `8.1.1`; outbound firewall block was active for the exact worktree Chrome executable with loopback-only exceptions; Chrome processes after verification: `0`
+- quarantined historical locations: `out/p0/a-s7c6-e43ebb2-pre-final-3ef3ffe/` and `out/p0/a-s7c6-e43ebb2-blocked-external-font/`
+
+| Artifact | SHA-256 |
+| --- | --- |
+| `manifest.json` | `4CDC57EBAD687ABCB923E765BAAD9AC60BF252C3BA7081496659D48CA9BBA6A9` |
+| `conformance.json` | `A65F64E32F2C738CFD8561DDD18FA6344165790F17576EDC4E73D575897F0123` |
+| `evaluation.json` | `241852E25EC0E8982D12DBA0A26CF62E504F47CFCD3ADA45F3E0B762EAFE7C79` |
+| `review/index.html` | `C857AF678CB01E907F320D48055A786308B3ECB07E947F362717CE4390E3C112` |
+| `review/visual-integrity.json` | `2AD9889D274C48982C4233D994EB4285EE5103B4E7EB5B474FCDA52BFE3C8314` |
+
+### Historical blocked attempts
+
+Before the approved local-font exception, the existing pipeline attempted external font requests
+during rendering. Those runs were blocked and are not accepted artifacts; do not use either
+archived attempt for review.
 
 - execution path: A — existing local checkout `node_modules`, linked into this worktree without install or dependency changes
 - execution commit / p0 tool commit: `586a7e0c4f42c26e4a309a99316ab894f9ea0671`
