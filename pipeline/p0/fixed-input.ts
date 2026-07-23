@@ -1,5 +1,5 @@
 import { existsSync } from "node:fs";
-import { BASELINE_SOURCE_COMMIT, BINARY_SHA256, P0_LOCAL_FONT_SHA256, P0_LOCAL_FONT_SOURCE_OVERRIDES, TRACKED_TEXT_BLOBS } from "./contracts";
+import { BASELINE_SOURCE_COMMIT, BINARY_SHA256, P0_APPROVED_TRACKED_OVERRIDE_BLOBS, P0_LOCAL_FONT_SHA256, TRACKED_TEXT_BLOBS } from "./contracts";
 import { pathFromRoot, run, runResult, sha256 } from "./lib";
 
 export type VerificationResult = { path: string; expected: string; actual: string; ok: boolean; kind: "git-blob" | "sha256" };
@@ -14,9 +14,9 @@ export function verifyFixedInputs(): VerificationResult[] {
   for (const [path, expected] of Object.entries(TRACKED_TEXT_BLOBS)) {
     const baselineBlob = run("git", ["rev-parse", `${BASELINE_SOURCE_COMMIT}:${path}`], `baseline blob ${path}`);
     const actual = currentCanonicalBlob(path);
-    const override = P0_LOCAL_FONT_SOURCE_OVERRIDES.includes(path as typeof P0_LOCAL_FONT_SOURCE_OVERRIDES[number]);
+    const override = P0_APPROVED_TRACKED_OVERRIDE_BLOBS[path];
     const clean = override ? runResult("git", ["diff", "--quiet", "--", path]).status === 0 : true;
-    results.push({ path, expected, actual, ok: baselineBlob === expected && (override ? clean : actual === expected), kind: "git-blob" });
+    results.push({ path, expected: override ?? expected, actual, ok: baselineBlob === expected && actual === (override ?? expected) && clean, kind: "git-blob" });
   }
   for (const [path, expected] of Object.entries(BINARY_SHA256)) {
     const absolute = pathFromRoot(path);

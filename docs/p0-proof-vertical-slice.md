@@ -81,9 +81,14 @@ mi3san's explicit P0 blocker approval. No external requests are permitted after 
 | `https://raw.githubusercontent.com/fontworks-fonts/Klee/master/OFL.txt` | `fontworks-fonts/Klee` `master/OFL.txt` | `public/fonts/licenses/KleeOne-OFL.txt` | `E376B0DF8E8A2345A9533DB6F0A5333A1107975569AD9D1973A7EE557161CA38` | self |
 
 The render path uses these local files only. `src/components/ChalkBoard.tsx` and
-`src/components/KaraokeSubtitle.tsx` are the sole P0-approved source overrides from
+`src/components/KaraokeSubtitle.tsx` are P0-approved local-font overrides from
 `baseline_source_commit`; the pre-render gate rejects remote Remotion font imports and remote
 font URLs before starting a baseline render.
+
+The separately approved cache-only zod repair pins `zod` to `4.3.6`. Its exact P0 runtime
+overrides are `package-lock.json` blob `808bdd1a6f6188fa55671f373bfa4f67be9036c8` and
+`src/schema.ts` blob `c357fd311841cf52f0989d8d4016e8e4849789fa`; the schema defaults are
+explicit values equivalent to the former nested defaults. No other baseline input is exempt.
 
 ## Stop conditions
 

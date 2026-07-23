@@ -67,11 +67,16 @@ export const P0_LOCAL_FONT_SHA256: Record<string, string> = {
   "public/fonts/licenses/KleeOne-OFL.txt": "E376B0DF8E8A2345A9533DB6F0A5333A1107975569AD9D1973A7EE557161CA38",
 };
 
-/** These are the only baseline source files deliberately replaced for local-only font resolution. */
-export const P0_LOCAL_FONT_SOURCE_OVERRIDES = [
-  "src/components/ChalkBoard.tsx",
-  "src/components/KaraokeSubtitle.tsx",
-] as const;
+/**
+ * Exact P0-only deviations from e43ebb2. Each remains clean and is compared by
+ * canonical blob identity; this is not a general exception to baseline identity.
+ */
+export const P0_APPROVED_TRACKED_OVERRIDE_BLOBS: Record<string, string> = {
+  "src/components/ChalkBoard.tsx": "9186ab8111e12b60479eb3a61fa8c7c41ff85708",
+  "src/components/KaraokeSubtitle.tsx": "d3be19c23ff1848b465613aeef688e3edd34dcb3",
+  "src/schema.ts": "c357fd311841cf52f0989d8d4016e8e4849789fa",
+  "package-lock.json": "808bdd1a6f6188fa55671f373bfa4f67be9036c8",
+};
 
 export type ConformanceStatus = "pass" | "fail";
 export type EvaluationStatus = "evaluated" | "not_evaluated";
