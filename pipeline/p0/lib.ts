@@ -15,7 +15,12 @@ export function sha256(file: string): string {
 
 export function run(command: string, args: string[], label = command): string {
   // Windows cannot spawn a .cmd shim directly without cmd.exe; all callers here use fixed local commands.
-  const result = spawnSync(command, args, { cwd: root, encoding: "utf8", shell: process.platform === "win32" && command.toLowerCase().endsWith(".cmd") });
+  const isBatch = process.platform === "win32" && command.toLowerCase().endsWith(".cmd");
+  const quoted = (value: string) => `"${value.replaceAll('"', '""')}"`;
+  const batchArgument = (value: string) => value.includes(" ") ? quoted(value) : value;
+  const result = isBatch
+    ? spawnSync("cmd.exe", ["/d", "/s", "/c", `call ${command.includes(" ") ? quoted(command) : command} ${args.map(batchArgument).join(" ")}`], { cwd: root, encoding: "utf8" })
+    : spawnSync(command, args, { cwd: root, encoding: "utf8" });
   if (result.error || result.status !== 0) {
     throw new Error(`${label} failed (${result.status ?? "spawn"}): ${result.stderr || result.error?.message || result.stdout}`);
   }

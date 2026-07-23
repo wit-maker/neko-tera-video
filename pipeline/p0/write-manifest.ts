@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { ARTIFACT_RELATIVE_PATH, BASELINE, BASELINE_SOURCE_COMMIT } from "./contracts";
 import { assertFixedInputs } from "./fixed-input";
-import { argValue, pathFromRoot, run, sha256, writeJson } from "./lib";
+import { argValue, pathFromRoot, readJson, run, sha256, writeJson } from "./lib";
 
 const artifact = argValue("--artifact", ARTIFACT_RELATIVE_PATH);
 const baseline = pathFromRoot(`${artifact}/baseline.mp4`);
@@ -18,8 +18,8 @@ const manifest = {
   inputs: verification,
   toolVersions: {
     node: version("node", ["--version"]),
-    npm: version("npm", ["--version"]),
-    remotion: version(pathFromRoot("node_modules/.bin/remotion.cmd"), ["--version"]),
+    npm: version(process.platform === "win32" ? "npm.cmd" : "npm", ["--version"]),
+    remotion: readJson<{ version: string }>(pathFromRoot("node_modules/@remotion/cli/package.json")).version,
     ffmpeg: version("ffmpeg", ["-version"]),
     ffprobe: version("ffprobe", ["-version"]),
   },

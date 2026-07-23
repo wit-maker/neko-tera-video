@@ -18,15 +18,18 @@ writeFileSync(truncated, bytes.subarray(0, Math.floor(bytes.length * 0.8)));
 const normalHashAfter = sha256(normal);
 if (normalHashBefore !== normalHashAfter) throw new Error("Negative fixtures changed the normal baseline.");
 
-function validateFixture(file: string): boolean {
-  const staged = `${fixtureRoot}/staged`;
+function validateFixture(file: string): { failed: boolean; conformance: unknown } {
+  const staged = `${fixtureRoot}/staged-${basename(file, ".mp4")}`;
   mkdirSync(staged, { recursive: true });
   copyFileSync(file, `${staged}/baseline.mp4`);
   copyFileSync(pathFromRoot(`${artifact}/manifest.json`), `${staged}/manifest.json`);
   const result = spawnSync(process.execPath, [pathFromRoot("node_modules/tsx/dist/cli.mjs"), pathFromRoot("pipeline/p0/validate.ts"), "--artifact", `${artifact}/fixtures/staged`], { cwd: process.cwd(), encoding: "utf8" });
-  return result.status !== 0;
+  return { failed: result.status !== 0, conformance: JSON.parse(readFileSync(`${staged}/conformance.json`, "utf8")) };
 }
-const wrongFails = validateFixture(wrong);
-const truncatedFails = validateFixture(truncated);
-if (!wrongFails || !truncatedFails) throw new Error(`Negative conformance test did not fail: wrong=${wrongFails}, truncated=${truncatedFails}`);
-console.log(JSON.stringify({ normalHashBefore, normalHashAfter, fixtures: [{ file: basename(wrong), bytes: statSync(wrong).size, conformanceFailed: wrongFails }, { file: basename(truncated), bytes: statSync(truncated).size, conformanceFailed: truncatedFails }] }, null, 2));
+const wrongResult = validateFixture(wrong);
+const truncatedResult = validateFixture(truncated);
+if (!wrongResult.failed || !truncatedResult.failed) throw new Error(`Negative conformance test did not fail: wrong=${wrongResult.failed}, truncated=${truncatedResult.failed}`);
+console.log(JSON.stringify({ normalHashBefore, normalHashAfter, fixtures: [
+  { file: basename(wrong), bytes: statSync(wrong).size, conformanceFailed: wrongResult.failed, conformance: wrongResult.conformance },
+  { file: basename(truncated), bytes: statSync(truncated).size, conformanceFailed: truncatedResult.failed, conformance: truncatedResult.conformance },
+] }, null, 2));
