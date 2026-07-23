@@ -4,7 +4,6 @@ import { pathFromRoot } from "./lib";
 const fontBoundaryFiles = [
   "src/components/ChalkBoard.tsx",
   "src/components/KaraokeSubtitle.tsx",
-  "src/lib/local-font.ts",
 ] as const;
 
 const remoteFontLoader = /@remotion\/google-fonts/;

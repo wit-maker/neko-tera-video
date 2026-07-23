@@ -1,12 +1,22 @@
 import React from "react";
-import { useCurrentFrame } from "remotion";
+import { cancelRender, continueRender, delayRender, staticFile, useCurrentFrame } from "remotion";
 import type { Cut, VideoProject } from "../schema";
 import type { CutTiming } from "../lib/timing";
 import { activeLineAt } from "../lib/useAlignments";
 import type { Alignment } from "../lib/viseme";
-import { loadLocalFont } from "../lib/local-font";
 
-const { fontFamily } = loadLocalFont({ family: "Klee One", file: "fonts/KleeOne-SemiBold.ttf", weight: "600" });
+const loadLocalFont = (family: string, file: string, weight: string): string => {
+  if (typeof document === "undefined") return family;
+  const handle = delayRender(`Load local font ${file}`);
+  const font = new FontFace(family, `url(${staticFile(file)})`, { style: "normal", weight });
+  font.load().then((loaded) => {
+    (document.fonts as unknown as { add(value: FontFace): void }).add(loaded);
+    continueRender(handle);
+  }).catch((error: unknown) => cancelRender(error instanceof Error ? error : new Error(String(error))));
+  return family;
+};
+
+const fontFamily = loadLocalFont("Klee One", "fonts/KleeOne-SemiBold.ttf", "600");
 
 /**
  * カラオケ字幕: アラインメントの文字タイムスタンプで発話済みの文字をハイライトする。

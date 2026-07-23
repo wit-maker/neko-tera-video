@@ -1,11 +1,21 @@
 import React from "react";
-import { useCurrentFrame } from "remotion";
+import { cancelRender, continueRender, delayRender, staticFile, useCurrentFrame } from "remotion";
 import type { Cut, VideoProject } from "../schema";
 import type { CutTiming } from "../lib/timing";
 import { arrowHead, wobblyCircle, wobblyLine } from "../lib/chalk";
-import { loadLocalFont } from "../lib/local-font";
 
-const { fontFamily } = loadLocalFont({ family: "Yusei Magic", file: "fonts/YuseiMagic-Regular.ttf", weight: "400" });
+const loadLocalFont = (family: string, file: string, weight: string): string => {
+  if (typeof document === "undefined") return family;
+  const handle = delayRender(`Load local font ${file}`);
+  const font = new FontFace(family, `url(${staticFile(file)})`, { style: "normal", weight });
+  font.load().then((loaded) => {
+    (document.fonts as unknown as { add(value: FontFace): void }).add(loaded);
+    continueRender(handle);
+  }).catch((error: unknown) => cancelRender(error instanceof Error ? error : new Error(String(error))));
+  return family;
+};
+
+const fontFamily = loadLocalFont("Yusei Magic", "fonts/YuseiMagic-Regular.ttf", "400");
 
 const CHALK = "#eeeae0";
 const CHALK_EMPHASIS = "#f2d478";
