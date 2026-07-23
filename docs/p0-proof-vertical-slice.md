@@ -54,16 +54,16 @@ recorded in the execution record below before handoff.
 
 ## Execution record
 
-Pending the approved implementation run. This section is updated only from the generated P0
-artifacts; it is not a quality or architecture decision.
+The approved run is **blocked**, not accepted. The existing pipeline attempted external font
+requests during rendering, which violates the P0 no-external-API condition. The render was
+stopped before it could become a valid artifact; do not use either archived attempt for review.
 
-- execution commit: pending
-- p0 tool commit: pending
-- artifact location: `out/p0/a-s7c6-e43ebb2/`
-- baseline SHA-256: pending
-- conformance: pending
-- evaluation: pending
-- tool versions: pending
+- execution path: A — existing local checkout `node_modules`, linked into this worktree without install or dependency changes
+- execution commit / p0 tool commit: `586a7e0c4f42c26e4a309a99316ab894f9ea0671`
+- quarantined invalid artifact locations: `out/p0/a-s7c6-e43ebb2-pre-final-3ef3ffe/` and `out/p0/a-s7c6-e43ebb2-blocked-external-font/`
+- accepted baseline SHA-256 / conformance / evaluation: **none**
+- observed blocker: `@remotion/google-fonts` loaded Yusei Magic and Klee One through network requests (121 and 124 requests respectively)
+- tool versions: Node `v24.15.0`, npm `11.14.1`, Remotion `4.0.494`, FFmpeg/FFprobe `8.1.1`
 
 ## Stop conditions
 
