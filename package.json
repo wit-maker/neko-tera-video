@@ -15,6 +15,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "p0:verify-input": "tsx pipeline/p0/fixed-input.ts --verify",
+    "p0:verify-network": "tsx pipeline/p0/verify-network.ts --verify",
     "p0:render": "tsx pipeline/p0/render-baseline.ts",
     "p0:manifest": "tsx pipeline/p0/write-manifest.ts",
     "p0:validate": "tsx pipeline/p0/validate.ts",

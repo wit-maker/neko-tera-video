@@ -1,12 +1,12 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
-import { loadFont } from "@remotion/google-fonts/KleeOne";
 import type { Cut, VideoProject } from "../schema";
 import type { CutTiming } from "../lib/timing";
 import { activeLineAt } from "../lib/useAlignments";
 import type { Alignment } from "../lib/viseme";
+import { loadLocalFont } from "../lib/local-font";
 
-const { fontFamily } = loadFont("normal", { weights: ["600"] });
+const { fontFamily } = loadLocalFont({ family: "Klee One", file: "fonts/KleeOne-SemiBold.ttf", weight: "600" });
 
 /**
  * カラオケ字幕: アラインメントの文字タイムスタンプで発話済みの文字をハイライトする。

@@ -1,11 +1,11 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
-import { loadFont } from "@remotion/google-fonts/YuseiMagic";
 import type { Cut, VideoProject } from "../schema";
 import type { CutTiming } from "../lib/timing";
 import { arrowHead, wobblyCircle, wobblyLine } from "../lib/chalk";
+import { loadLocalFont } from "../lib/local-font";
 
-const { fontFamily } = loadFont("normal", { weights: ["400"] });
+const { fontFamily } = loadLocalFont({ family: "Yusei Magic", file: "fonts/YuseiMagic-Regular.ttf", weight: "400" });
 
 const CHALK = "#eeeae0";
 const CHALK_EMPHASIS = "#f2d478";

@@ -7,8 +7,10 @@ baseline for reproducible evidence. This is a P0-only working contract: neither 
 its review UI automatically promotes an architecture, ADR, candidate selection, or quality approval.
 
 Out of scope: a new representation, enhancement, phoneme recognition, real-time processing,
-new dependencies, cloud, paid services, external APIs, Vault work, PR #18, Knowledge extraction,
-Community Plugins, and automatic synchronization.
+new dependencies, cloud, paid services, external APIs during rendering, Vault work, PR #18,
+Knowledge extraction, Community Plugins, and automatic synchronization. The only exception was
+the separately approved, one-time font acquisition recorded below; it is complete and does not
+permit any later external request.
 
 ## Fixed baseline
 
@@ -39,6 +41,7 @@ After P0 tool code is intentionally committed, execute in this order:
 
 ```powershell
 npm run p0:verify-input
+npm run p0:verify-network
 npm run p0:render
 npm run p0:manifest
 npm run p0:validate
@@ -64,6 +67,23 @@ stopped before it could become a valid artifact; do not use either archived atte
 - accepted baseline SHA-256 / conformance / evaluation: **none**
 - observed blocker: `@remotion/google-fonts` loaded Yusei Magic and Klee One through network requests (121 and 124 requests respectively)
 - tool versions: Node `v24.15.0`, npm `11.14.1`, Remotion `4.0.494`, FFmpeg/FFprobe `8.1.1`
+
+## Approved local-font provenance
+
+The following four files were retrieved exactly once on `2026-07-23T21:06:17+09:00`, under
+mi3san's explicit P0 blocker approval. No external requests are permitted after this record.
+
+| Repository source URL | Repository path | Saved path | SHA-256 | License path |
+| --- | --- | --- | --- | --- |
+| `https://raw.githubusercontent.com/google/fonts/main/ofl/yuseimagic/YuseiMagic-Regular.ttf` | `google/fonts` `main/ofl/yuseimagic/YuseiMagic-Regular.ttf` | `public/fonts/YuseiMagic-Regular.ttf` | `82098615F39ED9DA6A8CCC674B9006E49C70DD5B775A7A1697F6BEDD22CE25A2` | `public/fonts/licenses/YuseiMagic-OFL.txt` |
+| `https://raw.githubusercontent.com/google/fonts/main/ofl/yuseimagic/OFL.txt` | `google/fonts` `main/ofl/yuseimagic/OFL.txt` | `public/fonts/licenses/YuseiMagic-OFL.txt` | `C74E8C47951DDD9C902F07097761CFA0457993E28D8E1E946E273C0250BE77C9` | self |
+| `https://raw.githubusercontent.com/fontworks-fonts/Klee/master/fonts/ttf/KleeOne-SemiBold.ttf` | `fontworks-fonts/Klee` `master/fonts/ttf/KleeOne-SemiBold.ttf` | `public/fonts/KleeOne-SemiBold.ttf` | `9DBB25466C575F6DC8768A28845798F67FA5D47A5D20A6408C30C58D700A1044` | `public/fonts/licenses/KleeOne-OFL.txt` |
+| `https://raw.githubusercontent.com/fontworks-fonts/Klee/master/OFL.txt` | `fontworks-fonts/Klee` `master/OFL.txt` | `public/fonts/licenses/KleeOne-OFL.txt` | `E376B0DF8E8A2345A9533DB6F0A5333A1107975569AD9D1973A7EE557161CA38` | self |
+
+The render path uses these local files only. `src/components/ChalkBoard.tsx` and
+`src/components/KaraokeSubtitle.tsx` are the sole P0-approved source overrides from
+`baseline_source_commit`; the pre-render gate rejects remote Remotion font imports and remote
+font URLs before starting a baseline render.
 
 ## Stop conditions
 

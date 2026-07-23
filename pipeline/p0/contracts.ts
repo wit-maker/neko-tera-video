@@ -59,6 +59,20 @@ export const BINARY_SHA256: Record<string, string> = {
   "public/sfx/tea-pour.mp3": "E100E551B202C2B1199ACFFDF2FBA7FC85737303E8115721D0588F85D3527359",
 };
 
+/** Approved P0-only additions. These do not change representation-A baseline assets. */
+export const P0_LOCAL_FONT_SHA256: Record<string, string> = {
+  "public/fonts/YuseiMagic-Regular.ttf": "82098615F39ED9DA6A8CCC674B9006E49C70DD5B775A7A1697F6BEDD22CE25A2",
+  "public/fonts/KleeOne-SemiBold.ttf": "9DBB25466C575F6DC8768A28845798F67FA5D47A5D20A6408C30C58D700A1044",
+  "public/fonts/licenses/YuseiMagic-OFL.txt": "C74E8C47951DDD9C902F07097761CFA0457993E28D8E1E946E273C0250BE77C9",
+  "public/fonts/licenses/KleeOne-OFL.txt": "E376B0DF8E8A2345A9533DB6F0A5333A1107975569AD9D1973A7EE557161CA38",
+};
+
+/** These are the only baseline source files deliberately replaced for local-only font resolution. */
+export const P0_LOCAL_FONT_SOURCE_OVERRIDES = [
+  "src/components/ChalkBoard.tsx",
+  "src/components/KaraokeSubtitle.tsx",
+] as const;
+
 export type ConformanceStatus = "pass" | "fail";
 export type EvaluationStatus = "evaluated" | "not_evaluated";
 export type ReviewStatus = "review-ready" | "invalid" | "not-evaluated" | "known-failure";
