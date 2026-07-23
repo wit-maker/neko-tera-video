@@ -4,6 +4,16 @@
 
 7シーン × 6カット = 42カット(セリフ45行)を、縦型ショート(9:16, 1080×1920, 60fps, 総尺 約303.9秒)としてレンダリングする。
 
+## 現在地と次期アーキテクチャ
+
+- 現在の納品・再開状態: `PROJECT_STATE.md`
+- 次期キャラクター表現基盤のCTO提案: `docs/character-architecture-strategy.md`
+- 提案・承認・未決事項の状態管理: `docs/architecture-governance.md`
+- 採択済みの比較境界: `docs/adr/001-next-character-comparison-boundaries.md`
+- PoC前・方式別・採用後の環境拡張提案: `docs/tooling-extension-strategy.md`
+- 実際の失敗から得た再発防止ルール: `docs/anti-patterns.md`
+- エージェントが必ず守るプロジェクト規約: `AGENTS.md`
+
 ## 設計思想: video.json = 単一の真実 (SSOT)
 
 このリポジトリの中核は、単発の動画ファイルではなく **`video.json` を単一の真実(Single Source of Truth)とする完全データ駆動のパイプライン**である。

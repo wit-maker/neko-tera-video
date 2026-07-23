@@ -1,22 +1,36 @@
 # PROJECT_STATE
 
-最終更新: 2026-07-22
+最終更新: 2026-07-23
 
 ## 現在の状態
 
-- **git 初期化済み**。`main` ブランチにブートストラップ(gitignore, CI)がコミット済み。
-- **master 完成済み**: 全42カットが実素材でレンダー可能。`out/final-master.mp4` 生成済み。
-  - フォーマット: h264 1080×1920 60fps + AAC 48kHz stereo。
-  - 尺: 映像 303.98s / 音声 303.92s(尺差 0.063s、基準 ≤0.1s 内)。
-  - ラウドネス: 統合 -14.0 LUFS(基準 -14 ±0.5 内)。
-  - 成功条件 §2 のうち フォーマット・尺・ラウドネスは達成済み。
-- 中間生成物も全て存在: `out/master.mp4`, `out/master-audio.wav`, `out/premaster.wav`, `out/mix-filter.txt`。
+- **現行動画は納品成立済み**。全42カットのQC、outro反映、全編デコード、独立計測が完了している。
+- 最終成果物: `out/final-master.mp4`
+  - H.264 1080×1920 / 60fps + AAC 48kHz stereo
+  - 映像303.900秒 / 音声303.916秒 / 差0.016秒
+  - Integrated Loudness -14.0 LUFS / AAC True Peak -1.4 dBTP
+  - SHA-256: `0753B72BF606FB89F6AECAF951F27C615B5E8EA8BFE8BDDED1730A4B50BA85BF`
+- 検収証跡: `docs/qc-delivery-task-board.md`、`docs/qc-report.md`
+- 現行口パッチは保守対象かつ次期比較のbaselineであり、次期表現方式の制約にはしない。
 
-## 残作業
+## 次の段階
 
-1. **QC 巡回**(唯一の大物 / 未実施): `out/final-master.mp4` を対象に `docs/qc-checklist.md` 準拠で全42カットを検分し、修正指示を `video.json` / 座標定義へ反映 → 該当工程のみ再実行 → 再検分。修正が出尽くしてから全編レンダー + encode を1回。
-   - 必須判定: ミケ口パッチ縁のハロー / s1c1 右柱の埋め跡 / 先生 tea ポーズの口被覆(いずれも実寸視聴での知覚有無で採否)。
-2. **outro.mp3 反映**(発注者の配置待ち、ブロッカー): 配置後 `npm run mix && npm run encode` のみ(レンダー不要)。mix ログに `[warn] BGM 未配置` が出ないことを完了条件とする。
-3. **納品**: `final-master.mp4` + 検収報告(成功条件6項目の実測値・判定)。
+- PR #17でラピスの再レビューを受領した。初回12項目は解消され、追加5項目を戦略v0.3へ反映した。
+- mi3sanは `GOV-013`〜`GOV-016`を承認し、`docs/adr/001-next-character-comparison-boundaries.md`へ記録した。
+- goal段階の設計レビューは収束し、P0計画へ移管可能である。
+- 三層契約、候補二軸、P0〜P4/N0、ツール採用は引き続き `PROPOSED` であり、採択済みアーキテクチャではない。
 
-出典: `docs/cto-handoff.md`(§16 PMへの申し送り事項)。
+1. オービットがP0をPoC、依存関係、受入条件、conformance/evaluation境界へ分解する。
+2. mi3sanがP0計画を確認し、実装へ進める範囲を承認する。
+3. 承認後にフォージが小さなvertical sliceとしてP0を実装する。
+4. 実験後の失敗から一般化できる知見は `docs/anti-patterns.md` へ追記し、再発可能ならvalidator、test、ADR、DoDへ昇格する。
+
+## 入口
+
+- 次期技術戦略: `docs/character-architecture-strategy.md`
+- 判断状態とhard blocker: `docs/architecture-governance.md`
+- 採択済み比較境界: `docs/adr/001-next-character-comparison-boundaries.md`
+- 環境拡張の段階案: `docs/tooling-extension-strategy.md`
+- 永続アンチパターン: `docs/anti-patterns.md`
+- 現行動画の詳細設計・旧教訓: `docs/cto-handoff.md`
+- 完了した納品工程: `docs/qc-delivery-task-board.md`
