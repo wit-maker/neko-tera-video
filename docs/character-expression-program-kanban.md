@@ -25,8 +25,8 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 
 | DONE | READY | IN_PROGRESS | BLOCKED_OWNER | GATED / CONDITIONAL |
 | --- | --- | --- | --- | --- |
-| P0a-01 fixed baseline evidence | K-01 board state refresh | なし | M0-04 PR #18 disposition | M1-04 actual Character Bible instances |
-| M0-01 project state correction |  | なし | M2-01 N0 disposition / reopening package | M3-00 P1 run definition |
+| P0a-01 fixed baseline evidence | K-01 board state refresh | なし | M2-01 N0 disposition / reopening package | M1-04 actual Character Bible instances |
+| M0-01 project state correction |  | なし |  | M3-00 P1 run definition |
 | M1-01 P0b contract |  | なし |  | M3-02–M3-12 P1 evidence |
 | M1-02 interval/conformance correction |  |  | M3-03 Track A ceiling | M4-00–M4-08 P2 styled comparison |
 | M2-00 local neural inventory |  |  | M3-13 candidate retention | M5-00–M5-05 P3 production slice |
@@ -56,7 +56,6 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 
 | ID | mi3san に判断してもらうこと | 誰が・どこで・どのように実行するか | 承認後の最小成果 | STOP / 非対象 |
 | --- | --- | --- | --- | --- |
-| M0-04 | PR #18を **as-isでmergeしない** 前提で、縮小して再提案するかcloseするか | Orbit がPR #18の重複監査を一括提示し、mi3san がGitHub PR上で方針を選ぶ。Forgeは判断まで変更しない | 方針をPR/stateに反映するcardを解放 | Vault生成、Knowledge抽出、Community Plugin、自動同期は本プログラムscope外 |
 | M2-01 | N0を現在cycleで local-only no-go として閉じるか、再開する特定model packageを承認するか | Orbit が candidate、取得元、license、weights/data、外部送信、local代替、8GB停止条件を一件の承認要求で提示。mi3san が明示承認する | no-go記録、またはM2-02だけを解放 | 無名の「neuralを試す」、cloud、paid、未承認取得は開始しない |
 | M3-01 | **Blender 4.5 LTS portable ZIP** の一回限り外部取得を許可するか | 承認済み。Forgeが公式配布元から取得し、`out/tools/blender-4.5-lts-win-x64/` に保存。source receiptは `pipeline/m3/blender-tool-receipt.json`（archive SHA-256 `2EE75E9466D293A784FDF020F60FE1309C1E0610ECF73C64F1FC09B01E5EEC56`） | D/Eのtool provision receipt | 新規dependency/add-on、admin install、cloud/paid、外部network renderは不可。hash/license/8GB/headless/network失敗で停止 |
 | M3-03 | P1 Track Aの固定制作上限（候補ごとの人時・render回数・asset revision数）を承認する | Orbitが候補数と比較intentを保つ最小上限を提案し、mi3sanが一括承認。Forgeは上限内のnative assetだけを作る | P1 Track A budget table | Track B到達品質の追加cycleをTrack Aへ混入しない |
@@ -70,9 +69,9 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 | --- | --- | --- | --- | --- | --- | --- |
 | M0-02 | DONE | P0 temporary resourceの参照確認（`main` `4b9b030`） | P0a-01 | Firewall ruleは現host・tracked sourceに無し。normal/quarantine `out/p0` は保持期限未決のため削除しない | 正常参照あり | Forge, Orbit |
 | M0-03 | DONE | merge済みbranch削除可否の確認（`main` `4b9b030`） | M0-02 | merged refsの削除候補と、owner worktree/未統合refsの保持対象を分離 | owner worktree / 未統合commit | Forge, Orbit |
-| M0-04 | BLOCKED_OWNER | PR #18の縮小/close方針 | PR #18 audit | mi3sanの明示方針 | 方針なし | Orbit, mi3san |
+| M0-04 | DONE | PR #18を `SUPERSEDED` としてunmerged closeする方針を記録 | owner directive | [PR #18 comment](https://github.com/wit-maker/neko-tera-video/pull/18#issuecomment-5068173058) とclose状態。remote branchはVault provenance確認まで保持 | Vault scopeへ侵入 | Orbit, mi3san |
 | M0-05 | GATED | 承認済みtemporary resourceだけを安全に削除 | M0-02, M0-03 | 対象を解決し、削除後もreproduction/PR参照が成立 | 参照・owner work・復旧不能性 | Forge, Orbit |
-| M0-06 | GATED | PR #18方針を実行してcloseまたは縮小PR化 | M0-04 | owner方針どおり、character scopeを増やさない | Vault scopeへ侵入 | Forge, Orbit |
+| M0-06 | DONE | PR #18方針を実行してunmerged closeする | M0-04 | `SUPERSEDED` コメント後にPRをclose。Markdown移植/複製なし、remote branch保持 | Vault scopeへ侵入 | Orbit |
 
 ## M1 — P0b comparison contractの実artifact接続
 
@@ -173,7 +172,7 @@ P1の中心比較は **A / C / D / E**。B1はstate増加・transition境界、B
 ## 次の解放順序
 
 1. `M0-02` と `M0-03` は受入済み。`M0-05` は削除承認または保存期限の決定まで解放しない。
-2. Orbit は `M0-04`、`M2-01`、`M3-03` の判断packetを、必要な時だけ一件ずつmi3sanへ出す。`M3-01` はPR #23で受入済みである。
+2. Orbit は `M2-01`、`M3-03` の判断packetを、必要な時だけ一件ずつmi3sanへ出す。`M3-01` はPR #23で、`M0-04/M0-06` はPR #18 closeで受入済みである。
 3. `M3-03` が承認され、`M3-00` が固定された後にだけ、P1のnative asset / renderカードを解放する。
 4. P1の実映像をmi3sanが比較して `M3-13` を決めるまで、P2以降は開始しない。
 5. N0は順位外であり、`M2-05` がpassになってもP4を自動開始しない。`M6-00` の明示承認が別途必要である。
