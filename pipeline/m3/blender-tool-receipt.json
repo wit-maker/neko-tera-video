@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "m3-blender-tool-receipt-v1",
+  "task": "M3-01",
+  "provisioningSourceCommit": "19d0de3ca9fd83736a20e8460939fd67af29d489",
+  "source": {
+    "officialArchiveUrl": "https://download.blender.org/release/Blender4.5/blender-4.5.0-windows-x64.zip",
+    "downloadCount": 1,
+    "archiveFile": "out/tools/blender-4.5-lts-win-x64/blender-4.5.0-windows-x64.zip",
+    "archiveBytes": 399946398,
+    "archiveSha256": "2EE75E9466D293A784FDF020F60FE1309C1E0610ECF73C64F1FC09B01E5EEC56"
+  },
+  "portableDistribution": {
+    "root": "out/tools/blender-4.5-lts-win-x64/blender-4.5.0-windows-x64",
+    "executable": "out/tools/blender-4.5-lts-win-x64/blender-4.5.0-windows-x64/blender.exe",
+    "version": "4.5.0",
+    "buildHash": "8cb6b388974a"
+  },
+  "license": {
+    "identity": "Blender GPL-3.0-or-later with bundled third-party license inventory",
+    "inventoryFile": "out/tools/blender-4.5-lts-win-x64/blender-4.5.0-windows-x64/license/license.md",
+    "inventorySha256": "E2767C99EF601D99CDE4B5FE39BD3E5FF18B29C9E8DC22779A8A3767DD8CB07A",
+    "gplFile": "out/tools/blender-4.5-lts-win-x64/blender-4.5.0-windows-x64/license/spdx/GPL-3.0-or-later.txt",
+    "gplSha256": "0B383D5A63DA644F628D99C33976EA6487ED89AAA59F0B3257992DEAC1171E6B"
+  },
+  "checks": {
+    "versionCommand": ["blender.exe", "--version"],
+    "versionExitCode": 0,
+    "headlessCommand": ["blender.exe", "--background", "--factory-startup", "--version"],
+    "headlessExitCode": 0,
+    "renderExecuted": false,
+    "newDependencyAdded": false,
+    "addonInstalled": false,
+    "networkRequirementAfterDownload": "none",
+    "networkObservationDuringChecks": "No network-dependent error, request, or residual Blender process was observed during the version-only checks."
+  }
+}
