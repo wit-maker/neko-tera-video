@@ -98,7 +98,7 @@ P1の中心比較は **A / C / D / E**。B1はstate増加・transition境界、B
 
 | ID | 状態 | 最小task | 依存 | 受入条件 | 停止条件 | 担当 |
 | --- | --- | --- | --- | --- | --- | --- |
-| M3-00 | GATED | P1 performance sequence、observables、camera、A/B track budgetを一つのrun definitionへ固定 | M3-03 | jaw/lip/corner/muzzle/cheek/oral cavity/fur-whisker/view/occlusion/temporal/regeneration/failureを露出 | budget未承認、比較intentが変わる | Orbit |
+| M3-00 | DONE | P1 performance sequence、observables、camera、A/B track budgetを一つのrun definitionへ固定 | M3-03 | `pipeline/m3/p1-track-a-run-definition.json` とvalidatorで、Track A候補/sequence/view/budget/pre-render network preconditionを固定。M3-00自身はrender/native assetを実行しない | fixed scopeの変更、network precondition欠落、Track B混入 | Orbit, Forge |
 | M3-01 | DONE | Blender 4.5 LTS portable tool provision | mi3san explicit approval | official source, SHA, license, storage, headless local check are recorded in `pipeline/m3/blender-tool-receipt.json` | network/add-on/admin/8GB failure | Forge |
 | M3-02 | GATED | A adapterのP1 sequenceをrenderし、P0aとの差分をprovenanceで明示 | M3-00 | native A artifact、hash、known failures、P0b record | P0a baselineを無根拠に品質比較へ転用 | Forge |
 | M3-04 | GATED | C native 2D parametric mesh assetを作る | M3-00 | C専用controlsでobservableを表現、shared PNG/topologyなし | new dependency/external asset が必要 | Forge |

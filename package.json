@@ -25,7 +25,8 @@
     "p0:negative-test": "tsx pipeline/p0/negative-test.ts",
     "p0:verify": "tsx pipeline/p0/verify.ts",
     "p0b:validate-contract": "tsx pipeline/p0b/validate-contract.ts",
-    "n0:local-inventory": "tsx pipeline/n0/local-inventory.ts"
+    "n0:local-inventory": "tsx pipeline/n0/local-inventory.ts",
+    "m3:validate-p1-run-definition": "tsx pipeline/m3/validate-p1-run-definition.ts"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",
