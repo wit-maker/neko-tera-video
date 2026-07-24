@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "m3-p1-track-a-run-definition-v1",
+  "task": "M3-00",
+  "status": "PROPOSED",
+  "scope": "P1 Track A PoC run definition; no render or native asset creation",
+  "track": "A",
+  "trackB": { "inScope": false },
+  "execution": { "mode": "pre-render-only", "realtimeEvaluation": false },
+  "candidates": [
+    { "base": "A", "role": "core", "sequenceIds": ["T0", "T1", "T3", "T6", "T7", "T9"], "budget": { "operatorHours": 8, "nativeAssetRevisionsMax": 2, "finalRenderAttemptsMax": 2 } },
+    { "base": "C", "role": "core", "sequenceIds": ["T0", "T1", "T3", "T6", "T7", "T9"], "budget": { "operatorHours": 8, "nativeAssetRevisionsMax": 2, "finalRenderAttemptsMax": 2 } },
+    { "base": "D", "role": "core", "sequenceIds": ["T0", "T1", "T3", "T6", "T7", "T9"], "budget": { "operatorHours": 8, "nativeAssetRevisionsMax": 2, "finalRenderAttemptsMax": 2 }, "toolReceipt": "pipeline/m3/blender-tool-receipt.json" },
+    { "base": "E", "role": "core", "sequenceIds": ["T0", "T1", "T3", "T6", "T7", "T9"], "budget": { "operatorHours": 8, "nativeAssetRevisionsMax": 2, "finalRenderAttemptsMax": 2 }, "toolReceipt": "pipeline/m3/blender-tool-receipt.json" },
+    { "base": "B1", "role": "state-transition-boundary", "sequenceIds": [], "budget": { "operatorHours": 4, "nativeAssetRevisionsMax": 1, "finalRenderAttemptsMax": 1 } },
+    { "base": "B2", "role": "quality-ceiling-control", "sequenceIds": ["T1", "T3", "T8"], "budget": { "operatorHours": 4, "nativeAssetRevisionsMax": 1, "finalRenderAttemptsMax": 1 } }
+  ],
+  "viewConstraints": {
+    "T7": { "yawDegrees": { "min": -15, "max": 15 }, "pitchDegrees": { "min": -10, "max": 10 } }
+  },
+  "renderNetworkPrecondition": {
+    "requiredBeforeRender": true,
+    "acceptedEvidence": "Explicit local enforcement evidence for the target executable blocks outbound network and permits loopback only.",
+    "enforcementConfiguredInM300": false,
+    "renderPermittedByThisTask": false
+  },
+  "conformance": { "status": "not-run", "checks": ["fixed candidate scope", "fixed sequence scope", "view constraints", "Track A budget", "pre-render network precondition"] },
+  "evaluation": { "status": "not-evaluated", "qualityRanking": "not-made", "representationDecision": "not-made" },
+  "m300ExecutionProhibitions": ["render", "native-asset-creation", "external-asset", "new-dependency", "addon", "cloud", "paid-service", "firewall-rule-change", "P2", "P3", "P4"]
+}
