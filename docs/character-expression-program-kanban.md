@@ -58,7 +58,7 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 | --- | --- | --- | --- | --- |
 | M0-04 | PR #18を **as-isでmergeしない** 前提で、縮小して再提案するかcloseするか | Orbit がPR #18の重複監査を一括提示し、mi3san がGitHub PR上で方針を選ぶ。Forgeは判断まで変更しない | 方針をPR/stateに反映するcardを解放 | Vault生成、Knowledge抽出、Community Plugin、自動同期は本プログラムscope外 |
 | M2-01 | N0を現在cycleで local-only no-go として閉じるか、再開する特定model packageを承認するか | Orbit が candidate、取得元、license、weights/data、外部送信、local代替、8GB停止条件を一件の承認要求で提示。mi3san が明示承認する | no-go記録、またはM2-02だけを解放 | 無名の「neuralを試す」、cloud、paid、未承認取得は開始しない |
-| M3-01 | **Blender 4.5 LTS portable ZIP** の一回限り外部取得を許可するか | 承認済みならForgeが公式配布元から取得し、このP0/P1 branchの `out/tools/blender-4.5-lts-win-x64/` に保存。Orbitがversion/SHA/license/locationを受入確認。headless renderはFirewallで外向き通信を遮断して実行 | D/Eのtool provision manifest | 新規dependency/add-on、admin install、cloud/paid、外部network renderは不可。hash/license/8GB/headless/network失敗で停止 |
+| M3-01 | **Blender 4.5 LTS portable ZIP** の一回限り外部取得を許可するか | 承認済み。Forgeが公式配布元から取得し、`out/tools/blender-4.5-lts-win-x64/` に保存。source receiptは `pipeline/m3/blender-tool-receipt.json`（archive SHA-256 `2EE75E9466D293A784FDF020F60FE1309C1E0610ECF73C64F1FC09B01E5EEC56`） | D/Eのtool provision receipt | 新規dependency/add-on、admin install、cloud/paid、外部network renderは不可。hash/license/8GB/headless/network失敗で停止 |
 | M3-03 | P1 Track Aの固定制作上限（候補ごとの人時・render回数・asset revision数）を承認する | Orbitが候補数と比較intentを保つ最小上限を提案し、mi3sanが一括承認。Forgeは上限内のnative assetだけを作る | P1 Track A budget table | Track B到達品質の追加cycleをTrack Aへ混入しない |
 | M3-13 | P1後、P2へ残すBase候補を決める | Orbitが実artifactをnormal/slow/crop/debug/stillと軸別evidenceで提示し、mi3sanがretain/dropを決定 | M4-00を解放するcandidate set | conformance pass、未承認weighted score、推測だけで採択しない |
 | M6-00 | N0 pass後にP4 neural enhancementを比較へ入れるか | OrbitがN0実測・license・determinism・drift・local computeを一括提示し、mi3sanが承認 | M6-01を解放するBase × Enhancement組 | N0 no-goならM6全体をclose |
@@ -99,7 +99,7 @@ P1の中心比較は **A / C / D / E**。B1はstate増加・transition境界、B
 | ID | 状態 | 最小task | 依存 | 受入条件 | 停止条件 | 担当 |
 | --- | --- | --- | --- | --- | --- | --- |
 | M3-00 | GATED | P1 performance sequence、observables、camera、A/B track budgetを一つのrun definitionへ固定 | M3-03 | jaw/lip/corner/muzzle/cheek/oral cavity/fur-whisker/view/occlusion/temporal/regeneration/failureを露出 | budget未承認、比較intentが変わる | Orbit |
-| M3-01 | BLOCKED_OWNER | Blender 4.5 LTS portable tool provision | mi3san explicit approval | official source, SHA, license, storage, headless local check | network/add-on/admin/8GB failure | Forge |
+| M3-01 | DONE | Blender 4.5 LTS portable tool provision | mi3san explicit approval | official source, SHA, license, storage, headless local check are recorded in `pipeline/m3/blender-tool-receipt.json` | network/add-on/admin/8GB failure | Forge |
 | M3-02 | GATED | A adapterのP1 sequenceをrenderし、P0aとの差分をprovenanceで明示 | M3-00 | native A artifact、hash、known failures、P0b record | P0a baselineを無根拠に品質比較へ転用 | Forge |
 | M3-04 | GATED | C native 2D parametric mesh assetを作る | M3-00 | C専用controlsでobservableを表現、shared PNG/topologyなし | new dependency/external asset が必要 | Forge |
 | M3-05 | GATED | C adapterをrender・全frame検証する | M3-04 | normal/slow/crop/debug/still inputsとcapability evidence | decode/timebase failure | Forge |
