@@ -1,7 +1,7 @@
-import { readFileSync } from "node:fs";
+﻿import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-import { BLENDER_ENV_VAR, candidateExecutables, resolveBlender, type BlenderReceipt } from "./blender";
+import { BLENDER_ENV_VAR, candidateExecutables, resolveBlender, type BlenderReceipt } from "../blender";
 import { REQUIRED_BONES, validateDManifest, type DManifest } from "./conformance";
 
 const receipt = JSON.parse(readFileSync(resolve("pipeline/m3/d/build-receipt.json"), "utf8")) as { manifest: DManifest; archiveIdentity: { verified: boolean }; renderPerformed: boolean };
@@ -96,3 +96,4 @@ describe("M3-06 built asset", () => {
     expect(JSON.stringify(built)).not.toMatch(/\.png|assets\/cutout|patch-config/i);
   });
 });
+

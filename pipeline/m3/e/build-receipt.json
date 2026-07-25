@@ -1,0 +1,210 @@
+{
+  "schemaVersion": "m3-e-build-receipt-v1",
+  "task": "M3-08",
+  "toolResolvedFrom": "env",
+  "toolExecutable": "C:\\Users\\wiiiiii\\.codex\\worktrees\\ff8a\\neko-tera-video\\out\\tools\\blender-4.5-lts-win-x64\\blender-4.5.0-windows-x64\\blender.exe",
+  "toolVersion": "4.5.0",
+  "declaredVersion": "4.5.0",
+  "archiveIdentity": {
+    "verified": true,
+    "reason": "archive SHA-256 matches the M3-01 receipt (2EE75E9466D293A784FDF020F60FE1309C1E0610ECF73C64F1FC09B01E5EEC56)"
+  },
+  "buildCommand": "blender --background --factory-startup --offline-mode --python C:\\dev\\github\\wit-maker\\neko-tera-video\\pipeline\\m3\\e\\build_asset.py -- --out <blend> --manifest <json>",
+  "renderPerformed": false,
+  "addonsInstalledByThisTask": [],
+  "manifest": {
+    "schemaVersion": "m3-e-native-asset-manifest-v1",
+    "task": "M3-08",
+    "base": "E",
+    "status": "PROPOSED",
+    "mechanismClass": "full-3d-volume-rig",
+    "blenderVersion": "4.5.0",
+    "assetSpace": "sensei source raster 1280x1920 divided by 1000; Blender, -Y toward viewer",
+    "externalAssetInputs": [],
+    "addonsBundledEnabledAtFactoryStartup": [
+      "bl_pkg",
+      "cycles",
+      "io_anim_bvh",
+      "io_curve_svg",
+      "io_mesh_uv_layout",
+      "io_scene_fbx",
+      "io_scene_gltf2",
+      "pose_library"
+    ],
+    "addonsInstalledByThisTask": [],
+    "renderPerformed": false,
+    "volumes": [
+      {
+        "name": "skull",
+        "vertexCount": 266,
+        "closed": true,
+        "boundaryEdges": 0,
+        "volume": 0.104775982,
+        "vertexGroups": [
+          "skull"
+        ]
+      },
+      {
+        "name": "muzzle",
+        "vertexCount": 182,
+        "closed": true,
+        "boundaryEdges": 0,
+        "volume": 0.007210803,
+        "vertexGroups": [
+          "muzzle"
+        ]
+      },
+      {
+        "name": "jaw",
+        "vertexCount": 182,
+        "closed": true,
+        "boundaryEdges": 0,
+        "volume": 0.004996918,
+        "vertexGroups": [
+          "jaw"
+        ]
+      },
+      {
+        "name": "cheek-L",
+        "vertexCount": 114,
+        "closed": true,
+        "boundaryEdges": 0,
+        "volume": 0.003901466,
+        "vertexGroups": [
+          "cheek-L"
+        ]
+      },
+      {
+        "name": "cheek-R",
+        "vertexCount": 114,
+        "closed": true,
+        "boundaryEdges": 0,
+        "volume": 0.003901466,
+        "vertexGroups": [
+          "cheek-R"
+        ]
+      },
+      {
+        "name": "oral-cavity",
+        "vertexCount": 114,
+        "closed": true,
+        "boundaryEdges": 0,
+        "volume": 0.001685735,
+        "vertexGroups": [
+          "jaw"
+        ]
+      },
+      {
+        "name": "tongue",
+        "vertexCount": 114,
+        "closed": true,
+        "boundaryEdges": 0,
+        "volume": 0.000428784,
+        "vertexGroups": [
+          "tongue"
+        ]
+      },
+      {
+        "name": "teeth-upper",
+        "vertexCount": 62,
+        "closed": true,
+        "boundaryEdges": 0,
+        "volume": 0.00033678,
+        "vertexGroups": [
+          "skull"
+        ]
+      },
+      {
+        "name": "teeth-lower",
+        "vertexCount": 62,
+        "closed": true,
+        "boundaryEdges": 0,
+        "volume": 0.000273634,
+        "vertexGroups": [
+          "jaw"
+        ]
+      },
+      {
+        "name": "nose",
+        "vertexCount": 62,
+        "closed": true,
+        "boundaryEdges": 0,
+        "volume": 0.000068968,
+        "vertexGroups": [
+          "skull"
+        ]
+      },
+      {
+        "name": "ear-L",
+        "vertexCount": 62,
+        "closed": true,
+        "boundaryEdges": 0,
+        "volume": 0.001149472,
+        "vertexGroups": [
+          "skull"
+        ]
+      },
+      {
+        "name": "ear-R",
+        "vertexCount": 62,
+        "closed": true,
+        "boundaryEdges": 0,
+        "volume": 0.001149472,
+        "vertexGroups": [
+          "skull"
+        ]
+      }
+    ],
+    "interiorVolumes": [
+      "oral-cavity",
+      "tongue",
+      "teeth-upper",
+      "teeth-lower"
+    ],
+    "boneHierarchy": {
+      "root": null,
+      "skull": "root",
+      "jaw": "skull",
+      "lip-corner-L": "jaw",
+      "lip-corner-R": "jaw",
+      "tongue": "jaw",
+      "muzzle": "skull",
+      "cheek-L": "skull",
+      "cheek-R": "skull"
+    },
+    "correctiveShapes": {
+      "muzzle": [
+        "jawOpen_corrective"
+      ],
+      "jaw": [
+        "lipRound_corrective"
+      ],
+      "cheek-L": [
+        "jawOpen_corrective"
+      ],
+      "cheek-R": [
+        "jawOpen_corrective"
+      ]
+    },
+    "view": {
+      "pivot": "view-pivot",
+      "camera": "comparison-camera",
+      "projection": "ORTHO",
+      "yawLimitDegrees": 15,
+      "pitchLimitDegrees": 10,
+      "limitConstraints": [
+        "limit-pitch",
+        "limit-yaw"
+      ],
+      "authoredInAsset": true
+    },
+    "conformance": {
+      "status": "not-run"
+    },
+    "evaluation": {
+      "status": "not-evaluated",
+      "qualityRanking": "not-made",
+      "representationDecision": "not-made"
+    }
+  }
+}
