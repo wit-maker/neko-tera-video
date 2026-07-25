@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "m3-b2-effort-log-v1",
+  "task": "M3-11",
+  "base": "B2",
+  "track": "A",
+  "role": "quality-ceiling-control",
+  "status": "PROPOSED",
+  "budgetSource": "pipeline/m3/p1-track-a-run-definition.json candidates[base=B2].budget",
+  "consumption": {
+    "nativeAssetVersions": 1,
+    "nativeAssetRevisionsMax": 1,
+    "finalRenderAttempts": 0,
+    "finalRenderAttemptsMax": 1,
+    "operatorHours": null,
+    "operatorHoursNote": "Same open question as M3-04: the ceiling is fixed in human operator hours and this artifact was authored by an agent, so no comparable figure exists. mi3san decides how agent-executed work enters the Track A cost axis.",
+    "ceilingReached": "nativeAssetVersions is at the approved maximum of 1. Any change to the B2 keys or exposure sheet requires a new M3-03 decision first."
+  },
+  "provenance": {
+    "assetSpace": "sensei source-material raster 1280x1920",
+    "externalAssetInputs": [],
+    "tools": ["node", "tsx", "typescript", "vitest"],
+    "newDependencies": [],
+    "reproduction": ["npm run m3:validate-b2-artifact", "npx vitest run pipeline/m3/b2"]
+  },
+  "productionConditions": [
+    "Five key drawings authored as named closed vector paths: K-closed, K-part, K-open, K-contact, K-open-tongue.",
+    "An 85-frame exposure sheet covering the T1 opening ramp and the T3 closure. T8 is not authored here; a 6-10 second performance belongs to P3, not to P1 mechanism evidence.",
+    "Cost scales with the number of distinct shapes, not with the length of the take. This is the axis on which B2 differs most from a controllable rig."
+  ],
+  "observedCeiling": [
+    {
+      "id": "B2-CEIL-001",
+      "sequence": "T3",
+      "observed": "The contact pose splits the aperture into two holes while both corners stay parted. A single closed vector path cannot carry two holes, so the pose is authored as separate left and right paths and no correspondence to the single-hole open key exists.",
+      "consequence": "The approach into T3 contact lands as a cut, not an inbetween.",
+      "evidence": "classifyTransition('K-open', 'K-contact') returns hold-cut with reason 'path set changes'"
+    },
+    {
+      "id": "B2-CEIL-002",
+      "sequence": "T1",
+      "observed": "Revealing the tongue introduces a path absent from the neighbouring keys.",
+      "consequence": "The tongue can only arrive on a cut.",
+      "evidence": "classifyTransition('K-open', 'K-open-tongue') returns hold-cut with reason '+tongue'"
+    },
+    {
+      "id": "B2-CEIL-003",
+      "sequence": "all",
+      "observed": "Time is discrete by construction. Frames inside a block are held or linearly inbetweened; there is no continuous control between drawings.",
+      "consequence": "Not a defect. It is the property that makes B2 a ceiling reference rather than a mechanism comparable to a rig.",
+      "evidence": "the largest single-frame step exceeds 20 percent of the whole aperture range, asserted in pipeline/m3/b2/keys.test.ts"
+    }
+  ],
+  "notMeasuredHere": [
+    "Whether the cuts read as acceptable at normal speed. That needs real frames and mi3san's eyes, not an assertion.",
+    "The drawn look itself. These keys carry shape and topology, not the finished rendering quality a 2D artist would reach.",
+    "T8. A 6-10 second performance is P3 scope."
+  ],
+  "notEvaluated": {
+    "qualityRanking": "not-made",
+    "representationDecision": "not-made",
+    "note": "B2 is the quality-ceiling control. It is never ranked beside A/C/D/E; pipeline/m3/b2/conformance.ts fails if it is relabelled as a core comparison member."
+  }
+}
