@@ -39,7 +39,15 @@
         "depthY": 0,
         "vertexCount": 49,
         "isVolume": false,
-        "vertexGroups": []
+        "vertexGroups": [],
+        "worldBounds": {
+          "minX": 0.37,
+          "maxX": 1.03,
+          "minY": 0,
+          "maxY": 0,
+          "minZ": -0.73,
+          "maxZ": -0.21
+        }
       },
       {
         "name": "cheek-far",
@@ -48,7 +56,15 @@
         "isVolume": false,
         "vertexGroups": [
           "cheek-L"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.43,
+          "maxX": 0.69,
+          "minY": -0.01,
+          "maxY": -0.01,
+          "minZ": -0.696,
+          "maxZ": -0.504
+        }
       },
       {
         "name": "oral-cavity",
@@ -57,7 +73,15 @@
         "isVolume": false,
         "vertexGroups": [
           "jaw"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.683,
+          "maxX": 0.867,
+          "minY": 0.04,
+          "maxY": 0.04,
+          "minZ": -0.69,
+          "maxZ": -0.602
+        }
       },
       {
         "name": "tongue",
@@ -66,14 +90,30 @@
         "isVolume": false,
         "vertexGroups": [
           "jaw"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.717,
+          "maxX": 0.833,
+          "minY": 0.03,
+          "maxY": 0.03,
+          "minZ": -0.682,
+          "maxZ": -0.63
+        }
       },
       {
         "name": "teeth-upper",
         "depthY": 0.024,
         "vertexCount": 49,
         "isVolume": false,
-        "vertexGroups": []
+        "vertexGroups": [],
+        "worldBounds": {
+          "minX": 0.726,
+          "maxX": 0.824,
+          "minY": 0.024,
+          "maxY": 0.024,
+          "minZ": -0.65,
+          "maxZ": -0.622
+        }
       },
       {
         "name": "teeth-lower",
@@ -82,7 +122,15 @@
         "isVolume": false,
         "vertexGroups": [
           "jaw"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.726,
+          "maxX": 0.824,
+          "minY": 0.026,
+          "maxY": 0.026,
+          "minZ": -0.661,
+          "maxZ": -0.639
+        }
       },
       {
         "name": "jaw-plate",
@@ -91,7 +139,15 @@
         "isVolume": false,
         "vertexGroups": [
           "jaw"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.675,
+          "maxX": 0.875,
+          "minY": -0.02,
+          "maxY": -0.02,
+          "minZ": -0.727,
+          "maxZ": -0.617
+        }
       },
       {
         "name": "muzzle-plate",
@@ -102,7 +158,15 @@
           "lip-corner-L",
           "lip-corner-R",
           "muzzle"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.647,
+          "maxX": 0.903,
+          "minY": -0.03,
+          "maxY": -0.03,
+          "minZ": -0.69,
+          "maxZ": -0.542
+        }
       },
       {
         "name": "cheek-near",
@@ -111,7 +175,15 @@
         "isVolume": false,
         "vertexGroups": [
           "cheek-R"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.8,
+          "maxX": 1.04,
+          "minY": -0.018,
+          "maxY": -0.018,
+          "minZ": -0.688,
+          "maxZ": -0.504
+        }
       },
       {
         "name": "nose",
@@ -120,7 +192,15 @@
         "isVolume": false,
         "vertexGroups": [
           "muzzle"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.764,
+          "maxX": 0.816,
+          "minY": -0.05,
+          "maxY": -0.05,
+          "minZ": -0.592,
+          "maxZ": -0.556
+        }
       }
     ],
     "bones": [
@@ -150,49 +230,89 @@
         "interior": "oral-cavity",
         "occluder": "jaw-plate",
         "interiorBehindOccluder": true,
-        "depthGap": 0.06
+        "depthGap": 0.06,
+        "originDepthGap": 0.06,
+        "screenOverlapX": 0.184,
+        "screenOverlapZ": 0.073,
+        "screenOverlaps": true,
+        "measuredFrom": "evaluated world-space bounds"
       },
       {
         "interior": "oral-cavity",
         "occluder": "muzzle-plate",
         "interiorBehindOccluder": true,
-        "depthGap": 0.07
+        "depthGap": 0.07,
+        "originDepthGap": 0.07,
+        "screenOverlapX": 0.184,
+        "screenOverlapZ": 0.088,
+        "screenOverlaps": true,
+        "measuredFrom": "evaluated world-space bounds"
       },
       {
         "interior": "tongue",
         "occluder": "jaw-plate",
         "interiorBehindOccluder": true,
-        "depthGap": 0.05
+        "depthGap": 0.05,
+        "originDepthGap": 0.05,
+        "screenOverlapX": 0.116,
+        "screenOverlapZ": 0.052,
+        "screenOverlaps": true,
+        "measuredFrom": "evaluated world-space bounds"
       },
       {
         "interior": "tongue",
         "occluder": "muzzle-plate",
         "interiorBehindOccluder": true,
-        "depthGap": 0.06
+        "depthGap": 0.06,
+        "originDepthGap": 0.06,
+        "screenOverlapX": 0.116,
+        "screenOverlapZ": 0.052,
+        "screenOverlaps": true,
+        "measuredFrom": "evaluated world-space bounds"
       },
       {
         "interior": "teeth-upper",
         "occluder": "jaw-plate",
         "interiorBehindOccluder": true,
-        "depthGap": 0.044
+        "depthGap": 0.044,
+        "originDepthGap": 0.044,
+        "screenOverlapX": 0.098,
+        "screenOverlapZ": 0.028,
+        "screenOverlaps": true,
+        "measuredFrom": "evaluated world-space bounds"
       },
       {
         "interior": "teeth-upper",
         "occluder": "muzzle-plate",
         "interiorBehindOccluder": true,
-        "depthGap": 0.054
+        "depthGap": 0.054,
+        "originDepthGap": 0.054,
+        "screenOverlapX": 0.098,
+        "screenOverlapZ": 0.028,
+        "screenOverlaps": true,
+        "measuredFrom": "evaluated world-space bounds"
       },
       {
         "interior": "teeth-lower",
         "occluder": "jaw-plate",
         "interiorBehindOccluder": true,
-        "depthGap": 0.046
+        "depthGap": 0.046,
+        "originDepthGap": 0.046,
+        "screenOverlapX": 0.098,
+        "screenOverlapZ": 0.022,
+        "screenOverlaps": true,
+        "measuredFrom": "evaluated world-space bounds"
       },
       {
         "interior": "teeth-lower",
         "occluder": "muzzle-plate",
         "interiorBehindOccluder": true,
-        "depthGap": 0.056
+        "depthGap": 0.056,
+        "originDepthGap": 0.056,
+        "screenOverlapX": 0.098,
+        "screenOverlapZ": 0.022,
+        "screenOverlaps": true,
+        "measuredFrom": "evaluated world-space bounds"
       }
     ],
     "conformance": {

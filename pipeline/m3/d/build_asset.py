@@ -23,6 +23,7 @@ import math
 import sys
 
 import bpy
+import mathutils
 
 # Landmarks are the sensei source raster (1280x1920) divided by 1000, so D's
 # geometry is comparable with the other bases without sharing a deliverable.
@@ -153,17 +154,55 @@ def bind(rig, plates):
         modifier.object = rig
 
 
+def world_bounds(obj):
+    """Evaluated world-space extents of the real mesh, not the object origin.
+
+    Comparing origins only confirms that the numbers this script wrote are
+    ordered the way this script intended -- it is circular and says nothing
+    about whether the geometry occludes. Plates have extent, so a large one can
+    reach past a nearer origin, and depth order alone does not occlude anything
+    unless the shapes also overlap on screen. Both are measured here.
+    """
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+    evaluated = obj.evaluated_get(depsgraph)
+    matrix = evaluated.matrix_world
+    corners = [matrix @ mathutils.Vector(corner) for corner in evaluated.bound_box]
+    return {
+        "minX": round(min(c.x for c in corners), 6), "maxX": round(max(c.x for c in corners), 6),
+        "minY": round(min(c.y for c in corners), 6), "maxY": round(max(c.y for c in corners), 6),
+        "minZ": round(min(c.z for c in corners), 6), "maxZ": round(max(c.z for c in corners), 6),
+    }
+
+
+def overlap(a, b, axis):
+    lo = max(a[f"min{axis}"], b[f"min{axis}"])
+    hi = min(a[f"max{axis}"], b[f"max{axis}"])
+    return round(max(0.0, hi - lo), 6)
+
+
 def build_manifest(plates, rig, shape_keys):
+    bpy.context.view_layer.update()
     depths = {name: round(obj.location.y, 6) for name, obj in plates.items()}
+    bounds = {name: world_bounds(obj) for name, obj in plates.items()}
     occlusion = []
     for interior in INTERIOR:
         for occluder in OCCLUDERS:
+            a, b = bounds[interior], bounds[occluder]
+            # Larger Y is further from the viewer. The interior's nearest face
+            # must still sit behind the occluder's furthest face.
+            separation = round(a["minY"] - b["maxY"], 6)
+            screen_x = overlap(a, b, "X")
+            screen_z = overlap(a, b, "Z")
             occlusion.append({
                 "interior": interior,
                 "occluder": occluder,
-                # Larger Y is further from the viewer, so the interior must exceed it.
-                "interiorBehindOccluder": depths[interior] > depths[occluder],
-                "depthGap": round(depths[interior] - depths[occluder], 6),
+                "interiorBehindOccluder": separation > 0.0,
+                "depthGap": separation,
+                "originDepthGap": round(depths[interior] - depths[occluder], 6),
+                "screenOverlapX": screen_x,
+                "screenOverlapZ": screen_z,
+                "screenOverlaps": screen_x > 0.0 and screen_z > 0.0,
+                "measuredFrom": "evaluated world-space bounds",
             })
     return {
         "schemaVersion": "m3-d-native-asset-manifest-v1",
@@ -187,6 +226,7 @@ def build_manifest(plates, rig, shape_keys):
                 "vertexCount": len(obj.data.vertices),
                 "isVolume": False,
                 "vertexGroups": sorted(g.name for g in obj.vertex_groups),
+                "worldBounds": bounds[name],
             }
             for name, obj in plates.items()
         ],

@@ -56,6 +56,37 @@ describe("M3-06 built asset", () => {
     }
   });
 
+  it("measures depth from the evaluated mesh, not from the origins the script wrote", () => {
+    // Comparing origins can only confirm the build script's own intent. The
+    // figures agree here because the plates are planar, so the earlier numbers
+    // were not wrong -- but a plate that acquires depth extent would diverge,
+    // and only the measured form would catch it.
+    for (const pair of manifest().occlusion) {
+      expect(pair.measuredFrom).toContain("world-space bounds");
+      expect(pair.depthGap).toBeCloseTo(pair.originDepthGap, 6);
+    }
+    for (const plate of manifest().plates) {
+      expect(plate.worldBounds.maxX).toBeGreaterThan(plate.worldBounds.minX);
+      expect(plate.worldBounds.maxZ).toBeGreaterThan(plate.worldBounds.minZ);
+    }
+  });
+
+  it("requires the interior to overlap its occluder on screen, not merely sit behind it", () => {
+    // Depth order alone occludes nothing: a plate behind another but offset to
+    // one side is just visible beside it. This was never checked before.
+    for (const pair of manifest().occlusion) {
+      expect(pair.screenOverlaps).toBe(true);
+      expect(pair.screenOverlapX).toBeGreaterThan(0);
+      expect(pair.screenOverlapZ).toBeGreaterThan(0);
+    }
+  });
+
+  it("rejects an interior plate that is behind its occluder but misses it on screen", () => {
+    const broken = manifest();
+    broken.occlusion[0] = { ...broken.occlusion[0], screenOverlaps: false, screenOverlapX: 0 };
+    expect(validateDManifest(broken).join(" ")).toMatch(/does not overlap .* on screen; being behind it would occlude nothing/);
+  });
+
   it("rejects an interior plate brought in front of an occluder", () => {
     const broken = manifest();
     broken.occlusion[0] = { ...broken.occlusion[0], interiorBehindOccluder: false, depthGap: -0.01 };
