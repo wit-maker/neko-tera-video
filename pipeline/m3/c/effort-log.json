@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "m3-c-effort-log-v1",
+  "task": "M3-04",
+  "base": "C",
+  "track": "A",
+  "status": "PROPOSED",
+  "budgetSource": "pipeline/m3/p1-track-a-run-definition.json candidates[base=C].budget",
+  "consumption": {
+    "nativeAssetVersions": 2,
+    "nativeAssetRevisionsMax": 2,
+    "finalRenderAttempts": 0,
+    "finalRenderAttemptsMax": 2,
+    "operatorHours": null,
+    "operatorHoursNote": "M3-03 fixed the ceiling in operator hours on the assumption of a human operator. This asset was authored by an agent in a single session, so no comparable human hour figure exists. Reporting an invented number would corrupt the Track A cost axis; mi3san decides how agent-executed work is accounted before the cost axis is compared across candidates.",
+    "revisionLedger": [
+      { "version": 1, "reason": "initial authoring: layers, control cages, draw order, deformers, masks" },
+      { "version": 2, "reason": "rest pose corrected to a closed mouth; jaw rotation replaced by a single jaw displacement field shared by the aperture and everything parented to the lower jaw; dentition repositioned to straddle the closed lip line" }
+    ],
+    "ceilingReached": "nativeAssetVersions is at the approved maximum. Any further change to the asset requires a new mi3san decision on M3-03 before it is made."
+  },
+  "provenance": {
+    "assetSpace": "sensei source-material raster 1280x1920",
+    "externalAssetInputs": [],
+    "characterBibleReference": "public/assets/cutout/chars/sensei-stand.png was viewed as identity reference only; it is not read by the asset and is not a deliverable input",
+    "tools": ["node", "tsx", "typescript", "vitest"],
+    "newDependencies": [],
+    "reproduction": ["npm run m3:validate-c-asset", "npx vitest run pipeline/m3/c"]
+  },
+  "knownFailures": [
+    {
+      "id": "C-KF-001",
+      "state": "fixed",
+      "observed": "The rest-pose aperture cage enclosed roughly 500 square asset units, so a mouth that was meant to read as closed still exposed part of the oral cavity through its own mask.",
+      "resolution": "Rest arcs brought to a one-unit seam; a conformance check now fails if the rest aperture exceeds 400."
+    },
+    {
+      "id": "C-KF-002",
+      "state": "fixed",
+      "observed": "Sutherland-Hodgman returned the subject polygon unchanged when the clip polygon was degenerate, because every half-plane test passes on collinear edges. A fully shut mouth would have been reported as fully revealing its interior.",
+      "resolution": "Degenerate clips are rejected before iteration; a unit test pins the behaviour. Generalised as AP-010."
+    },
+    {
+      "id": "C-KF-003",
+      "state": "fixed",
+      "observed": "The aperture's lower arc was driven by an independent vertical offset while the lower dentition was driven by a separately pivoted rotation. At full open the two diverged and the lower teeth fell outside the aperture that was supposed to reveal them.",
+      "resolution": "One jaw displacement field now drives the aperture's lower arc and every layer parented to the lower jaw. Generalised as AP-011."
+    },
+    {
+      "id": "C-KF-004",
+      "state": "open",
+      "observed": "Layer parallax under yaw is applied per layer independently, so at the adopted +/-15 degree limit no check yet proves that adjacent layers stay connected. A visible seam between the muzzle pads and the head base is plausible and is exactly the T7 layer-gap observable.",
+      "resolution": "Not fixed. Measure on real frames in M3-05 rather than asserting it here; recorded so it is not mistaken for a passing property."
+    }
+  ],
+  "notEvaluated": {
+    "qualityRanking": "not-made",
+    "representationDecision": "not-made",
+    "note": "M3-04 creates an asset. It does not render, rank, or select anything."
+  }
+}

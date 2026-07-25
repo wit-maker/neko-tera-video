@@ -162,6 +162,32 @@
 - 驕ｩ逕ｨ遽・峇: Remotion or browser-based render pipelines with remote font or asset loaders.
 - 譏・ｼ蜈・: P0 stop condition and pre-render acceptance checklist.
 
+### AP-010: マスクの成立を「開いた側」だけで検証する
+
+- 状態: `active`
+- 観測日: 2026-07-25
+- 文脈: M3-04 方式C native assetの口腔occlusion実装
+- 観測事実: Sutherland-Hodgmanのclip関数は、clip多角形が退化（全辺が共線、面積0）した場合に全ての半平面判定を通過し、subjectを無変更で返した。口を完全に閉じた状態は面積0のapertureになるため、「閉口時に口腔が完全に露出している」という結果を、エラーを出さずに正常値として返す状態だった。開口側の「開けば見える」テストだけでは検出できなかった。
+- 証拠: `pipeline/m3/c/deform.ts` の `clipPolygon` 退化ガードと、`pipeline/m3/c/asset.test.ts` の "returns an empty polygon for a degenerate mask instead of the whole subject"
+- 根本原因: 遮蔽の検証を「見えるべきものが見えるか」だけで設計し、「隠れるべきものが隠れるか」を対の受入条件にしなかった。境界値（マスク面積0）はその欠落が最も出やすい点だった。
+- 禁止パターン: マスク・クリップ・遮蔽の正しさを、露出側の観測だけで合格とする。退化した形状を未定義動作のまま放置する。
+- 代替策: 遮蔽は必ず「隠れる状態」と「見える状態」を対で検証する。退化入力は明示的に拒否し、その挙動をテストで固定する。
+- 適用範囲: マスク、クリップ、遮蔽、depth合成を持つ全表現方式（C/D/E、およびそれらのadapter）
+- 昇格先: `pipeline/m3/c/conformance.ts` の閉口/開口対チェック、方式別adapterの受入条件
+
+### AP-011: マスクと被マスクを別々のdeformerで駆動する
+
+- 状態: `active`
+- 観測日: 2026-07-25
+- 文脈: M3-04 方式C native assetの顎変形
+- 観測事実: apertureの下弧を独立した垂直オフセットで、下歯列を別pivotの回転で駆動していた。両者は開口量が小さいうちは整合して見えたが、全開時に乖離し、下歯列がそれを映すはずのapertureの外側へ出て、可視面積が0になった。
+- 証拠: `pipeline/m3/c/deform.ts` の `jawDrop` 変位場と `JAW_FOLLOW`、`pipeline/m3/c/effort-log.json` の `C-KF-003`
+- 根本原因: 同一の解剖学的部位（下顎）に属する形状を、二つの独立したパラメータ経路で動かした。両者が一致する保証がどこにもなかった。
+- 禁止パターン: マスクと、そのマスクに支配される層を、別々の変形式・別々のpivot・別々のパラメータで駆動する。
+- 代替策: 一つの変位場を定義し、マスクと被マスクの双方が同じ場から重みつきで受け取る。整合を偶然ではなく構造で保証する。
+- 適用範囲: 顎・瞼・関節など、マスク境界そのものが動く全ての変形。C/D/Eのnative rig
+- 昇格先: `pipeline/m3/c/deform.ts` の単一 `jawDrop` 場、方式別rigの受入条件
+
 ## Superseded
 
 現時点ではなし。
