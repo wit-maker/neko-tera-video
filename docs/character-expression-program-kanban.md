@@ -1,8 +1,8 @@
 # 次期キャラクター表現プログラム — 実行カンバン
 
 **運用状態:** ACTIVE
-**基準:** `origin/main` の `14415bc9105da49ec9cbc14fa114c4faef147b47`（PR #21 merge）
-**更新日:** 2026-07-24
+**基準:** `origin/main` の `b019d190eda274e629e961be687305945921f9f1`（PR #26 merge）
+**更新日:** 2026-07-25
 **正本への入口:** [PROJECT_STATE.md](../PROJECT_STATE.md)、[strategy](character-architecture-strategy.md)、[governance](architecture-governance.md)、[ADR-001](adr/001-next-character-comparison-boundaries.md)
 
 このボードは、次期キャラクター表現改善の実行状態を一目で追うための
@@ -25,14 +25,17 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 
 | DONE | READY | IN_PROGRESS | BLOCKED_OWNER | GATED / CONDITIONAL |
 | --- | --- | --- | --- | --- |
-| P0a-01 fixed baseline evidence | K-01 board state refresh | なし | M2-01 N0 disposition / reopening package | M1-04 actual Character Bible instances |
-| M0-01 project state correction |  | なし |  | M3-00 P1 run definition |
-| M1-01 P0b contract |  | なし |  | M3-02–M3-12 P1 evidence |
-| M1-02 interval/conformance correction |  |  | M3-03 Track A ceiling | M4-00–M4-08 P2 styled comparison |
-| M2-00 local neural inventory |  |  | M3-13 candidate retention | M5-00–M5-05 P3 production slice |
-|  |  |  | M6-00 P4 entry approval | M6-01–M6-06 neural enhancement |
-|  |  |  | M7-01 final representation selection | M7-00, M7-02–M7-05 decision/migration |
-|  |  |  |  | M8-00–M8-04 closure |
+| P0a-01 fixed baseline evidence | K-01 board state refresh | なし | M2-01 N0 disposition / reopening package | M0-05 approved temporary-resource deletion |
+| M0-01 project state correction |  | なし | M3-03 Track A ceiling | M1-04–M1-06 P0b artifact binding |
+| M0-02 temporary-resource reference check |  | なし | M3-13 candidate retention | M2-02–M2-05 conditional N0 spike |
+| M0-03 merged-branch cleanup check |  |  | M6-00 P4 entry approval | M3-02–M3-12 P1 evidence |
+| M0-04 PR #18 disposition record |  |  | M7-01 final representation selection | M4-00–M4-08 P2 styled comparison |
+| M0-06 PR #18 unmerged close |  |  |  | M5-00–M5-05 P3 production slice |
+| M1-01 P0b contract |  |  |  | M6-01–M6-06 neural enhancement |
+| M1-02 interval/conformance correction |  |  |  | M7-00, M7-02–M7-05 decision/migration |
+| M2-00 local neural inventory |  |  |  | M8-00–M8-04 closure |
+| M3-00 P1 Track A run definition |  |  |  |  |
+| M3-01 Blender 4.5 LTS provision |  |  |  |  |
 
 ## 完了済み（再実行しない）
 
@@ -43,13 +46,17 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 | M1-01 | P0b比較契約の最小実装 | PR #20、`pipeline/p0b/comparison-contract.ts` | 比較artifactの共通メタデータを検証できる |
 | M1-02 | time intervalとconformance意味の修正 | PR #20、33 tests | `[0, 619)` と品質非同一性を固定 |
 | M2-00 | N0 local-only inventory | PR #21、`out/n0/local-inventory.json` | localにneural model/weights/datasetが無いことを証拠化 |
+| M0-02 | P0用一時resourceの参照確認 | PR #24、`main` `4b9b030` 時点の監査結果。Firewall ruleは現host・tracked sourceに無し、`out/p0` は保持 | M0-05の削除候補と保持理由が分離される |
+| M0-03 | merge済みfeature branchの削除可否判定 | PR #24、`keep` / `safe-to-delete` 区分。owner worktreeと未push commitは `keep` | M8-02のbranch整理を証拠付きで判断できる |
+| M0-04 | PR #18を `SUPERSEDED` としてunmerged closeする方針の記録 | PR #26、[PR #18 comment](https://github.com/wit-maker/neko-tera-video/pull/18#issuecomment-5068173058) | M0-06を解放する |
+| M0-06 | PR #18のunmerged close実行 | PR #26、PR #18 closed。Markdown移植・複製なし、remote branchは保持 | Vault streamをこのprogramのcritical pathから外す |
+| M3-00 | P1 Track A run definitionの固定 | PR #25、`pipeline/m3/p1-track-a-run-definition.json`、`npm run m3:validate-p1-run-definition`、`npm test`（8 files / 42 tests pass） | M3-03承認後にP1 native asset / renderカードを解放できる |
+| M3-01 | Blender 4.5 LTS portable tool provision | PR #23、`pipeline/m3/blender-tool-receipt.json`、archive SHA-256 `2EE75E9466D293A784FDF020F60FE1309C1E0610ECF73C64F1FC09B01E5EEC56`、`out/tools/blender-4.5-lts-win-x64/` | D/E native asset作業のtool前提を満たす |
 
 ## 今すぐ実行可能なカード
 
 | ID | 目的（最小単位） | Owner / 実行者 | 入力・依存 | 成果物・受入条件 | STOP |
 | --- | --- | --- | --- | --- | --- |
-| M0-02 | P0用Firewall rule、temporary artifact、temporary branchが正常P0 artifactから参照されていないことを確認する | Orbit / Forge | PR #19, #20, #21 merge、ownerの未コミット作業を除外 | 参照確認結果。削除候補と保持理由を分け、削除はまだ行わない | 正常artifactまたは再現手順から参照を発見したら削除候補にしない |
-| M0-03 | merge済みfeature branchの削除可否を、remote merge commitと未push commitで確認する | Orbit / Forge | `origin/main`、各branchのmerge-base / ahead count | branchごとの `keep` / `safe-to-delete` 一覧。削除は別カード | owner worktree・未push commit・未参照artifactを見つけたら `keep` |
 | K-01 | このボードのカード状態をstage受入・停止・owner decisionごとに更新する | Orbit | stage cardの受入証拠または停止証拠 | card ID、状態、根拠commit/PR、次の責任者が一致 | 根拠なしに `DONE` / `READY` へ移さない |
 
 ## mi3san 判断待ちカード
@@ -57,8 +64,7 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 | ID | mi3san に判断してもらうこと | 誰が・どこで・どのように実行するか | 承認後の最小成果 | STOP / 非対象 |
 | --- | --- | --- | --- | --- |
 | M2-01 | N0を現在cycleで local-only no-go として閉じるか、再開する特定model packageを承認するか | Orbit が candidate、取得元、license、weights/data、外部送信、local代替、8GB停止条件を一件の承認要求で提示。mi3san が明示承認する | no-go記録、またはM2-02だけを解放 | 無名の「neuralを試す」、cloud、paid、未承認取得は開始しない |
-| M3-01 | **Blender 4.5 LTS portable ZIP** の一回限り外部取得を許可するか | 承認済み。Forgeが公式配布元から取得し、`out/tools/blender-4.5-lts-win-x64/` に保存。source receiptは `pipeline/m3/blender-tool-receipt.json`（archive SHA-256 `2EE75E9466D293A784FDF020F60FE1309C1E0610ECF73C64F1FC09B01E5EEC56`） | D/Eのtool provision receipt | 新規dependency/add-on、admin install、cloud/paid、外部network renderは不可。hash/license/8GB/headless/network失敗で停止 |
-| M3-03 | P1 Track Aの固定制作上限（候補ごとの人時・render回数・asset revision数）を承認する | Orbitが候補数と比較intentを保つ最小上限を提案し、mi3sanが一括承認。Forgeは上限内のnative assetだけを作る | P1 Track A budget table | Track B到達品質の追加cycleをTrack Aへ混入しない |
+| M3-03 | P1 Track Aの固定制作上限（候補ごとの人時・render回数・asset revision数）を承認する | Orbitが `pipeline/m3/p1-track-a-run-definition.json` の `budget` 提案（A/C/D/E 各8人時・asset revision 2・final render 2、B1/B2 各4人時・revision 1・render 1、合計40人時）を提示し、mi3sanが一括承認。Forgeは上限内のnative assetだけを作る | 同JSONを `PROPOSED` から承認済みへ確定し、M3-02以降を解放 | Track B到達品質の追加cycleをTrack Aへ混入しない |
 | M3-13 | P1後、P2へ残すBase候補を決める | Orbitが実artifactをnormal/slow/crop/debug/stillと軸別evidenceで提示し、mi3sanがretain/dropを決定 | M4-00を解放するcandidate set | conformance pass、未承認weighted score、推測だけで採択しない |
 | M6-00 | N0 pass後にP4 neural enhancementを比較へ入れるか | OrbitがN0実測・license・determinism・drift・local computeを一括提示し、mi3sanが承認 | M6-01を解放するBase × Enhancement組 | N0 no-goならM6全体をclose |
 | M7-01 | 最終representationを選定する、またはevidence付きno-goにする | Orbitが軸別artifact/evidenceを提示し、mi3sanが実映像比較で決定 | ADR更新とM7-02以降を解放 | 未合意の重み付き総合点、agentの自動採択は不可 |
@@ -97,7 +103,7 @@ P1の中心比較は **A / C / D / E**。B1はstate増加・transition境界、B
 
 | ID | 状態 | 最小task | 依存 | 受入条件 | 停止条件 | 担当 |
 | --- | --- | --- | --- | --- | --- | --- |
-| M3-00 | DONE | P1 performance sequence、observables、camera、A/B track budgetを一つのrun definitionへ固定 | M3-03 | `pipeline/m3/p1-track-a-run-definition.json` とvalidatorで、Track A候補/sequence/view/budget/pre-render network preconditionを固定。M3-00自身はrender/native assetを実行しない | fixed scopeの変更、network precondition欠落、Track B混入 | Orbit, Forge |
+| M3-00 | DONE | P1 performance sequence、observables、camera、A/B track budgetを一つのrun definitionへ固定 | なし（budget承認は `M3-03`） | `pipeline/m3/p1-track-a-run-definition.json` とvalidatorで、Track A候補/sequence/view/budget/pre-render network preconditionを固定。同JSONは `status: PROPOSED` のままであり、`M3-03` 承認までbudgetは確定しない。M3-00自身はrender/native assetを実行しない | fixed scopeの変更、network precondition欠落、Track B混入 | Orbit, Forge |
 | M3-01 | DONE | Blender 4.5 LTS portable tool provision | mi3san explicit approval | official source, SHA, license, storage, headless local check are recorded in `pipeline/m3/blender-tool-receipt.json` | network/add-on/admin/8GB failure | Forge |
 | M3-02 | GATED | A adapterのP1 sequenceをrenderし、P0aとの差分をprovenanceで明示 | M3-00 | native A artifact、hash、known failures、P0b record | P0a baselineを無根拠に品質比較へ転用 | Forge |
 | M3-04 | GATED | C native 2D parametric mesh assetを作る | M3-00 | C専用controlsでobservableを表現、shared PNG/topologyなし | new dependency/external asset が必要 | Forge |
@@ -171,9 +177,9 @@ P1の中心比較は **A / C / D / E**。B1はstate増加・transition境界、B
 
 ## 次の解放順序
 
-1. `M0-02` と `M0-03` は受入済み。`M0-05` は削除承認または保存期限の決定まで解放しない。
-2. Orbit は `M2-01`、`M3-03` の判断packetを、必要な時だけ一件ずつmi3sanへ出す。`M3-01` はPR #23で、`M0-04/M0-06` はPR #18 closeで受入済みである。
-3. `M3-03` が承認され、`M3-00` が固定された後にだけ、P1のnative asset / renderカードを解放する。
+1. M0のうち `M0-02`、`M0-03`、`M0-04`、`M0-06` は受入済み。`M0-05` は削除承認または保存期限の決定まで解放しない。
+2. Orbit は `M2-01`、`M3-03` の判断packetを、必要な時だけ一件ずつmi3sanへ出す。`M3-01` はPR #23で、`M0-04/M0-06` はPR #18 closeで、`M3-00` はPR #25で受入済みである。
+3. `M3-00` は固定済みである。したがってP1のnative asset / renderカードを解放する残りの条件は `M3-03` のbudget承認だけであり、これがこのprogramの現在のcritical path上の唯一のblockerである。
 4. P1の実映像をmi3sanが比較して `M3-13` を決めるまで、P2以降は開始しない。
 5. N0は順位外であり、`M2-05` がpassになってもP4を自動開始しない。`M6-00` の明示承認が別途必要である。
 

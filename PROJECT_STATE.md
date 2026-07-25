@@ -1,6 +1,6 @@
 # PROJECT_STATE
 
-最終更新: 2026-07-23
+最終更新: 2026-07-25
 
 ## 現在の状態
 
@@ -19,7 +19,9 @@
 - mi3sanは `GOV-013`〜`GOV-016`を承認し、`docs/adr/001-next-character-comparison-boundaries.md`へ記録した。
 - PR #19は `main` の `d1d1143` に統合済みであり、**P0a evidence foundation**（現行方式Aの再現可能な証跡vertical slice）を完了した。固定入力検証、baseline、manifest、conformance/evaluation分離、review、negative test、local font、network遮断再現が含まれる。
 - P0aのconformanceは品質合格・方式採択を意味しない。本来Goalである、方式ごとのnative assetによる複数表現アーキテクチャの実映像比較とmi3sanによる次期方式選定は未達である。
-- 現在の作業範囲はM0 Program controlとM1 P0b Comparison Contractである。M0はP0a完了・残stage・一時resourceの状態を維持し、M1は比較契約をPoC限定の作業契約として整備する。
+- M0 Program controlは `M0-05`（承認済み一時resourceの削除）を除いて受入済みである。M1 P0b Comparison Contractは契約実装（`M1-01`/`M1-02`）まで完了し、実artifact接続（`M1-04`〜`M1-06`）はP1のnative assetを待つ。
+- M3では `M3-00` P1 Track A run definition（PR #25）と `M3-01` Blender 4.5 LTS portable provision（PR #23）が受入済みである。ただし `pipeline/m3/p1-track-a-run-definition.json` は `status: PROPOSED` であり、budgetは未確定である。
+- **現在のcritical path上の唯一のblockerは `M3-03`**（P1 Track Aの固定制作上限をmi3sanが承認すること）である。承認まで `M3-02` 以降のnative asset / renderカードを開始しない。
 - P0bではCharacter Bible、Performance Intent / Observable Reference / Adapter Native Controls、方式別native asset contract、artifact/provenance、conformance/evaluation境界、comparison presentationを扱う。同じ完成PNGやtopologyを全方式へ強制しない。
 - N0 Neural FeasibilityはN0-0 local inventoryを実行済みである。RTX 3060 Ti 8GB、Node、Dockerはローカル証跡として検出された一方、repository-local model/weight candidateとlicense declarationは未検出であり、決定状態は `blocked-awaiting-owner-external-approval` である。P1 Mechanism Evidenceは未開始である。P2 Styled Comparison、P3 Production Slice、条件付きP4 Neural Enhancement、最終選定・本番移行は後続stage gateであり、自動開始しない。
 - 三層Motion Contract、候補二軸、P0b以降の詳細schema、ツール採用は引き続き `PROPOSED` のPoC限定作業契約であり、採択済みアーキテクチャ、恒久ADR、OSS public contractではない。
