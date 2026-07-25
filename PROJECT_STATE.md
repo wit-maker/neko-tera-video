@@ -20,8 +20,9 @@
 - PR #19は `main` の `d1d1143` に統合済みであり、**P0a evidence foundation**（現行方式Aの再現可能な証跡vertical slice）を完了した。固定入力検証、baseline、manifest、conformance/evaluation分離、review、negative test、local font、network遮断再現が含まれる。
 - P0aのconformanceは品質合格・方式採択を意味しない。本来Goalである、方式ごとのnative assetによる複数表現アーキテクチャの実映像比較とmi3sanによる次期方式選定は未達である。
 - M0 Program controlは `M0-05`（承認済み一時resourceの削除）を除いて受入済みである。M1 P0b Comparison Contractは契約実装（`M1-01`/`M1-02`）まで完了し、実artifact接続（`M1-04`〜`M1-06`）はP1のnative assetを待つ。
-- M3では `M3-00` P1 Track A run definition（PR #25）と `M3-01` Blender 4.5 LTS portable provision（PR #23）が受入済みである。ただし `pipeline/m3/p1-track-a-run-definition.json` は `status: PROPOSED` であり、budgetは未確定である。
-- **現在のcritical path上の唯一のblockerは `M3-03`**（P1 Track Aの固定制作上限をmi3sanが承認すること）である。承認まで `M3-02` 以降のnative asset / renderカードを開始しない。
+- M3では `M3-00` P1 Track A run definition（PR #25）、`M3-01` Blender 4.5 LTS portable provision（PR #23）、`M3-03` Track A固定制作上限のmi3san承認（2026-07-25、合計40人時）が受入済みである。`pipeline/m3/p1-track-a-run-definition.json` は `status: OWNER_APPROVED` である。
+- P1のnative assetカード `M3-04` / `M3-06` / `M3-08` / `M3-10` / `M3-11` は承認済み範囲内で開始できる。
+- **renderカード `M3-02` / `M3-05` / `M3-07` / `M3-09` は開始しない。** `M3-14`（render前のlocal outbound-block / loopback-only enforcement再構成）の証跡が未取得である。M3-03の承認はrender実行を承認していない。agentはfirewall ruleを変更しない。
 - P0bではCharacter Bible、Performance Intent / Observable Reference / Adapter Native Controls、方式別native asset contract、artifact/provenance、conformance/evaluation境界、comparison presentationを扱う。同じ完成PNGやtopologyを全方式へ強制しない。
 - N0 Neural FeasibilityはN0-0 local inventoryを実行済みである。RTX 3060 Ti 8GB、Node、Dockerはローカル証跡として検出された一方、repository-local model/weight candidateとlicense declarationは未検出であり、決定状態は `blocked-awaiting-owner-external-approval` である。P1 Mechanism Evidenceは未開始である。P2 Styled Comparison、P3 Production Slice、条件付きP4 Neural Enhancement、最終選定・本番移行は後続stage gateであり、自動開始しない。
 - 三層Motion Contract、候補二軸、P0b以降の詳細schema、ツール採用は引き続き `PROPOSED` のPoC限定作業契約であり、採択済みアーキテクチャ、恒久ADR、OSS public contractではない。

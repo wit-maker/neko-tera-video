@@ -28,6 +28,30 @@ describe("M3-00 P1 Track A run definition", () => {
     invalid.trackB.inScope = true;
     expect(validateP1TrackARunDefinition(invalid)).toEqual(expect.arrayContaining(["T7 must fix yaw [-15, +15] and pitch [-10, +10]", "A must use the fixed core Track A budget", "M3-00 must fix Track A and exclude Track B"]));
   });
+  it("records the M3-03 owner approval without opening any other gate", () => {
+    expect(P1_TRACK_A_RUN_DEFINITION.status).toBe("OWNER_APPROVED");
+    expect(P1_TRACK_A_RUN_DEFINITION.ownerApproval?.task).toBe("M3-03");
+    expect(P1_TRACK_A_RUN_DEFINITION.ownerApproval?.approvedBy).toBe("mi3san");
+    expect(P1_TRACK_A_RUN_DEFINITION.ownerApproval?.doesNotApprove).toContain("render execution");
+    expect(P1_TRACK_A_RUN_DEFINITION.ownerApproval?.doesNotApprove).toContain("render network precondition");
+    expect(P1_TRACK_A_RUN_DEFINITION.renderNetworkPrecondition.renderPermittedByThisTask).toBe(false);
+    expect(P1_TRACK_A_RUN_DEFINITION.evaluation.representationDecision).toBe("not-made");
+  });
+  it("rejects an approved status without a valid M3-03 approval record", () => {
+    const invalid = structuredClone(P1_TRACK_A_RUN_DEFINITION);
+    delete invalid.ownerApproval;
+    expect(validateP1TrackARunDefinition(invalid)).toContain("OWNER_APPROVED requires an M3-03 approval record from mi3san");
+  });
+  it("rejects an approval that silently drops a non-approved gate", () => {
+    const invalid = structuredClone(P1_TRACK_A_RUN_DEFINITION);
+    invalid.ownerApproval!.doesNotApprove = invalid.ownerApproval!.doesNotApprove.filter((gate) => gate !== "render execution");
+    expect(validateP1TrackARunDefinition(invalid)).toContain("M3-03 approval must retain every non-approved gate");
+  });
+  it("rejects an approval record on a still-proposed definition", () => {
+    const invalid = structuredClone(P1_TRACK_A_RUN_DEFINITION);
+    invalid.status = "PROPOSED";
+    expect(validateP1TrackARunDefinition(invalid)).toContain("a PROPOSED run definition must not carry an owner approval record");
+  });
   it("rejects missing local network enforcement precondition", () => {
     const invalid = structuredClone(P1_TRACK_A_RUN_DEFINITION);
     invalid.renderNetworkPrecondition.acceptedEvidence = "Firewall evidence recorded.";

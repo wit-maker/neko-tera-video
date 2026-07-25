@@ -5,11 +5,14 @@ export const CORE_BASES = ["A", "C", "D", "E"] as const;
 export const CORE_SEQUENCE_IDS = ["T0", "T1", "T3", "T6", "T7", "T9"] as const;
 export const B2_SEQUENCE_IDS = ["T1", "T3", "T8"] as const;
 const REQUIRED_PROHIBITIONS = ["render", "native-asset-creation", "external-asset", "new-dependency", "addon", "cloud", "paid-service", "firewall-rule-change", "P2", "P3", "P4"] as const;
+/** M3-03 approves the Track A ceiling only; every other gate stays closed. */
+const REQUIRED_APPROVAL_EXCLUSIONS = ["render execution", "render network precondition", "Track B cycles", "external asset acquisition", "new dependency", "addon", "cloud or paid service", "P2 entry", "P3 entry", "P4 entry", "quality ranking", "representation selection"] as const;
 
 type Budget = { operatorHours: number; nativeAssetRevisionsMax: number; finalRenderAttemptsMax: number };
 type Candidate = { base: string; role: string; sequenceIds: string[]; budget: Budget; toolReceipt?: string };
+type OwnerApproval = { task: string; approvedBy: string; date: string; approves: string; record: string; doesNotApprove: string[] };
 type RunDefinition = {
-  schemaVersion: string; task: string; status: string; scope: string; track: string; trackB: { inScope: boolean };
+  schemaVersion: string; task: string; status: string; ownerApproval?: OwnerApproval; scope: string; track: string; trackB: { inScope: boolean };
   execution: { mode: string; realtimeEvaluation: boolean }; candidates: Candidate[];
   viewConstraints: { T7: { yawDegrees: { min: number; max: number }; pitchDegrees: { min: number; max: number } } };
   renderNetworkPrecondition: { requiredBeforeRender: boolean; acceptedEvidence: string; enforcementConfiguredInM300: boolean; renderPermittedByThisTask: boolean };
@@ -24,7 +27,15 @@ const sameBudget = (actual: Budget, expected: Budget) => actual.operatorHours ==
 /** Validates M3-00's fixed PoC scope; it does not authorise a render or a decision. */
 export function validateP1TrackARunDefinition(run: RunDefinition): string[] {
   const errors: string[] = [];
-  if (run.schemaVersion !== "m3-p1-track-a-run-definition-v1" || run.task !== "M3-00" || run.status !== "PROPOSED") errors.push("run definition must remain the M3-00 PROPOSED PoC contract");
+  if (run.schemaVersion !== "m3-p1-track-a-run-definition-v1" || run.task !== "M3-00") errors.push("run definition must remain the M3-00 PoC contract");
+  if (run.status !== "PROPOSED" && run.status !== "OWNER_APPROVED") errors.push("status must be PROPOSED or OWNER_APPROVED");
+  if (run.status === "OWNER_APPROVED") {
+    const approval = run.ownerApproval;
+    if (!approval || approval.task !== "M3-03" || approval.approvedBy !== "mi3san") errors.push("OWNER_APPROVED requires an M3-03 approval record from mi3san");
+    if (approval && !sameValues(approval.doesNotApprove, REQUIRED_APPROVAL_EXCLUSIONS)) errors.push("M3-03 approval must retain every non-approved gate");
+  } else if (run.ownerApproval) {
+    errors.push("a PROPOSED run definition must not carry an owner approval record");
+  }
   if (run.track !== "A" || run.trackB.inScope) errors.push("M3-00 must fix Track A and exclude Track B");
   if (run.execution.mode !== "pre-render-only" || run.execution.realtimeEvaluation) errors.push("P1 must remain pre-render-only without realtime evaluation");
   const byBase = new Map(run.candidates.map((candidate) => [candidate.base, candidate]));

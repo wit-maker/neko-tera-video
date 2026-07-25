@@ -1,7 +1,15 @@
 {
   "schemaVersion": "m3-p1-track-a-run-definition-v1",
   "task": "M3-00",
-  "status": "PROPOSED",
+  "status": "OWNER_APPROVED",
+  "ownerApproval": {
+    "task": "M3-03",
+    "approvedBy": "mi3san",
+    "date": "2026-07-25",
+    "approves": "the fixed Track A production ceiling in candidates[].budget: operator hours, native asset revisions, and final render attempts per candidate",
+    "record": "docs/character-expression-program-kanban.md",
+    "doesNotApprove": ["render execution", "render network precondition", "Track B cycles", "external asset acquisition", "new dependency", "addon", "cloud or paid service", "P2 entry", "P3 entry", "P4 entry", "quality ranking", "representation selection"]
+  },
   "scope": "P1 Track A PoC run definition; no render or native asset creation",
   "track": "A",
   "trackB": { "inScope": false },
