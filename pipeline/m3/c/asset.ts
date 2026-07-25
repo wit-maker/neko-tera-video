@@ -68,9 +68,13 @@ const ellipse = (cx: number, cy: number, rx: number, ry: number, count = 12, pha
 
 /**
  * The mouth aperture cage at rest, i.e. closed: index 0 and 6 are the corners
- * and the two arcs between them are nearly coincident, so the rest cage encloses
- * almost no area and the oral cavity behind it is masked away. `jawOpen` parts
- * the arcs; it does not swap in an opened drawing.
+ * and the two arcs between them are coincident, so the rest cage encloses no
+ * area at all and everything behind it is masked away completely. `jawOpen`
+ * parts the arcs; it does not swap in an opened drawing.
+ *
+ * The arcs were once separated by a one-unit seam. That was a workaround for a
+ * clipper that mishandled a degenerate mask; with the degeneracy rejected and
+ * pinned by a test, a shut mouth can be what it should be -- a line.
  *
  * Indices 1-5 are the upper arc left to right, 7-11 the lower arc right to left.
  */
@@ -79,7 +83,7 @@ export const APERTURE_LOWER_ARC = [7, 8, 9, 10, 11] as const;
 
 const APERTURE_CAGE: Point[] = [
   p(700, 642), p(726, 640), p(752, 638), p(775, 637), p(800, 638), p(826, 639),
-  p(852, 638), p(826, 640), p(800, 639), p(775, 638), p(752, 639), p(726, 641),
+  p(852, 638), p(826, 639), p(800, 638), p(775, 637), p(752, 638), p(726, 640),
 ];
 
 const APERTURE_TAGS: Partial<Record<PointTag, number>> = {

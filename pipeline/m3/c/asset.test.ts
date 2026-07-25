@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { C_ASSET_SPACE, C_ASSET_STATUS, C_NATIVE_ASSET, LAYER_IDS, NATIVE_ASSET_INPUTS, cageArea, layerById, type Layer } from "./asset";
+import { C_ASSET_SPACE, C_ASSET_STATUS, C_NATIVE_ASSET, LAYER_IDS, NATIVE_ASSET_INPUTS, cageArea, layerById, type Layer, type Point } from "./asset";
 import { validateCNativeAsset } from "./conformance";
-import { REST_CONTROLS, VIEW_LIMITS, apertureArea, apertureOf, clipPolygon, controls, evaluate, validateControls, visibleArea } from "./deform";
+import { REST_CONTROLS, VIEW_LIMITS, apertureArea, apertureOf, clipPolygon, controls, evaluate, intersectionArea, isConvex, triangulate, validateControls, visibleArea } from "./deform";
 
 const mutate = (change: (asset: Layer[]) => void): Layer[] => {
   const copy = structuredClone(C_NATIVE_ASSET) as Layer[];
@@ -147,6 +147,104 @@ describe("M3-04 continuous native controls", () => {
     expect(span(roundPads, "y")).toBeGreaterThan(span(restPads, "y"));
     expect(cageArea(evaluate(controls({ cheekPuff: 1 })).find((l) => l.id === "cheek-near")!.cage))
       .toBeGreaterThan(cageArea(rest.find((l) => l.id === "cheek-near")!.cage));
+  });
+});
+
+describe("M3-04 occlusion measurement is correct, not merely directional", () => {
+  const segmentsCross = (p1: Point, p2: Point, p3: Point, p4: Point) => {
+    const d = (p2.x - p1.x) * (p4.y - p3.y) - (p2.y - p1.y) * (p4.x - p3.x);
+    if (Math.abs(d) < 1e-12) return false;
+    const t = ((p3.x - p1.x) * (p4.y - p3.y) - (p3.y - p1.y) * (p4.x - p3.x)) / d;
+    const u = ((p3.x - p1.x) * (p2.y - p1.y) - (p3.y - p1.y) * (p2.x - p1.x)) / d;
+    return t > 1e-9 && t < 1 - 1e-9 && u > 1e-9 && u < 1 - 1e-9;
+  };
+  const selfIntersects = (poly: readonly Point[]) => {
+    const n = poly.length;
+    for (let i = 0; i < n; i += 1) {
+      for (let j = i + 2; j < n; j += 1) {
+        if (i === 0 && j === n - 1) continue;
+        if (segmentsCross(poly[i], poly[(i + 1) % n], poly[j], poly[(j + 1) % n])) return true;
+      }
+    }
+    return false;
+  };
+  const pointInPoly = (q: Point, poly: readonly Point[]) => {
+    let inside = false;
+    for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+      const a = poly[i];
+      const b = poly[j];
+      if ((a.y > q.y) !== (b.y > q.y) && q.x < ((b.x - a.x) * (q.y - a.y)) / (b.y - a.y) + a.x) inside = !inside;
+    }
+    return inside;
+  };
+  /** Independent of the clipper: grid-sampled intersection area. */
+  const sampledIntersection = (subject: readonly Point[], mask: readonly Point[], n = 600) => {
+    const xs = [...subject, ...mask].map((q) => q.x);
+    const ys = [...subject, ...mask].map((q) => q.y);
+    const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+    let hits = 0;
+    for (let i = 0; i < n; i += 1) {
+      for (let j = 0; j < n; j += 1) {
+        const q = { x: x0 + ((i + 0.5) / n) * (x1 - x0), y: y0 + ((j + 0.5) / n) * (y1 - y0) };
+        if (pointInPoly(q, subject) && pointInPoly(q, mask)) hits += 1;
+      }
+    }
+    return (hits / (n * n)) * (x1 - x0) * (y1 - y0);
+  };
+  const sweep = <T>(fn: (c: Parameters<typeof controls>[0]) => T): T[] => {
+    const out: T[] = [];
+    for (const jawOpen of [0, 0.2, 0.5, 0.8, 1])
+      for (const lipCornerPull of [-1, -0.5, 0, 0.5, 1])
+        for (const lipCornerAsymmetry of [-1, 0, 1]) out.push(fn({ jawOpen, lipCornerPull, lipCornerAsymmetry }));
+    return out;
+  };
+
+  it("keeps the aperture a simple outline across the whole control range", () => {
+    // Moving only the corners let them pass their neighbouring arc points and
+    // the outline crossed itself below jawOpen 0.2 at pull -0.8 or tighter.
+    const crossings = sweep((c) => selfIntersects(apertureOf(evaluate(controls(c))))).filter(Boolean);
+    expect(crossings).toHaveLength(0);
+  });
+
+  it("agrees with an independently sampled intersection, not just in direction", () => {
+    // The aperture is non-convex over most of the range, so clipping it whole
+    // with Sutherland-Hodgman under-measured occlusion by up to 47%.
+    const open = evaluate(controls({ jawOpen: 1, lipCornerPull: -1 }));
+    const aperture = apertureOf(open);
+    for (const id of ["oral-cavity", "teeth-upper", "teeth-lower"] as const) {
+      const subject = open.find((layer) => layer.id === id)!.cage;
+      const truth = sampledIntersection(subject, aperture);
+      // Relative, because the reference is a grid estimate: refining it from
+      // 600 to 2400 moves it toward the triangulated value, not away.
+      expect(Math.abs(intersectionArea(subject, aperture) - truth) / truth).toBeLessThan(0.01);
+    }
+  });
+
+  it("never reports more visible area than the aperture encloses", () => {
+    for (const jawOpen of [0, 0.3, 0.6, 1]) {
+      for (const lipCornerPull of [-1, 0, 1]) {
+        const deformed = evaluate(controls({ jawOpen, lipCornerPull }));
+        const aperture = cageArea(apertureOf(deformed));
+        for (const id of ["oral-cavity", "tongue", "teeth-upper", "teeth-lower"] as const) {
+          expect(visibleArea(deformed, id)).toBeLessThanOrEqual(aperture + 1e-6);
+        }
+      }
+    }
+  });
+
+  it("triangulates a shape into an exact partition of it", () => {
+    const aperture = apertureOf(evaluate(controls({ jawOpen: 1, lipCornerPull: 1 })));
+    const parts = triangulate(aperture);
+    expect(parts.length).toBe(aperture.length - 2);
+    expect(parts.reduce((sum, triangle) => sum + cageArea(triangle), 0)).toBeCloseTo(cageArea(aperture), 6);
+  });
+
+  it("records that the aperture really is non-convex, so the reason for triangulating stays visible", () => {
+    // If this ever finds no non-convex sample, the triangulation could be
+    // dropped -- but nobody may assume that without re-running the sweep.
+    const nonConvex = sweep((c) => isConvex(apertureOf(evaluate(controls(c))))).filter((convex) => !convex);
+    expect(nonConvex.length).toBeGreaterThan(0);
+    expect(isConvex([{ x: 0, y: 0 }, { x: 10, y: 0 }, { x: 10, y: 10 }, { x: 0, y: 10 }])).toBe(true);
   });
 });
 

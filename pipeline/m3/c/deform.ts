@@ -128,10 +128,15 @@ export function evaluate(value: CNativeControls, asset: readonly Layer[] = C_NAT
       if (left === undefined || right === undefined) throw new Error("lip-line is missing a tagged corner");
       for (const i of APERTURE_UPPER_ARC) cage[i] = { ...cage[i], y: cage[i].y - upperLift(cage[i].x) };
       for (const i of APERTURE_LOWER_ARC) cage[i] = { ...cage[i], y: cage[i].y + jawDrop(cage[i].x, value.jawOpen) };
-      const spread = value.lipCornerPull * 22;
+      // Spread and round scale the whole aperture about its centre. Moving only
+      // the corners let them travel past their neighbouring arc points and the
+      // outline crossed itself below jawOpen 0.2 at pull -0.8 or tighter.
+      const midX = (cage[left].x + cage[right].x) / 2;
+      const widthScale = 1 + value.lipCornerPull * 0.14;
       const asym = value.lipCornerAsymmetry * 12;
-      cage[left] = { x: cage[left].x - spread - asym, y: cage[left].y - value.lipCornerPull * 4 };
-      cage[right] = { x: cage[right].x + spread - asym, y: cage[right].y - value.lipCornerPull * 4 };
+      for (let i = 0; i < cage.length; i += 1) cage[i] = { ...cage[i], x: midX + (cage[i].x - midX) * widthScale - asym };
+      cage[left] = { ...cage[left], y: cage[left].y - value.lipCornerPull * 4 };
+      cage[right] = { ...cage[right], y: cage[right].y - value.lipCornerPull * 4 };
     }
 
     // 3. Muzzle mesh lattice. Rounding narrows and heightens the whisker pads.
@@ -192,7 +197,63 @@ export function clipPolygon(subject: readonly Point[], clip: readonly Point[]): 
   return output;
 }
 
-const orientCounterClockwise = (cage: readonly Point[]): Point[] => {
+const cross = (o: Point, a: Point, b: Point) => (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
+
+/** True when every turn has the same sign; what Sutherland-Hodgman needs of a clip. */
+export function isConvex(poly: readonly Point[]): boolean {
+  let sign = 0;
+  for (let i = 0; i < poly.length; i += 1) {
+    const turn = cross(poly[i], poly[(i + 1) % poly.length], poly[(i + 2) % poly.length]);
+    if (Math.abs(turn) < 1e-9) continue;
+    if (sign === 0) sign = Math.sign(turn);
+    else if (Math.sign(turn) !== sign) return false;
+  }
+  return true;
+}
+
+const pointInTriangle = (q: Point, a: Point, b: Point, c: Point): boolean => {
+  const d1 = cross(a, b, q);
+  const d2 = cross(b, c, q);
+  const d3 = cross(c, a, q);
+  return !((d1 < 0 || d2 < 0 || d3 < 0) && (d1 > 0 || d2 > 0 || d3 > 0));
+};
+
+/**
+ * Ear-clipping triangulation of a simple polygon.
+ *
+ * The aperture is NOT convex across the control range -- corner rounding and
+ * asymmetry both bend it -- so it cannot be handed to Sutherland-Hodgman whole.
+ * Triangles partition it exactly, and each is convex, so clipping against each
+ * and summing gives the true intersection area.
+ */
+export function triangulate(poly: readonly Point[]): Point[][] {
+  const vertices = orientCounterClockwise(poly).map((q) => ({ ...q }));
+  const triangles: Point[][] = [];
+  let guard = vertices.length * vertices.length + 16;
+  while (vertices.length > 3 && guard-- > 0) {
+    let clipped = false;
+    for (let i = 0; i < vertices.length; i += 1) {
+      const prev = vertices[(i + vertices.length - 1) % vertices.length];
+      const current = vertices[i];
+      const next = vertices[(i + 1) % vertices.length];
+      if (cross(prev, current, next) <= 0) continue; // reflex or collinear
+      const contains = vertices.some((q, index) => {
+        if (index === i || q === prev || q === next) return false;
+        return pointInTriangle(q, prev, current, next);
+      });
+      if (contains) continue;
+      triangles.push([prev, current, next]);
+      vertices.splice(i, 1);
+      clipped = true;
+      break;
+    }
+    if (!clipped) break; // degenerate or self-intersecting; fall through
+  }
+  if (vertices.length === 3) triangles.push([...vertices]);
+  return triangles;
+}
+
+function orientCounterClockwise(cage: readonly Point[]): Point[] {
   let sum = 0;
   for (let i = 0; i < cage.length; i += 1) {
     const a = cage[i];
@@ -200,13 +261,34 @@ const orientCounterClockwise = (cage: readonly Point[]): Point[] => {
     sum += (b.x - a.x) * (b.y + a.y);
   }
   return sum > 0 ? [...cage].reverse() : [...cage];
-};
+}
 
 export const apertureOf = (deformed: readonly DeformedLayer[]): Point[] => {
   const lip = deformed.find((layer) => layer.id === "lip-line");
   if (!lip) throw new Error("deformed asset has no lip-line aperture");
   return lip.cage;
 };
+
+/**
+ * Area of a subject inside a mask, for shapes of any convexity.
+ *
+ * Both sides are triangulated. Sutherland-Hodgman is exact only for a convex
+ * clip carrying a convex subject, and neither holds here: the aperture bends
+ * under corner rounding and asymmetry, and the oral cavity bends under the jaw
+ * field, which is x-dependent. Measured against an independent grid-sampled
+ * intersection, clipping the shapes whole was short by up to 47%. Triangles
+ * partition each shape exactly, so summing over every convex pair is correct.
+ * Generalised as AP-012.
+ */
+export function intersectionArea(subject: readonly Point[], mask: readonly Point[]): number {
+  if (subject.length < 3 || mask.length < 3 || cageArea(mask) < 1e-9) return 0;
+  const maskTriangles = triangulate(mask);
+  return triangulate(subject).reduce(
+    (total, subjectTriangle) =>
+      total + maskTriangles.reduce((sum, maskTriangle) => sum + cageArea(clipPolygon(subjectTriangle, maskTriangle)), 0),
+    0,
+  );
+}
 
 /** Area of a layer that survives its own mask. Zero means fully occluded. */
 export function visibleArea(deformed: readonly DeformedLayer[], id: LayerId): number {
@@ -215,7 +297,7 @@ export function visibleArea(deformed: readonly DeformedLayer[], id: LayerId): nu
   if (!layer.clipBy) return cageArea(layer.cage);
   const mask = deformed.find((entry) => entry.id === layer.clipBy);
   if (!mask) throw new Error(`layer ${id} references missing mask ${layer.clipBy}`);
-  return cageArea(clipPolygon(orientCounterClockwise(layer.cage), orientCounterClockwise(mask.cage)));
+  return intersectionArea(layer.cage, mask.cage);
 }
 
 export const apertureArea = (value: CNativeControls): number => cageArea(apertureOf(evaluate(value)));
