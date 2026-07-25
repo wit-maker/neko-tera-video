@@ -20,18 +20,28 @@
     "archiveIdentityVerified": true,
     "resolvedFrom": "NEKO_BLENDER_EXECUTABLE",
     "sharedResolver": "pipeline/m3/blender.ts, moved up from pipeline/m3/d/ in this change so D and E resolve the tool through one module rather than two copies.",
-    "flags": ["--background", "--factory-startup", "--offline-mode"],
+    "flags": [
+      "--background",
+      "--factory-startup",
+      "--offline-mode"
+    ],
     "addonsInstalledByThisTask": [],
     "newDependencies": [],
-    "reproduction": ["npm run m3:build-e-asset", "npx vitest run pipeline/m3/e"]
+    "reproduction": [
+      "npm run m3:build-e-asset",
+      "npx vitest run pipeline/m3/e"
+    ]
   },
   "asset": {
     "mechanismClass": "full-3d-volume-rig",
     "volumes": 12,
     "allClosed": true,
-    "smallestVolume": 0.000069,
+    "smallestVolume": 6.9e-05,
     "boneHierarchy": "root -> skull -> jaw; lip corners and tongue inherit from jaw; muzzle and cheeks from skull",
-    "correctiveShapes": ["jawOpen_corrective", "lipRound_corrective"],
+    "correctiveShapes": [
+      "jawOpen_corrective",
+      "lipRound_corrective"
+    ],
     "view": {
       "authoredInAsset": true,
       "pivot": "view-pivot",
@@ -48,7 +58,9 @@
     "claim": "Every mesh is a closed volume with positive enclosed volume, and the rig is a real hierarchy in which the jaw inherits from the skull. D reaches its occlusion by ordering shallow plates in depth; E has actual interior space and corrective shapes that repair volume as the jaw opens.",
     "checkedVolumes": 12,
     "openMeshes": 0,
-    "note": "Whether that extra structure is worth its cost is not decided here."
+    "note": "Whether that extra structure is worth its cost is not decided here.",
+    "interiorContainmentChecked": true,
+    "selfReviewFinding": "Closed volumes alone do not establish interior space: an ellipsoid floating beside the head is also closed. Nothing checked that the oral cavity, tongue and dentitions are actually inside the skull. All four are now measured against the skull's evaluated world bounds and confirmed contained, and the conformance check fails if any escapes. Applies AP-012's lesson to E."
   },
   "knownFailures": [
     {

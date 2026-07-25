@@ -19,6 +19,12 @@ export const REQUIRED_HIERARCHY: Record<string, string | null> = {
   "cheek-L": "skull", "cheek-R": "skull",
 };
 
+export interface EWorldBounds {
+  minX: number; maxX: number;
+  minY: number; maxY: number;
+  minZ: number; maxZ: number;
+}
+
 export interface EVolume {
   name: string;
   vertexCount: number;
@@ -26,6 +32,14 @@ export interface EVolume {
   boundaryEdges: number;
   volume: number;
   vertexGroups: string[];
+  worldBounds: EWorldBounds;
+}
+
+export interface EContainment {
+  interior: string;
+  container: string;
+  insideContainer: boolean;
+  measuredFrom: string;
 }
 
 export interface EManifest {
@@ -40,6 +54,7 @@ export interface EManifest {
   renderPerformed: boolean;
   volumes: EVolume[];
   interiorVolumes: string[];
+  interiorContainment: EContainment[];
   boneHierarchy: Record<string, string | null>;
   correctiveShapes: Record<string, string[]>;
   view: {
@@ -88,6 +103,18 @@ export function validateEManifest(manifest: EManifest): string[] {
     if (!volumes.get(name)?.vertexGroups.includes("jaw")) errors.push(`${name} must be bound to the jaw`);
   }
   if (volumes.get("teeth-upper")?.vertexGroups.includes("jaw")) errors.push("teeth-upper is skull-parented and must not follow the jaw");
+
+  // E's claim is interior space. That only holds if the interior is actually
+  // inside the skull, measured from the mesh rather than from the numbers the
+  // build script wrote. Nothing checked this before; AP-012 applied to E.
+  if (manifest.interiorContainment.length !== manifest.interiorVolumes.length) errors.push("every interior volume must be checked for containment");
+  for (const entry of manifest.interiorContainment) {
+    if (!entry.insideContainer) errors.push(`${entry.interior} is not inside the ${entry.container}; E would not have interior space there`);
+    if (!entry.measuredFrom.includes("world-space bounds")) errors.push(`${entry.interior} containment must be measured from evaluated world bounds`);
+  }
+  for (const volume of manifest.volumes) {
+    if (!volume.worldBounds) errors.push(`volume ${volume.name} has no measured world bounds`);
+  }
 
   const correctives = Object.values(manifest.correctiveShapes).flat();
   if (!correctives.includes("jawOpen_corrective")) errors.push("E is missing the jaw-open corrective shape");

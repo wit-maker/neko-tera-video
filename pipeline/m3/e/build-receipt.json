@@ -42,7 +42,15 @@
         "volume": 0.104775982,
         "vertexGroups": [
           "skull"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.37,
+          "maxX": 1.03,
+          "minY": -0.3,
+          "maxY": 0.3,
+          "minZ": -0.73,
+          "maxZ": -0.21
+        }
       },
       {
         "name": "muzzle",
@@ -52,7 +60,15 @@
         "volume": 0.007210803,
         "vertexGroups": [
           "muzzle"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.625,
+          "maxX": 0.925,
+          "minY": -0.13,
+          "maxY": 0.13,
+          "minZ": -0.704,
+          "maxZ": -0.52
+        }
       },
       {
         "name": "jaw",
@@ -62,7 +78,15 @@
         "volume": 0.004996918,
         "vertexGroups": [
           "jaw"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.635,
+          "maxX": 0.915,
+          "minY": -0.12,
+          "maxY": 0.12,
+          "minZ": -0.738,
+          "maxZ": -0.59
+        }
       },
       {
         "name": "cheek-L",
@@ -72,7 +96,15 @@
         "volume": 0.003901466,
         "vertexGroups": [
           "cheek-L"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.44,
+          "maxX": 0.68,
+          "minY": -0.09,
+          "maxY": 0.09,
+          "minZ": -0.692,
+          "maxZ": -0.508
+        }
       },
       {
         "name": "cheek-R",
@@ -82,7 +114,15 @@
         "volume": 0.003901466,
         "vertexGroups": [
           "cheek-R"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.8,
+          "maxX": 1.04,
+          "minY": -0.09,
+          "maxY": 0.09,
+          "minZ": -0.688,
+          "maxZ": -0.504
+        }
       },
       {
         "name": "oral-cavity",
@@ -92,7 +132,15 @@
         "volume": 0.001685735,
         "vertexGroups": [
           "jaw"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.679,
+          "maxX": 0.871,
+          "minY": -0.086,
+          "maxY": 0.086,
+          "minZ": -0.692,
+          "maxZ": -0.588
+        }
       },
       {
         "name": "tongue",
@@ -102,7 +150,15 @@
         "volume": 0.000428784,
         "vertexGroups": [
           "tongue"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.715,
+          "maxX": 0.835,
+          "minY": -0.07,
+          "maxY": 0.07,
+          "minZ": -0.678,
+          "maxZ": -0.626
+        }
       },
       {
         "name": "teeth-upper",
@@ -112,7 +168,15 @@
         "volume": 0.00033678,
         "vertexGroups": [
           "skull"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.681,
+          "maxX": 0.869,
+          "minY": -0.06,
+          "maxY": 0.06,
+          "minZ": -0.65,
+          "maxZ": -0.618
+        }
       },
       {
         "name": "teeth-lower",
@@ -122,7 +186,15 @@
         "volume": 0.000273634,
         "vertexGroups": [
           "jaw"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.681,
+          "maxX": 0.869,
+          "minY": -0.06,
+          "maxY": 0.06,
+          "minZ": -0.663,
+          "maxZ": -0.637
+        }
       },
       {
         "name": "nose",
@@ -132,7 +204,15 @@
         "volume": 0.000068968,
         "vertexGroups": [
           "skull"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.76,
+          "maxX": 0.82,
+          "minY": -0.028,
+          "maxY": 0.028,
+          "minZ": -0.596,
+          "maxZ": -0.552
+        }
       },
       {
         "name": "ear-L",
@@ -142,7 +222,15 @@
         "volume": 0.001149472,
         "vertexGroups": [
           "skull"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.29,
+          "maxX": 0.43,
+          "minY": -0.04,
+          "maxY": 0.04,
+          "minZ": -0.35,
+          "maxZ": -0.13
+        }
       },
       {
         "name": "ear-R",
@@ -152,7 +240,15 @@
         "volume": 0.001149472,
         "vertexGroups": [
           "skull"
-        ]
+        ],
+        "worldBounds": {
+          "minX": 0.76,
+          "maxX": 0.9,
+          "minY": -0.04,
+          "maxY": 0.04,
+          "minZ": -0.34,
+          "maxZ": -0.12
+        }
       }
     ],
     "interiorVolumes": [
@@ -160,6 +256,32 @@
       "tongue",
       "teeth-upper",
       "teeth-lower"
+    ],
+    "interiorContainment": [
+      {
+        "interior": "oral-cavity",
+        "container": "skull",
+        "insideContainer": true,
+        "measuredFrom": "evaluated world-space bounds"
+      },
+      {
+        "interior": "tongue",
+        "container": "skull",
+        "insideContainer": true,
+        "measuredFrom": "evaluated world-space bounds"
+      },
+      {
+        "interior": "teeth-upper",
+        "container": "skull",
+        "insideContainer": true,
+        "measuredFrom": "evaluated world-space bounds"
+      },
+      {
+        "interior": "teeth-lower",
+        "container": "skull",
+        "insideContainer": true,
+        "measuredFrom": "evaluated world-space bounds"
+      }
     ],
     "boneHierarchy": {
       "root": null,

@@ -33,6 +33,24 @@ describe("M3-08 built asset", () => {
     expect(validateEManifest(broken)).toContain(`${broken.volumes[0].name} is not a closed volume; E is full 3D, not a plate stack`);
   });
 
+  it("puts the interior actually inside the skull, measured from the mesh", () => {
+    // E's whole claim against D is interior space. Closed volumes alone do not
+    // establish that: an ellipsoid floating beside the head is also closed.
+    const built = manifest();
+    expect(built.interiorContainment).toHaveLength(built.interiorVolumes.length);
+    for (const entry of built.interiorContainment) {
+      expect(entry.insideContainer).toBe(true);
+      expect(entry.container).toBe("skull");
+      expect(entry.measuredFrom).toContain("world-space bounds");
+    }
+  });
+
+  it("rejects an interior volume that escapes the skull", () => {
+    const broken = manifest();
+    broken.interiorContainment[0] = { ...broken.interiorContainment[0], insideContainer: false };
+    expect(validateEManifest(broken).join(" ")).toMatch(/is not inside the skull; E would not have interior space there/);
+  });
+
   it("carries a real bone hierarchy in which the jaw inherits from the skull", () => {
     const built = manifest();
     for (const [bone, parent] of Object.entries(REQUIRED_HIERARCHY)) {

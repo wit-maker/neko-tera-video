@@ -24,6 +24,7 @@ import sys
 
 import bmesh
 import bpy
+import mathutils
 
 SCALE = 1000.0
 
@@ -190,8 +191,43 @@ def build_camera():
     return pivot, camera
 
 
+def world_bounds(obj):
+    """Evaluated world-space extents of the real mesh.
+
+    Read from the mesh rather than from the numbers this script wrote, so the
+    check cannot merely confirm its own intent. Applies AP-012's lesson to E.
+    """
+    depsgraph = bpy.context.evaluated_depsgraph_get()
+    evaluated = obj.evaluated_get(depsgraph)
+    matrix = evaluated.matrix_world
+    corners = [matrix @ mathutils.Vector(corner) for corner in evaluated.bound_box]
+    return {
+        "minX": round(min(c.x for c in corners), 6), "maxX": round(max(c.x for c in corners), 6),
+        "minY": round(min(c.y for c in corners), 6), "maxY": round(max(c.y for c in corners), 6),
+        "minZ": round(min(c.z for c in corners), 6), "maxZ": round(max(c.z for c in corners), 6),
+    }
+
+
+def contained_in(inner, outer):
+    """True when `inner` lies wholly within `outer` on every axis."""
+    return all(inner[f"min{a}"] >= outer[f"min{a}"] and inner[f"max{a}"] <= outer[f"max{a}"] for a in "XYZ")
+
+
 def build_manifest(volumes, rig, correctives, pivot, camera):
+    bpy.context.view_layer.update()
     stats = {name: mesh_stats(obj) for name, obj in volumes.items()}
+    bounds = {name: world_bounds(obj) for name, obj in volumes.items()}
+    # E claims interior space. That only holds if the interior is actually
+    # inside the skull, which nothing checked before.
+    containment = [
+        {
+            "interior": name,
+            "container": "skull",
+            "insideContainer": contained_in(bounds[name], bounds["skull"]),
+            "measuredFrom": "evaluated world-space bounds",
+        }
+        for name in INTERIOR
+    ]
     hierarchy = {bone.name: (bone.parent.name if bone.parent else None) for bone in rig.data.bones}
     return {
         "schemaVersion": "m3-e-native-asset-manifest-v1",
@@ -213,10 +249,12 @@ def build_manifest(volumes, rig, correctives, pivot, camera):
                 "boundaryEdges": stats[name]["boundaryEdges"],
                 "volume": stats[name]["volume"],
                 "vertexGroups": sorted(g.name for g in obj.vertex_groups),
+                "worldBounds": bounds[name],
             }
             for name, obj in volumes.items()
         ],
         "interiorVolumes": list(INTERIOR),
+        "interiorContainment": containment,
         "boneHierarchy": hierarchy,
         "correctiveShapes": correctives,
         "view": {
