@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "m3-d-effort-log-v1",
+  "task": "M3-06",
+  "base": "D",
+  "track": "A",
+  "status": "PROPOSED",
+  "budgetSource": "pipeline/m3/p1-track-a-run-definition.json candidates[base=D].budget",
+  "consumption": {
+    "nativeAssetVersions": 1,
+    "nativeAssetRevisionsMax": 2,
+    "finalRenderAttempts": 0,
+    "finalRenderAttemptsMax": 2,
+    "operatorHours": null,
+    "operatorHoursNote": "Same open question as M3-04, M3-10 and M3-11: the ceiling is fixed in human operator hours and this asset was authored by an agent.",
+    "headroom": "One asset revision remains within the approved ceiling."
+  },
+  "toolProvenance": {
+    "tool": "Blender 4.5.0 LTS portable, provisioned under M3-01",
+    "archiveSha256": "2EE75E9466D293A784FDF020F60FE1309C1E0610ECF73C64F1FC09B01E5EEC56",
+    "archiveIdentityVerified": true,
+    "resolvedFrom": "NEKO_BLENDER_EXECUTABLE",
+    "placementFinding": "out/ is gitignored, so the M3-01 provision exists in exactly one working copy and the receipt path does not resolve from the root checkout. Rather than copy 1.3 GB or re-acquire an approved-once download, the executable is resolved at run time and the resolved absolute path plus the archive hash are recorded. resolveBlender throws rather than downloading when nothing is found.",
+    "flags": ["--background", "--factory-startup", "--offline-mode"],
+    "flagRationale": "--factory-startup makes the build deterministic and guarantees no user add-on participates. --offline-mode keeps Blender off the network. No render flag is passed.",
+    "addonsInstalledByThisTask": [],
+    "newDependencies": [],
+    "reproduction": ["npm run m3:build-d-asset", "npx vitest run pipeline/m3/d"]
+  },
+  "asset": {
+    "mechanismClass": "shallow-layered-geometry-with-jaw-hinge",
+    "plates": 10,
+    "verticesPerPlate": 49,
+    "bones": ["jaw", "lip-corner-L", "lip-corner-R", "muzzle", "cheek-L", "cheek-R"],
+    "shapeKeys": ["muzzleRound", "cheekPuff", "tongueRaise"],
+    "blendFile": "out/m3/d/d-native.blend",
+    "blendFileNote": "out/ is gitignored, so the .blend is not committed. pipeline/m3/d/build-receipt.json records the tool, command and resulting manifest, and the build is deterministic, so the file is reproducible rather than archived."
+  },
+  "occlusionEvidence": {
+    "claim": "D's occlusion is geometric, not a 2D mask. The oral cavity, tongue and both dentitions sit behind the jaw and muzzle plates in depth, so closing the jaw hides them because geometry is in front of them.",
+    "checkedPairs": 8,
+    "allInteriorBehindOccluders": true,
+    "smallestDepthGap": 0.044,
+    "contrastWithC": "C reaches the same observable by clipping against a lip-line aperture. D reaches it by depth. Which reads better is not decided here."
+  },
+  "knownFailures": [
+    {
+      "id": "D-KF-001",
+      "state": "open",
+      "observed": "The jaw hinge, lip corners, muzzle and cheeks are bound with uniform weight 1.0 per plate rather than falloff weighting. Plates will move rigidly and adjacent plates may separate at their shared edge when the jaw opens far.",
+      "resolution": "Not fixed. Uniform binding was chosen so the rig's meaning does not depend on an auto-weighting heuristic, which would have been a hidden variable in the comparison. Whether the seam is visible needs the real frames in M3-07."
+    },
+    {
+      "id": "D-KF-002",
+      "state": "open",
+      "observed": "Depth ordering is verified as a static property of the rest pose. Nothing here proves the ordering survives jaw rotation or a yaw within the adopted +/-15 degree range.",
+      "resolution": "Not fixed. This is the T7 observable and belongs to M3-07's real frames, not to an assertion made without a render."
+    },
+    {
+      "id": "D-KF-003",
+      "state": "open",
+      "observed": "The asset carries geometry and rig structure only. It has no material, no texture, no line work and no groom, so it cannot yet show the 2D look D is supposed to be a compromise toward.",
+      "resolution": "Not fixed within the Track A ceiling. P2 styled comparison is where the look is authored; recorded so this asset is not mistaken for a finished appearance."
+    }
+  ],
+  "notEvaluated": {
+    "qualityRanking": "not-made",
+    "representationDecision": "not-made",
+    "note": "M3-06 authors an asset. It does not render, rank, or select anything. renderPerformed is false in the manifest and the conformance check fails if it is not."
+  }
+}

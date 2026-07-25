@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "m3-d-build-receipt-v1",
+  "task": "M3-06",
+  "toolResolvedFrom": "env",
+  "toolExecutable": "C:\\Users\\wiiiiii\\.codex\\worktrees\\ff8a\\neko-tera-video\\out\\tools\\blender-4.5-lts-win-x64\\blender-4.5.0-windows-x64\\blender.exe",
+  "toolVersion": "4.5.0",
+  "declaredVersion": "4.5.0",
+  "archiveIdentity": {
+    "verified": true,
+    "reason": "archive SHA-256 matches the M3-01 receipt (2EE75E9466D293A784FDF020F60FE1309C1E0610ECF73C64F1FC09B01E5EEC56)"
+  },
+  "buildCommand": "blender --background --factory-startup --offline-mode --python C:\\dev\\github\\wit-maker\\neko-tera-video\\pipeline\\m3\\d\\build_asset.py -- --out <blend> --manifest <json>",
+  "renderPerformed": false,
+  "addonsInstalledByThisTask": [],
+  "manifest": {
+    "schemaVersion": "m3-d-native-asset-manifest-v1",
+    "task": "M3-06",
+    "base": "D",
+    "status": "PROPOSED",
+    "mechanismClass": "shallow-layered-geometry-with-jaw-hinge",
+    "blenderVersion": "4.5.0",
+    "assetSpace": "sensei source raster 1280x1920 divided by 1000; Blender front orthographic, -Y toward viewer",
+    "externalAssetInputs": [],
+    "addonsBundledEnabledAtFactoryStartup": [
+      "bl_pkg",
+      "cycles",
+      "io_anim_bvh",
+      "io_curve_svg",
+      "io_mesh_uv_layout",
+      "io_scene_fbx",
+      "io_scene_gltf2",
+      "pose_library"
+    ],
+    "addonsInstalledByThisTask": [],
+    "renderPerformed": false,
+    "plates": [
+      {
+        "name": "head-plate",
+        "depthY": 0,
+        "vertexCount": 49,
+        "isVolume": false,
+        "vertexGroups": []
+      },
+      {
+        "name": "cheek-far",
+        "depthY": -0.01,
+        "vertexCount": 49,
+        "isVolume": false,
+        "vertexGroups": [
+          "cheek-L"
+        ]
+      },
+      {
+        "name": "oral-cavity",
+        "depthY": 0.04,
+        "vertexCount": 49,
+        "isVolume": false,
+        "vertexGroups": [
+          "jaw"
+        ]
+      },
+      {
+        "name": "tongue",
+        "depthY": 0.03,
+        "vertexCount": 49,
+        "isVolume": false,
+        "vertexGroups": [
+          "jaw"
+        ]
+      },
+      {
+        "name": "teeth-upper",
+        "depthY": 0.024,
+        "vertexCount": 49,
+        "isVolume": false,
+        "vertexGroups": []
+      },
+      {
+        "name": "teeth-lower",
+        "depthY": 0.026,
+        "vertexCount": 49,
+        "isVolume": false,
+        "vertexGroups": [
+          "jaw"
+        ]
+      },
+      {
+        "name": "jaw-plate",
+        "depthY": -0.02,
+        "vertexCount": 49,
+        "isVolume": false,
+        "vertexGroups": [
+          "jaw"
+        ]
+      },
+      {
+        "name": "muzzle-plate",
+        "depthY": -0.03,
+        "vertexCount": 49,
+        "isVolume": false,
+        "vertexGroups": [
+          "lip-corner-L",
+          "lip-corner-R",
+          "muzzle"
+        ]
+      },
+      {
+        "name": "cheek-near",
+        "depthY": -0.018,
+        "vertexCount": 49,
+        "isVolume": false,
+        "vertexGroups": [
+          "cheek-R"
+        ]
+      },
+      {
+        "name": "nose",
+        "depthY": -0.05,
+        "vertexCount": 49,
+        "isVolume": false,
+        "vertexGroups": [
+          "muzzle"
+        ]
+      }
+    ],
+    "bones": [
+      "cheek-L",
+      "cheek-R",
+      "jaw",
+      "lip-corner-L",
+      "lip-corner-R",
+      "muzzle"
+    ],
+    "shapeKeys": {
+      "cheek-far": [
+        "cheekPuff"
+      ],
+      "tongue": [
+        "tongueRaise"
+      ],
+      "muzzle-plate": [
+        "muzzleRound"
+      ],
+      "cheek-near": [
+        "cheekPuff"
+      ]
+    },
+    "occlusion": [
+      {
+        "interior": "oral-cavity",
+        "occluder": "jaw-plate",
+        "interiorBehindOccluder": true,
+        "depthGap": 0.06
+      },
+      {
+        "interior": "oral-cavity",
+        "occluder": "muzzle-plate",
+        "interiorBehindOccluder": true,
+        "depthGap": 0.07
+      },
+      {
+        "interior": "tongue",
+        "occluder": "jaw-plate",
+        "interiorBehindOccluder": true,
+        "depthGap": 0.05
+      },
+      {
+        "interior": "tongue",
+        "occluder": "muzzle-plate",
+        "interiorBehindOccluder": true,
+        "depthGap": 0.06
+      },
+      {
+        "interior": "teeth-upper",
+        "occluder": "jaw-plate",
+        "interiorBehindOccluder": true,
+        "depthGap": 0.044
+      },
+      {
+        "interior": "teeth-upper",
+        "occluder": "muzzle-plate",
+        "interiorBehindOccluder": true,
+        "depthGap": 0.054
+      },
+      {
+        "interior": "teeth-lower",
+        "occluder": "jaw-plate",
+        "interiorBehindOccluder": true,
+        "depthGap": 0.046
+      },
+      {
+        "interior": "teeth-lower",
+        "occluder": "muzzle-plate",
+        "interiorBehindOccluder": true,
+        "depthGap": 0.056
+      }
+    ],
+    "conformance": {
+      "status": "not-run"
+    },
+    "evaluation": {
+      "status": "not-evaluated",
+      "qualityRanking": "not-made",
+      "representationDecision": "not-made"
+    }
+  }
+}
