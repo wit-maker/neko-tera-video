@@ -26,16 +26,17 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 | DONE | READY | IN_PROGRESS | BLOCKED_OWNER | GATED / CONDITIONAL |
 | --- | --- | --- | --- | --- |
 | P0a-01 fixed baseline evidence | K-01 board state refresh | なし | M2-01 N0 disposition / reopening package | M0-05 approved temporary-resource deletion |
-| M0-01 project state correction |  | なし | M3-03 Track A ceiling | M1-04–M1-06 P0b artifact binding |
-| M0-02 temporary-resource reference check |  | なし | M3-13 candidate retention | M2-02–M2-05 conditional N0 spike |
-| M0-03 merged-branch cleanup check |  |  | M6-00 P4 entry approval | M3-02–M3-12 P1 evidence |
-| M0-04 PR #18 disposition record |  |  | M7-01 final representation selection | M4-00–M4-08 P2 styled comparison |
-| M0-06 PR #18 unmerged close |  |  |  | M5-00–M5-05 P3 production slice |
-| M1-01 P0b contract |  |  |  | M6-01–M6-06 neural enhancement |
-| M1-02 interval/conformance correction |  |  |  | M7-00, M7-02–M7-05 decision/migration |
-| M2-00 local neural inventory |  |  |  | M8-00–M8-04 closure |
-| M3-00 P1 Track A run definition |  |  |  |  |
+| M0-01 project state correction | M3-04 C native asset | なし | M3-14 P1 render network enforcement | M1-04–M1-06 P0b artifact binding |
+| M0-02 temporary-resource reference check | M3-06 D native asset / rig | なし | M3-13 candidate retention | M2-02–M2-05 conditional N0 spike |
+| M0-03 merged-branch cleanup check | M3-08 E native asset / rig |  | M6-00 P4 entry approval | M3-02, M3-05, M3-07, M3-09 P1 renders |
+| M0-04 PR #18 disposition record | M3-10 B1 transition boundary |  | M7-01 final representation selection | M3-12 capability matrix |
+| M0-06 PR #18 unmerged close | M3-11 B2 quality ceiling |  |  | M4-00–M4-08 P2 styled comparison |
+| M1-01 P0b contract |  |  |  | M5-00–M5-05 P3 production slice |
+| M1-02 interval/conformance correction |  |  |  | M6-01–M6-06 neural enhancement |
+| M2-00 local neural inventory |  |  |  | M7-00, M7-02–M7-05 decision/migration |
+| M3-00 P1 Track A run definition |  |  |  | M8-00–M8-04 closure |
 | M3-01 Blender 4.5 LTS provision |  |  |  |  |
+| M3-03 Track A ceiling approved |  |  |  |  |
 
 ## 完了済み（再実行しない）
 
@@ -52,19 +53,25 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 | M0-06 | PR #18のunmerged close実行 | PR #26、PR #18 closed。Markdown移植・複製なし、remote branchは保持 | Vault streamをこのprogramのcritical pathから外す |
 | M3-00 | P1 Track A run definitionの固定 | PR #25、`pipeline/m3/p1-track-a-run-definition.json`、`npm run m3:validate-p1-run-definition`、`npm test`（8 files / 42 tests pass） | M3-03承認後にP1 native asset / renderカードを解放できる |
 | M3-01 | Blender 4.5 LTS portable tool provision | PR #23、`pipeline/m3/blender-tool-receipt.json`、archive SHA-256 `2EE75E9466D293A784FDF020F60FE1309C1E0610ECF73C64F1FC09B01E5EEC56`、`out/tools/blender-4.5-lts-win-x64/` | D/E native asset作業のtool前提を満たす |
+| M3-03 | P1 Track A固定制作上限のowner承認（合計40人時） | mi3sanの明示承認（2026-07-25）。`pipeline/m3/p1-track-a-run-definition.json` の `status: OWNER_APPROVED` と `ownerApproval`、validator、`npm test`（8 files / 46 tests pass） | native assetカード `M3-04` / `M3-06` / `M3-08` / `M3-10` / `M3-11` を解放する |
 
 ## 今すぐ実行可能なカード
 
 | ID | 目的（最小単位） | Owner / 実行者 | 入力・依存 | 成果物・受入条件 | STOP |
 | --- | --- | --- | --- | --- | --- |
 | K-01 | このボードのカード状態をstage受入・停止・owner decisionごとに更新する | Orbit | stage cardの受入証拠または停止証拠 | card ID、状態、根拠commit/PR、次の責任者が一致 | 根拠なしに `DONE` / `READY` へ移さない |
+| M3-04 | C native 2D parametric mesh assetを作る | Forge | M3-00, M3-03承認 | C専用controlsでobservableを表現。shared PNG/topologyなし | 新規dependency / 外部asset取得が必要になったら停止 |
+| M3-06 | D native 2.5D anatomical asset/rigを作る | Forge | M3-00, M3-01, M3-03承認 | jaw/lips/corners/muzzle/cheek/oral cavity/occlusion controlsを持つ | Blender provision / 8GB / headless failure |
+| M3-08 | E native full-3D asset/rigを作る | Forge | M3-00, M3-01, M3-03承認 | E固有controlsとcamera/view behaviorをasset側で表現 | Blender provision / 8GB / headless failure |
+| M3-10 | B1 state-count/transition boundary artifactを作る | Forge | M3-00, M3-03承認 | supported / approximated / unsupportedを明示 | B1を中心品質順位へ混入 |
+| M3-11 | B2 hand/vector 2D quality-ceiling artifactを作る | Forge | M3-00, M3-03承認 | native hand/vector制作条件と上限を記録 | B2をA/C/D/Eと同一mechanismと誤表記 |
 
 ## mi3san 判断待ちカード
 
 | ID | mi3san に判断してもらうこと | 誰が・どこで・どのように実行するか | 承認後の最小成果 | STOP / 非対象 |
 | --- | --- | --- | --- | --- |
 | M2-01 | N0を現在cycleで local-only no-go として閉じるか、再開する特定model packageを承認するか | Orbit が candidate、取得元、license、weights/data、外部送信、local代替、8GB停止条件を一件の承認要求で提示。mi3san が明示承認する | no-go記録、またはM2-02だけを解放 | 無名の「neuralを試す」、cloud、paid、未承認取得は開始しない |
-| M3-03 | P1 Track Aの固定制作上限（候補ごとの人時・render回数・asset revision数）を承認する | Orbitが `pipeline/m3/p1-track-a-run-definition.json` の `budget` 提案（A/C/D/E 各8人時・asset revision 2・final render 2、B1/B2 各4人時・revision 1・render 1、合計40人時）を提示し、mi3sanが一括承認。Forgeは上限内のnative assetだけを作る | 同JSONを `PROPOSED` から承認済みへ確定し、M3-02以降を解放 | Track B到達品質の追加cycleをTrack Aへ混入しない |
+| M3-14 | P1 render前のlocal outbound-block / loopback-only enforcementを再構成する | mi3sanがhost側でruleを適用し、Forgeは適用後の証跡だけを記録する。agentはfirewall ruleを変更しない（`m300ExecutionProhibitions` の `firewall-rule-change`） | render系カード（M3-02/05/07/09）を解放するenforcement証跡 | 証跡なしのrender、agentによるsecurity設定変更は不可 |
 | M3-13 | P1後、P2へ残すBase候補を決める | Orbitが実artifactをnormal/slow/crop/debug/stillと軸別evidenceで提示し、mi3sanがretain/dropを決定 | M4-00を解放するcandidate set | conformance pass、未承認weighted score、推測だけで採択しない |
 | M6-00 | N0 pass後にP4 neural enhancementを比較へ入れるか | OrbitがN0実測・license・determinism・drift・local computeを一括提示し、mi3sanが承認 | M6-01を解放するBase × Enhancement組 | N0 no-goならM6全体をclose |
 | M7-01 | 最終representationを選定する、またはevidence付きno-goにする | Orbitが軸別artifact/evidenceを提示し、mi3sanが実映像比較で決定 | ADR更新とM7-02以降を解放 | 未合意の重み付き総合点、agentの自動採択は不可 |
@@ -103,17 +110,19 @@ P1の中心比較は **A / C / D / E**。B1はstate増加・transition境界、B
 
 | ID | 状態 | 最小task | 依存 | 受入条件 | 停止条件 | 担当 |
 | --- | --- | --- | --- | --- | --- | --- |
-| M3-00 | DONE | P1 performance sequence、observables、camera、A/B track budgetを一つのrun definitionへ固定 | なし（budget承認は `M3-03`） | `pipeline/m3/p1-track-a-run-definition.json` とvalidatorで、Track A候補/sequence/view/budget/pre-render network preconditionを固定。同JSONは `status: PROPOSED` のままであり、`M3-03` 承認までbudgetは確定しない。M3-00自身はrender/native assetを実行しない | fixed scopeの変更、network precondition欠落、Track B混入 | Orbit, Forge |
+| M3-00 | DONE | P1 performance sequence、observables、camera、A/B track budgetを一つのrun definitionへ固定 | なし（budget承認は `M3-03`） | `pipeline/m3/p1-track-a-run-definition.json` とvalidatorで、Track A候補/sequence/view/budget/pre-render network preconditionを固定。M3-00自身はrender/native assetを実行しない | fixed scopeの変更、network precondition欠落、Track B混入 | Orbit, Forge |
 | M3-01 | DONE | Blender 4.5 LTS portable tool provision | mi3san explicit approval | official source, SHA, license, storage, headless local check are recorded in `pipeline/m3/blender-tool-receipt.json` | network/add-on/admin/8GB failure | Forge |
-| M3-02 | GATED | A adapterのP1 sequenceをrenderし、P0aとの差分をprovenanceで明示 | M3-00 | native A artifact、hash、known failures、P0b record | P0a baselineを無根拠に品質比較へ転用 | Forge |
-| M3-04 | GATED | C native 2D parametric mesh assetを作る | M3-00 | C専用controlsでobservableを表現、shared PNG/topologyなし | new dependency/external asset が必要 | Forge |
-| M3-05 | GATED | C adapterをrender・全frame検証する | M3-04 | normal/slow/crop/debug/still inputsとcapability evidence | decode/timebase failure | Forge |
-| M3-06 | GATED | D native 2.5D anatomical asset/rigを作る | M3-00, M3-01 | jaw/lips/corners/muzzle/cheek/oral cavity/occlusion controlsを持つ | Blender provision/8GB/headless failure | Forge |
-| M3-07 | GATED | D adapterをrender・全frame検証する | M3-06 | P0b recordとcapability evidence | decode/timebase failure | Forge |
-| M3-08 | GATED | E native full-3D asset/rigを作る | M3-00, M3-01 | E固有controlsとcamera/view behaviorを実映像化 | Blender provision/8GB/headless failure | Forge |
-| M3-09 | GATED | E adapterをrender・全frame検証する | M3-08 | P0b recordとcapability evidence | decode/timebase failure | Forge |
-| M3-10 | GATED | B1 state-count/transition boundary artifactを作る | M3-00 | supported/approximated/unsupportedを明示 | B1を中心品質順位へ混入 | Forge |
-| M3-11 | GATED | B2 hand/vector 2D quality-ceiling artifactを作る | M3-00 | native hand/vector制作条件と上限を記録 | B2をA/C/D/Eと同一mechanismと誤表記 | Forge |
+| M3-03 | DONE | P1 Track Aの固定制作上限をmi3sanが承認する | M3-00 | mi3sanの明示承認（2026-07-25）。A/C/D/E各8人時・asset revision 2・final render 2、B1/B2各4人時・revision 1・render 1、合計40人時。`status: OWNER_APPROVED` と `ownerApproval` をvalidator/testで固定 | 上限超過、Track B到達品質のTrack Aへの混入 | Orbit, mi3san |
+| M3-14 | BLOCKED_OWNER | P1 render前のlocal outbound-block / loopback-only enforcementを再構成する | M0-02（現hostにP0のfirewall ruleは不在） | 適用後のenforcement証跡が `renderNetworkPrecondition.acceptedEvidence` を満たす | agentによるfirewall rule変更、証跡なしのrender | mi3san, Forge |
+| M3-02 | GATED | A adapterのP1 sequenceをrenderし、P0aとの差分をprovenanceで明示 | M3-00, M3-03, M3-14 | native A artifact、hash、known failures、P0b record | P0a baselineを無根拠に品質比較へ転用 | Forge |
+| M3-04 | READY | C native 2D parametric mesh assetを作る | M3-00, M3-03 | C専用controlsでobservableを表現、shared PNG/topologyなし | new dependency/external asset が必要 | Forge |
+| M3-05 | GATED | C adapterをrender・全frame検証する | M3-04, M3-14 | normal/slow/crop/debug/still inputsとcapability evidence | decode/timebase failure | Forge |
+| M3-06 | READY | D native 2.5D anatomical asset/rigを作る | M3-00, M3-01, M3-03 | jaw/lips/corners/muzzle/cheek/oral cavity/occlusion controlsを持つ | Blender provision/8GB/headless failure | Forge |
+| M3-07 | GATED | D adapterをrender・全frame検証する | M3-06, M3-14 | P0b recordとcapability evidence | decode/timebase failure | Forge |
+| M3-08 | READY | E native full-3D asset/rigを作る | M3-00, M3-01, M3-03 | E固有controlsとcamera/view behaviorをasset側で表現 | Blender provision/8GB/headless failure | Forge |
+| M3-09 | GATED | E adapterをrender・全frame検証する | M3-08, M3-14 | P0b recordとcapability evidence | decode/timebase failure | Forge |
+| M3-10 | READY | B1 state-count/transition boundary artifactを作る | M3-00, M3-03 | supported/approximated/unsupportedを明示 | B1を中心品質順位へ混入 | Forge |
+| M3-11 | READY | B2 hand/vector 2D quality-ceiling artifactを作る | M3-00, M3-03 | native hand/vector制作条件と上限を記録 | B2をA/C/D/Eと同一mechanismと誤表記 | Forge |
 | M3-12 | GATED | capability matrix、Track A evidence、Track B cycle logを作る | M3-02, M3-05, M3-07, M3-09, M3-10, M3-11 | native/approximated/unsupported/artist-authored、effort、failure、cycle stop reasonを方式別に表示 | Track A/B混同、品質総合点化 | Forge, Orbit |
 | M3-13 | BLOCKED_OWNER | P1 comparison packをmi3sanへ提示しP2候補をretain/dropする | M1-06, M3-12 | real artifactのnormal/slow/crop/debug/still、軸別evidence | artifact不足、owner decisionなし | Orbit, mi3san |
 
@@ -178,10 +187,11 @@ P1の中心比較は **A / C / D / E**。B1はstate増加・transition境界、B
 ## 次の解放順序
 
 1. M0のうち `M0-02`、`M0-03`、`M0-04`、`M0-06` は受入済み。`M0-05` は削除承認または保存期限の決定まで解放しない。
-2. Orbit は `M2-01`、`M3-03` の判断packetを、必要な時だけ一件ずつmi3sanへ出す。`M3-01` はPR #23で、`M0-04/M0-06` はPR #18 closeで、`M3-00` はPR #25で受入済みである。
-3. `M3-00` は固定済みである。したがってP1のnative asset / renderカードを解放する残りの条件は `M3-03` のbudget承認だけであり、これがこのprogramの現在のcritical path上の唯一のblockerである。
-4. P1の実映像をmi3sanが比較して `M3-13` を決めるまで、P2以降は開始しない。
-5. N0は順位外であり、`M2-05` がpassになってもP4を自動開始しない。`M6-00` の明示承認が別途必要である。
+2. Orbit は `M2-01`、`M3-14` の判断packetを、必要な時だけ一件ずつmi3sanへ出す。`M3-01` はPR #23で、`M0-04/M0-06` はPR #18 closeで、`M3-00` はPR #25で、`M3-03` はmi3sanの2026-07-25承認で受入済みである。
+3. `M3-03` 承認により、native assetカード `M3-04` / `M3-06` / `M3-08` / `M3-10` / `M3-11` を解放する。上限は候補ごとに固定であり、超過した時点で停止して報告する。
+4. renderカード `M3-02` / `M3-05` / `M3-07` / `M3-09` は `M3-14` のenforcement証跡が揃うまで解放しない。`M3-03` の承認はrender実行を承認していない。
+5. P1の実映像をmi3sanが比較して `M3-13` を決めるまで、P2以降は開始しない。
+6. N0は順位外であり、`M2-05` がpassになってもP4を自動開始しない。`M6-00` の明示承認が別途必要である。
 
 ## 更新規則
 
