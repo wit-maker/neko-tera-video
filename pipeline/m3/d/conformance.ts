@@ -20,13 +20,27 @@ export interface DPlate {
   vertexCount: number;
   isVolume: boolean;
   vertexGroups: string[];
+  worldBounds: DWorldBounds;
+}
+
+export interface DWorldBounds {
+  minX: number; maxX: number;
+  minY: number; maxY: number;
+  minZ: number; maxZ: number;
 }
 
 export interface DOcclusionPair {
   interior: string;
   occluder: string;
   interiorBehindOccluder: boolean;
+  /** Separation between the interior's nearest face and the occluder's furthest. */
   depthGap: number;
+  /** The same figure from object origins, kept so the two can be compared. */
+  originDepthGap: number;
+  screenOverlapX: number;
+  screenOverlapZ: number;
+  screenOverlaps: boolean;
+  measuredFrom: string;
 }
 
 export interface DManifest {
@@ -87,6 +101,17 @@ export function validateDManifest(manifest: DManifest): string[] {
   for (const pair of manifest.occlusion) {
     if (!pair.interiorBehindOccluder) errors.push(`${pair.interior} is not behind ${pair.occluder}; D's occlusion would not be geometric`);
     if (pair.depthGap <= 0) errors.push(`${pair.interior} has no depth separation from ${pair.occluder}`);
+    // Depth order alone occludes nothing. A plate behind another but offset to
+    // one side is simply visible beside it, so the shapes must also overlap on
+    // screen. This is measured from evaluated world bounds rather than from the
+    // origins the build script wrote, which could only confirm its own intent.
+    if (!pair.screenOverlaps || pair.screenOverlapX <= 0 || pair.screenOverlapZ <= 0) {
+      errors.push(`${pair.interior} does not overlap ${pair.occluder} on screen; being behind it would occlude nothing`);
+    }
+    if (!pair.measuredFrom.includes("world-space bounds")) errors.push(`${pair.interior} occlusion must be measured from evaluated world bounds`);
+  }
+  for (const plate of manifest.plates) {
+    if (!plate.worldBounds) errors.push(`plate ${plate.name} has no measured world bounds`);
   }
 
   return errors;
