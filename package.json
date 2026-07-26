@@ -27,8 +27,7 @@
     "p0b:validate-contract": "tsx pipeline/p0b/validate-contract.ts",
     "n0:local-inventory": "tsx pipeline/n0/local-inventory.ts",
     "m3:validate-p1-run-definition": "tsx pipeline/m3/validate-p1-run-definition.ts",
-    "m3:build-d-asset": "tsx pipeline/m3/d/build-asset.ts",
-    "m3:build-e-asset": "tsx pipeline/m3/e/build-asset.ts"
+    "m3:validate-c-asset": "tsx pipeline/m3/c/validate-asset.ts"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",
