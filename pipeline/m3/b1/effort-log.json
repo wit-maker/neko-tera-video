@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "m3-b1-effort-log-v1",
+  "task": "M3-10",
+  "base": "B1",
+  "track": "A",
+  "role": "state-transition-boundary",
+  "status": "PROPOSED",
+  "budgetSource": "pipeline/m3/p1-track-a-run-definition.json candidates[base=B1].budget",
+  "consumption": {
+    "nativeAssetVersions": 1,
+    "nativeAssetRevisionsMax": 1,
+    "finalRenderAttempts": 0,
+    "finalRenderAttemptsMax": 1,
+    "operatorHours": null,
+    "operatorHoursNote": "Same open question as M3-04 and M3-11: the ceiling is fixed in human operator hours and this artifact was authored by an agent."
+  },
+  "provenance": {
+    "externalAssetInputs": [],
+    "tools": ["node", "tsx", "typescript", "vitest"],
+    "newDependencies": [],
+    "reproduction": ["npm run m3:validate-b1-states", "npx vitest run pipeline/m3/b1"],
+    "sequenceScope": "The run definition gives B1 an empty sequenceIds list. B1's job is the state count and the transition boundary, not a performance take, so no sequence was authored."
+  },
+  "assumptionWarning": "assumedStepLimit is an ASSUMPTION, not a measurement. Nobody has examined real frames to find where a quantisation step becomes visible. Every state count below is conditional on it. Per AP-007 none of these figures may be quoted as an observation.",
+  "measuredUnderAssumption": [
+    { "granularity": "coarse", "wholeHeadStates": 16200, "factorisedComparison": 28, "explosionRatio": 579 },
+    { "granularity": "medium", "wholeHeadStates": 1366875, "factorisedComparison": 47, "explosionRatio": 29082 },
+    { "granularity": "fine", "wholeHeadStates": 237016125, "factorisedComparison": 85, "explosionRatio": 2788425 }
+  ],
+  "explosionCause": "B1 stores complete heads, so no axis factorises. The set is the product across all nine axes where a factorised approach such as A is a sum. View alone (yaw and pitch) multiplies the entire set again.",
+  "capabilityVerdicts": [
+    { "sequence": "T0", "observable": "identity at rest", "capability": "supported" },
+    { "sequence": "T1", "observable": "jaw and lip corner travel", "capability": "approximated" },
+    { "sequence": "T3", "observable": "closure during open, contact and occlusion", "capability": "supported" },
+    { "sequence": "T6", "observable": "two-axis combination", "capability": "approximated" },
+    { "sequence": "T7", "observable": "view dependence within the adopted range", "capability": "approximated" },
+    { "sequence": "T9", "observable": "temporal continuity, overshoot, flicker", "capability": "unsupported" }
+  ],
+  "transitionBoundary": {
+    "intermediateStatesAvailable": 0,
+    "observed": "Between any two authored states the appearance changes in one frame by the full step. Tightening the granularity shrinks the step and never reaches zero, so T9 stays unsupported at every state count.",
+    "consequence": "B1's improvement over A is that it removes the patch seam, since nothing is composited at runtime. Its cost is the product-shaped state set and a stepping that more states cannot remove."
+  },
+  "notMeasuredHere": [
+    "Where a quantisation step actually becomes visible. Needs real frames and mi3san's eyes.",
+    "The per-state authoring cost. The state count is a multiplier on a cost that has not been measured.",
+    "Whether B1 remains a finalist. docs/character-architecture-strategy.md withdrew the first-draft exclusion, so eligibility is OPEN and belongs to mi3san at M3-13. Neither this artifact nor any agent closes it."
+  ],
+  "notEvaluated": {
+    "qualityRanking": "not-made",
+    "representationDecision": "not-made",
+    "note": "B1 is kept out of the central A/C/D/E quality ranking for P1. pipeline/m3/b1/conformance.ts fails if it is mixed in, and equally if any agent flips finalist eligibility to RETAINED or DROPPED."
+  }
+}
