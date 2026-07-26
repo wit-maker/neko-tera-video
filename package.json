@@ -27,7 +27,13 @@
     "p0b:validate-contract": "tsx pipeline/p0b/validate-contract.ts",
     "n0:local-inventory": "tsx pipeline/n0/local-inventory.ts",
     "m3:validate-p1-run-definition": "tsx pipeline/m3/validate-p1-run-definition.ts",
-    "m3:validate-c-asset": "tsx pipeline/m3/c/validate-asset.ts"
+    "m3:validate-c-asset": "tsx pipeline/m3/c/validate-asset.ts",
+    "m3:validate-b1-states": "tsx pipeline/m3/b1/validate-states.ts",
+    "m3:validate-b2-artifact": "tsx pipeline/m3/b2/validate-asset.ts",
+    "m3:build-d-asset": "tsx pipeline/m3/d/build-asset.ts",
+    "m3:build-e-asset": "tsx pipeline/m3/e/build-asset.ts",
+    "m3:record-network-enforcement": "tsx pipeline/m3/network/record-enforcement.ts",
+    "docs:validate-anti-patterns": "tsx pipeline/docs/anti-patterns-ledger.ts"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",
