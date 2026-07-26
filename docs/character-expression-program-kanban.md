@@ -26,17 +26,18 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 | DONE | READY | IN_PROGRESS | BLOCKED_OWNER | GATED / CONDITIONAL |
 | --- | --- | --- | --- | --- |
 | P0a-01 fixed baseline evidence | K-01 board state refresh | なし | M2-01 N0 disposition / reopening package | M0-05 approved temporary-resource deletion |
-| M0-01 project state correction | M3-04 C native asset | なし | M3-14 P1 render network enforcement | M1-04–M1-06 P0b artifact binding |
-| M0-02 temporary-resource reference check | M3-06 D native asset / rig | なし | M3-13 candidate retention | M2-02–M2-05 conditional N0 spike |
-| M0-03 merged-branch cleanup check | M3-08 E native asset / rig |  | M6-00 P4 entry approval | M3-02, M3-05, M3-07, M3-09 P1 renders |
-| M0-04 PR #18 disposition record | M3-10 B1 transition boundary |  | M7-01 final representation selection | M3-12 capability matrix |
-| M0-06 PR #18 unmerged close | M3-11 B2 quality ceiling |  |  | M4-00–M4-08 P2 styled comparison |
+| M0-01 project state correction | M3-06 D native asset / rig | なし | M3-14 P1 render network enforcement | M1-04–M1-06 P0b artifact binding |
+| M0-02 temporary-resource reference check | M3-08 E native asset / rig | なし | M3-13 candidate retention | M2-02–M2-05 conditional N0 spike |
+| M0-03 merged-branch cleanup check | M3-10 B1 transition boundary |  | M6-00 P4 entry approval | M3-02, M3-05, M3-07, M3-09 P1 renders |
+| M0-04 PR #18 disposition record | M3-11 B2 quality ceiling |  | M7-01 final representation selection | M3-12 capability matrix |
+| M0-06 PR #18 unmerged close |  |  |  | M4-00–M4-08 P2 styled comparison |
 | M1-01 P0b contract |  |  |  | M5-00–M5-05 P3 production slice |
 | M1-02 interval/conformance correction |  |  |  | M6-01–M6-06 neural enhancement |
 | M2-00 local neural inventory |  |  |  | M7-00, M7-02–M7-05 decision/migration |
 | M3-00 P1 Track A run definition |  |  |  | M8-00–M8-04 closure |
 | M3-01 Blender 4.5 LTS provision |  |  |  |  |
 | M3-03 Track A ceiling approved |  |  |  |  |
+| M3-04 C native asset |  |  |  |  |
 
 ## 完了済み（再実行しない）
 
@@ -54,13 +55,13 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 | M3-00 | P1 Track A run definitionの固定 | PR #25、`pipeline/m3/p1-track-a-run-definition.json`、`npm run m3:validate-p1-run-definition`、`npm test`（8 files / 42 tests pass） | M3-03承認後にP1 native asset / renderカードを解放できる |
 | M3-01 | Blender 4.5 LTS portable tool provision | PR #23、`pipeline/m3/blender-tool-receipt.json`、archive SHA-256 `2EE75E9466D293A784FDF020F60FE1309C1E0610ECF73C64F1FC09B01E5EEC56`、`out/tools/blender-4.5-lts-win-x64/` | D/E native asset作業のtool前提を満たす |
 | M3-03 | P1 Track A固定制作上限のowner承認（合計40人時） | mi3sanの明示承認（2026-07-25）。`pipeline/m3/p1-track-a-run-definition.json` の `status: OWNER_APPROVED` と `ownerApproval`、validator、`npm test`（8 files / 46 tests pass） | native assetカード `M3-04` / `M3-06` / `M3-08` / `M3-10` / `M3-11` を解放する |
+| M3-04 | C native 2D parametric mesh asset | `pipeline/m3/c/`、`npm run m3:validate-c-asset`、`npx vitest run pipeline/m3/c`（18 tests pass）、`pipeline/m3/c/effort-log.json`、AP-010 / AP-011 | `M3-05`（C render）が `M3-14` 成立後に着手できる。`M1-04` のC Character Bible instanceの入力になる |
 
 ## 今すぐ実行可能なカード
 
 | ID | 目的（最小単位） | Owner / 実行者 | 入力・依存 | 成果物・受入条件 | STOP |
 | --- | --- | --- | --- | --- | --- |
 | K-01 | このボードのカード状態をstage受入・停止・owner decisionごとに更新する | Orbit | stage cardの受入証拠または停止証拠 | card ID、状態、根拠commit/PR、次の責任者が一致 | 根拠なしに `DONE` / `READY` へ移さない |
-| M3-04 | C native 2D parametric mesh assetを作る | Forge | M3-00, M3-03承認 | C専用controlsでobservableを表現。shared PNG/topologyなし | 新規dependency / 外部asset取得が必要になったら停止 |
 | M3-06 | D native 2.5D anatomical asset/rigを作る | Forge | M3-00, M3-01, M3-03承認 | jaw/lips/corners/muzzle/cheek/oral cavity/occlusion controlsを持つ | Blender provision / 8GB / headless failure |
 | M3-08 | E native full-3D asset/rigを作る | Forge | M3-00, M3-01, M3-03承認 | E固有controlsとcamera/view behaviorをasset側で表現 | Blender provision / 8GB / headless failure |
 | M3-10 | B1 state-count/transition boundary artifactを作る | Forge | M3-00, M3-03承認 | supported / approximated / unsupportedを明示 | B1を中心品質順位へ混入 |
@@ -115,7 +116,7 @@ P1の中心比較は **A / C / D / E**。B1はstate増加・transition境界、B
 | M3-03 | DONE | P1 Track Aの固定制作上限をmi3sanが承認する | M3-00 | mi3sanの明示承認（2026-07-25）。A/C/D/E各8人時・asset revision 2・final render 2、B1/B2各4人時・revision 1・render 1、合計40人時。`status: OWNER_APPROVED` と `ownerApproval` をvalidator/testで固定 | 上限超過、Track B到達品質のTrack Aへの混入 | Orbit, mi3san |
 | M3-14 | BLOCKED_OWNER | P1 render前のlocal outbound-block / loopback-only enforcementを再構成する | M0-02（現hostにP0のfirewall ruleは不在） | 適用後のenforcement証跡が `renderNetworkPrecondition.acceptedEvidence` を満たす | agentによるfirewall rule変更、証跡なしのrender | mi3san, Forge |
 | M3-02 | GATED | A adapterのP1 sequenceをrenderし、P0aとの差分をprovenanceで明示 | M3-00, M3-03, M3-14 | native A artifact、hash、known failures、P0b record | P0a baselineを無根拠に品質比較へ転用 | Forge |
-| M3-04 | READY | C native 2D parametric mesh assetを作る | M3-00, M3-03 | C専用controlsでobservableを表現、shared PNG/topologyなし | new dependency/external asset が必要 | Forge |
+| M3-04 | DONE | C native 2D parametric mesh assetを作る | M3-00, M3-03 | `pipeline/m3/c/`。layer/control cage/deformer/mask/draw orderを方式C固有に定義。外部asset入力0件、shared PNG/topology/bonesなし。閉口時の口腔遮蔽と開口時の露出を対で検証。`npm run m3:validate-c-asset` と18 testsが受入証跡 | new dependency/external asset が必要 | Forge |
 | M3-05 | GATED | C adapterをrender・全frame検証する | M3-04, M3-14 | normal/slow/crop/debug/still inputsとcapability evidence | decode/timebase failure | Forge |
 | M3-06 | READY | D native 2.5D anatomical asset/rigを作る | M3-00, M3-01, M3-03 | jaw/lips/corners/muzzle/cheek/oral cavity/occlusion controlsを持つ | Blender provision/8GB/headless failure | Forge |
 | M3-07 | GATED | D adapterをrender・全frame検証する | M3-06, M3-14 | P0b recordとcapability evidence | decode/timebase failure | Forge |
