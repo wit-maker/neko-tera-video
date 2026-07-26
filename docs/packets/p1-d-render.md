@@ -35,7 +35,7 @@ D-KF-001 (open): plate の結合が falloff ではなく一律 weight 1.0。
 ### `.blend` にカメラが無い
 
 `pipeline/m3/d/build_asset.py` は camera を作っていない。**比較カメラは render 側で与える**
-（[p1-d0](p1-d0-owner-decisions.md) 決定5）。framing ランドマークが contract の許容差内に落ちることを conformance で確認する。
+（[p1-d0](p1-d0-owner-decisions.md) 決定⑥）。framing ランドマークが contract の許容差内に落ちることを conformance で確認する。
 
 ### ライトもマテリアルも足さない
 
@@ -61,8 +61,8 @@ D-KF-003 (open): geometry と rig 構造のみ。material / texture / 線 / groo
 | 種別 | 内容 |
 | --- | --- |
 | merge 済み PR | **PR #35**（方式D の asset） |
-| enforcement 証跡 | **`blender.exe`**（決定1）。`M3-01` provision の 4.5.0 の方。**Blender 5.2 ではない** |
-| owner 判断 | 決定5（カメラ / framing） |
+| enforcement 証跡 | **`blender.exe`**（決定①）。`M3-01` provision の 4.5.0 の方。**Blender 5.2 ではない** |
+| owner 判断 | なし。**決定⑥ は Orbit 決定済み** — 比較カメラは render 側から与え、共通 framing ランドマークへ落とす |
 
 ## 実装対象
 

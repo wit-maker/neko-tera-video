@@ -51,7 +51,7 @@ P0a は s7c6 の台詞クリップ 619 フレームである。P1-A は **T sequ
 
 | 種別 | 内容 |
 | --- | --- |
-| enforcement 証跡 | **`chrome-headless-shell.exe`**（決定1） |
+| enforcement 証跡 | **`chrome-headless-shell.exe`**（決定①） |
 | 承認済み範囲 | budget は `p1-track-a-run-definition.json` の `candidates[base=A]` |
 
 ## 実装対象

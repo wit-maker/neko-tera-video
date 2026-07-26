@@ -24,15 +24,14 @@
 | --- | --- |
 | 先行 packet | `p1-i2`（media）、`p1-i3`（contracts） |
 | merge 済み PR | **PR #30**（方式C の asset）。ただし `deform.ts` の API を読むだけなら未 merge でも設計できる |
-| owner 判断 | **決定4**（ラスタライズ経路と cage 補間）。**未決なら着手しない** |
+| owner 判断 | なし。**決定⑤ は Orbit が決定済み**（自前ラスタライザ + スプライン補間） |
 
-**artifact を出さないので、決定1（M3-14）を待たずに着手できる。** これが W2 で最も早く始められる理由である。
+**artifact を出さないので、決定①（ネット遮断設定）を待たずに着手できる。** これが W2 で最も早く始められる理由である。
 
 ## 承認済み範囲
 
 - 新規 dependency は**不可**。走査線塗りを手で書く
-- 決定4 で「自前ラスタライザ」が選ばれた場合のみ、この packet が有効になる。
-  「Remotion / Chrome SVG」が選ばれた場合、この packet は**破棄**し `p1-c2` が Remotion 経路で実装する
+- **決定⑤ で自前ラスタライザが選ばれている。** mi3san が Remotion / Chrome SVG へ覆した場合のみ、この packet は破棄し `p1-c2` が Remotion 経路で実装する
 
 ## 実装対象
 
@@ -44,14 +43,14 @@ pipeline/m3/p1/c/raster.test.ts
 ## 触ってはいけないもの
 
 - **`pipeline/m3/c/**` を変更しない。** C の asset は `nativeAssetVersions` が **3 / 承認上限 2** で、
-  既に超過している（[p1-d0](p1-d0-owner-decisions.md) 決定7）。**触れば さらに超過する**
+  既に超過している（[p1-d0](p1-d0-owner-decisions.md) 決定④）。**触れば さらに超過する**
 - kanban、`docs/anti-patterns.md`、`package.json`、他 packet のディレクトリ
 
 ## 実装内容
 
 - `evaluate(controls)` の返す層を `drawOrder` 順に塗る
 - `clipBy` を持つ層は、そのマスクでクリップする。**`deform.ts` の `intersectionArea` と同じ幾何解釈**を使う
-- cage の補間方式は**決定4 に従う**。多角形塗りかスプラインか。**packet の中で黙って決めない**
+- cage は**スプライン補間する**（決定⑤）。多角形塗りにすると C がカクカクに描画され、**描画方法のせいなのに「C の限界」と読まれる**。補間方式は C の宣言された機構の一部として contract に記録する
 - AA と色処理を**明示的に宣言する**。contract の `renderer{antiAliasing, samples, seed}` に記録する
 
 ## 受入証拠
@@ -80,7 +79,6 @@ pipeline/m3/p1/c/raster.test.ts
 
 ## STOP 条件
 
-- 決定4 が未決（**着手しない**）
 - 新規 dependency が必要になった
 - 検査3（画像 ⇔ 幾何）が通らない。**どちらが壊れているか切り分けて報告する。
   合わせるために許容差を緩めない**
@@ -93,7 +91,7 @@ pipeline/m3/p1/c/raster.test.ts
 
 ## PR 本文に書くこと
 
-- 決定4 のどちらを実装したか
+- スプライン補間の具体的な方式と、それを contract にどう記録したか
 - AA / 色処理の宣言内容
 - **検査3 の実測値と許容差、そして許容差をその値にした根拠**
 - 補間方式が C の宣言された機構の一部になること（レビュアーがラスタライザの選択を「C の品質上限」と読まないように）

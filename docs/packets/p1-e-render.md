@@ -33,7 +33,7 @@ D は render 側からカメラを与えるが、**E は asset 側のカメラ�
 これは非対称だが `M3-08` のカード要求そのものであり、正しい。
 
 **ただし** contract の framing ランドマークは他方式と**同一許容差内**に落ちなければならない
-（[p1-d0](p1-d0-owner-decisions.md) 決定5、`p1-i3` の不変条件）。落ちなければ共通 crop が成立せず、
+（[p1-d0](p1-d0-owner-decisions.md) 決定⑥、`p1-i3` の不変条件）。落ちなければ共通 crop が成立せず、
 crop presentation が比較でなくなる。
 
 ### `E-KF-002` を「解剖学的にくり抜いた」と書かない
@@ -61,8 +61,8 @@ E-KF-001 (open): volume の結合が一律 weight 1.0。
 | 種別 | 内容 |
 | --- | --- |
 | merge 済み PR | **PR #36**（方式E の asset）。**PR #35 が先に merge されている必要がある** |
-| enforcement 証跡 | **`blender.exe`**（決定1）。`M3-01` provision の 4.5.0。**Blender 5.2 ではない** |
-| owner 判断 | 決定5（E の自前カメラと共通 framing の両立） |
+| enforcement 証跡 | **`blender.exe`**（決定①）。`M3-01` provision の 4.5.0。**Blender 5.2 ではない** |
+| owner 判断 | なし。**決定⑥ は Orbit 決定済み** — E の自前カメラも共通 framing ランドマークへ落とす |
 
 ## 実装対象
 
@@ -106,7 +106,7 @@ pipeline/m3/p1/contracts/e.ts       ← 空欄を埋める。`camera.authoredIn:
 [共通仕様](p1-render-common.md)に加えて:
 
 - **view 範囲内で内包が破れるフレームが見つかった。** asset の修正は revision を消費する。止めて報告する
-- **E の framing が共通許容差に落ちない。** 決定5 の再検討が要る。カメラを勝手に変えない
+- **E の framing が共通許容差に落ちない。** 設計の見直しが要る。**カメラを勝手に変えない。止めて報告する**
 - Blender が見つからない（**再取得しない**）
 
 ## PR 本文に書くこと

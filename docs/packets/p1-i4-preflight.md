@@ -48,7 +48,7 @@ AP-009 は「ローカルレンダーはオフラインだと仮定したが、�
 | --- | --- |
 | 先行 packet | `p1-i3`（対象実行ファイルを registry から導出するため） |
 | merge 済み PR | **PR #33 必須**（`pipeline/m3/network/enforcement.ts` を使う） |
-| owner 判断 | なし（決定1 は render 時に効く。この packet は gate を作るだけ） |
+| owner 判断 | なし（決定① は render 時に効く。この packet は gate を作るだけ） |
 
 ## 実装対象
 

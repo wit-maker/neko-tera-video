@@ -63,7 +63,7 @@ W8  ★ M7-01 最終選定 → m7-m8-closure
 
 | packet | カード | 依存 |
 | --- | --- | --- |
-| [p1-d0](p1-d0-owner-decisions.md) | — | なし。**最優先** |
+| [p1-d0](p1-d0-owner-decisions.md) | — | なし。**最優先**。mi3san 判断4件と Orbit 決定4件を分けて記載 |
 | [p1-i1](p1-i1-sequence.md) | — | なし |
 | [p1-i2](p1-i2-media.md) | — | なし |
 | [p1-i3](p1-i3-contracts.md) | — | i1, i2 |
