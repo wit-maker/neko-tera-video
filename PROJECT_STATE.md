@@ -26,6 +26,7 @@
 - あわせて PR #33（`M3-14` の証跡recorder、rule適用はしない）、#37（方式横断の遮蔽証拠コントラクト）、#34（AP-009エントリの文字化け修復）、#38（task packet分割）、#39（本更新）を提出済みである。
 - 制作中に観測した失敗は AP-010 / AP-011 / AP-012 / AP-013 として台帳へ昇格し、いずれもtestとvalidatorで機械的に防止している。AP-009は `pipeline/p0/verify-network.ts` により既に防止済みである（`npm run p0:verify-network -- --verify` がpass）。
 - **Forgeが承認済み範囲内で新規に開始できるカードは現時点で無い。** critical pathを進めるのは PR merge、`M3-14` のrule適用、`K-02` / `K-03` / `M3-13` の判断である。
+- 以降の作業は `docs/packets/` へ分割済みである。実装はOpus 5（PM）ではなく、packetを読んだ実装セッションが行う。**`docs/packets/p1-d0-owner-decisions.md` の8件がP1 render波をblockしている。**うち3件（`M3-14`の対象実行ファイル全部、sequence定義の承認、artifactのフレーム構成）が揃えばrender波を開始できる。
 - **renderカード `M3-02` / `M3-05` / `M3-07` / `M3-09` は開始しない。** `M3-14`（render前のlocal outbound-block / loopback-only enforcement再構成）の証跡が未取得である。M3-03の承認はrender実行を承認していない。agentはfirewall ruleを変更しない。
 - P0bではCharacter Bible、Performance Intent / Observable Reference / Adapter Native Controls、方式別native asset contract、artifact/provenance、conformance/evaluation境界、comparison presentationを扱う。同じ完成PNGやtopologyを全方式へ強制しない。
 - N0 Neural FeasibilityはN0-0 local inventoryを実行済みである。RTX 3060 Ti 8GB、Node、Dockerはローカル証跡として検出された一方、repository-local model/weight candidateとlicense declarationは未検出であり、決定状態は `blocked-awaiting-owner-external-approval` である。P1 Mechanism Evidenceは未開始である。P2 Styled Comparison、P3 Production Slice、条件付きP4 Neural Enhancement、最終選定・本番移行は後続stage gateであり、自動開始しない。
@@ -39,6 +40,7 @@
 
 ## 入口
 
+- **次に実行する作業の分割: `docs/packets/`**（PR #38）。W0 owner判断からW8 closureまで。実装セッションは [`docs/packets/README.md`](docs/packets/README.md) の実行規約を最初に読む
 - 次期技術戦略: `docs/character-architecture-strategy.md`
 - 判断状態とhard blocker: `docs/architecture-governance.md`
 - 採択済み比較境界: `docs/adr/001-next-character-comparison-boundaries.md`

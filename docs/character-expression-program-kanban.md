@@ -4,6 +4,7 @@
 **基準:** `origin/main`（PR #30 merge 済み）。PR #31〜#39 は提出済み・merge待ちであり `DONE` ではない
 **更新日:** 2026-07-26
 **正本への入口:** [PROJECT_STATE.md](../PROJECT_STATE.md)、[strategy](character-architecture-strategy.md)、[governance](architecture-governance.md)、[ADR-001](adr/001-next-character-comparison-boundaries.md)
+**作業の分割:** [docs/packets/](packets/README.md) — 各カードを実装セッションが単独実行できる単位へ分割したもの
 
 このボードは、次期キャラクター表現改善の実行状態を一目で追うための
 運用artifactである。方式の採択、恒久契約への昇格、外部取得、依存追加、
