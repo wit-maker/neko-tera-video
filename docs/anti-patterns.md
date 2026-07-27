@@ -214,6 +214,32 @@
 - 適用範囲: 制御点を直接指定する全てのparametric rig。C/D/E
 - 昇格先: `pipeline/m3/c/deform.ts` の全体スケール実装と、制御範囲の自己交差掃引テスト
 
+### AP-014: 走査型の検査が、走査対象を確認しないまま通る
+
+- 状態: `active`
+- 観測日: 2026-07-27
+- 文脈: p1-i2（ffmpeg wrapper）の「media.ts 以外が ffmpeg/ffprobe を起動していないこと」を検査する規約テスト
+- 観測事実: 規約テストは green だった。しかし**意図的に違反するテストファイルを同じディレクトリへ置いても、依然として green のまま**であった。同一のロジックを別ファイルへ複製して実行すると、違反ファイルと（自身のコメントに起因して）元のテストファイルの2件を正しく検出した。元の実装がなぜ0件を返したかは切り分けきれていない。**確実なのは「検査が通っているのに、実際には何も検出していなかった」ことである。**
+- 証拠: 違反ファイルを置いた状態での `npx vitest run pipeline/m3/p1/media.test.ts -t "host tool"` が pass。同一ロジックを `_probe.test.ts` へ複製すると2件検出。置き換え後の `pipeline/m3/p1/conventions.test.ts` は違反2形態（`toolVersions()` の直接呼び出し、`run("ffmpeg", ...)` の直接起動）の両方で落ちることを実証済み
+- 根本原因: 走査の結果だけを assert し、**走査そのものが成立したかを assert していなかった**。走査対象が0件でも「違反0件」と同じ結果になり、両者を区別できない。
+- 禁止パターン: ファイル走査・グロブ・ディレクトリスキャンに基づく検査を、**走査件数の下限を検査せずに**受け入れる。検査が実際に落ちることを違反fixtureで実証せずに「防止した」とみなす。
+- 代替策: 走査型の検査には必ず「走査対象が最低N件あること」の assert を付ける。さらに、**検査が落ちることを違反fixtureで実証する**テストを同じファイルへ置く。走査対象のパスは `import.meta.url` ではなく、リポジトリ全体で既に前提になっている `process.cwd()` から解決する。コメントを剥がしてから走査する（禁止された呼び出しを**説明すること**は、それを**行うこと**ではない。ブロックコメント内の記述で自己検出した実例がある）。
+- 適用範囲: ファイル走査に基づく全ての規約テスト、lint的検査、受入条件
+- 昇格先: `pipeline/m3/p1/conventions.test.ts` の「actually scans the P1 directory」と「detects a violation rather than passing vacuously」
+
+### AP-015: ツールが存在する自分の環境だけで検証し、CIで落ちる
+
+- 状態: `active`
+- 観測日: 2026-07-27
+- 文脈: p1-i2 の `toolVersions` テスト
+- 観測事実: `toolVersions()` を実際に呼ぶテストを書いた。開発機には ffmpeg があるため pass し、PMのレビューでも pass した。**CI には ffmpeg が無く、`spawnSync ffmpeg ENOENT` で落ちた。** このリポジトリの既存テストはすべてホストのツールに依存しない純粋な単体テストであり、この規約は暗黙のうちに守られていたが明文化されていなかった。
+- 証拠: PR #44 の CI ログ（`Error: ffmpeg failed (spawn): spawnSync ffmpeg ENOENT`、`toolVersions pipeline/m3/p1/media.ts:333`）。修正後は `PATH` から ffmpeg を外した状態で 176 tests pass を確認
+- 根本原因: 単体テストとCLI実行の責務を分けなかった。加えて、レビューを**依存が存在する環境でのみ**行い、存在しない環境を再現しなかった。
+- 禁止パターン: 単体テストからホストの外部ツール（ffmpeg / ffprobe / blender など）を起動する。外部依存を持つコードのレビューを、その依存が存在する環境だけで済ませる。
+- 代替策: 実行部分を注入可能にし、テストは**argvの構築**を検査する。実際の起動はCLI/manifest工程が行う。レビュー時は**依存を外した環境を再現**して検証する（`PATH` から外す、コンテナ等）。
+- 適用範囲: ffmpeg / ffprobe / Blender など外部ツールを使う全 packet。特に `p1-i4`（preflight）、`p1-d` / `p1-e`（Blender render）
+- 昇格先: `pipeline/m3/p1/conventions.test.ts` の「keeps every test free of a host-tool dependency」、および `docs/packets/README.md` の実行規約
+
 ## Superseded
 
 現時点ではなし。
