@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "m3-p1-sequence-v1",
+  "status": "PROVISIONAL_TOTAL_FRAME_COUNT",
+  "provisionalNote": "Total frame count (619) and the per-sequence split are a provisional placeholder for p1-d0 decision (2), which has not been made yet. p1-i1 proceeds on 619 frames per the p1-i1 packet's explicit instruction to do so; the split changes if decision (2) changes the total.",
+  "fps": 60,
+  "startFrame": 0,
+  "endFrameExclusive": 619,
+  "stillFrame": { "frame": 30, "sequenceId": "T0" },
+  "sequences": [
+    {
+      "id": "T0",
+      "intent": "neutral_hold",
+      "exposes": "Whether the character looks like itself at rest, and whether anything drifts or flickers when nothing is supposed to move.",
+      "startFrame": 0,
+      "endFrameExclusive": 60,
+      "keyframes": [
+        { "frame": 0, "interpolation": "linear", "controls": { "jawOpen": 0, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } },
+        { "frame": 59, "interpolation": "linear", "controls": { "jawOpen": 0, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } }
+      ]
+    },
+    {
+      "id": "T1",
+      "intent": "opening_ramp",
+      "exposes": "How the lower face, mouth, and mouth-interior volume respond as the jaw opens from fully closed to fully open.",
+      "startFrame": 60,
+      "endFrameExclusive": 150,
+      "keyframes": [
+        { "frame": 60, "interpolation": "ease", "controls": { "jawOpen": 0, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } },
+        { "frame": 110, "interpolation": "linear", "controls": { "jawOpen": 1, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } },
+        { "frame": 149, "interpolation": "linear", "controls": { "jawOpen": 1, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } }
+      ]
+    },
+    {
+      "id": "T3",
+      "intent": "open_interior_closure",
+      "exposes": "Whether the mouth can fully close and reveal contact/teeth-hiding while it is otherwise open, not just at the very start or end of the motion.",
+      "startFrame": 150,
+      "endFrameExclusive": 255,
+      "keyframes": [
+        { "frame": 150, "interpolation": "ease", "controls": { "jawOpen": 0, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } },
+        { "frame": 175, "interpolation": "linear", "controls": { "jawOpen": 1, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } },
+        { "frame": 205, "interpolation": "ease", "controls": { "jawOpen": 0.05, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } },
+        { "frame": 254, "interpolation": "linear", "controls": { "jawOpen": 0.6, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } }
+      ]
+    },
+    {
+      "id": "T6",
+      "intent": "two_axis_combination_sweep",
+      "exposes": "Whether jaw opening and lip-corner spread/round, when changing at the same time instead of one after another, combine cleanly or break the mouth outline.",
+      "startFrame": 255,
+      "endFrameExclusive": 375,
+      "keyframes": [
+        { "frame": 255, "interpolation": "ease", "controls": { "jawOpen": 0, "lipCornerPull": -1, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } },
+        { "frame": 314, "interpolation": "ease", "controls": { "jawOpen": 1, "lipCornerPull": 1, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } },
+        { "frame": 374, "interpolation": "linear", "controls": { "jawOpen": 0, "lipCornerPull": -1, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } }
+      ]
+    },
+    {
+      "id": "T7",
+      "intent": "view_sweep_within_adopted_range",
+      "exposes": "How the character looks as the camera view turns and tilts across the whole adopted comparison range (yaw ±15°, pitch ±10°) while the mouth stays open, including any gaps between layers.",
+      "startFrame": 375,
+      "endFrameExclusive": 495,
+      "keyframes": [
+        { "frame": 375, "interpolation": "ease", "controls": { "jawOpen": 0.5, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": -15, "pitchDegrees": -10, "breath": 0, "blink": 0 } },
+        { "frame": 434, "interpolation": "ease", "controls": { "jawOpen": 0.5, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 15, "pitchDegrees": 10, "breath": 0, "blink": 0 } },
+        { "frame": 494, "interpolation": "linear", "controls": { "jawOpen": 0.5, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": -15, "pitchDegrees": -10, "breath": 0, "blink": 0 } }
+      ]
+    },
+    {
+      "id": "T9",
+      "intent": "speed_change_hold_reversal",
+      "exposes": "Whether motion stays smooth and steady through a fast opening, a held pause, a change of direction, and another change of direction back -- the kind of motion that reveals overshoot or flicker.",
+      "startFrame": 495,
+      "endFrameExclusive": 619,
+      "keyframes": [
+        { "frame": 495, "interpolation": "linear", "controls": { "jawOpen": 0, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } },
+        { "frame": 515, "interpolation": "linear", "controls": { "jawOpen": 0.9, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } },
+        { "frame": 545, "interpolation": "ease", "controls": { "jawOpen": 0.9, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } },
+        { "frame": 575, "interpolation": "ease", "controls": { "jawOpen": 0.2, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } },
+        { "frame": 605, "interpolation": "linear", "controls": { "jawOpen": 0.6, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } },
+        { "frame": 618, "interpolation": "linear", "controls": { "jawOpen": 0.3, "lipCornerPull": 0, "lipCornerAsymmetry": 0, "muzzleRound": 0, "cheekPuff": 0, "tongueRaise": 0, "yawDegrees": 0, "pitchDegrees": 0, "breath": 0, "blink": 0 } }
+      ]
+    }
+  ]
+}

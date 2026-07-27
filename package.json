@@ -33,7 +33,17 @@
     "m3:build-d-asset": "tsx pipeline/m3/d/build-asset.ts",
     "m3:build-e-asset": "tsx pipeline/m3/e/build-asset.ts",
     "m3:record-network-enforcement": "tsx pipeline/m3/network/record-enforcement.ts",
-    "docs:validate-anti-patterns": "tsx pipeline/docs/anti-patterns-ledger.ts"
+    "docs:validate-anti-patterns": "tsx pipeline/docs/anti-patterns-ledger.ts",
+    "m3:validate-p1-sequence": "tsx pipeline/m3/p1/validate-sequence.ts",
+    "m3:validate-p1-contracts": "tsx pipeline/m3/p1/contracts/validate.ts",
+    "m3:p1-preflight": "tsx pipeline/m3/p1/preflight/check.ts",
+    "m3:render-p1-a": "tsx pipeline/m3/p1/a/render.ts",
+    "m3:render-p1-c": "tsx pipeline/m3/p1/c/render.ts",
+    "m3:render-p1-d": "tsx pipeline/m3/p1/d/render.ts",
+    "m3:render-p1-e": "tsx pipeline/m3/p1/e/render.ts",
+    "m3:p1-conformance": "tsx pipeline/m3/p1/conformance.ts",
+    "m3:p1-present": "tsx pipeline/m3/p1/present/index.ts",
+    "m3:p1-capability-matrix": "tsx pipeline/m3/p1/matrix.ts"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",
