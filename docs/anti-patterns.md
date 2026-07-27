@@ -151,16 +151,68 @@
 
 ### AP-009: Local render assumed to be offline although the existing font loader performs network requests
 
-- 迥ｶ諷・ `active`
-- 隕ｳ貂ｬ譌･: 2026-07-23
-- 譁・ц: P0 representation-A baseline render under the no-external-API constraint
-- 隕ｳ貂ｬ莠句ｮ・: The existing `@remotion/google-fonts` loader made 121 requests for Yusei Magic and 124 requests for Klee One while rendering. The renderer was stopped and no output was accepted as a P0 artifact.
-- 險ｼ諡: Remotion render log emitted by the approved local-checkout execution path on 2026-07-23.
-- 譬ｹ譛ｬ蜴溷屏: Do not infer that a local binary or existing `node_modules` implies offline execution; runtime asset loaders can still access the network.
-- 遖∵ｭ｢繝代ち繝ｼ繝ｳ: Do not render under a no-external-API contract until every runtime asset, including fonts, has a verified local-only resolution path. Stop at the first observed request.
-- 莉｣譖ｿ遲・: Add a pre-render network-dependency gate or use an explicitly approved local font asset path before retrying. This P0 contract does not itself approve either change.
-- 驕ｩ逕ｨ遽・峇: Remotion or browser-based render pipelines with remote font or asset loaders.
-- 譏・ｼ蜈・: P0 stop condition and pre-render acceptance checklist.
+- 状態: `active`
+- 観測日: 2026-07-23
+- 文脈: P0 representation-A baseline render under the no-external-API constraint
+- 観測事実: The existing `@remotion/google-fonts` loader made 121 requests for Yusei Magic and 124 requests for Klee One while rendering. The renderer was stopped and no output was accepted as a P0 artifact.
+- 証拠: Remotion render log emitted by the approved local-checkout execution path on 2026-07-23.
+- 根本原因: Do not infer that a local binary or existing `node_modules` implies offline execution; runtime asset loaders can still access the network.
+- 禁止パターン: Do not render under a no-external-API contract until every runtime asset, including fonts, has a verified local-only resolution path. Stop at the first observed request.
+- 代替策: Add a pre-render network-dependency gate or use an explicitly approved local font asset path before retrying. This P0 contract does not itself approve either change.
+- 適用範囲: Remotion or browser-based render pipelines with remote font or asset loaders.
+- 昇格先: P0 stop condition and pre-render acceptance checklist.
+
+### AP-010: マスクの成立を「開いた側」だけで検証する
+
+- 状態: `active`
+- 観測日: 2026-07-25
+- 文脈: M3-04 方式C native assetの口腔occlusion実装
+- 観測事実: Sutherland-Hodgmanのclip関数は、clip多角形が退化（全辺が共線、面積0）した場合に全ての半平面判定を通過し、subjectを無変更で返した。口を完全に閉じた状態は面積0のapertureになるため、「閉口時に口腔が完全に露出している」という結果を、エラーを出さずに正常値として返す状態だった。開口側の「開けば見える」テストだけでは検出できなかった。
+- 証拠: `pipeline/m3/c/deform.ts` の `clipPolygon` 退化ガードと、`pipeline/m3/c/asset.test.ts` の "returns an empty polygon for a degenerate mask instead of the whole subject"
+- 根本原因: 遮蔽の検証を「見えるべきものが見えるか」だけで設計し、「隠れるべきものが隠れるか」を対の受入条件にしなかった。境界値（マスク面積0）はその欠落が最も出やすい点だった。
+- 禁止パターン: マスク・クリップ・遮蔽の正しさを、露出側の観測だけで合格とする。退化した形状を未定義動作のまま放置する。
+- 代替策: 遮蔽は必ず「隠れる状態」と「見える状態」を対で検証する。退化入力は明示的に拒否し、その挙動をテストで固定する。
+- 適用範囲: マスク、クリップ、遮蔽、depth合成を持つ全表現方式（C/D/E、およびそれらのadapter）
+- 昇格先: `pipeline/m3/c/conformance.ts` の閉口/開口対チェック、方式別adapterの受入条件
+
+### AP-011: マスクと被マスクを別々のdeformerで駆動する
+
+- 状態: `active`
+- 観測日: 2026-07-25
+- 文脈: M3-04 方式C native assetの顎変形
+- 観測事実: apertureの下弧を独立した垂直オフセットで、下歯列を別pivotの回転で駆動していた。両者は開口量が小さいうちは整合して見えたが、全開時に乖離し、下歯列がそれを映すはずのapertureの外側へ出て、可視面積が0になった。
+- 証拠: `pipeline/m3/c/deform.ts` の `jawDrop` 変位場と `JAW_FOLLOW`、`pipeline/m3/c/effort-log.json` の `C-KF-003`
+- 根本原因: 同一の解剖学的部位（下顎）に属する形状を、二つの独立したパラメータ経路で動かした。両者が一致する保証がどこにもなかった。
+- 禁止パターン: マスクと、そのマスクに支配される層を、別々の変形式・別々のpivot・別々のパラメータで駆動する。
+- 代替策: 一つの変位場を定義し、マスクと被マスクの双方が同じ場から重みつきで受け取る。整合を偶然ではなく構造で保証する。
+- 適用範囲: 顎・瞼・関節など、マスク境界そのものが動く全ての変形。C/D/Eのnative rig
+- 昇格先: `pipeline/m3/c/deform.ts` の単一 `jawDrop` 場、方式別rigの受入条件
+
+### AP-012: アルゴリズムが要求する形状の前提を、検証せずコメントに書く
+
+- 状態: `active`
+- 観測日: 2026-07-25
+- 文脈: M3-04 方式C native assetの口腔occlusion測定（自己レビュー中に発見）
+- 観測事実: `clipPolygon` のコメントに「aperture cageは凸である」と書き、Sutherland-Hodgmanへそのまま渡していた。制御空間を1,350点掃引したところ**1,044点で非凸**であり、独立に実装したグリッド標本による交差面積と比較すると**最大47.2%過小**に算出していた（teeth-upper: 実測1020に対し538）。既存テストは方向性（可視面積>0、単調増加、aperture以下）だけを検査しており、絶対値を独立手法と照合していなかったため全て通過していた。さらに、修正後に判明した副次的事実として、旧実装が「閉口時の上歯可視面積0」と報告していた値は実際には98であり、遮蔽性能を過大評価していた。
+- 証拠: `pipeline/m3/c/deform.ts` の `intersectionArea`（subject/mask双方の三角形分割）、`pipeline/m3/c/asset.test.ts` の "agrees with an independently sampled intersection, not just in direction"。グリッドを600→2400へ細かくすると標本値が三角形分割値へ収束することを確認（誤差1.507%→0.086%）
+- 根本原因: アルゴリズムの適用条件を、検査やテストではなく散文の主張として置いた。加えて、数値の正しさを内部整合性（方向・単調性・上限）だけで検証し、独立に実装した基準と一度も突き合わせなかった。
+- 禁止パターン: 凸性・単純性・多様体性・巻き方向などの形状前提を持つアルゴリズムを、実際の入力範囲でその前提が成立することを確認せずに使う。数値測定を方向性だけで合格とする。
+- 代替策: 前提を入力範囲全体で検査するか、前提を持たない手法へ置き換える。少なくとも1つの絶対値を、独立に実装した基準と突き合わせる。
+- 適用範囲: 幾何、クリッピング、遮蔽、面積・体積測定。C/D/Eとそのadapter
+- 昇格先: `pipeline/m3/c/deform.ts` の両側三角形分割、グリッド標本との照合テスト、`isConvex` の公開
+
+### AP-013: 制御点を隣接形状との関係を無視して独立に動かす
+
+- 状態: `active`
+- 観測日: 2026-07-25
+- 文脈: M3-04 方式C native assetの口角制御（自己レビュー中に発見）
+- 観測事実: `lipCornerPull` は口角の制御点だけを最大22単位動かし、隣接する弧の制御点は据え置きだった。`jawOpen ≤ 0.2` かつ `lipCornerPull ≤ -0.8`（ほぼ閉じた口を強く丸める）で口角が隣接点を追い越し、**輪郭が自己交差**した。605点の掃引中11点で発生。自己交差した多角形はshoelace面積が2つの葉を相殺するため、面積ベースの検査では異常として現れなかった。
+- 証拠: `pipeline/m3/c/deform.ts` のaperture全体を中心について水平スケールする実装、`pipeline/m3/c/asset.test.ts` の "keeps the aperture a simple outline across the whole control range"
+- 根本原因: 制御の変位を、その制御点が動いていく先の形状と無関係な絶対量として定義した。上限が存在しなかった。
+- 禁止パターン: タグ付き制御点を、隣接形状までの距離で束縛せずに絶対量で動かす。制御範囲の端点だけを検査し、範囲内部の自己交差を確認しない。
+- 代替策: 制御を形状全体の変換として表現するか、変位を隣接点までの距離で束縛する。制御範囲を掃引して自己交差を検査する。面積だけの検査は自己交差を隠すため、輪郭の単純性を別に検査する。
+- 適用範囲: 制御点を直接指定する全てのparametric rig。C/D/E
+- 昇格先: `pipeline/m3/c/deform.ts` の全体スケール実装と、制御範囲の自己交差掃引テスト
 
 ## Superseded
 
