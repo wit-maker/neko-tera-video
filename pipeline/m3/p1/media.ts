@@ -328,9 +328,28 @@ export interface ToolVersions {
 }
 
 /** First line of `ffmpeg -version` / `ffprobe -version`, for recording (never for pinning/gating). */
-export function toolVersions(): ToolVersions {
+/**
+ * The argv each version probe uses. Exposed so it can be asserted without
+ * invoking the tool -- the test suite must not require ffmpeg to be installed.
+ */
+export function toolVersionArgv(): Record<keyof ToolVersions, { command: string; args: string[] }> {
   return {
-    ffmpeg: run("ffmpeg", ["-version"]).split(/\r?\n/, 1)[0],
-    ffprobe: run("ffprobe", ["-version"]).split(/\r?\n/, 1)[0],
+    ffmpeg: { command: "ffmpeg", args: ["-version"] },
+    ffprobe: { command: "ffprobe", args: ["-version"] },
+  };
+}
+
+/**
+ * First line of each tool's `-version` output.
+ *
+ * `invoke` is injectable so a caller can supply captured output; it defaults to
+ * spawning the tool. Record the result in a manifest -- do not pin it, since
+ * these versions are observed rather than contracted.
+ */
+export function toolVersions(invoke: (command: string, args: string[]) => string = run): ToolVersions {
+  const argv = toolVersionArgv();
+  return {
+    ffmpeg: invoke(argv.ffmpeg.command, argv.ffmpeg.args).split(/\r?\n/, 1)[0],
+    ffprobe: invoke(argv.ffprobe.command, argv.ffprobe.args).split(/\r?\n/, 1)[0],
   };
 }
