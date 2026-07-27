@@ -9,6 +9,15 @@
  *
  * `camera.authoredIn` is fixed to `"comparison"`, not a hole: only E may be
  * `"asset"` (decision 6 / M3-08). A is given a comparison camera at render time.
+ *
+ * **A's P1 raster is 1280x1920, not the 1080x1920 A delivers today.** The
+ * shared raster follows Base C's authored asset space so all four methods
+ * share one coordinate system and one crop rectangle; that is what makes the
+ * crop presentation a comparison rather than four unrelated close-ups. The
+ * consequence lands on p1-a: the Remotion composition registered for P1 must
+ * be 1280x1920, whereas `video.json` meta and the P0a baseline are 1080x1920.
+ * This is one more reason the P1-A artifact hash must differ from P0a's, and
+ * it is not a defect -- P1 compares mechanisms, not the delivery resolution.
  */
 import {
   PRESENTATION_ORDER,

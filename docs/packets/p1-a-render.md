@@ -22,6 +22,18 @@ P1 sequence 用の composition 登録が必要であり、それは `src/Root.ts
 `p1-i4` が用意した **P1-A policy** がこれを受理する（`src/Main.tsx` への無関係な編集は拒否する）。
 **`pipeline/p0/**` の policy は変えない。**
 
+### P1 の出力ラスタは **1280×1920**。A の現行 1080×1920 とは違う
+
+`p1-i3` が確定した共通契約では、4方式とも **1280×1920** で描画する。方式C の
+authored asset 空間に合わせたもので、**4方式が同じ座標系と同じ crop 矩形を共有する**ため
+である。これが無いと crop presentation は「比較」ではなく「無関係な4つの寄り絵」になる。
+
+**帰結はこの packet に来る。** P1 用に登録する Remotion composition は **1280×1920** で
+なければならない。`video.json` の meta と P0a baseline は 1080×1920 である。
+
+これは欠陥ではない。**P1 は機構を比較するのであって、納品解像度を比較していない。**
+P1-A の artifact hash が P0a と異なるべき理由が、内容の違いに加えてもう一つ増えたことになる。
+
 ### P0a を**パスではなく SHA-256 で解決する**
 
 `out/p0` は**この checkout に存在しない**（別の working copy にある。Blender provision と同じ状況）。
