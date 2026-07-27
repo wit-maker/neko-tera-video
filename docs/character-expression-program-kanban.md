@@ -1,8 +1,8 @@
 # 次期キャラクター表現プログラム — 実行カンバン
 
 **運用状態:** ACTIVE
-**基準:** `origin/main`（PR #30 merge 済み）。PR #31〜#39 は提出済み・merge待ちであり `DONE` ではない
-**更新日:** 2026-07-26
+**基準:** `origin/main` の `a9210f0`（PR #41 merge）。**P1 native asset 5方式すべてが `main` にある**
+**更新日:** 2026-07-27
 **正本への入口:** [PROJECT_STATE.md](../PROJECT_STATE.md)、[strategy](character-architecture-strategy.md)、[governance](architecture-governance.md)、[ADR-001](adr/001-next-character-comparison-boundaries.md)
 **作業の分割:** [docs/packets/](packets/README.md) — 各カードを実装セッションが単独実行できる単位へ分割したもの
 
@@ -24,22 +24,25 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 
 ## ボード全景
 
-| DONE | READY | IN_PROGRESS（提出済み・merge待ち） | BLOCKED_OWNER | GATED / CONDITIONAL |
+| DONE | READY | IN_PROGRESS | BLOCKED_OWNER | GATED / CONDITIONAL |
 | --- | --- | --- | --- | --- |
-| P0a-01 fixed baseline evidence | K-01 board state refresh | M3-06 D native asset / rig — PR #35 | M2-01 N0 disposition / reopening package | M0-05 approved temporary-resource deletion |
-| M0-01 project state correction |  | M3-08 E native asset / rig — PR #36 | M3-14 P1 render network enforcement | M1-04–M1-06 P0b artifact binding |
-| M0-02 temporary-resource reference check |  | M3-10 B1 transition boundary — PR #32 | M3-13 candidate retention | M2-02–M2-05 conditional N0 spike |
-| M0-03 merged-branch cleanup check |  | M3-11 B2 quality ceiling — PR #31 | M6-00 P4 entry approval | M3-02, M3-05, M3-07, M3-09 P1 renders |
-| M0-04 PR #18 disposition record |  | M3-14 evidence recorder — PR #33 | M7-01 final representation selection | M3-12 capability matrix |
-| M0-06 PR #18 unmerged close |  | 遮蔽証拠コントラクト — PR #37 |  | M4-00–M4-08 P2 styled comparison |
-| M1-01 P0b contract |  | AP-009 mojibake修復 — PR #34 |  | M5-00–M5-05 P3 production slice |
-| M1-02 interval/conformance correction |  | task packet分割 — PR #38 |  | M6-01–M6-06 neural enhancement |
-| M3-04 C native asset（PR #30 merged） |  | 本ボード更新 — PR #39 |  | M7-00, M7-02–M7-05 decision/migration |
+| P0a-01 fixed baseline evidence | K-01 board state refresh | なし | M2-01 N0 disposition / reopening package | M0-05 approved temporary-resource deletion |
+| M0-01 project state correction |  |  | M3-14 P1 render network enforcement | M1-04–M1-06 P0b artifact binding |
+| M0-02 temporary-resource reference check |  |  | M3-13 candidate retention | M2-02–M2-05 conditional N0 spike |
+| M0-03 merged-branch cleanup check |  |  | M6-00 P4 entry approval | M3-02, M3-05, M3-07, M3-09 P1 renders |
+| M0-04 PR #18 disposition record |  |  | M7-01 final representation selection | M3-12 capability matrix |
+| M0-06 PR #18 unmerged close |  |  | K-02 agent作業の人時計上 | M4-00–M4-08 P2 styled comparison |
+| M1-01 P0b contract |  |  | K-03 欠陥修正のrevision計上 | M5-00–M5-05 P3 production slice |
+| M1-02 interval/conformance correction |  |  |  | M6-01–M6-06 neural enhancement |
 | M2-00 local neural inventory |  |  |  | M7-00, M7-02–M7-05 decision/migration |
 | M3-00 P1 Track A run definition |  |  |  | M8-00–M8-04 closure |
 | M3-01 Blender 4.5 LTS provision |  |  |  |  |
 | M3-03 Track A ceiling approved |  |  |  |  |
-| M3-04 C native asset |  |  |  |  |
+| **M3-04 C native asset** |  |  |  |  |
+| **M3-06 D native asset / rig** |  |  |  |  |
+| **M3-08 E native asset / rig** |  |  |  |  |
+| **M3-10 B1 transition boundary** |  |  |  |  |
+| **M3-11 B2 quality ceiling** |  |  |  |  |
 
 ## 完了済み（再実行しない）
 
@@ -57,7 +60,15 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 | M3-00 | P1 Track A run definitionの固定 | PR #25、`pipeline/m3/p1-track-a-run-definition.json`、`npm run m3:validate-p1-run-definition`、`npm test`（8 files / 42 tests pass） | M3-03承認後にP1 native asset / renderカードを解放できる |
 | M3-01 | Blender 4.5 LTS portable tool provision | PR #23、`pipeline/m3/blender-tool-receipt.json`、archive SHA-256 `2EE75E9466D293A784FDF020F60FE1309C1E0610ECF73C64F1FC09B01E5EEC56`、`out/tools/blender-4.5-lts-win-x64/` | D/E native asset作業のtool前提を満たす |
 | M3-03 | P1 Track A固定制作上限のowner承認（合計40人時） | mi3sanの明示承認（2026-07-25）。`pipeline/m3/p1-track-a-run-definition.json` の `status: OWNER_APPROVED` と `ownerApproval`、validator、`npm test`（8 files / 46 tests pass） | native assetカード `M3-04` / `M3-06` / `M3-08` / `M3-10` / `M3-11` を解放する |
-| M3-04 | C native 2D parametric mesh asset | `pipeline/m3/c/`、`npm run m3:validate-c-asset`、`npx vitest run pipeline/m3/c`（18 tests pass）、`pipeline/m3/c/effort-log.json`、AP-010 / AP-011 | `M3-05`（C render）が `M3-14` 成立後に着手できる。`M1-04` のC Character Bible instanceの入力になる |
+| M3-04 | C native 2D parametric mesh asset | PR #30、`pipeline/m3/c/`、`npm run m3:validate-c-asset`、AP-010 / AP-011 / AP-012 / AP-013 | `M3-05`（`M3-14` 成立後）、`M1-04` のC instance |
+| M3-06 | D native 2.5D anatomical asset / rig | PR #35、`pipeline/m3/d/`、`npm run m3:build-d-asset`、`build-receipt.json`（archive SHA-256 検証済み）。遮蔽は評価済みワールド境界と画面重なりで実測 | `M3-07`（`M3-14` 成立後）、`M1-04` のD instance |
+| M3-08 | E native full-3D asset / rig | PR #41（#36 は base 誤りで main に届かず出し直し）、`pipeline/m3/e/`、`npm run m3:build-e-asset`。12 volume が全て閉じ、内部volumeの skull 内包を実測 | `M3-09`（`M3-14` 成立後）、`M1-04` のE instance |
+| M3-10 | B1 state数・遷移境界の実測 | PR #32、`pipeline/m3/b1/`、`npm run m3:validate-b1-states`。coarse 16,200 / fine 237,016,125 states。T9 は `unsupported` | `M3-12` のB1入力。**finalist可否は `OPEN` のまま** |
+| M3-11 | B2 keyframed vector 品質上限 | PR #31、`pipeline/m3/b2/`、`npm run m3:validate-b2-artifact`。T3接触とtongueは補間不能でカットになることを記録 | `M3-12` のB2入力 |
+| — | 方式横断の遮蔽証拠コントラクト | PR #37、`pipeline/m3/occlusion-evidence.ts`。AP-010/012/013 の受入条件化。**D と E は `controlRangeSwept: false`** として不足を明示 | `M3-12` が方式を同じ厳しさで比較できる |
+| — | `M3-14` enforcement 証跡recorder（**rule適用はしない**） | PR #33、`pipeline/m3/network/`。読み取り専用。現状は `enforced: false` を正しく報告 | mi3sanのrule適用後、証跡を記録できる |
+| — | AP-009エントリの文字化け修復 | PR #34、`docs/anti-patterns.md`、ラベル集合の機械的検査 | 台帳の項目名が機械検査される |
+| — | task packetへの分割（W0〜W8） | PR #38、`docs/packets/` 19ファイル | 実装セッションが packet 単位で着手できる |
 
 ## 今すぐ実行可能なカード
 
@@ -65,25 +76,9 @@ Forge は作業を止め、Orbit が必要な判断をまとめて mi3san に提
 | --- | --- | --- | --- | --- | --- |
 | K-01 | このボードのカード状態をstage受入・停止・owner decisionごとに更新する | Orbit | stage cardの受入証拠または停止証拠 | card ID、状態、根拠commit/PR、次の責任者が一致 | 根拠なしに `DONE` / `READY` へ移さない |
 
-Forgeが承認済み範囲内で新規に開始できるカードは、現時点で無い。P1 native assetは
-5枚とも提出済みでmerge待ちであり、それ以降は全て owner の判断・作業を待っている。
-
-## 提出済み・merge待ち
-
-merge されるまで `DONE` へは移さない。ボード規則どおり、受入証拠が `main` にある
-ものだけが `DONE` である。
-
-| ID | 成果 | PR | merge後に解放されるもの |
-| --- | --- | --- | --- |
-| M3-06 | D native 2.5D anatomical asset / rig | [#35](https://github.com/wit-maker/neko-tera-video/pull/35) | `M3-07`（`M3-14` 成立後）、`M1-04` のD instance |
-| M3-08 | E native full-3D asset / rig | [#36](https://github.com/wit-maker/neko-tera-video/pull/36) | `M3-09`（`M3-14` 成立後）、`M1-04` のE instance。**base が #35。#35 を先にmergeする** |
-| M3-10 | B1 state数・遷移境界の実測 | [#32](https://github.com/wit-maker/neko-tera-video/pull/32) | `M3-12` のB1入力 |
-| M3-11 | B2 keyframed vector 品質上限 | [#31](https://github.com/wit-maker/neko-tera-video/pull/31) | `M3-12` のB2入力 |
-| M3-14 | enforcement証跡recorder（**rule適用はしない**） | [#33](https://github.com/wit-maker/neko-tera-video/pull/33) | mi3sanのrule適用後、`npm run m3:record-network-enforcement` で証跡を記録できる |
-| — | 方式横断の遮蔽証拠コントラクト（AP-010/012/013の受入条件化） | [#37](https://github.com/wit-maker/neko-tera-video/pull/37) | `M3-12` が方式を同じ厳しさで比較できる |
-| — | AP-009エントリの文字化け修復 | [#34](https://github.com/wit-maker/neko-tera-video/pull/34) | 台帳のラベル集合が機械的に検査される |
-| — | task packetへの分割（W0〜W8） | [#38](https://github.com/wit-maker/neko-tera-video/pull/38) | 実装セッションが packet 単位で着手できる |
-| K-01 | 本ボード更新と判断待ちの集約 | [#39](https://github.com/wit-maker/neko-tera-video/pull/39) | 盤面が実態と一致する |
+**P1 native asset は5方式すべて `main` にあり受入済みである。**
+Forgeが承認済み範囲内で新規に開始できるカードは現時点で無い。以降は全て owner の判断・作業を待つ。
+critical pathを進めるのは、[p1-d0](packets/p1-d0-owner-decisions.md) の判断①②（ネット遮断設定と各テストの長さ）である。
 
 ## mi3san 判断待ちカード
 
@@ -138,12 +133,12 @@ P1の中心比較は **A / C / D / E**。B1はstate増加・transition境界、B
 | M3-02 | GATED | A adapterのP1 sequenceをrenderし、P0aとの差分をprovenanceで明示 | M3-00, M3-03, M3-14 | native A artifact、hash、known failures、P0b record | P0a baselineを無根拠に品質比較へ転用 | Forge |
 | M3-04 | DONE | C native 2D parametric mesh assetを作る | M3-00, M3-03 | `pipeline/m3/c/`。layer/control cage/deformer/mask/draw orderを方式C固有に定義。外部asset入力0件、shared PNG/topology/bonesなし。閉口時の口腔遮蔽と開口時の露出を対で検証。`npm run m3:validate-c-asset` と18 testsが受入証跡 | new dependency/external asset が必要 | Forge |
 | M3-05 | GATED | C adapterをrender・全frame検証する | M3-04, M3-14 | normal/slow/crop/debug/still inputsとcapability evidence | decode/timebase failure | Forge |
-| M3-06 | READY | D native 2.5D anatomical asset/rigを作る | M3-00, M3-01, M3-03 | jaw/lips/corners/muzzle/cheek/oral cavity/occlusion controlsを持つ | Blender provision/8GB/headless failure | Forge |
+| M3-06 | DONE | D native 2.5D anatomical asset/rigを作る | M3-00, M3-01, M3-03 | jaw/lips/corners/muzzle/cheek/oral cavity/occlusion controlsを持つ | Blender provision/8GB/headless failure | Forge |
 | M3-07 | GATED | D adapterをrender・全frame検証する | M3-06, M3-14 | P0b recordとcapability evidence | decode/timebase failure | Forge |
-| M3-08 | READY | E native full-3D asset/rigを作る | M3-00, M3-01, M3-03 | E固有controlsとcamera/view behaviorをasset側で表現 | Blender provision/8GB/headless failure | Forge |
+| M3-08 | DONE | E native full-3D asset/rigを作る | M3-00, M3-01, M3-03 | E固有controlsとcamera/view behaviorをasset側で表現 | Blender provision/8GB/headless failure | Forge |
 | M3-09 | GATED | E adapterをrender・全frame検証する | M3-08, M3-14 | P0b recordとcapability evidence | decode/timebase failure | Forge |
-| M3-10 | READY | B1 state-count/transition boundary artifactを作る | M3-00, M3-03 | supported/approximated/unsupportedを明示 | B1を中心品質順位へ混入 | Forge |
-| M3-11 | READY | B2 hand/vector 2D quality-ceiling artifactを作る | M3-00, M3-03 | native hand/vector制作条件と上限を記録 | B2をA/C/D/Eと同一mechanismと誤表記 | Forge |
+| M3-10 | DONE | B1 state-count/transition boundary artifactを作る | M3-00, M3-03 | supported/approximated/unsupportedを明示 | B1を中心品質順位へ混入 | Forge |
+| M3-11 | DONE | B2 hand/vector 2D quality-ceiling artifactを作る | M3-00, M3-03 | native hand/vector制作条件と上限を記録 | B2をA/C/D/Eと同一mechanismと誤表記 | Forge |
 | M3-12 | GATED | capability matrix、Track A evidence、Track B cycle logを作る | M3-02, M3-05, M3-07, M3-09, M3-10, M3-11 | native/approximated/unsupported/artist-authored、effort、failure、cycle stop reasonを方式別に表示 | Track A/B混同、品質総合点化 | Forge, Orbit |
 | M3-13 | BLOCKED_OWNER | P1 comparison packをmi3sanへ提示しP2候補をretain/dropする | M1-06, M3-12 | real artifactのnormal/slow/crop/debug/still、軸別evidence | artifact不足、owner decisionなし | Orbit, mi3san |
 
@@ -207,13 +202,13 @@ P1の中心比較は **A / C / D / E**。B1はstate増加・transition境界、B
 
 ## 次の解放順序
 
-0. **現在Forgeが新規に開始できるカードは無い。** P1 native assetは5枚とも提出済みでmerge待ちであり、以降は全て owner の判断・作業を待つ。critical pathを進めるのは、PR merge、`M3-14` のrule適用、`K-02`/`K-03`/`M3-13` の判断である。
 1. M0のうち `M0-02`、`M0-03`、`M0-04`、`M0-06` は受入済み。`M0-05` は削除承認または保存期限の決定まで解放しない。
-2. Orbit は `M2-01`、`M3-14` の判断packetを、必要な時だけ一件ずつmi3sanへ出す。`M3-01` はPR #23で、`M0-04/M0-06` はPR #18 closeで、`M3-00` はPR #25で、`M3-03` はmi3sanの2026-07-25承認で受入済みである。
-3. `M3-03` 承認により、native assetカード `M3-04` / `M3-06` / `M3-08` / `M3-10` / `M3-11` を解放する。上限は候補ごとに固定であり、超過した時点で停止して報告する。
-4. renderカード `M3-02` / `M3-05` / `M3-07` / `M3-09` は `M3-14` のenforcement証跡が揃うまで解放しない。`M3-03` の承認はrender実行を承認していない。
-5. P1の実映像をmi3sanが比較して `M3-13` を決めるまで、P2以降は開始しない。
-6. N0は順位外であり、`M2-05` がpassになってもP4を自動開始しない。`M6-00` の明示承認が別途必要である。
+2. **P1 native asset 5方式（`M3-04` / `M3-06` / `M3-08` / `M3-10` / `M3-11`）は受入済みである。** `M3-01` はPR #23、`M3-00` はPR #25、`M3-03` はmi3sanの2026-07-25承認で受入済みである。
+3. **critical path上の次の一手は [p1-d0](packets/p1-d0-owner-decisions.md) の判断①（レンダリングする2つのプログラムのネット遮断設定）と判断②（各テストの長さ）である。** この2件が揃えばrender波を開始できる。
+4. renderカード `M3-02` / `M3-05` / `M3-07` / `M3-09` は、判断① の証跡が揃うまで解放しない。`M3-03` の承認はrender実行を承認していない。
+5. render波の前に、共有インフラ `p1-i1`〜`p1-i6` を実装する。**`p1-i1` と `p1-i2` は依存ゼロで、判断① を待たずに着手できる。**
+6. P1の実映像をmi3sanが比較して `M3-13` を決めるまで、P2以降は開始しない。
+7. N0は順位外であり、`M2-05` がpassになってもP4を自動開始しない。`M6-00` の明示承認が別途必要である。
 
 ## 更新規則
 
