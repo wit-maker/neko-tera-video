@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "m3-e-effort-log-v1",
+  "task": "M3-08",
+  "base": "E",
+  "track": "A",
+  "status": "PROPOSED",
+  "budgetSource": "pipeline/m3/p1-track-a-run-definition.json candidates[base=E].budget",
+  "consumption": {
+    "nativeAssetVersions": 1,
+    "nativeAssetRevisionsMax": 2,
+    "finalRenderAttempts": 0,
+    "finalRenderAttemptsMax": 2,
+    "operatorHours": null,
+    "operatorHoursNote": "Same open question as M3-04, M3-06, M3-10 and M3-11: the ceiling is fixed in human operator hours and this asset was authored by an agent.",
+    "headroom": "One asset revision remains within the approved ceiling."
+  },
+  "toolProvenance": {
+    "tool": "Blender 4.5.0 LTS portable, provisioned under M3-01",
+    "archiveSha256": "2EE75E9466D293A784FDF020F60FE1309C1E0610ECF73C64F1FC09B01E5EEC56",
+    "archiveIdentityVerified": true,
+    "resolvedFrom": "NEKO_BLENDER_EXECUTABLE",
+    "sharedResolver": "pipeline/m3/blender.ts, moved up from pipeline/m3/d/ in this change so D and E resolve the tool through one module rather than two copies.",
+    "flags": [
+      "--background",
+      "--factory-startup",
+      "--offline-mode"
+    ],
+    "addonsInstalledByThisTask": [],
+    "newDependencies": [],
+    "reproduction": [
+      "npm run m3:build-e-asset",
+      "npx vitest run pipeline/m3/e"
+    ]
+  },
+  "asset": {
+    "mechanismClass": "full-3d-volume-rig",
+    "volumes": 12,
+    "allClosed": true,
+    "smallestVolume": 6.9e-05,
+    "boneHierarchy": "root -> skull -> jaw; lip corners and tongue inherit from jaw; muzzle and cheeks from skull",
+    "correctiveShapes": [
+      "jawOpen_corrective",
+      "lipRound_corrective"
+    ],
+    "view": {
+      "authoredInAsset": true,
+      "pivot": "view-pivot",
+      "camera": "comparison-camera",
+      "projection": "ORTHO",
+      "yawLimitDegrees": 15,
+      "pitchLimitDegrees": 10,
+      "note": "The card asks for camera/view behaviour expressed in the asset. The adopted ADR-001 range is authored as limit-rotation constraints on the pivot the camera is parented to, so the comparison range travels with the asset instead of being a render-time argument that can drift."
+    },
+    "blendFile": "out/m3/e/e-native.blend",
+    "blendFileNote": "out/ is gitignored, so the .blend is not committed. pipeline/m3/e/build-receipt.json records the tool, command and manifest, and the build is deterministic, so the file is reproducible rather than archived."
+  },
+  "whatSeparatesEFromD": {
+    "claim": "Every mesh is a closed volume with positive enclosed volume, and the rig is a real hierarchy in which the jaw inherits from the skull. D reaches its occlusion by ordering shallow plates in depth; E has actual interior space and corrective shapes that repair volume as the jaw opens.",
+    "checkedVolumes": 12,
+    "openMeshes": 0,
+    "note": "Whether that extra structure is worth its cost is not decided here.",
+    "interiorContainmentChecked": true,
+    "selfReviewFinding": "Closed volumes alone do not establish interior space: an ellipsoid floating beside the head is also closed. Nothing checked that the oral cavity, tongue and dentitions are actually inside the skull. All four are now measured against the skull's evaluated world bounds and confirmed contained, and the conformance check fails if any escapes. Applies AP-012's lesson to E."
+  },
+  "knownFailures": [
+    {
+      "id": "E-KF-001",
+      "state": "open",
+      "observed": "Volumes are bound at uniform weight 1.0 per mesh, not falloff. Neighbouring volumes will interpenetrate or separate as the jaw rotates rather than deforming smoothly across the boundary.",
+      "resolution": "Not fixed. Uniform binding keeps the rig's meaning independent of an auto-weighting heuristic, which would otherwise be a hidden variable in the comparison. Whether it reads needs M3-09's frames."
+    },
+    {
+      "id": "E-KF-002",
+      "state": "open",
+      "observed": "The oral cavity is a closed ellipsoid placed inside the head rather than a boolean-carved interior. It gives E interior space to reveal, but the mouth is not an opening through the skull surface.",
+      "resolution": "Not fixed within the Track A ceiling. Recorded so E's oral cavity is not described as anatomically carved when it is not."
+    },
+    {
+      "id": "E-KF-003",
+      "state": "open",
+      "observed": "The asset carries geometry, rig and camera only. No material, texture, line work, shader or groom, so it cannot yet show the look E is meant to be capable of, and its full-3D advantage in appearance is unevidenced.",
+      "resolution": "Not fixed within the Track A ceiling. P2 styled comparison is where the look is authored; recorded so this asset is not mistaken for a finished appearance."
+    },
+    {
+      "id": "E-KF-004",
+      "state": "open",
+      "observed": "The view limits are authored as constraints but nothing here proves the geometry holds up across that range; no frame at yaw +/-15 has been produced.",
+      "resolution": "Not fixed. That is the T7 observable and belongs to M3-09's real frames, not to an assertion made without a render."
+    }
+  ],
+  "notEvaluated": {
+    "qualityRanking": "not-made",
+    "representationDecision": "not-made",
+    "note": "M3-08 authors an asset. It does not render, rank, or select anything. renderPerformed is false in the manifest and the conformance check fails if it is not."
+  }
+}
